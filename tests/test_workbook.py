@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from legalbenchpro.workbook import clip_text, detect_model_headers
+from legalscope.workbook import clip_text, detect_model_headers
 
 
 class WorkbookHelperTests(unittest.TestCase):

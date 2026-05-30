@@ -1,10 +1,10 @@
 cff-version: 1.2.0
-title: "LegalBenchPro"
-message: "If you use this public preview, please cite the manuscript in preparation."
+title: "LegalScope"
+message: "If you use this public preview, please cite the released paper or contact the author for the current citation."
 type: software
 authors:
   - family-names: Wang
     given-names: Hongyu
-repository-code: "https://github.com/EternWang/LegalBenchPro"
-date-released: "2026-04-27"
-version: "0.1.0"
+repository-code: "https://github.com/EternWang/LegalScope"
+date-released: "2026-05-30"
+version: "0.2.0"

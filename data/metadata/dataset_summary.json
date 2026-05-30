@@ -1,160 +1,71 @@
-﻿{
-  "source_workbook_name": "Data Set.xlsx",
-  "release_status": "compact public preview; full workbook is private/local until licensing review",
-  "preview_policy": {
-    "cn_sample_rows": 10,
-    "public_exam_sample_rows": 20,
-    "max_csv_cell_characters": 420,
+{
+  "project": "LegalScope",
+  "snapshot": "V2",
+  "release_status": "public preview; full workbook, paper draft, model outputs, and human review sheets withheld",
+  "public_release_boundary": {
+    "full_workbook_public": false,
     "full_prompt_matrix_public": false,
     "full_reference_answers_public": false,
     "full_model_outputs_public": false,
-    "human_review_sheets_public": false
+    "human_review_sheets_public": false,
+    "non_deidentified_judgments_public": false,
+    "paper_draft_public": false
   },
-  "sheets": [
+  "dataset_modules": [
     {
-      "title": "Rubric",
-      "data_rows_after_two_header_rows": 33,
-      "model_count_detected": 0,
-      "model_names_detected": []
+      "name": "Bar exam data",
+      "type": "Dataset",
+      "source": "Public legal exams",
+      "rows": 868,
+      "model_groups": 20,
+      "evaluations": 17360
     },
     {
-      "title": "CN_Judgments_Multimodel",
-      "data_rows_after_two_header_rows": 76,
-      "model_count_detected": 22,
-      "model_names_detected": [
-        "Grok 4.20",
-        "DeepSeek R1",
-        "Qwen3 Max",
-        "Deep Cogito 671B",
-        "Codex 5.3",
-        "GPT-5.4 Mini",
-        "Qwen3 Max Thinking",
-        "GLM-5",
-        "Qwen3 235B A22B",
-        "DeepSeek V3.2",
-        "Kimi K2 Thinking",
-        "Grok 4 Fast",
-        "Grok 4.1 Fast",
-        "Command A",
-        "LLaMA 3.1 8B Instruct",
-        "GPT-5.4 Normal",
-        "GPT-5.4 Deep Thinking",
-        "Gemini 2.5 Flash",
-        "Command R+",
-        "Gemini 3 Flash Preview",
-        "Gemini 3 Flash Preview Thinking Low",
-        "Codex 5.4"
-      ]
+      "name": "CN judgment data",
+      "type": "Dataset",
+      "source": "Real cases",
+      "rows": 76,
+      "model_groups": 20,
+      "evaluations": 1520
     },
     {
-      "title": "Bar_Exam_Multimodel",
-      "data_rows_after_two_header_rows": 868,
-      "model_count_detected": 22,
-      "model_names_detected": [
-        "Grok 4.20",
-        "DeepSeek R1",
-        "Qwen3 Max",
-        "Deep Cogito 671B",
-        "Codex 5.3",
-        "GPT-5.4 Mini",
-        "Qwen3 Max Thinking",
-        "GLM-5",
-        "Qwen3 235B A22B",
-        "DeepSeek V3.2",
-        "Kimi K2 Thinking",
-        "Grok 4 Fast",
-        "Grok 4.1 Fast",
-        "Command A",
-        "LLaMA 3.1 8B Instruct",
-        "GPT-5.4 Normal",
-        "GPT-5.4 Deep Thinking",
-        "Gemini 2.5 Flash",
-        "Command R+",
-        "Gemini 3 Flash Preview",
-        "Gemini 3 Flash Preview Thinking Low",
-        "Codex 5.4"
-      ]
+      "name": "Human bar exam",
+      "type": "Human scored",
+      "source": "Public legal exams",
+      "rows": 80,
+      "model_groups": 20,
+      "evaluations": 1600
     },
     {
-      "title": "Human_CN_Judgments",
-      "data_rows_after_two_header_rows": 10,
-      "model_count_detected": 22,
-      "model_names_detected": [
-        "Grok 4.20",
-        "DeepSeek R1",
-        "Qwen3 Max",
-        "Deep Cogito 671B",
-        "Codex 5.3",
-        "GPT-5.4 Mini",
-        "Qwen3 Max Thinking",
-        "GLM-5",
-        "Qwen3 235B A22B",
-        "DeepSeek V3.2",
-        "Kimi K2 Thinking",
-        "Grok 4 Fast",
-        "Grok 4.1 Fast",
-        "Command A",
-        "LLaMA 3.1 8B Instruct",
-        "GPT-5.4 Normal",
-        "GPT-5.4 Deep Thinking",
-        "Gemini 2.5 Flash",
-        "Command R+",
-        "Gemini 3 Flash Preview",
-        "Gemini 3 Flash Preview Thinking Low",
-        "Codex 5.4"
-      ]
-    },
-    {
-      "title": "Human_Bar_Exam",
-      "data_rows_after_two_header_rows": 80,
-      "model_count_detected": 22,
-      "model_names_detected": [
-        "Grok 4.20",
-        "DeepSeek R1",
-        "Qwen3 Max",
-        "Deep Cogito 671B",
-        "Codex 5.3",
-        "GPT-5.4 Mini",
-        "Qwen3 Max Thinking",
-        "GLM-5",
-        "Qwen3 235B A22B",
-        "DeepSeek V3.2",
-        "Kimi K2 Thinking",
-        "Grok 4 Fast",
-        "Grok 4.1 Fast",
-        "Command A",
-        "LLaMA 3.1 8B Instruct",
-        "GPT-5.4 Normal",
-        "GPT-5.4 Deep Thinking",
-        "Gemini 2.5 Flash",
-        "Command R+",
-        "Gemini 3 Flash Preview",
-        "Gemini 3 Flash Preview Thinking Low",
-        "Codex 5.4"
-      ]
+      "name": "Human CN judgments",
+      "type": "Human scored",
+      "source": "Real cases",
+      "rows": 10,
+      "model_groups": 20,
+      "evaluations": 200
     }
   ],
-  "public_snapshot_counts": {
-    "cn_real_case_issue_stance_prompts": 76,
-    "public_exam_instances": 868,
-    "model_configurations": 22,
-    "main_task_instances": 944,
-    "cn_real_case_model_response_cells": 1672,
-    "public_exam_model_response_cells": 19096,
-    "main_multimodel_response_cells": 20768,
-    "human_cn_pilot_rows": 10,
-    "human_bar_pilot_rows": 80
+  "counts": {
+    "public_exam_items": 868,
+    "real_case_issue_stance_prompts": 76,
+    "dataset_items_total": 944,
+    "model_groups": 20,
+    "public_exam_model_responses": 17360,
+    "real_case_model_responses": 1520,
+    "dataset_model_responses_total": 18880,
+    "human_public_exam_items": 80,
+    "human_real_case_prompts": 10,
+    "human_validation_items_total": 90,
+    "human_public_exam_responses": 1600,
+    "human_real_case_responses": 200,
+    "human_validation_responses_total": 1800,
+    "deidentified_chinese_civil_judgments": 15,
+    "real_case_legal_issues": 38
   },
-  "public_files": {
-    "readme": "data/README.md",
-    "content_samples": [
-      "data/sample/legalbenchpro_cn_judgments_sample.csv",
-      "data/sample/legalbenchpro_public_exam_sample.csv"
-    ],
-    "metadata": [
-      "data/metadata/dataset_summary.json",
-      "data/metadata/model_configurations.csv",
-      "data/metadata/source_distribution.csv"
-    ]
+  "transfer_summary": {
+    "model_judge_public_exam_to_real_case_pearson_r": 0.835,
+    "model_judge_public_exam_to_real_case_spearman_rho": 0.661,
+    "human_public_exam_to_real_case_pearson_r": 0.846,
+    "human_public_exam_to_real_case_spearman_rho": 0.784
   }
 }

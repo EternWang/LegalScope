@@ -10,7 +10,7 @@ from urllib.parse import urlparse
 
 from openpyxl import load_workbook
 
-from legalbenchpro.workbook import clip_text, detect_model_headers, summarize_workbook
+from legalscope.workbook import clip_text, detect_model_headers, summarize_workbook
 
 
 CN = {
@@ -539,7 +539,7 @@ def source_domain_counts(rows: list[tuple[object, ...]], top_k: int) -> list[dic
     ]
 
 
-def model_configuration_records(workbook) -> list[dict[str, str]]:
+def model_group_records(workbook) -> list[dict[str, str]]:
     appearances: OrderedDict[str, list[str]] = OrderedDict()
     for sheet_name in workbook.sheetnames:
         first_header, second_header, _rows = read_data_rows(workbook, sheet_name)
@@ -594,7 +594,7 @@ def write_data_readme(
     ]
     top_bar_law_sum = sum(int(count) for _value, count in bar_law_rows)
     bar_law_summary_rows = [
-        ["Top legal domains listed in source_distribution.csv", str(top_bar_law_sum)],
+        ["Top legal domains listed in source_composition.csv", str(top_bar_law_sum)],
         ["Other legal domains", str(len(bar_rows) - top_bar_law_sum)],
         ["Total public-exam instances", str(len(bar_rows))],
     ]
@@ -605,7 +605,7 @@ def write_data_readme(
 
     content = f"""# Data Preview
 
-This folder contains a compact public preview of LegalBenchPro. The full workbook is
+This folder contains a compact public preview of LegalScope. The full workbook is
 not included in the repository while licensing, privacy, redistribution, and human
 validation review are still in progress.
 
@@ -614,8 +614,8 @@ validation review are still in progress.
 {markdown_table(
     ["File", "Rows", "Purpose"],
     [
-        ["sample/legalbenchpro_cn_judgments_sample.csv", str(cn_sample_count), "Machine-readable preview of the Chinese civil judgment split"],
-        ["sample/legalbenchpro_public_exam_sample.csv", str(bar_sample_count), "Machine-readable preview of the public legal-exam split"],
+        ["sample/legalscope_cn_judgments_sample.csv", str(cn_sample_count), "Machine-readable preview of the Chinese civil judgment split"],
+        ["sample/legalscope_public_exam_sample.csv", str(bar_sample_count), "Machine-readable preview of the public legal-exam split"],
     ],
 )}
 
@@ -624,8 +624,8 @@ validation review are still in progress.
 {markdown_table(
     ["File", "Rows", "Purpose"],
     [
-        ["metadata/model_configurations.csv", str(model_count), "Model names and workbook sheet coverage"],
-        ["metadata/source_distribution.csv", str(len(distribution_rows)), "Top source, law-category, and case-type counts"],
+        ["metadata/model_groups.csv", str(model_count), "Model names and workbook sheet coverage"],
+        ["metadata/source_composition.csv", str(len(distribution_rows)), "Top source, law-category, and case-type counts"],
         ["metadata/dataset_summary.json", "1", "Machine-readable snapshot summary"],
     ],
 )}
@@ -645,7 +645,7 @@ materials remain in the private workbook pending release review.
     [
         ["Chinese real-case issue-stance prompts", str(len(cn_rows))],
         ["Public legal-exam instances", str(len(bar_rows))],
-        ["Model configurations", str(model_count)],
+        ["Model groups", str(model_count)],
         ["Main multimodel response cells", f"{total_model_response_cells:,}"],
         ["Human validation pilot rows", "10 Chinese real-case rows; 80 public-exam rows"],
     ],
@@ -676,7 +676,7 @@ Top examples:
 
 ## Release Note
 
-This is a research preview for manuscript preparation and external review. The
+This is a research preview for external review and release planning. The
 complete dataset is available only after final source-distribution, privacy, and
 human-validation checks.
 """
@@ -711,7 +711,7 @@ def main() -> None:
 
     cn_model = first_model_name(cn_first, cn_second)
     bar_model = first_model_name(bar_first, bar_second)
-    model_records = model_configuration_records(workbook)
+    model_records = model_group_records(workbook)
     cn_model_response_cells = len(cn_rows) * len(model_records)
     bar_model_response_cells = len(bar_rows) * len(model_records)
     total_model_response_cells = cn_model_response_cells + bar_model_response_cells
@@ -733,19 +733,19 @@ def main() -> None:
     )
 
     write_csv(
-        sample_dir / "legalbenchpro_cn_judgments_sample.csv",
+        sample_dir / "legalscope_cn_judgments_sample.csv",
         cn_sample,
         CN_SAMPLE_FIELDS,
         args.max_cell_chars,
     )
     write_csv(
-        sample_dir / "legalbenchpro_public_exam_sample.csv",
+        sample_dir / "legalscope_public_exam_sample.csv",
         bar_sample,
         BAR_SAMPLE_FIELDS,
         args.max_cell_chars,
     )
     write_csv(
-        metadata_dir / "model_configurations.csv",
+        metadata_dir / "model_groups.csv",
         model_records,
         ["model_index", "model_name", "appears_in_sheets"],
         args.max_cell_chars,
@@ -763,7 +763,7 @@ def main() -> None:
         + source_domain_counts(bar_rows, args.distribution_top_k)
     )
     write_csv(
-        metadata_dir / "source_distribution.csv",
+        metadata_dir / "source_composition.csv",
         distributions,
         ["split", "dimension", "value", "count"],
         args.max_cell_chars,
@@ -794,7 +794,7 @@ def main() -> None:
         "public_snapshot_counts": {
             "cn_real_case_issue_stance_prompts": len(cn_rows),
             "public_exam_instances": len(bar_rows),
-            "model_configurations": len(model_records),
+            "model_groups": len(model_records),
             "main_task_instances": len(cn_rows) + len(bar_rows),
             "cn_real_case_model_response_cells": cn_model_response_cells,
             "public_exam_model_response_cells": bar_model_response_cells,
@@ -809,13 +809,13 @@ def main() -> None:
         "public_files": {
             "readme": "data/README.md",
             "content_samples": [
-                "data/sample/legalbenchpro_cn_judgments_sample.csv",
-                "data/sample/legalbenchpro_public_exam_sample.csv",
+                "data/sample/legalscope_cn_judgments_sample.csv",
+                "data/sample/legalscope_public_exam_sample.csv",
             ],
             "metadata": [
                 "data/metadata/dataset_summary.json",
-                "data/metadata/model_configurations.csv",
-                "data/metadata/source_distribution.csv",
+                "data/metadata/model_groups.csv",
+                "data/metadata/source_composition.csv",
             ],
         },
     }
@@ -837,10 +837,10 @@ def main() -> None:
     )
 
     print(f"Wrote {out_dir / 'README.md'}")
-    print(f"Wrote {sample_dir / 'legalbenchpro_cn_judgments_sample.csv'}")
-    print(f"Wrote {sample_dir / 'legalbenchpro_public_exam_sample.csv'}")
-    print(f"Wrote {metadata_dir / 'model_configurations.csv'}")
-    print(f"Wrote {metadata_dir / 'source_distribution.csv'}")
+    print(f"Wrote {sample_dir / 'legalscope_cn_judgments_sample.csv'}")
+    print(f"Wrote {sample_dir / 'legalscope_public_exam_sample.csv'}")
+    print(f"Wrote {metadata_dir / 'model_groups.csv'}")
+    print(f"Wrote {metadata_dir / 'source_composition.csv'}")
     print(f"Wrote {metadata_path}")
 
 

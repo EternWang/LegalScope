@@ -1,283 +1,127 @@
-# LegalBenchPro
+# LegalScope
 
-LegalBenchPro is a research benchmark for evaluating large language models on Chinese
-civil judgments and public legal-exam materials, with a manuscript in preparation.
-Beyond the dataset, the repository is designed as a reproducibility-first,
-AI-assisted research workflow: a Codex-assisted scoring and audit pipeline that
-organizes 20,768 LLM response cells across 22 model configurations, structured rubrics,
-machine-readable metadata, and documented safeguards for AI-assisted research decisions.
+LegalScope is a legal LLM evaluation benchmark for testing whether performance on
+public legal-exam questions transfers to real-case legal reasoning. The V2 benchmark
+combines 868 open-ended bar-exam style questions with 76 lawyer-reviewed
+issue-stance prompts derived from 15 de-identified Chinese civil judgments.
 
-The project asks two questions in parallel:
+This repository is a public preview and reproducibility scaffold. It intentionally
+does not include the full manuscript, full workbook, full prompt matrix, complete
+model outputs, human-review sheets, or any non-de-identified judgments while release,
+privacy, licensing, and review constraints are being checked.
 
-1. Do models that perform well on scalable public-exam tasks also transfer to
-   de-identified, practice-oriented case analysis?
-2. What does a defensible, auditable AI-assisted evaluation pipeline look like for
-   legal and institutional text research?
+## Status
 
-**Status (as of May 3, 2026):** manuscript draft in preparation; 20,768 LLM response
-cells collected across 22 model configurations; human-validation pilot underway; full
-data release pending licensing, privacy, and source-distribution review.
+V2 is the current project snapshot. Old draft figures, old counts, and manuscript
+draft files have been removed from this repository. All committed figure files are
+rendered from the V2 exports in the project Drive figure folder.
 
-## Key Artifacts
+## V2 Snapshot
 
-- [Draft introduction](paper/LegalBenchPro_intro_draft.pdf)
-- [AI-assisted research workflow and safeguards](docs/AI_WORKFLOW.md)
-- [Annotation protocol and scoring design](docs/ANNOTATION_PROTOCOL.md)
-- [Data card](docs/DATA_CARD.md)
+| Module | Source | Rows | Model groups | Evaluations |
+| --- | --- | ---: | ---: | ---: |
+| Bar exam data | Public legal exams | 868 | 20 | 17,360 |
+| CN judgment data | Real cases | 76 | 20 | 1,520 |
+| Human bar exam | Human scored public exams | 80 | 20 | 1,600 |
+| Human CN judgments | Human scored real cases | 10 | 20 | 200 |
 
-## Project Team
+Additional structure:
 
-- **Hongyu Wang** (UC Santa Barbara) - project initiator and lead; benchmark design,
-  scoring-rubric design, AI-assisted scoring/audit pipeline, public repository
-  packaging, and manuscript drafting.
-- **Yilun Zhao** (Yale NLP Lab) - weekly research collaborator; benchmark-design
-  feedback, scoring-protocol review, and manuscript revision discussions.
-- **Yixin Liu** (Yale NLP Lab) - project feedback on benchmark design and
-  error-analysis protocols.
-- **Xuandong Zhao** (UC Berkeley) - project feedback on scoring rubrics and evaluation
-  methodology.
-- **Mingqing Wang** (Wuhan University; Beijing Jintai Law Firm) - legal expert
-  reviewer; contributed human review of model outputs and professional feedback on
-  the scoring rubric.
+| Dimension | V2 value |
+| --- | ---: |
+| Dataset items | 944 |
+| Dataset model responses | 18,880 |
+| Human-validation responses | 1,800 |
+| De-identified Chinese civil judgments | 15 |
+| Real-case legal issues | 38 |
+| Real-case issue-stance prompts | 76 |
 
-## Presentation Excerpts
+## Research Questions
 
-**Benchmark breakdown.** This page establishes the benchmark inventory: public-exam
-rows, Chinese real-case prompts, human-scored pilot rows, model groups, and
-response-level evaluation counts. It explains the scale of the dataset before any
-model comparison is interpreted.
+1. Do public-exam scores predict real-case legal reasoning performance?
+2. Where do models fail when the task moves from reference-answer matching to
+   stance-aware case analysis?
+3. How reliable are automated and model-judge scores when compared with human legal
+   review?
 
-<img src="paper/presentation_pages/LegalBenchPro_slide_01_benchmark_breakdown.png" alt="Benchmark breakdown for LegalBenchPro, including dataset rows, human-scored rows, model groups, and response counts" width="920">
+## V2 Figures
 
-**Model stability and score distribution.** This page shows that model performance
-should be read as a distribution across score bands, not only as a single average.
-The side-by-side public-exam and real-case panels make the transfer question visible.
+**Dataset composition.**
 
-<img src="paper/presentation_pages/LegalBenchPro_slide_03_model_stability_score_distribution.png" alt="Model stability and score distribution across public exam and real-case splits" width="920">
+<img src="assets/figures/v2_dataset_composition.png" alt="LegalScope V2 dataset composition, source coverage, and response counts" width="920">
 
-**Literature and benchmark comparison.** This page positions LegalBenchPro against
-representative legal benchmarks by task coverage, real-document grounding, paired
-stances, reference-aware scoring, expert validation, and exam-to-case transfer.
+**Task distribution overview.**
 
-<img src="paper/presentation_pages/LegalBenchPro_slide_05_literature_benchmark_comparison.png" alt="Literature review and benchmark comparison table positioning LegalBenchPro against representative legal benchmarks" width="920">
+<img src="assets/figures/v2_task_distribution_overview.png" alt="LegalScope public-exam and Chinese real-case task overview" width="920">
 
-## At a Glance
+**Score distribution by model group.**
 
-- **Scope:** Chinese institutional and legal text, with both scalable
-  public-exam prompts and de-identified civil-judgment reasoning tasks.
-- **Evaluation design:** comparable task construction, model-configuration metadata,
-  scoring regimes, and staged human-validation plans.
-- **Reproducibility:** Python sample extraction, machine-readable metadata, tests,
-  data-card documentation, and an explicit workflow audit trail.
-- **Research workflow:** public artifacts are organized so that readers can inspect the
-  path from workbook-derived metadata to samples, documentation, presentation pages, and
-  manuscript materials.
+<img src="assets/figures/v2_score_distribution.png" alt="LegalScope V2 public-exam and real-case score distributions" width="920">
 
-## Benchmark Design
+**Public-exam to real-case transfer, model-judge means.**
 
-| Dimension | Cardinality | Values |
-| --- | ---: | --- |
-| Model configurations | 22 | Closed, open-weight, reasoning-enabled, and step-by-step prompting variants |
-| Main task instances | 944 | 76 Chinese real-case issue-stance prompts + 868 public-exam instances |
-| Jurisdiction/source families | 3 | Chinese civil judgments, U.S. state bar materials, U.K. legal-exam materials |
-| Evaluation settings | 2 | De-identified real-case reasoning and scalable public-exam scoring |
-| Main response cells | 20,768 | 944 task instances x 22 model configurations |
-| Human-validation pilot | 90 rows | 10 real-case rows + 80 public-exam rows |
-| Public preview | 30 rows | 10 translated real-case excerpts + 20 public-exam excerpts with capped cell length |
+<img src="assets/figures/v2_model_judge_transfer.png" alt="LegalScope V2 model-judge transfer scatterplot" width="920">
 
-## Snapshot Counts
+**Public-exam to real-case transfer, human means.**
 
-| Component | Current count | Evaluation design |
-| --- | ---: | --- |
-| Chinese real-case split | 76 issue-stance prompts | Citation-aware rubric with human validation in progress |
-| Source judgments | 15 de-identified civil judgments | Paired support/opposition issue prompts |
-| Public-exam split | 868 instances | Reference-answer consistency scoring |
-| Model configurations | 22 | Standard, reasoning-enabled, and step-by-step prompting modes |
-| Main multimodel response cells | 20,768 LLM-generated responses | 944 task instances x 22 model configurations |
-| Human validation pilots | 10 real-case rows; 80 public-exam rows | Staged for reviewer calibration and agreement analysis |
+<img src="assets/figures/v2_human_transfer.png" alt="LegalScope V2 human-validation transfer scatterplot" width="920">
 
-The public preview includes 10 translated preview rows from the Chinese real-case
-split, 20 preview rows from the public-exam split, model-configuration metadata, and
-compact source/domain distribution tables. Preview CSV cells are capped at 420
-characters.
+## Current Findings
 
-## Research Contribution
-
-LegalBenchPro is designed around a gap in current legal LLM evaluation: public legal
-benchmarks are scalable and convenient, but legal practice often requires working from
-long facts, contested interpretations, jurisdiction-specific authorities, and
-defensible argument structure. This project contributes:
-
-- a two-part benchmark that separates public-exam evaluation from real-case legal
-  analysis;
-- a curated Chinese civil judgment split with paired issue-stance prompts;
-- a multimodel evaluation matrix spanning 22 model configurations and 20,768
-  LLM-generated response cells;
-- a scoring protocol that distinguishes answer matching from citation-aware legal
-  reasoning;
-- a reproducible public workflow for sample extraction, metadata generation,
-  presentation documentation, and manuscript tracking.
-
-For empirical social-science research, the project is also a small example of how
-LLM-assisted analysis can be made auditable: institutional text is treated as data,
-model outputs are treated as evidence to be validated rather than accepted, and scoring
-decisions are documented through schemas, rubrics, provenance notes, and rerunnable
-scripts.
-
-## Relevance To Human-AI Oversight
-
-Although the current public snapshot focuses on legal and institutional text,
-LegalBenchPro is also a compact example of the research infrastructure needed for
-human-AI oversight work. The project turns domain-heavy tasks into auditable model
-evaluation artifacts, then separates model outputs, scoring rubrics, reviewer-facing
-protocols, and validation samples so that human judgments can be compared against AI
-judgments rather than hidden inside a single aggregate score.
-
-The pieces most relevant to human-AI complementarity and scalable oversight are:
-
-- **annotation protocol design:** task instructions, score anchors, and reviewer notes
-  are documented in `docs/ANNOTATION_PROTOCOL.md` and `docs/SCORING_RUBRIC.md`;
-- **human validation staging:** pilot rows are selected for expert review before
-  benchmark-level claims are made;
-- **audit trails:** AI-assisted coding, scoring, and release decisions are separated in
-  `docs/AI_WORKFLOW.md`, metadata files, and reproducible scripts;
-- **model failure analysis:** the workflow tracks answer consistency, factual grounding,
-  citation relevance, and cross-setting transfer failures across model configurations;
-- **reproducible collaboration:** public samples, metadata, tests, and manuscript-status
-  notes make it easier for collaborators to inspect what is complete, what is private,
-  and what still needs validation.
-
-## Where To Start
-
-For a quick review of the project, start with:
-
-- [paper/LegalBenchPro_intro_draft.pdf](paper/LegalBenchPro_intro_draft.pdf) for the
-  current draft introduction;
-- `docs/DATA_CARD.md` for scope, counts, intended uses, and release constraints;
-- `docs/ANNOTATION_PROTOCOL.md` for human-validation and scoring design;
-- `docs/SCORING_RUBRIC.md` for the compact scoring rubric;
-- `docs/AI_WORKFLOW.md` for auditability and AI-assistance safeguards;
-- `data/README.md` for a compact public data preview;
-- `data/sample/legalbenchpro_cn_judgments_sample.csv` for real-case content excerpts;
-- `data/sample/legalbenchpro_public_exam_sample.csv` for public-exam content excerpts;
-- `data/metadata/source_distribution.csv` and `data/metadata/model_configurations.csv`
-  for concise metadata;
-- `paper/presentation_pages/` for the selected presentation-page images;
-- `scripts/extract_public_sample.py` for the reproducible public export workflow.
+The V2 analysis finds a positive model-level relationship between public-exam and
+real-case scores, but not a complete transfer. Model-judge means show Pearson
+`r = 0.835` and Spearman `rho = 0.661`; human means show Pearson `r = 0.846` and
+Spearman `rho = 0.784`. The real-case track exposes a different bottleneck:
+constraint extraction is weaker than citation relevance and argument validity, and
+model-judge reliability is less stable on case-based legal analysis than on
+reference-answer exam scoring.
 
 ## Repository Map
 
 ```text
-paper/
-  LegalBenchPro_intro_draft.pdf       # Current draft introduction
-  introduction_revised.tex            # Dataset-aligned introduction for Overleaf
-  manuscript_working_draft.md         # Working paper skeleton for GitHub readers
-  presentation_pages/                 # Cropped image excerpts from the project slides
-    LegalBenchPro_slide_01_benchmark_breakdown.png
-    LegalBenchPro_slide_03_model_stability_score_distribution.png
-    LegalBenchPro_slide_05_literature_benchmark_comparison.png
-docs/
-  DATA_CARD.md                        # Dataset scope, fields, release status, risks
-  ANNOTATION_PROTOCOL.md              # Human validation plan and scoring dimensions
-  AI_WORKFLOW.md                      # AI-assisted research workflow and safeguards
-  SCORING_RUBRIC.md                   # Compact scoring rubric
-  MANUSCRIPT_STATUS.md                # What is complete and what remains
+assets/figures/
+  v2_dataset_composition.png
+  v2_task_distribution_overview.png
+  v2_score_distribution.png
+  v2_model_judge_transfer.png
+  v2_human_transfer.png
 data/
   README.md
-  sample/legalbenchpro_cn_judgments_sample.csv
-  sample/legalbenchpro_public_exam_sample.csv
   metadata/dataset_summary.json
-  metadata/model_configurations.csv
-  metadata/source_distribution.csv
+  metadata/model_groups.csv
+  metadata/source_composition.csv
+  sample/README.md
+docs/
+  DATA_CARD.md
+  SCORING_RUBRIC.md
+  ANNOTATION_PROTOCOL.md
+  AI_WORKFLOW.md
+  FIGURE_SOURCES.md
+  RELEASE_STATUS.md
 scripts/
-  extract_public_sample.py            # Rebuilds the public sample and metadata
-  render_benchmark_overview.py        # Optional metadata overview renderer
-src/legalbenchpro/
-  workbook.py                         # Small workbook helpers used by scripts
+  extract_public_sample.py
+src/legalscope/
+  workbook.py
 tests/
-  test_workbook.py                    # Lightweight smoke tests for public utilities
+  test_workbook.py
 ```
 
-## Reproduce Public Artifacts
+## What Is Not Public Here
 
-If you have access to the private workbook, the public sample and metadata can be
-regenerated from the local source file.
+This repository does not publish:
 
-macOS/Linux:
+- the paper draft or source files;
+- the full V2 workbook;
+- complete prompts, reference answers, model answers, or row-level model-output
+  matrices;
+- lawyer review sheets or adjudication notes;
+- non-de-identified judgments or private source documents.
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-export PYTHONPATH="$PWD/src"
-python scripts/extract_public_sample.py \
-  --workbook "/path/to/Data Set.xlsx" \
-  --out-dir data \
-  --cn-sample-size 10 \
-  --bar-sample-size 20 \
-  --max-cell-chars 420
-```
-
-Windows PowerShell:
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-$env:PYTHONPATH = "$PWD\src"
-python .\scripts\extract_public_sample.py `
-  --workbook "C:\path\to\Data Set.xlsx" `
-  --out-dir data `
-  --cn-sample-size 10 `
-  --bar-sample-size 20 `
-  --max-cell-chars 420
-```
-
-## Validation
-
-The repository includes a small test suite:
-
-macOS/Linux:
-
-```bash
-python -m pytest -q
-python -m compileall scripts src
-```
-
-Windows PowerShell:
-
-```powershell
-python -m pytest -q
-python -m compileall scripts src
-```
-
-The `pyproject.toml` test configuration points pytest at the `src/` package layout, so
-manual `PYTHONPATH` setup is not required for local validation.
-
-## Research Software Signals
-
-This repository is intentionally organized as a research-engineering artifact, not only
-as a dataset announcement. It demonstrates:
-
-- Python scripts that regenerate public samples and metadata from structured inputs;
-- explicit dataset documentation, release constraints, and annotation protocol files;
-- lightweight tests for workbook parsing utilities;
-- an audit trail for AI-assisted coding and research workflow decisions;
-- manuscript-facing materials that separate current evidence from future validation.
-
-## Release Status
-
-This is a research preview, not a final benchmark release. The public content samples
-are excerpted and do not include the full prompt matrix, full reference answers, full
-model outputs, row-level full indexes, or human review sheets. The full dataset will
-require final licensing, privacy, source-distribution, and validation review before
-release.
-
-## Author and Collaborators
-
-See [Project Team](#project-team).
+The public scripts are retained as lightweight utilities for collaborators who have
+local access to the private workbook. They are not enough to reproduce the full
+benchmark from the public repository alone.
 
 ## Disclaimer
 
-This repository is for research on model evaluation. It is not legal advice, a legal
-research product, or a substitute for jurisdiction-specific legal review.
+LegalScope is a research benchmark for model evaluation. It is not legal advice, a
+legal research product, or a substitute for jurisdiction-specific legal review.

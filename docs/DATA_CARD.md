@@ -2,121 +2,83 @@
 
 ## Dataset Name
 
-LegalBenchPro, public research snapshot v0.1.
+LegalScope, V2 public preview.
 
 ## Purpose
 
-LegalBenchPro evaluates whether large language models that perform well on scalable
-public legal tasks also perform well on practice-oriented legal analysis. The benchmark
-separates public-exam evaluation from de-identified real-case analysis so that model
-rankings, reasoning modes, and scoring regimes can be compared across settings.
+LegalScope evaluates whether LLM performance on public legal-exam tasks transfers to
+practice-oriented legal reasoning over de-identified Chinese civil judgments. The
+benchmark separates reference-answer scoring from case-based rubric scoring so that
+exam performance, real-case performance, human validation, and transfer can be
+studied separately.
 
-## Current Snapshot Counts
+## V2 Counts
 
-The committed metadata file reports counts extracted from the local workbook:
-
-- Chinese real-case split: 76 issue-stance prompts.
-- Public-exam split: 868 instances.
-- Model configurations: 22 in the main multimodel sheets.
-- Main multimodel response cells: 20,768 LLM-generated responses, consisting of
-  1,672 Chinese real-case responses and 19,096 public-exam responses.
-- Public content previews: 10 translated Chinese real-case preview rows and 20
-  public-exam preview rows.
-- Public metadata: model configurations, source/domain distribution summaries, and
-  machine-readable snapshot counts.
-- Human validation staging: 10 Chinese judgment rows and 80 public-exam rows.
+| Component | Count |
+| --- | ---: |
+| Public legal-exam items | 868 |
+| Real-case issue-stance prompts | 76 |
+| Total dataset items | 944 |
+| Model groups | 20 |
+| Public-exam model responses | 17,360 |
+| Real-case model responses | 1,520 |
+| Total dataset model responses | 18,880 |
+| Human-scored public-exam items | 80 |
+| Human-scored real-case prompts | 10 |
+| Human-validation responses | 1,800 |
+| De-identified Chinese civil judgments | 15 |
+| Real-case legal issues | 38 |
 
 See `data/metadata/dataset_summary.json` for the machine-readable summary.
 
 ## Splits
 
+### Public Legal-Exam Split
+
+The public-exam split contains open-ended questions from public legal-exam materials.
+It is scored with a reference-aware 0-4 answer-match protocol. The split covers U.S.,
+China, U.K., and Australia sources in the V2 snapshot.
+
 ### Chinese Real-Case Split
 
-This split is derived from de-identified Chinese civil judgments. Each prompt is built
-from a curated case background and an issue-specific court result. Many cases are paired
-into support/opposition stance prompts so that the same factual setting can be tested
-under different analytic positions.
+The real-case split contains issue-stance prompts derived from de-identified Chinese
+civil judgments. Each prompt asks the model to reason from a structured case setting
+under a specified stance. It is scored across citation relevance, constraint
+extraction, and argument validity.
 
-Key fields include:
+### Human Validation
 
-- review id and document id;
-- issue id and issue title;
-- de-identified case theme and court-result summary;
-- model prompt;
-- cited authorities and supported legal proposition for scorer-side reference;
-- law category and detail;
-- model answer and rubric scores.
+The human-validation subset covers 80 public-exam items and 10 real-case prompts
+across the same 20 model groups. It is used to compare automated/model-judge scores
+with human legal review.
 
-### Public-Exam Split
+## Public Release Boundary
 
-This split uses public legal exam materials and reference answers from multiple legal
-systems. It is designed to be scalable and reference-based.
-
-Key fields include:
-
-- review id, document id, issue id, and issue title;
-- prompt and reference answer;
-- source country / legal system;
-- source body and source URL;
-- law category and detail;
-- model answer and answer-match score.
-
-## Public Snapshot
-
-The public snapshot has two layers.
-
-Translated content previews:
-
-- `data/sample/legalbenchpro_cn_judgments_sample.csv`
-- `data/sample/legalbenchpro_public_exam_sample.csv`
-
-These files show representative schema, task previews, reference-answer previews, and
-one example model-answer preview. CSV cells are capped at 420 characters. China
-public-exam preview rows use concise English translations and summaries for public
-display. These samples are not sufficient for benchmarking models.
-
-Summary metadata:
-
-- `data/metadata/model_configurations.csv`
-- `data/metadata/source_distribution.csv`
-- `data/metadata/dataset_summary.json`
-
-These files expose source/legal-system structure, law-category coverage, model
-configurations, and snapshot counts without publishing row-level full indexes, the full
-prompt matrix, full reference answers, complete model outputs, or human review sheets.
-
-## Full Data Release Status
-
-The full workbook is intentionally excluded from this repository. Before public release,
-the project needs final review for:
-
-- distribution rights for public exam materials;
-- de-identification and privacy of case-derived prompts;
-- whether model outputs can be redistributed under the relevant providers' terms;
-- whether source references should be included, summarized, or replaced with links.
+The repository exposes only high-level metadata, documentation, V2 figure exports, and
+lightweight workbook utilities. It does not include the full workbook, full prompts,
+reference answers, model-output matrices, human review sheets, or private source
+documents.
 
 ## Intended Uses
 
-Appropriate uses:
+- Studying legal benchmark design.
+- Inspecting how exam and real-case evaluation settings differ.
+- Reviewing documentation for high-stakes LLM evaluation workflows.
+- Reusing lightweight workbook helpers in a private, properly licensed workspace.
 
-- studying benchmark design for legal reasoning;
-- auditing model outputs against structured legal-reasoning rubrics;
-- comparing public-exam and real-case evaluation settings;
-- demonstrating reproducible AI-assisted research workflows.
+## Out-of-Scope Uses
 
-Out-of-scope uses:
-
-- legal advice;
-- ranking lawyers, judges, institutions, or jurisdictions;
-- deployment as a legal decision system;
-- training on full case materials without licensing review.
+- Legal advice.
+- Ranking lawyers, courts, litigants, institutions, or jurisdictions.
+- Training or deploying legal decision systems from these materials.
+- Redistributing source documents, full prompts, or model outputs without release
+  review.
 
 ## Known Limitations
 
-- The real-case split currently focuses on Chinese civil cases, with medical and
-  contract-related disputes strongly represented.
-- Human validation is ongoing.
-- The public-exam split and the real-case split differ in source availability,
-  reference-answer style, and scoring regime.
-- The current manuscript and workbook counts should be reconciled before final
-  submission.
+- The real-case split is focused on Chinese civil judgments and is not a general legal
+  practice benchmark.
+- Public-exam and real-case tasks use different scoring regimes.
+- Some source materials may have licensing or redistribution constraints.
+- Human validation is a subset of the full evaluation matrix, not a complete manual
+  relabeling of all model responses.

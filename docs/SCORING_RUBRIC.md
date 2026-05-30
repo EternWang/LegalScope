@@ -1,61 +1,42 @@
 # Scoring Rubric
 
-This document summarizes the current scoring protocol. The final paper should include a
-more formal version with examples and inter-annotator agreement.
+This document summarizes the V2 scoring protocol used for the public preview.
 
-## Chinese Real-Case Split
+## Public Legal-Exam Scoring
 
-The real-case split uses three 0-4 dimensions.
+Public-exam answers receive one reference-aware score from 0 to 4.
+
+| Score | Anchor |
+| ---: | --- |
+| 0 | Nonresponsive, legally irrelevant, or opposite to the reference answer. |
+| 1 | Captures roughly one core unit such as issue, rule, application, or conclusion. |
+| 2 | Captures about two core units but misses major substance. |
+| 3 | Mostly matches the reference answer with limited gaps. |
+| 4 | Matches the core issue, rule/test, application, and conclusion without substantive conflict. |
+
+## Real-Case A/B/C Rubric
+
+Real-case answers receive three 0-4 scores.
 
 ### A. Citation Relevance
 
-Checks whether the answer cites or identifies a legally responsive authority and links
-that authority to a concrete legal proposition.
-
-- 0: no recognizable citation or irrelevant authority;
-- 1: citation is present but generic or weak;
-- 2: authority is partially relevant but linkage is thin;
-- 3: relevant authority supports the claim with limited gaps;
-- 4: authority is specific, relevant, and well applied.
+Checks whether the answer identifies legally responsive authority and connects it to a
+usable legal proposition.
 
 ### B. Constraint Extraction
 
-Checks stance obedience, closed-book compliance, no invented material facts, coverage of
-the requested issue, and de-identification compliance.
+Checks whether the answer follows the assigned stance, extracts operative constraints,
+avoids invented facts, respects the prompt boundary, and covers the requested issue.
 
-- 0: major violation;
-- 1: severe compliance failure;
-- 2: partial compliance;
-- 3: mostly compliant;
-- 4: all major constraints satisfied.
+### C. Argument Validity
 
-### C. Reasoning Effectiveness
+Checks whether the answer states a defensible conclusion, applies rules to facts,
+handles counterpoints, and avoids unsupported reasoning.
 
-Checks conclusion clarity, rule statement, rule-to-fact linkage, counterpoint handling,
-and coherence.
+## V2 Calibration Notes
 
-- 0: no substantive reasoning;
-- 1: minimal bottom-line answer;
-- 2: thin rule listing or partial application;
-- 3: coherent analysis with limited gaps;
-- 4: strong and defensible legal reasoning.
-
-## Public-Exam Split
-
-The public-exam split uses one 0-4 answer-match score against reference answers.
-
-Core units:
-
-- issue match;
-- rule/test match;
-- application or exception match;
-- conclusion/remedy match.
-
-Score anchors:
-
-- 0: nonresponsive or opposite conclusion;
-- 1: roughly one unit matches;
-- 2: roughly two units match;
-- 3: roughly three units match;
-- 4: all core units match without substantive conflict.
-
+V2 keeps strict high-score thresholds while reducing over-penalty for ordinary
+incompleteness. Severe failures such as stance reversal, non-answer, refusal, major
+truncation, or unusable output remain capped at very low scores. If an answer lacks a
+responsive legal basis, citation relevance can be zero while argument or constraint
+dimensions may still receive limited credit for substantive reasoning.

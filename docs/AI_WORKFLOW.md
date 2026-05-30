@@ -1,70 +1,38 @@
 # AI-Assisted Research Workflow
 
-LegalBenchPro is also a case study in AI-assisted research engineering. The workflow is
-designed to use LLMs as productivity tools while preserving auditability and human
-control.
+LegalScope uses LLMs as research tools while keeping source selection, legal review,
+release decisions, and paper claims under human control.
 
 ## Pipeline Overview
 
-1. Curate source materials and convert them into structured workbook rows.
-2. Generate model prompts from standardized templates.
-3. Run model outputs across multiple model configurations.
-4. Score outputs with structured rubrics.
-5. Audit missing answers, malformed outputs, score gaps, and authority-use patterns.
-6. Stage human validation samples.
-7. Compare public-exam scoring, real-case scoring, and human judgments.
+1. Collect public legal-exam sources and de-identified civil-judgment materials.
+2. Parse, normalize, redact, deduplicate, and audit source records.
+3. Build standardized public-exam and real-case prompt templates.
+4. Generate model answers across 20 model groups.
+5. Score public-exam answers with reference-aware scoring.
+6. Score real-case answers with the A/B/C legal-reasoning rubric.
+7. Validate selected rows against human legal review.
+8. Analyze transfer, human agreement, length effects, and error patterns.
 
 ## Where AI Assistance Is Used
 
-AI tools may assist with:
+AI tools may help draft transformation code, normalize text, prepare prompt templates,
+generate model answers under controlled settings, and identify candidate failure modes
+for inspection.
 
-- code generation for workbook transformation and audit scripts;
-- drafting prompt templates;
-- producing candidate summaries for human review;
-- generating model outputs under controlled prompt settings;
-- identifying likely failure modes for manual inspection.
-
-AI tools do not replace:
-
-- source selection decisions;
-- de-identification review;
-- final legal scoring decisions;
-- manuscript claims;
-- release and licensing decisions.
+AI tools do not replace source-selection decisions, de-identification review, final
+legal judgment, manuscript claims, licensing review, or release decisions.
 
 ## Safeguards
 
-The workflow uses several safeguards:
+- De-identification before public release.
+- Separate scorer-side references and prompt-facing text.
+- Stance and closed-book constraints for real-case prompts.
+- Human validation for selected public-exam and real-case rows.
+- Public release boundary for full prompts, model outputs, and review sheets.
 
-- closed-book prompts for model-answer generation;
-- separate scorer-side fields for hidden authorities and supported propositions;
-- explicit review constraints against invented facts and external lookup;
-- audit files for workbook transformations;
-- human validation staging before final claims about benchmark performance.
+## Public Repository Boundary
 
-## Reproducibility Practices
-
-The public repo keeps:
-
-- scripts used to regenerate the public sample;
-- machine-readable dataset metadata;
-- scoring and annotation protocol documents;
-- a manuscript-status file separating completed work from work in progress.
-
-The private workspace keeps:
-
-- full workbooks;
-- full model-output matrices;
-- private or licensing-sensitive source material;
-- intermediate batch outputs and logs.
-
-## Known Risks
-
-- LLM-generated code can silently mishandle encodings, merged spreadsheet headers, or
-  row alignment.
-- Model-based scoring can over-credit fluent but legally weak answers.
-- Public legal exam materials may not be distributable in full.
-- Real-case prompts require careful de-identification and source review.
-
-The repo is structured so these risks are visible rather than hidden.
-
+This repository keeps documentation, V2 figure exports, high-level metadata, and small
+workbook utilities. Full data and review artifacts remain private until privacy,
+licensing, and review constraints are resolved.

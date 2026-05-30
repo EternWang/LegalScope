@@ -1,0 +1,26 @@
+split,dimension,value,count,percent
+public_exam,jurisdiction,Virginia,183,21.1
+public_exam,jurisdiction,California,117,13.5
+public_exam,jurisdiction,New York,102,11.8
+public_exam,jurisdiction,China,100,11.5
+public_exam,jurisdiction,United Kingdom,86,9.9
+public_exam,jurisdiction,Australia,78,9.0
+public_exam,jurisdiction,Maryland,75,8.6
+public_exam,jurisdiction,Georgia,70,8.1
+public_exam,jurisdiction,US (general),57,6.6
+public_exam,legal_domain,Business / Commercial,216,24.9
+public_exam,legal_domain,Medicine / Health,116,13.4
+public_exam,legal_domain,Tort,127,14.6
+public_exam,legal_domain,Legal Foundations,68,7.8
+public_exam,legal_domain,Trusts / Estates,61,7.0
+public_exam,legal_domain,Family Law,58,6.7
+public_exam,legal_domain,Procedure / Evidence,58,6.7
+public_exam,legal_domain,Criminal Law,54,6.2
+public_exam,legal_domain,Legal Ethics,38,4.4
+public_exam,legal_domain,Contract,12,1.4
+public_exam,legal_domain,Property,12,1.4
+public_exam,legal_domain,Other,48,5.5
+real_case,legal_domain,Medicine / Health,50,65.8
+real_case,legal_domain,Tort,10,13.2
+real_case,legal_domain,Contract,14,18.4
+real_case,legal_domain,Property,2,2.6

@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "legalbenchpro"
+name = "legalscope"
 version = "0.1.0"
-description = "Reproducible public utilities for the LegalBenchPro benchmark preview."
+description = "Reproducible public utilities for the LegalScope benchmark preview."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
