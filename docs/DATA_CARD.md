@@ -12,14 +12,6 @@ benchmark separates reference-answer scoring from case-based rubric scoring so t
 exam performance, real-case performance, human validation, and transfer can be
 studied separately.
 
-## Collection and Unification
-
-<img src="../assets/figures/paper_collection_pipeline.png" alt="LegalScope dataset collection and unification workflow" width="920">
-
-LegalScope unifies public legal-exam materials and de-identified Chinese civil
-judgments into structured records, then uses standardized prompt templates, model
-generation, rubric scoring, and human audit steps to support transfer analysis.
-
 ## Benchmark Composition
 
 | Component | Count |

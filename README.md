@@ -34,6 +34,8 @@ outputs, human review sheets, or non-de-identified case materials.
 
 ## Benchmark at a Glance
 
+<img src="assets/figures/paper_collection_pipeline.png" alt="LegalScope benchmark construction pipeline" width="920">
+
 | Component | Count |
 | --- | ---: |
 | Public legal-exam questions | 868 |
@@ -46,10 +48,8 @@ outputs, human review sheets, or non-de-identified case materials.
 | Total dataset model responses | 18,880 |
 | Human-validation responses | 1,800 |
 
-<img src="assets/figures/paper_dataset_composition.png" alt="LegalScope dataset composition from the paper figure" width="920">
-
-The figure above is rendered from the paper figure source in the submitted zip package.
-The full paper PDF is not committed to this repository.
+The pipeline figure above is rendered from `8.pdf`, which is referenced by the paper
+source. The full paper PDF is not committed to this repository.
 
 ## Main Findings
 
@@ -67,8 +67,6 @@ The full paper PDF is not committed to this repository.
 
 ```text
 assets/figures/
-  paper_dataset_composition.png
-  paper_benchmark_coverage.png
   paper_collection_pipeline.png
   paper_score_distribution.png
   paper_transfer_model_judge.png

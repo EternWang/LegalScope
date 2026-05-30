@@ -3,14 +3,6 @@
 This page summarizes the public-facing results without releasing the full paper or the
 full response matrix.
 
-## Dataset Composition
-
-<img src="../assets/figures/paper_dataset_composition.png" alt="LegalScope dataset composition" width="920">
-
-LegalScope contains 944 dataset items and 18,880 model responses across 20 model
-groups. It combines a large public-exam track with a smaller but more diagnostic
-lawyer-reviewed real-case track.
-
 ## Score Distribution
 
 <img src="../assets/figures/paper_score_distribution.png" alt="LegalScope score distribution" width="920">

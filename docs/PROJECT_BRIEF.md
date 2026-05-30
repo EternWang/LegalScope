@@ -19,7 +19,7 @@ de-identified civil judgments.
 
 ## Benchmark Design
 
-<img src="../assets/figures/paper_benchmark_coverage.png" alt="LegalScope benchmark coverage comparison" width="920">
+<img src="../assets/figures/paper_collection_pipeline.png" alt="LegalScope benchmark construction pipeline" width="920">
 
 LegalScope has two connected tracks.
 
