@@ -1,10 +1,11 @@
 # Release Status
 
-LegalScope V2 is represented here as a public preview, not a full artifact release.
+LegalScope is represented here as a public research repository, not a full artifact
+release.
 
 ## Included
 
-- V2 snapshot counts.
+- Benchmark composition and evaluation counts.
 - A small public figure set rendered from the paper figure source in the submitted zip
   package.
 - High-level metadata about sources, rows, model groups, and response counts.

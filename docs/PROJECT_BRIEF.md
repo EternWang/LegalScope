@@ -1,22 +1,25 @@
 # Project Brief
 
-This is a public, application-facing version of the paper introduction. It is written
-to explain the project without releasing the full manuscript, full data, model-output
-matrix, human review sheets, or private legal materials.
+This is a public, application-facing summary of the paper structure. It explains the
+research question, benchmark design, evaluation protocol, and main findings without
+releasing the full manuscript, full workbook, model-output matrix, human review sheets,
+or private legal materials.
 
-## Motivation
+## Introduction
 
-Public legal exams are widely used to evaluate legal reasoning in language models
-because they are standardized, scalable, and often come with reference answers. But
-real legal work is different: it involves incomplete records, contested facts,
-jurisdiction-specific authorities, procedural constraints, and arguments made from a
-particular position.
+Public legal exams are useful for large-scale model evaluation because they are
+standardized, repeatable, and often paired with reference answers. Real legal analysis
+is harder to reduce to exam-style scoring: a useful answer must identify controlling
+legal conditions, connect them to a bounded fact record, and argue from a specified
+stance.
 
-LegalScope asks whether public-exam performance is a good proxy for real-case legal
-reasoning, or whether exam success hides failures that appear only when a model must
-reason from a controlled case record.
+LegalScope asks whether public-exam performance transfers to real-case legal reasoning,
+or whether exam success hides failures that only appear when a model must reason from
+de-identified civil judgments.
 
 ## Benchmark Design
+
+<img src="../assets/figures/paper_benchmark_coverage.png" alt="LegalScope benchmark coverage comparison" width="920">
 
 LegalScope has two connected tracks.
 
@@ -27,10 +30,10 @@ LegalScope has two connected tracks.
 
 The real-case track is built from 15 de-identified Chinese civil judgments and 38
 legal issues. Many issues are converted into paired support/opposition prompts so that
-models must reason under an assigned legal stance rather than merely predict the
-observed judgment outcome.
+models must construct statute-grounded arguments under an assigned stance rather than
+imitate the observed judgment outcome.
 
-## Evaluation
+## Evaluation Protocol
 
 The public-exam track is scored with a reference-aware 0-4 answer-match rubric.
 
@@ -44,6 +47,23 @@ The real-case track is scored on three dimensions:
 
 The scoring protocol is validated against human legal review on overlapping subsets.
 
+## Experiments and Results
+
+Across 20 model groups, LegalScope evaluates 17,360 public-exam responses and 1,520
+real-case responses. Public-exam scores correlate with real-case scores, but they do
+not fully predict real-case performance, ranking changes, or reasoning-mode gains.
+
+See [Results Summary](RESULTS_SUMMARY.md) for the public-facing figures.
+
+## Analysis
+
+The main real-case bottleneck is constraint extraction. Models can often write fluent
+legal arguments while missing the operative facts, procedural conditions, evidence
+boundaries, or assigned stance that makes the answer legally controlled.
+
+Automated evaluation is more reliable on public-exam answers than on case-based legal
+analysis, which is why the benchmark keeps expert-grounded validation in the loop.
+
 ## My Role
 
 I initiated and led the benchmark design, data organization, scoring-protocol design,
@@ -51,10 +71,9 @@ evaluation workflow, public repository packaging, and paper framing. The project
 involved weekly research collaboration and legal-domain review for real-case scoring
 and validation.
 
-## Main Takeaway
+## Public Release Boundary
 
-LegalScope shows that public-exam performance partially transfers to real-case legal
-analysis, but does not fully predict it. The dominant real-case weakness is not legal
-fluency; it is constraint extraction. Models can write plausible legal arguments while
-missing the operative facts, procedural conditions, evidence boundaries, or assigned
-stance that make the argument legally controlled.
+This repository is a public research scaffold. It documents the project clearly enough
+for readers to understand the contribution, but it does not release the full paper,
+private workbook, complete prompts, model outputs, human review sheets, or
+non-de-identified legal source materials.

@@ -2,7 +2,7 @@
 
 ## Dataset Name
 
-LegalScope, V2 public preview.
+LegalScope.
 
 ## Purpose
 
@@ -12,7 +12,15 @@ benchmark separates reference-answer scoring from case-based rubric scoring so t
 exam performance, real-case performance, human validation, and transfer can be
 studied separately.
 
-## V2 Counts
+## Collection and Unification
+
+<img src="../assets/figures/paper_collection_pipeline.png" alt="LegalScope dataset collection and unification workflow" width="920">
+
+LegalScope unifies public legal-exam materials and de-identified Chinese civil
+judgments into structured records, then uses standardized prompt templates, model
+generation, rubric scoring, and human audit steps to support transfer analysis.
+
+## Benchmark Composition
 
 | Component | Count |
 | --- | ---: |
@@ -37,7 +45,7 @@ See `data/metadata/dataset_summary.json` for the machine-readable summary.
 
 The public-exam split contains open-ended questions from public legal-exam materials.
 It is scored with a reference-aware 0-4 answer-match protocol. The split covers U.S.,
-China, U.K., and Australia sources in the V2 snapshot.
+China, U.K., and Australia sources.
 
 ### Chinese Real-Case Split
 
@@ -54,8 +62,8 @@ with human legal review.
 
 ## Public Release Boundary
 
-The repository exposes only high-level metadata, documentation, V2 figure exports, and
-lightweight workbook utilities. It does not include the full workbook, full prompts,
+The repository exposes only high-level metadata, documentation, selected paper figures,
+and lightweight workbook utilities. It does not include the full workbook, full prompts,
 reference answers, model-output matrices, human review sheets, or private source
 documents.
 

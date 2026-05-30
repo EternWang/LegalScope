@@ -33,6 +33,6 @@ legal judgment, manuscript claims, licensing review, or release decisions.
 
 ## Public Repository Boundary
 
-This repository keeps documentation, V2 figure exports, high-level metadata, and small
-workbook utilities. Full data and review artifacts remain private until privacy,
+This repository keeps documentation, selected paper figures, high-level metadata, and
+small workbook utilities. Full data and review artifacts remain private until privacy,
 licensing, and review constraints are resolved.

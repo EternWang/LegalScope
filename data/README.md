@@ -1,16 +1,16 @@
 # Data Preview
 
-This folder contains only public-safe LegalScope V2 metadata. The full workbook,
-prompt matrix, model outputs, reference answers, and human review sheets are not
-included in this repository.
+This folder contains only public-safe LegalScope metadata. The full workbook, prompt
+matrix, model outputs, reference answers, and human review sheets are not included in
+this repository.
 
 ## Metadata Files
 
 | File | Purpose |
 | --- | --- |
-| `metadata/dataset_summary.json` | Machine-readable V2 counts and release boundary. |
-| `metadata/model_groups.csv` | The 20 model groups used in the V2 evaluation tables. |
-| `metadata/source_composition.csv` | Public-exam and real-case source composition from V2 exports. |
+| `metadata/dataset_summary.json` | Machine-readable counts and release boundary. |
+| `metadata/model_groups.csv` | The 20 model groups used in the evaluation tables. |
+| `metadata/source_composition.csv` | Public-exam and real-case source composition. |
 
 ## Snapshot Counts
 
@@ -26,5 +26,5 @@ included in this repository.
 ## Release Boundary
 
 `data/sample/` intentionally contains only a README. Public row-level samples should
-be regenerated from V2 only after source-distribution, privacy, and review constraints
-are cleared.
+be regenerated only after source-distribution, privacy, and review constraints are
+cleared.

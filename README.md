@@ -1,4 +1,4 @@
-# LegalScope
+# LegalScope: Measuring Exam-to-Case Transfer in LLM Legal Reasoning
 
 LegalScope studies a simple question with high stakes for legal AI evaluation:
 do strong public legal-exam scores actually transfer to real-case legal reasoning?
@@ -6,7 +6,7 @@ do strong public legal-exam scores actually transfer to real-case legal reasonin
 I built LegalScope as an independent first-author benchmark project that pairs scalable
 public legal-exam tasks with lawyer-reviewed, de-identified Chinese civil judgment
 analysis. The public repository is intentionally a preview: it documents the research
-question, benchmark design, V2 counts, scoring protocol, release boundary, and
+question, benchmark design, evaluation counts, scoring protocol, release boundary, and
 reproducible helper code without publishing the paper draft, full workbook, model
 outputs, human review sheets, or non-de-identified case materials.
 
@@ -32,9 +32,9 @@ outputs, human review sheets, or non-de-identified case materials.
 - Validated automated scores against human legal review and identified constraint
   extraction as the main real-case failure mode.
 
-## Benchmark Snapshot
+## Benchmark at a Glance
 
-| Component | V2 count |
+| Component | Count |
 | --- | ---: |
 | Public legal-exam questions | 868 |
 | Real-case issue-stance prompts | 76 |
@@ -68,8 +68,11 @@ The full paper PDF is not committed to this repository.
 ```text
 assets/figures/
   paper_dataset_composition.png
+  paper_benchmark_coverage.png
+  paper_collection_pipeline.png
   paper_score_distribution.png
   paper_transfer_model_judge.png
+  paper_transfer_human.png
 data/
   README.md
   metadata/dataset_summary.json
@@ -98,7 +101,7 @@ tests/
 This repository does not publish:
 
 - the paper draft or PDF;
-- the full V2 workbook;
+- the full benchmark workbook;
 - complete prompts, reference answers, model answers, or row-level model-output
   matrices;
 - lawyer review sheets or adjudication notes;

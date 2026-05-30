@@ -1,7 +1,7 @@
 {
   "project": "LegalScope",
-  "snapshot": "V2",
-  "release_status": "public preview; full workbook, paper draft, model outputs, and human review sheets withheld",
+  "snapshot": "paper-submission benchmark",
+  "release_status": "public research repository; full workbook, paper draft, model outputs, and human review sheets withheld",
   "public_release_boundary": {
     "full_workbook_public": false,
     "full_prompt_matrix_public": false,

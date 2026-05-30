@@ -1,6 +1,6 @@
 # Scoring Rubric
 
-This document summarizes the V2 scoring protocol used for the public preview.
+This document summarizes the LegalScope scoring protocol used in the benchmark.
 
 ## Public Legal-Exam Scoring
 
@@ -33,10 +33,10 @@ avoids invented facts, respects the prompt boundary, and covers the requested is
 Checks whether the answer states a defensible conclusion, applies rules to facts,
 handles counterpoints, and avoids unsupported reasoning.
 
-## V2 Calibration Notes
+## Calibration Notes
 
-V2 keeps strict high-score thresholds while reducing over-penalty for ordinary
-incompleteness. Severe failures such as stance reversal, non-answer, refusal, major
-truncation, or unusable output remain capped at very low scores. If an answer lacks a
-responsive legal basis, citation relevance can be zero while argument or constraint
-dimensions may still receive limited credit for substantive reasoning.
+The calibrated rubric keeps strict high-score thresholds while reducing over-penalty
+for ordinary incompleteness. Severe failures such as stance reversal, non-answer,
+refusal, major truncation, or unusable output remain capped at very low scores. If an
+answer lacks a responsive legal basis, citation relevance can be zero while argument
+or constraint dimensions may still receive limited credit for substantive reasoning.

@@ -19,7 +19,7 @@ The score distribution shows that public-exam scoring and real-case scoring stre
 different abilities. In the real-case track, models often reach moderate or high
 argument-validity scores while still losing points on constraint extraction.
 
-## Exam-to-Case Transfer
+## Exam-to-Case Transfer: Model-Judge Scores
 
 <img src="../assets/figures/paper_transfer_model_judge.png" alt="LegalScope model-judge transfer scatterplot" width="920">
 
@@ -34,6 +34,18 @@ relationship is not deterministic:
 
 This supports the main claim: public legal exams are useful signals, but they should
 not be treated as a complete substitute for expert-grounded real-case diagnostics.
+
+## Exam-to-Case Transfer: Human Scores
+
+<img src="../assets/figures/paper_transfer_human.png" alt="LegalScope human-score transfer scatterplot" width="920">
+
+The human-scored subset shows the same broad pattern with stronger rank alignment:
+
+| Transfer metric | Value |
+| --- | ---: |
+| Pearson correlation | 0.846 |
+| Spearman correlation | 0.784 |
+| Model groups | 20 |
 
 ## Human Validation
 
