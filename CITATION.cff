@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 title: "LegalScope"
-message: "If you use this public preview, please cite the released paper or contact the author for the current citation."
+message: "If you use this public research repository, please cite the released paper or contact the author for the current citation."
 type: software
 authors:
   - family-names: Wang

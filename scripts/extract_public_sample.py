@@ -112,7 +112,7 @@ HAN_RE = re.compile(r"[\u3400-\u9fff]")
 
 PUBLIC_SAMPLE_EXCLUDED_REVIEW_IDS = {
     # These early criminal-law rows are retained in the private workbook but omitted
-    # from the public preview because their short reference-answer cells are not
+    # from the public-safe release because their short reference-answer cells are not
     # self-contained enough for a standalone sample table.
     "EXTCN014",
     "EXTCN015",
@@ -605,7 +605,7 @@ def write_data_readme(
 
     content = f"""# Data Preview
 
-This folder contains a compact public preview of LegalScope. The full workbook is
+This folder contains a compact public-safe release of LegalScope. The full workbook is
 not included in the repository while licensing, privacy, redistribution, and human
 validation review are still in progress.
 
@@ -772,7 +772,7 @@ def main() -> None:
     summaries = summarize_workbook(workbook_path)
     metadata = {
         "source_workbook_name": workbook_path.name,
-        "release_status": "compact public preview; full workbook is private/local until licensing review",
+        "release_status": "compact public-safe release; full workbook is private/local until licensing review",
         "preview_policy": {
             "cn_sample_rows": len(cn_sample),
             "public_exam_sample_rows": len(bar_sample),
