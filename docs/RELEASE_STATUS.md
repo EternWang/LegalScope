@@ -5,7 +5,8 @@ LegalScope V2 is represented here as a public preview, not a full artifact relea
 ## Included
 
 - V2 snapshot counts.
-- One public figure rendered from the paper figure source in the submitted zip package.
+- A small public figure set rendered from the paper figure source in the submitted zip
+  package.
 - High-level metadata about sources, rows, model groups, and response counts.
 - Scoring, annotation, data-card, and AI-workflow documentation.
 - Lightweight workbook helper utilities.

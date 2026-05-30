@@ -3,12 +3,22 @@
 LegalScope studies a simple question with high stakes for legal AI evaluation:
 do strong public legal-exam scores actually transfer to real-case legal reasoning?
 
-I built LegalScope as an independent first-author benchmark project that pairs
-scalable public legal-exam tasks with lawyer-reviewed, de-identified Chinese civil
-judgment analysis. The public repository is intentionally a preview: it documents the
-benchmark design, V2 counts, scoring protocol, release boundary, and reproducible
-helper code without publishing the paper draft, full workbook, model outputs, human
-review sheets, or non-de-identified case materials.
+I built LegalScope as an independent first-author benchmark project that pairs scalable
+public legal-exam tasks with lawyer-reviewed, de-identified Chinese civil judgment
+analysis. The public repository is intentionally a preview: it documents the research
+question, benchmark design, V2 counts, scoring protocol, release boundary, and
+reproducible helper code without publishing the paper draft, full workbook, model
+outputs, human review sheets, or non-de-identified case materials.
+
+## Start Here
+
+| If you want to understand... | Read |
+| --- | --- |
+| The research idea and motivation | [Project Brief](docs/PROJECT_BRIEF.md) |
+| Main empirical findings and figures | [Results Summary](docs/RESULTS_SUMMARY.md) |
+| Dataset scope and release boundary | [Data Card](docs/DATA_CARD.md) |
+| Scoring design | [Scoring Rubric](docs/SCORING_RUBRIC.md) |
+| Human validation protocol | [Annotation Protocol](docs/ANNOTATION_PROTOCOL.md) |
 
 ## What I Contributed
 
@@ -38,8 +48,8 @@ review sheets, or non-de-identified case materials.
 
 <img src="assets/figures/paper_dataset_composition.png" alt="LegalScope dataset composition from the paper figure" width="920">
 
-The figure above is rendered from the paper PDF/figure source in the submitted zip
-package. The full paper PDF is not committed to this repository.
+The figure above is rendered from the paper figure source in the submitted zip package.
+The full paper PDF is not committed to this repository.
 
 ## Main Findings
 
@@ -58,6 +68,8 @@ package. The full paper PDF is not committed to this repository.
 ```text
 assets/figures/
   paper_dataset_composition.png
+  paper_score_distribution.png
+  paper_transfer_model_judge.png
 data/
   README.md
   metadata/dataset_summary.json
@@ -65,6 +77,8 @@ data/
   metadata/source_composition.csv
   sample/README.md
 docs/
+  PROJECT_BRIEF.md
+  RESULTS_SUMMARY.md
   DATA_CARD.md
   SCORING_RUBRIC.md
   ANNOTATION_PROTOCOL.md
