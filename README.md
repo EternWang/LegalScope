@@ -1,90 +1,63 @@
 # LegalScope
 
-LegalScope is a legal LLM evaluation benchmark for testing whether performance on
-public legal-exam questions transfers to real-case legal reasoning. The V2 benchmark
-combines 868 open-ended bar-exam style questions with 76 lawyer-reviewed
-issue-stance prompts derived from 15 de-identified Chinese civil judgments.
+LegalScope studies a simple question with high stakes for legal AI evaluation:
+do strong public legal-exam scores actually transfer to real-case legal reasoning?
 
-This repository is a public preview and reproducibility scaffold. It intentionally
-does not include the full manuscript, full workbook, full prompt matrix, complete
-model outputs, human-review sheets, or any non-de-identified judgments while release,
-privacy, licensing, and review constraints are being checked.
+I built LegalScope as an independent first-author benchmark project that pairs
+scalable public legal-exam tasks with lawyer-reviewed, de-identified Chinese civil
+judgment analysis. The public repository is intentionally a preview: it documents the
+benchmark design, V2 counts, scoring protocol, release boundary, and reproducible
+helper code without publishing the paper draft, full workbook, model outputs, human
+review sheets, or non-de-identified case materials.
 
-## Status
+## What I Contributed
 
-V2 is the current project snapshot. Old draft figures, old counts, and manuscript
-draft files have been removed from this repository. All committed figure files are
-rendered from the V2 exports in the project Drive figure folder.
+- Built a dual-track benchmark connecting public legal-exam evaluation with
+  lawyer-reviewed real-case legal analysis.
+- Designed a paired issue-stance protocol for Chinese civil judgments, so the same
+  factual background can be tested under supporting and opposing legal positions.
+- Developed two scoring protocols: reference-aware 0-4 exam scoring and a calibrated
+  real-case rubric for citation relevance, constraint extraction, and argument
+  validity.
+- Validated automated scores against human legal review and identified constraint
+  extraction as the main real-case failure mode.
 
-## V2 Snapshot
+## Benchmark Snapshot
 
-| Module | Source | Rows | Model groups | Evaluations |
-| --- | --- | ---: | ---: | ---: |
-| Bar exam data | Public legal exams | 868 | 20 | 17,360 |
-| CN judgment data | Real cases | 76 | 20 | 1,520 |
-| Human bar exam | Human scored public exams | 80 | 20 | 1,600 |
-| Human CN judgments | Human scored real cases | 10 | 20 | 200 |
-
-Additional structure:
-
-| Dimension | V2 value |
+| Component | V2 count |
 | --- | ---: |
-| Dataset items | 944 |
-| Dataset model responses | 18,880 |
-| Human-validation responses | 1,800 |
-| De-identified Chinese civil judgments | 15 |
-| Real-case legal issues | 38 |
+| Public legal-exam questions | 868 |
 | Real-case issue-stance prompts | 76 |
+| De-identified Chinese civil judgments | 15 |
+| Legal issues extracted from judgments | 38 |
+| Model groups evaluated | 20 |
+| Public-exam model responses | 17,360 |
+| Real-case model responses | 1,520 |
+| Total dataset model responses | 18,880 |
+| Human-validation responses | 1,800 |
 
-## Research Questions
+<img src="assets/figures/paper_dataset_composition.png" alt="LegalScope dataset composition from the paper figure" width="920">
 
-1. Do public-exam scores predict real-case legal reasoning performance?
-2. Where do models fail when the task moves from reference-answer matching to
-   stance-aware case analysis?
-3. How reliable are automated and model-judge scores when compared with human legal
-   review?
+The figure above is rendered from the paper PDF/figure source in the submitted zip
+package. The full paper PDF is not committed to this repository.
 
-## V2 Figures
+## Main Findings
 
-**Dataset composition.**
-
-<img src="assets/figures/v2_dataset_composition.png" alt="LegalScope V2 dataset composition, source coverage, and response counts" width="920">
-
-**Task distribution overview.**
-
-<img src="assets/figures/v2_task_distribution_overview.png" alt="LegalScope public-exam and Chinese real-case task overview" width="920">
-
-**Score distribution by model group.**
-
-<img src="assets/figures/v2_score_distribution.png" alt="LegalScope V2 public-exam and real-case score distributions" width="920">
-
-**Public-exam to real-case transfer, model-judge means.**
-
-<img src="assets/figures/v2_model_judge_transfer.png" alt="LegalScope V2 model-judge transfer scatterplot" width="920">
-
-**Public-exam to real-case transfer, human means.**
-
-<img src="assets/figures/v2_human_transfer.png" alt="LegalScope V2 human-validation transfer scatterplot" width="920">
-
-## Current Findings
-
-The V2 analysis finds a positive model-level relationship between public-exam and
-real-case scores, but not a complete transfer. Model-judge means show Pearson
-`r = 0.835` and Spearman `rho = 0.661`; human means show Pearson `r = 0.846` and
-Spearman `rho = 0.784`. The real-case track exposes a different bottleneck:
-constraint extraction is weaker than citation relevance and argument validity, and
-model-judge reliability is less stable on case-based legal analysis than on
-reference-answer exam scoring.
+- Public-exam scores correlate with Chinese real-case scores at the model level
+  (Pearson `r = 0.835`, Spearman `rho = 0.661`), but rankings and reasoning-mode gains
+  do not transfer uniformly.
+- Real-case legal reasoning exposes a constraint-extraction bottleneck: models write
+  fluent legal arguments more easily than they recover the operative legal and factual
+  conditions that control those arguments.
+- Automated evaluation aligns strongly with human review on public-exam answers
+  (answer-level Pearson `r = 0.925`) but weakens on real-case analysis
+  (`r = 0.450`), showing why expert-grounded evaluation remains important.
 
 ## Repository Map
 
 ```text
 assets/figures/
-  v2_dataset_composition.png
-  v2_task_distribution_overview.png
-  v2_score_distribution.png
-  v2_model_judge_transfer.png
-  v2_human_transfer.png
+  paper_dataset_composition.png
 data/
   README.md
   metadata/dataset_summary.json
@@ -106,20 +79,20 @@ tests/
   test_workbook.py
 ```
 
-## What Is Not Public Here
+## Public Release Boundary
 
 This repository does not publish:
 
-- the paper draft or source files;
+- the paper draft or PDF;
 - the full V2 workbook;
 - complete prompts, reference answers, model answers, or row-level model-output
   matrices;
 - lawyer review sheets or adjudication notes;
 - non-de-identified judgments or private source documents.
 
-The public scripts are retained as lightweight utilities for collaborators who have
-local access to the private workbook. They are not enough to reproduce the full
-benchmark from the public repository alone.
+The public code is a reproducibility scaffold for collaborators with authorized local
+access to the private workbook. It is not enough to reconstruct the full benchmark from
+the public repository alone.
 
 ## Disclaimer
 

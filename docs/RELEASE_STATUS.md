@@ -5,7 +5,7 @@ LegalScope V2 is represented here as a public preview, not a full artifact relea
 ## Included
 
 - V2 snapshot counts.
-- V2 figure exports rendered from the project Drive figure folder.
+- One public figure rendered from the paper figure source in the submitted zip package.
 - High-level metadata about sources, rows, model groups, and response counts.
 - Scoring, annotation, data-card, and AI-workflow documentation.
 - Lightweight workbook helper utilities.
@@ -13,6 +13,7 @@ LegalScope V2 is represented here as a public preview, not a full artifact relea
 ## Not Included
 
 - Paper draft, PDF, or source files.
+- Extra slide figures that are not synchronized with the current paper text.
 - Full workbook.
 - Full prompt matrix.
 - Complete reference answers.
