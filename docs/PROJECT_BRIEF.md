@@ -1,6 +1,6 @@
 # Project Brief
 
-This is a public-facing summary of the paper structure. It explains the
+This is a public, application-facing summary of the paper structure. It explains the
 research question, benchmark design, evaluation protocol, and main findings without
 releasing the full manuscript, full workbook, model-output matrix, human review sheets,
 or private legal materials.
@@ -64,12 +64,12 @@ boundaries, or assigned stance that makes the answer legally controlled.
 Automated evaluation is more reliable on public-exam answers than on case-based legal
 analysis, which is why the benchmark keeps expert-grounded validation in the loop.
 
-## Project Role
+## My Role
 
-The benchmark was led as an independent first-author research project covering
-benchmark design, data organization, scoring-protocol design, evaluation workflow,
-public repository packaging, and paper framing. The project also involved research
-collaboration and legal-domain review for real-case scoring and validation.
+I initiated and led the benchmark design, data organization, scoring-protocol design,
+evaluation workflow, public repository packaging, and paper framing. The project also
+involved weekly research collaboration and legal-domain review for real-case scoring
+and validation.
 
 ## Public Release Boundary
 
