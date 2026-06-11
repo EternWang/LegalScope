@@ -3,12 +3,12 @@
 LegalScope studies a simple question with high stakes for legal AI evaluation:
 do strong public legal-exam scores actually transfer to real-case legal reasoning?
 
-I built LegalScope as an independent first-author benchmark project that pairs scalable
-public legal-exam tasks with lawyer-reviewed, de-identified Chinese civil judgment
-analysis. The public repository is intentionally a preview: it documents the research
-question, benchmark design, evaluation counts, scoring protocol, release boundary, and
-reproducible helper code without publishing the paper draft, full workbook, model
-outputs, human review sheets, or non-de-identified case materials.
+LegalScope pairs scalable public legal-exam tasks with lawyer-reviewed,
+de-identified Chinese civil judgment analysis. The public repository is intentionally
+a preview: it documents the research question, benchmark design, evaluation counts,
+scoring protocol, release boundary, and reproducible helper code without publishing
+the paper draft, full workbook, model outputs, human review sheets, or
+non-de-identified case materials.
 
 ## Start Here
 
@@ -19,18 +19,6 @@ outputs, human review sheets, or non-de-identified case materials.
 | Dataset scope and release boundary | [Data Card](docs/DATA_CARD.md) |
 | Scoring design | [Scoring Rubric](docs/SCORING_RUBRIC.md) |
 | Human validation protocol | [Annotation Protocol](docs/ANNOTATION_PROTOCOL.md) |
-
-## What I Contributed
-
-- Built a dual-track benchmark connecting public legal-exam evaluation with
-  lawyer-reviewed real-case legal analysis.
-- Designed a paired issue-stance protocol for Chinese civil judgments, so the same
-  factual background can be tested under supporting and opposing legal positions.
-- Developed two scoring protocols: reference-aware 0-4 exam scoring and a calibrated
-  real-case rubric for citation relevance, constraint extraction, and argument
-  validity.
-- Validated automated scores against human legal review and identified constraint
-  extraction as the main real-case failure mode.
 
 ## Benchmark at a Glance
 

@@ -64,16 +64,9 @@ boundaries, or assigned stance that makes the answer legally controlled.
 Automated evaluation is more reliable on public-exam answers than on case-based legal
 analysis, which is why the benchmark keeps expert-grounded validation in the loop.
 
-## My Role
-
-I initiated and led the benchmark design, data organization, scoring-protocol design,
-evaluation workflow, public repository packaging, and paper framing. The project also
-involved weekly research collaboration and legal-domain review for real-case scoring
-and validation.
-
 ## Public Release Boundary
 
 This repository is a public research scaffold. It documents the project clearly enough
-for readers to understand the contribution, but it does not release the full paper,
+for readers to understand the benchmark, but it does not release the full paper,
 private workbook, complete prompts, model outputs, human review sheets, or
 non-de-identified legal source materials.
