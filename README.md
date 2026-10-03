@@ -2,7 +2,9 @@
 
 **AI Measurement Science (AIMS) Workshop at COLM 2026**
 
+[Project page](https://eternwang.github.io/LegalScope/) ·
 [Paper](https://openreview.net/forum?id=BNx62Wx1ej) ·
+[Hugging Face](https://huggingface.co/datasets/Hongyu513/LegalScope) ·
 [Results](docs/RESULTS_SUMMARY.md) · [Data card](docs/DATA_CARD.md) ·
 [Version notes](docs/RELEASE_STATUS.md) · [Citation](#citation)
 

@@ -17,4 +17,5 @@ outputs/*
 .DS_Store
 Thumbs.db
 .vscode/
+_site/
 
