@@ -666,7 +666,7 @@ response cells: {cn_model_response_cells:,} from the Chinese real-case split and
 ## Public-Exam Legal Domain Summary
 
 The repository preview intentionally shows only the top legal-domain counts. The
-summary below explains why the visible top-domain rows do not add up to 868.
+summary below explains why the visible top-domain rows do not add up to {len(bar_rows)}.
 
 {markdown_table(["Group", "Rows"], bar_law_summary_rows)}
 

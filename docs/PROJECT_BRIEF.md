@@ -1,77 +1,58 @@
 # Project Brief
 
-This is a public, application-facing summary of the paper structure. It explains the
-research question, benchmark design, evaluation protocol, and main findings without
-releasing the full manuscript, full workbook, model-output matrix, human review sheets,
-or private legal materials.
+This summary follows the AIMS at COLM 2026 workshop camera-ready version of
+[LegalScope](https://openreview.net/forum?id=BNx62Wx1ej).
 
-## Introduction
+## Research Question
 
-Public legal exams are useful for large-scale model evaluation because they are
-standardized, repeatable, and often paired with reference answers. Real legal analysis
-is harder to reduce to exam-style scoring: a useful answer must identify controlling
-legal conditions, connect them to a bounded fact record, and argue from a specified
-stance.
-
-LegalScope asks whether public-exam performance transfers to real-case legal reasoning,
-or whether exam success hides failures that only appear when a model must reason from
-de-identified civil judgments.
+Public legal exams are standardized, scalable, and often paired with reference
+answers. Real-case analysis instead requires selecting responsive authorities,
+respecting a bounded factual record, and constructing an argument under a specified
+stance. LegalScope studies the association between independently scored exam and
+case tracks over a common model roster.
 
 ## Benchmark Design
 
 <img src="../assets/figures/paper_collection_pipeline.png" alt="LegalScope benchmark construction pipeline" width="920">
 
-LegalScope has two connected tracks.
-
-| Track | What It Tests | Scale |
+| Track | Task | Scale |
 | --- | --- | ---: |
-| Public legal exams | Reference-aware open-ended legal-exam answering | 868 questions |
-| Chinese real cases | Stance-aware legal reasoning over de-identified civil judgments | 256 prompts |
+| Public legal exams | Reference-aware legal-exam answering | 861 questions |
+| Chinese real cases | Closed-book, stance-aware analysis of curated judgment summaries | 276 prompts |
 
-The real-case track is built from 54 de-identified Chinese civil judgments and 128
-legal issues. The issues are typically converted into paired support/opposition prompts so that
-models must construct statute-grounded arguments under an assigned stance rather than
-imitate the observed judgment outcome.
-
-Figure 1 also shows the reliability audit. Its 1,520-answer clustered analysis uses an
-audited subset of 76 prompts from 15 judgments; it should not be read as the size of the
-expanded real-case corpus.
+The exam track covers the United States (603), China (94), the United Kingdom (86),
+and Australia (78). The case track covers seven legal categories and derives 138
+issues from 56 de-identified Chinese judgments. Each issue has supporting and
+opposing prompts. Models must construct arguments rather than only predict the
+court's outcome. Real-case provenance does not mean access to complete case files.
 
 ## Evaluation Protocol
 
-The public-exam track is scored with a reference-aware 0-4 answer-match rubric.
+Exam answers receive reference-matching scores from 0 to 4. Case answers receive
+three separate 0-4 scores: citation relevance, constraint extraction, and argument
+validity. Constraint extraction assesses the assigned stance, factual boundaries,
+requested subtasks, and format. Case totals average these three dimensions; scores
+are mapped to 0-100 without equating the difficulty of the two tracks.
 
-The real-case track is scored on three dimensions:
+Across 28 model groups, the benchmark contains 24,108 exam responses and 7,728 case
+responses. Independent review covers 2,240 exam answers and 280 case answers, with
+two practicing lawyers independently scoring the same case set.
 
-- citation relevance: whether the cited authority responds to the issue;
-- constraint extraction: whether the answer recovers the operative rule conditions and
-  factual boundaries;
-- argument validity: whether the legal conclusion follows from the cited law and case
-  facts under the assigned stance.
+## Findings and Interpretation
 
-The scoring protocol is validated against human legal review on overlapping subsets.
+Exam and case means correlate at `r = 0.817` and `rho = 0.708`, but rankings and
+variant gains can change. Citation relevance has a lower mean than argument
+validity under automatic and lawyer evaluation. The pooled lawyer contrast remains
+descriptive because its confidence interval includes zero.
 
-## Experiments and Results
+Automatic-human answer-level agreement falls from `r = 0.910` on exams to
+`r = 0.312` on cases, motivating expert-grounded case evaluation. The workshop
+version does not retain the earlier claim that constraint extraction is the main
+automatic-scoring bottleneck. See [results](RESULTS_SUMMARY.md) for exact endpoints,
+uncertainty, and historical-audit distinctions.
 
-Across 20 model groups, LegalScope evaluates 17,360 public-exam responses and 5,120
-real-case responses. Public-exam scores correlate with real-case scores, but they do
-not fully predict real-case performance, ranking changes, or reasoning-mode gains.
+## Public Repository
 
-See [Results Summary](RESULTS_SUMMARY.md) for the public-facing figures.
-
-## Analysis
-
-The main real-case bottleneck is constraint extraction. Models can often write fluent
-legal arguments while missing the operative facts, procedural conditions, evidence
-boundaries, or assigned stance that makes the answer legally controlled.
-
-Automated evaluation is more reliable on public-exam answers (answer-level
-`r = 0.925`) than on case-based legal analysis (pooled-lawyer answer-level
-`r = 0.422`), which is why the benchmark keeps expert-grounded validation in the loop.
-
-## Public Release Boundary
-
-This repository is a public research scaffold. It documents the project clearly enough
-for readers to understand the benchmark, but it does not release the full paper,
-private workbook, complete prompts, model outputs, human review sheets, or
-non-de-identified legal source materials.
+Documentation, figures, aggregate results, metadata, and workbook helpers are
+available. Full prompts, reference answers, model responses, human review sheets,
+and private legal materials are not included.

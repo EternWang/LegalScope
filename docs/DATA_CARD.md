@@ -1,93 +1,84 @@
 # Data Card
 
-## Dataset Name
+## Purpose and Version
 
-LegalScope.
-
-## Purpose
-
-LegalScope evaluates whether LLM performance on public legal-exam tasks transfers to
-practice-oriented legal reasoning over de-identified Chinese civil judgments. The
-benchmark separates reference-answer scoring from case-based rubric scoring so that
-exam performance, real-case performance, human validation, and transfer can be
-studied separately.
+LegalScope measures the relationship between public legal-exam performance and
+closed-book reasoning over curated summaries of de-identified Chinese judgments.
+This card follows the AIMS at COLM 2026 workshop camera-ready version.
 
 ## Benchmark Composition
 
 | Component | Count |
 | --- | ---: |
-| Public legal-exam items | 868 |
-| Real-case issue-stance prompts | 256 |
-| Total dataset items | 1,124 |
-| Model groups | 20 |
-| Public-exam model responses | 17,360 |
-| Real-case model responses | 5,120 |
-| Total dataset model responses | 22,480 |
-| Human-scored public-exam items | 80 |
-| Human-scored real-case prompts | 10 |
-| Human-validation responses | 1,800 |
-| De-identified Chinese civil judgments | 54 |
-| Real-case legal issues | 128 |
+| Public legal-exam items | 861 |
+| Real-case issue-stance prompts | 276 |
+| Total dataset items | 1,137 |
+| Model groups | 28 |
+| Public-exam responses | 24,108 |
+| Real-case responses | 7,728 |
+| Total dataset responses | 31,836 |
+| Exam validation items / responses | 80 / 2,240 |
+| Case validation prompts / unique responses | 10 / 280 |
+| Total validation items / unique responses | 90 / 2,520 |
+| De-identified Chinese judgments | 56 |
+| Real-case legal issues | 138 |
 
-See `data/metadata/dataset_summary.json` for the machine-readable summary.
+See [dataset summary](../data/metadata/dataset_summary.json) for machine-readable
+counts. Human-validation counts refer to unique answers, not lawyer-rating events.
 
 ## Splits
 
-### Public Legal-Exam Split
+The exam split covers the United States (603), China (94), the United Kingdom (86),
+and Australia (78). One duplicate and six items with unverifiable shared context
+were excluded from the earlier split. Reported exam responses and scores predate
+prompt and reference-text repairs (paper Sections 3.1 and 5.1).
 
-The public-exam split contains open-ended questions from public legal-exam materials.
-It is scored with a reference-aware 0-4 answer-match protocol. The split covers U.S.,
-China, U.K., and Australia sources.
+The case split has 80 Tort, 72 Contract, 54 Criminal, 34 Intellectual Property,
+22 Administrative, 8 Civil Procedure, and 6 Property prompts. Each of 138 issues
+has one supporting and one opposing prompt. Real-case provenance refers to
+concluded judgments, not access to complete case files. Names, institutions,
+addresses, and original file paths are removed or masked during de-identification.
 
-### Chinese Real-Case Split
+Human validation covers all 28 groups. Independent reviewers score exam answers
+against references. Two practicing Chinese lawyers independently score the same
+case answer set, with Lawyer 2 held out from rubric calibration. Their case scores
+are pooled with equal weights.
 
-The real-case split contains issue-stance prompts derived from de-identified Chinese
-civil judgments. Each prompt asks the model to reason from a structured case setting
-under a specified stance. It is scored across citation relevance, constraint
-extraction, and argument validity. The corpus contains 202 Tort prompts, 34 Contract
-prompts, and 20 Property prompts.
+## Audit Scope
 
-### Human Validation
+The current clustered dimension analysis covers all 276 case prompts and 56
+judgments. Historical controls and the 200-answer, five-run fixed-answer audits
+retain their own pools. See [results](RESULTS_SUMMARY.md) for the distinction.
 
-The human-validation subset covers 80 public-exam items and 10 real-case prompts
-across the same 20 model groups, for 1,600 public-exam answers and 200 real-case
-answers. The real-case human score is the equal-weight mean of two practicing Chinese
-lawyers. It is used to compare automated/model-judge scores with human legal review.
+## Metadata Provenance
 
-### Reliability-Audit Subsets
+Country, U.S. source, and category counts follow Sections 3.1-3.2 and Tables 5,
+15-16. Public-exam categories below the paper's 20-item display threshold are
+grouped into an explicitly derived residual (107 items). Percentages are calculated
+within the relevant split/dimension and rounded to one decimal place.
 
-The paper's clustered robustness analysis uses 76 prompts from 15 judgments (1,520
-model responses). A separate fixed-answer stability check rescored the same 200 blinded
-answers five times. These audit subsets should not be mistaken for the full 256-prompt
-real-case split.
+The model roster follows Appendix A.1; indices follow Figure 3. The shortened
+figure/table label `LLaMA 3.1 8B` is normalized to `LLaMA 3.1 8B Instruct` in CSVs.
+Table 3 performance values retain the paper's one-decimal precision and order.
 
-## Public Release Boundary
+## Public Release and Intended Use
 
-The repository exposes only high-level metadata, documentation, selected paper figures,
-and lightweight workbook utilities. It does not include the full workbook, full prompts,
-reference answers, model-output matrices, human review sheets, or private source
-documents.
+The repository exposes documentation, figures, aggregate statistics, and workbook
+helpers. It supports inspection of benchmark design and evaluation methodology,
+and helper reuse with authorized local data. It does not include full prompts,
+reference answers, model outputs, lawyer sheets, or private source documents.
 
-## Intended Uses
+## Limitations
 
-- Studying legal benchmark design.
-- Inspecting how exam and real-case evaluation settings differ.
-- Reviewing documentation for high-stakes LLM evaluation workflows.
-- Reusing lightweight workbook helpers in a private, properly licensed workspace.
+- Case tasks concern Chinese judgments and curated, closed-book summaries; they
+  do not represent every jurisdiction or the full legal workflow.
+- Exam materials may occur in pretraining data; exam scores are comparative
+  signals rather than clean generalization tests.
+- Tracks and rubric dimensions are not equated difficulty scales.
+- Human validation is a subset, not manual relabeling of the full matrix.
+- The automatic evaluator alias is not date-pinned, decoding settings are not
+  fully specified, and historical scores remain where no update was run.
+- Source redistribution and privacy constraints limit public artifact release.
 
-## Out-of-Scope Uses
-
-- Legal advice.
-- Ranking lawyers, courts, litigants, institutions, or jurisdictions.
-- Training or deploying legal decision systems from these materials.
-- Redistributing source documents, full prompts, or model outputs without release
-  review.
-
-## Known Limitations
-
-- The real-case split is focused on Chinese civil judgments and is not a general legal
-  practice benchmark.
-- Public-exam and real-case tasks use different scoring regimes.
-- Some source materials may have licensing or redistribution constraints.
-- Human validation is a subset of the full evaluation matrix, not a complete manual
-  relabeling of all model responses.
+These materials are not intended for legal advice, ranking legal professionals or
+institutions, or deploying legal decision systems.

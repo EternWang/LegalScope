@@ -1,40 +1,33 @@
 # AI-Assisted Research Workflow
 
-LegalScope uses LLMs as research tools while keeping source selection, legal review,
-release decisions, and paper claims under human control.
+## Pipeline
 
-## Pipeline Overview
-
-1. Collect public legal-exam sources and de-identified civil-judgment materials.
+1. Collect public legal-exam sources and concluded Chinese judgment materials.
 2. Parse, normalize, redact, deduplicate, and audit source records.
-3. Build standardized public-exam and real-case prompt templates.
-4. Generate model answers across 20 model groups.
-5. Score public-exam answers with reference-aware scoring.
-6. Score real-case answers with the A/B/C legal-reasoning rubric.
-7. Validate selected rows against human legal review.
-8. Analyze transfer, human agreement, length effects, and error patterns.
-9. Audit clustered robustness on 76 real-case prompts and evaluator stability on 200
-   fixed answers without substituting those subsets for the full 256-prompt corpus.
+3. Build exam tasks and paired, closed-book case prompts with human case review.
+4. Generate answers across 28 model groups.
+5. Score exam answers against references and case answers with the calibrated A/B/C rubric.
+6. Validate 2,240 exam answers and 280 case answers against independent review.
+7. Analyze exam-case association, dimension contrasts, and automatic-human agreement.
+8. Audit the current citation-argument contrast with prompt/judgment clusters over
+   all 276 prompts, while retaining historical controls and fixed-answer audits as
+   separate evidence.
 
-## Where AI Assistance Is Used
+AI tools assist transformation code, normalization, prompt preparation, answer
+generation, scoring, and candidate error analysis. Source selection, legal review,
+de-identification, interpretation, and release decisions remain human responsibilities.
 
-AI tools may help draft transformation code, normalize text, prepare prompt templates,
-generate model answers under controlled settings, and identify candidate failure modes
-for inspection.
+## Version and Reproducibility
 
-AI tools do not replace source-selection decisions, de-identification review, final
-legal judgment, manuscript claims, licensing review, or release decisions.
+The workshop scoring updates use the non-date-pinned `gpt-5.5` alias, with batch
+configuration differences and retained historical scores. See the
+[scoring rubric](SCORING_RUBRIC.md) for reproducibility limits. The historical A/C
+audit and updated B-only audit each rescore the same 200 fixed answers five times;
+they are not a single joint rerun.
 
-## Safeguards
+## Public Boundary
 
-- De-identification before public release.
-- Separate scorer-side references and prompt-facing text.
-- Stance and closed-book constraints for real-case prompts.
-- Human validation for selected public-exam and real-case rows.
-- Public release boundary for full prompts, model outputs, and review sheets.
-
-## Public Repository Boundary
-
-This repository keeps documentation, selected paper figures, high-level metadata, and
-small workbook utilities. Full data and review artifacts remain private until privacy,
-licensing, and review constraints are resolved.
+Documentation, paper figures, high-level metadata, aggregate performance, and
+workbook helpers are public. Full workbooks, prompts, model outputs, and human
+review sheets remain outside this repository. Generating a local sample does not
+establish that its source rights or de-identification permit publication.

@@ -5,17 +5,25 @@ model_index,model_group
 4,Deep Cogito 671B
 5,GPT-5.4 Mini
 6,Qwen3 Max Thinking
-7,GLM-5
+7,GLM-5 low
 8,Qwen3 235B A22B
 9,DeepSeek V3.2
 10,Kimi K2 Thinking
-11,Grok 4 Fast
-12,Grok 4.1 Fast
+11,Grok 4.3
+12,Grok 4.5
 13,Command A
 14,LLaMA 3.1 8B Instruct
-15,GPT-5.4 medium
-16,GPT-5.4 xhigh
+15,GPT-5.5 Medium
+16,GPT-5.5 High
 17,Gemini 2.5 Flash
 18,Command R+
 19,Gemini 3 Flash
 20,Gemini 3 Flash Low
+21,Qwen3.5-9B
+22,Qwen3.8-27B
+23,Qwen3.8-2.4T-A95B
+24,GLM-5.3
+25,Kimi-K3
+26,DeepSeek-V4-Pro
+27,DeepSeek-V4-Flash
+28,Gemini-3.5-Flash

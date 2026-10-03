@@ -1,57 +1,44 @@
 # Annotation Protocol
 
-## Purpose
-
-The human-validation protocol checks whether automated and model-judge scores align
-with human legal review, and whether the failure modes found in real cases differ from
-public-exam scoring.
-
 ## Human-Scored Subset
 
-| Subset | Items | Model groups | Human-validation responses |
+| Subset | Items | Model groups | Unique answers |
 | --- | ---: | ---: | ---: |
-| Public legal exams | 80 | 20 | 1,600 |
-| Chinese real cases | 10 | 20 | 200 |
-| Total | 90 | 20 | 1,800 |
+| Public legal exams | 80 | 28 | 2,240 |
+| Chinese real cases | 10 | 28 | 280 |
+| Total | 90 | 28 | 2,520 |
+
+Independent reviewers score exam answers against references. For cases, two
+practicing Chinese lawyers independently score the same randomized answer set.
+Model identities, automatic scores, and the other lawyer's ratings are hidden.
+Reviewers are excluded from benchmark construction; Lawyer 2 is held out from
+rubric calibration. The case human endpoint is the equal-weight mean of both
+lawyers. Unique-answer counts do not count the two lawyers' ratings separately.
 
 ## Review Focus
 
-Human review checks:
-
-- source and reference-answer alignment for public-exam rows;
-- issue and stance consistency for real-case rows;
-- privacy and de-identification constraints;
-- citation relevance;
-- constraint extraction;
-- argument validity;
-- cases where automated scores appear too generous or too punitive.
-
-## Preferred Review Notes
-
-Review notes should be brief and audit-friendly. Useful tags include:
-
-- opposite stance;
-- invented facts;
-- missing operative constraint;
-- weak citation linkage;
-- wrong legal domain;
-- missed key issue;
-- thin rule-to-fact analysis;
-- mostly aligned with minor gaps.
+Review assesses reference alignment for exams, and citation relevance, constraint
+extraction, and argument validity for cases. Case curation also checks issue/stance
+consistency and de-identification. Useful error-note categories include citation
+mismatch, condition omission, fact extrapolation, stance drift, and conclusion jump.
+Historical notes were not regenerated with the B-only scoring update and should
+not be used as explanations of updated B scores.
 
 ## Reliability Reporting
 
-Public-exam automatic scores align strongly with independent review at the answer
-level (`r = 0.925`, `rho = 0.928`) and model level (`r = 0.992`, `rho = 0.986`).
-For real cases, the equal-weight mean of the two lawyers gives lower answer-level
-agreement (`r = 0.422`, `rho = 0.364`) and more stable model-level agreement
-(`r = 0.800`, `rho = 0.577`).
+| Endpoint | Answer-level r / rho | Model-level r / rho |
+| --- | --- | --- |
+| Automatic vs. exam review | 0.910 / 0.898 | 0.948 / 0.963 |
+| Automatic vs. pooled case lawyers | 0.312 / 0.235 | 0.703 / 0.459 |
 
-The two real-case lawyers' quadratic-weighted kappa is `0.669`, `0.577`, and `0.579`
-for citation relevance, constraint extraction, and argument validity. Their pooled
-dimension means are `69.75`, `71.38`, and `75.44`, respectively. Both lawyers place
-constraint extraction below argument validity; a 10,000-draw prompt-cluster bootstrap
-estimates the gap at `4.06` points (95% CI `[1.38, 6.69]`).
+The lawyers' quadratic-weighted kappa is `0.676`, `0.560`, and `0.559` for citation,
+constraint, and argument, respectively. Their model-level means correlate at
+`r = 0.841`, `rho = 0.711` (paper Section 6.5).
 
-The public-exam reviewers and both real-case lawyers were excluded from benchmark
-construction. Raw human review sheets remain outside the public repository.
+Pooled dimension means are `71.65`, `73.35`, and `76.79`. Argument minus citation
+is reported as `5.13` points, with prompt-cluster 95% CI `[-0.94, 11.07]` from
+10,000 draws. Both lawyers show the same direction, but the pooled and Lawyer 2
+intervals cross zero. The lawyer-scored contrast is descriptive; no consistent
+ordering for constraint extraction is claimed.
+
+Raw review sheets and adjudication notes are not included in the repository.

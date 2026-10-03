@@ -1,7 +1,7 @@
 {
   "project": "LegalScope",
-  "snapshot": "current ACL-submission manuscript benchmark",
-  "release_status": "public research repository; full workbook, paper draft, model outputs, and human review sheets withheld",
+  "snapshot": "AIMS at COLM 2026 workshop camera-ready",
+  "release_status": "public documentation, figures, aggregate results, metadata and workbook helpers; no full dataset release",
   "public_release_boundary": {
     "full_workbook_public": false,
     "full_prompt_matrix_public": false,
@@ -9,80 +9,128 @@
     "full_model_outputs_public": false,
     "human_review_sheets_public": false,
     "non_deidentified_judgments_public": false,
-    "paper_draft_public": false
+    "paper_pdf_committed": false
   },
   "dataset_modules": [
     {
       "name": "Bar exam data",
       "type": "Dataset",
       "source": "Public legal exams",
-      "rows": 868,
-      "model_groups": 20,
-      "evaluations": 17360
+      "rows": 861,
+      "model_groups": 28,
+      "evaluations": 24108
     },
     {
       "name": "CN judgment data",
       "type": "Dataset",
       "source": "Real cases",
-      "rows": 256,
-      "model_groups": 20,
-      "evaluations": 5120
+      "rows": 276,
+      "model_groups": 28,
+      "evaluations": 7728
     },
     {
       "name": "Human bar exam",
       "type": "Human scored",
       "source": "Public legal exams",
       "rows": 80,
-      "model_groups": 20,
-      "evaluations": 1600
+      "model_groups": 28,
+      "evaluations": 2240
     },
     {
       "name": "Human CN judgments",
       "type": "Human scored",
       "source": "Real cases",
       "rows": 10,
-      "model_groups": 20,
-      "evaluations": 200
+      "model_groups": 28,
+      "evaluations": 280
     }
   ],
   "counts": {
-    "public_exam_items": 868,
-    "real_case_issue_stance_prompts": 256,
-    "dataset_items_total": 1124,
-    "model_groups": 20,
-    "public_exam_model_responses": 17360,
-    "real_case_model_responses": 5120,
-    "dataset_model_responses_total": 22480,
+    "public_exam_items": 861,
+    "real_case_issue_stance_prompts": 276,
+    "dataset_items_total": 1137,
+    "model_groups": 28,
+    "public_exam_model_responses": 24108,
+    "real_case_model_responses": 7728,
+    "dataset_model_responses_total": 31836,
     "human_public_exam_items": 80,
     "human_real_case_prompts": 10,
     "human_validation_items_total": 90,
-    "human_public_exam_responses": 1600,
-    "human_real_case_responses": 200,
-    "human_validation_responses_total": 1800,
-    "deidentified_chinese_civil_judgments": 54,
-    "real_case_legal_issues": 128
+    "human_public_exam_responses": 2240,
+    "human_real_case_responses": 280,
+    "human_validation_responses_total": 2520,
+    "deidentified_chinese_judgments": 56,
+    "real_case_legal_issues": 138
   },
   "robustness_audit": {
-    "clustered_subset_prompts": 76,
-    "clustered_subset_judgments": 15,
-    "clustered_subset_model_responses": 1520,
     "bootstrap_draws": 10000,
-    "fixed_answer_stability_prompts": 10,
-    "fixed_answer_stability_responses": 200,
-    "independent_rescoring_runs": 5
+    "bootstrap_seed": 20260712,
+    "current_dimension_contrast": {
+      "contrast": "argument validity minus citation relevance",
+      "prompts": 276,
+      "judgments": 56,
+      "model_groups": 28,
+      "model_responses": 7728,
+      "human_prompts": 10,
+      "human_model_groups": 28,
+      "human_responses": 280,
+      "automatic_prompt_cluster_gap": 5.69,
+      "automatic_prompt_cluster_ci95": [
+        4.51,
+        6.83
+      ],
+      "pooled_lawyer_prompt_cluster_gap": 5.13,
+      "pooled_lawyer_prompt_cluster_ci95": [
+        -0.94,
+        11.07
+      ]
+    },
+    "historical_t1": {
+      "prompts": 76,
+      "judgments": 15,
+      "model_groups": 20,
+      "model_responses": 1520
+    },
+    "fixed_answer_stability": {
+      "prompts": 10,
+      "model_groups": 20,
+      "responses": 200,
+      "independent_rescoring_runs": 5,
+      "batches": [
+        "historical joint audit (A/C reported)",
+        "updated B-only audit"
+      ],
+      "note": "Separate batches; not a jointly rerun A/B/C experiment. No repeated scores enter headline results."
+    }
   },
   "transfer_summary": {
-    "model_judge_public_exam_to_real_case_pearson_r": 0.835,
-    "model_judge_public_exam_to_real_case_spearman_rho": 0.661,
-    "human_public_exam_to_real_case_pearson_r": 0.846,
-    "human_public_exam_to_real_case_spearman_rho": 0.784,
-    "automatic_human_public_exam_answer_pearson_r": 0.925,
-    "automatic_human_public_exam_answer_spearman_rho": 0.928,
-    "automatic_human_real_case_answer_pearson_r": 0.422,
-    "automatic_human_real_case_answer_spearman_rho": 0.364,
-    "automatic_human_public_exam_model_pearson_r": 0.992,
-    "automatic_human_public_exam_model_spearman_rho": 0.986,
-    "automatic_human_real_case_model_pearson_r": 0.8,
-    "automatic_human_real_case_model_spearman_rho": 0.577
+    "model_judge_public_exam_to_real_case_pearson_r": 0.817,
+    "model_judge_public_exam_to_real_case_spearman_rho": 0.708,
+    "human_public_exam_to_real_case_pearson_r": 0.696,
+    "human_public_exam_to_real_case_spearman_rho": 0.69,
+    "human_transfer_endpoint": "human exam scores and equal-weight pooled lawyer case scores",
+    "automatic_human_public_exam_answer_pearson_r": 0.91,
+    "automatic_human_public_exam_answer_spearman_rho": 0.898,
+    "automatic_human_real_case_answer_pearson_r": 0.312,
+    "automatic_human_real_case_answer_spearman_rho": 0.235,
+    "automatic_human_public_exam_model_pearson_r": 0.948,
+    "automatic_human_public_exam_model_spearman_rho": 0.963,
+    "automatic_human_real_case_model_pearson_r": 0.703,
+    "automatic_human_real_case_model_spearman_rho": 0.459
+  },
+  "snapshot_date": "2026-10-03",
+  "paper": {
+    "title": "LegalScope: Measuring Exam-to-Case Transfer in LLM Legal Reasoning",
+    "venue": "AI Measurement Science Workshop at COLM 2026",
+    "url": "https://openreview.net/forum?id=BNx62Wx1ej",
+    "source_pdf_sha256": "9450fe5e7439795c2b96c34db2572015a417ad390518c84edc74f4cba6134b3d"
+  },
+  "count_notes": "Human-validation responses count unique answers, not individual lawyer ratings. Response totals are items multiplied by 28 model groups.",
+  "headline_means_0_100": {
+    "public_exam": 72.6,
+    "real_case": 73.0,
+    "citation_relevance": 66.9,
+    "constraint_extraction": 79.3,
+    "argument_validity": 72.6
   }
 }
