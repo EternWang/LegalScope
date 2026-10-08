@@ -1,5 +1,20 @@
 # Release Status
 
+## Release Documentation Clarification: October 8, 2026
+
+The website and dataset card now distinguish the 78 downloadable source records
+from the full benchmark and the 86 metadata rows. The Hub's default configuration
+is the source-excerpt subset; explicit configuration names and all data files
+remain unchanged. The [release guide](USING_THE_RELEASE.md) documents all source
+fields, the 22 intentionally empty question fields, candidate versus model
+answers, pinned loading, and what the public package can reproduce.
+
+Case publication is described as an item-level review, not a blanket prohibition
+or a requirement to find a Creative Commons license for each original judgment.
+No new case prompts, answers, or other source records are published by this
+documentation update. Per-record PDF-page/question locators and a dedicated
+private feedback channel are not supplied by this update.
+
 ## Public Package and Code Checks: October 8, 2026
 
 The canonical Hugging Face repository is now

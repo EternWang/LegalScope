@@ -6,6 +6,11 @@ LegalScope measures the relationship between public legal-exam performance and
 closed-book reasoning over curated summaries of de-identified Chinese judgments.
 This card follows the AIMS at COLM 2026 workshop camera-ready version.
 
+For the downloadable subset, its complete field dictionary, a runnable loading
+example, answer types, and current case-release status, see
+[Using the public release](USING_THE_RELEASE.md). The four Hub configurations
+total 164 rows: 78 source records and 86 metadata rows, not 164 questions.
+
 ## Benchmark Composition
 
 | Component | Count |
@@ -60,6 +65,8 @@ within the relevant split/dimension and rounded to one decimal place.
 The model roster follows Appendix A.1; indices follow Figure 3. The shortened
 figure/table label `LLaMA 3.1 8B` is normalized to `LLaMA 3.1 8B Instruct` in CSVs.
 Table 3 performance values retain the paper's one-decimal precision and order.
+The same model-performance table is Table 4 in the current manuscript checked
+on October 8, 2026; all 252 score values agree.
 
 ## Public Release and Intended Use
 
@@ -79,6 +86,10 @@ evaluation prompts. The paper's historical scores are not rerun scores on a new
 release package. Full benchmark prompts, remaining reference answers, model
 outputs, lawyer sheets and private source documents are not included. Case prompt
 release remains subject to a per-case provenance and privacy review.
+This is a pending release status, not a finding that all case prompts are
+prohibited from publication. Review applies to each proposed prompt and answer;
+the [release guide](USING_THE_RELEASE.md#case-publication-status) distinguishes
+judgment text, project-authored materials, and model responses.
 
 ## Limitations
 

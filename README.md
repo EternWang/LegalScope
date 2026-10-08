@@ -19,6 +19,11 @@ the reported numerical results are unchanged. It provides documentation, paper
 figures, aggregate results, metadata, and workbook helpers.
 The full dataset is not released here.
 
+**Downloadable now:** 78 Victorian Bar source-excerpt records with selected
+candidate answers, plus benchmark metadata. Start with the
+[source dataset](https://huggingface.co/datasets/Hongyu801/LegalScope/viewer/victorian_bar_source_excerpts/source)
+and the [loading and field guide](docs/USING_THE_RELEASE.md).
+
 ## Benchmark at a Glance
 
 <a href="assets/figures/paper_collection_pipeline.png"><img src="assets/figures/paper_collection_pipeline.png" alt="LegalScope construction, evaluation, human validation, and reliability audit pipeline for 28 model groups" width="760"></a>
@@ -61,6 +66,7 @@ are separate from the full benchmark; see the [results](docs/RESULTS_SUMMARY.md)
 | Research question and benchmark design | [Project brief](docs/PROJECT_BRIEF.md) |
 | Findings, figures, and uncertainty | [Results summary](docs/RESULTS_SUMMARY.md) |
 | Counts, sources, and intended use | [Data card](docs/DATA_CARD.md) |
+| Downloads, field meanings, answer types, and examples | [Using the release](docs/USING_THE_RELEASE.md) |
 | Reference-answer scoring and calibrated case rubric | [Scoring rubric](docs/SCORING_RUBRIC.md) |
 | Independent reviewers and lawyer agreement | [Annotation protocol](docs/ANNOTATION_PROTOCOL.md) |
 | Model roster and paper Table 3 | [Model groups](data/metadata/model_groups.csv), [aggregate performance](data/metadata/model_performance.csv) |
@@ -112,6 +118,10 @@ dataset loading; original CSV and JSONL downloads are also available. The other 
 are not cleared for this source-text release. The 276 derived case prompts remain
 outside the public data package pending per-case provenance and privacy review.
 This does not mean that all public judgments are prohibited from reuse.
+Project-authored anonymized prompts and answers can be considered for release
+item by item. Missing an open-license label on a judgment is not itself a ban;
+the remaining source, privacy, and answer-specific checks are described in the
+[case publication status](docs/USING_THE_RELEASE.md#case-publication-status).
 
 Full model-output matrices, lawyer review sheets, source judgments, private
 workbooks and the manuscript source package are not published. The paper is linked
