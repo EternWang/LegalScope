@@ -1,5 +1,10 @@
 'use strict';
 const columns = ['model_group', 'public_exam_auto', 'real_case_auto', 'citation', 'constraint', 'argument', 'public_exam_human', 'real_case_human'];
+const columnLabels = {
+  model_group: 'Model', public_exam_auto: 'Exam · automatic', real_case_auto: 'Case mean · automatic',
+  citation: 'Citation', constraint: 'Constraint', argument: 'Argument',
+  public_exam_human: 'Exam · human', real_case_human: 'Case · human'
+};
 const tbody = document.querySelector('#performance-table tbody');
 const search = document.querySelector('#model-search');
 const status = document.querySelector('#results-status');
@@ -7,8 +12,17 @@ let results = [];
 let sortKey = null;
 let sortAscending = false;
 
+// Rank displayed values over the complete roster, never over a filtered view.
+// Equal scores share a rank; second best means the next distinct score.
+function scoreLeaders(data) {
+  return Object.fromEntries(columns.slice(1).map(column => [column,
+    [...new Set(data.map(row => Number(row[column].toFixed(1))))].sort((a, b) => b - a).slice(0, 2)
+  ]));
+}
+
 function renderResults() {
   const query = search.value.trim().toLowerCase();
+  const leaders = scoreLeaders(results);
   const rows = results.filter(row => row.model_group.toLowerCase().includes(query));
   if (sortKey) rows.sort((a, b) => {
     const comparison = sortKey === 'model_group' ? a[sortKey].localeCompare(b[sortKey]) : a[sortKey] - b[sortKey];
@@ -18,13 +32,30 @@ function renderResults() {
   for (const row of rows) {
     const tr = document.createElement('tr');
     for (const column of columns) {
-      const td = document.createElement('td');
+      const td = document.createElement(column === 'model_group' ? 'th' : 'td');
       td.textContent = column === 'model_group' ? row[column] : row[column].toFixed(1);
+      if (column === 'model_group') {
+        td.scope = 'row';
+      } else {
+        const rank = leaders[column].indexOf(Number(row[column].toFixed(1)));
+        if (rank !== -1) {
+          const label = rank === 0 ? 'Best' : 'Second best';
+          td.classList.add(rank === 0 ? 'score-best' : 'score-second');
+          td.title = `${label} displayed ${columnLabels[column].toLowerCase()} score across all ${results.length} model groups; ties share rank.`;
+          const value = document.createElement('span');
+          value.className = 'score-value';
+          value.textContent = row[column].toFixed(1);
+          const rankLabel = document.createElement('span');
+          rankLabel.className = 'sr-only';
+          rankLabel.textContent = ` (${label.toLowerCase()} in column)`;
+          td.replaceChildren(value, rankLabel);
+        }
+      }
       tr.append(td);
     }
     tbody.append(tr);
   }
-  status.textContent = rows.length ? `${rows.length} of ${results.length} model groups${sortKey ? ' · sorted by ' + document.querySelector(`[data-sort="${sortKey}"]`).textContent.replace('↕', '').trim() : ' · paper order'}` : 'No matching models. Try another name.';
+  status.textContent = rows.length ? `${rows.length} of ${results.length} model groups${sortKey ? ' · sorted by ' + columnLabels[sortKey] : ' · paper order'}` : 'No matching models. Try another name.';
   document.querySelectorAll('[data-sort]').forEach(button => {
     const th = button.closest('th');
     if (button.dataset.sort === sortKey) th.setAttribute('aria-sort', sortAscending ? 'ascending' : 'descending');

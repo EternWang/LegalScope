@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import shutil
 from pathlib import Path
@@ -35,6 +36,17 @@ def main() -> None:
     if len(results) != counts["model_groups"]:
         raise ValueError("Model result count differs from the benchmark snapshot.")
     (data / "results.json").write_text(json.dumps(results, indent=2) + "\n", encoding="utf-8")
+    # Keep returning visitors on matching HTML, styling, code, and score data.
+    result_version = hashlib.sha256((data / "results.json").read_bytes()).hexdigest()[:12]
+    script = output / "app.js"
+    script.write_text(script.read_text(encoding="utf-8").replace(
+        "'data/results.json'", f"'data/results.json?v={result_version}'"
+    ), encoding="utf-8")
+    page = (output / "index.html").read_text(encoding="utf-8")
+    for name, attribute in (("style.css", "href"), ("app.js", "src")):
+        version = hashlib.sha256((output / name).read_bytes()).hexdigest()[:12]
+        page = page.replace(f'{attribute}="{name}"', f'{attribute}="{name}?v={version}"')
+    (output / "index.html").write_text(page, encoding="utf-8")
     (output / ".nojekyll").touch()
     print(f"Built project page with {len(results)} model groups: {output}")
 

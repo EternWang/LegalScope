@@ -2,6 +2,13 @@
 
 ## Content and Project Page Review: October 8, 2026
 
+The subsequent presentation update adds worked exam/case examples, including
+RV038's given facts, assigned task, stored model-answer excerpt and recorded
+4/1/3 rubric scores. Model results now have grouped automatic/human headings,
+subtle table shadows and per-column best/second-best emphasis, with shared marks
+for tied displayed scores. All reported score values are unchanged. The
+Hugging Face source-excerpt package remains prepared but unpublished.
+
 The current manuscript and the final source workbook were checked. The benchmark
 still contains **861 exam items, 276 case prompts, 56 judgments, 138 issues and
 28 model groups**. All 252 published aggregate score values match the current
