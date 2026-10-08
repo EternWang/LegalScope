@@ -33,8 +33,9 @@ outside this release.
 The subsequent presentation update adds worked exam/case examples, including
 RV038's given facts, assigned task, stored model-answer excerpt and recorded
 4/1/3 rubric scores. Model results now have grouped automatic/human headings,
-subtle table shadows and per-column best/second-best emphasis, with shared marks
-for tied displayed scores. All reported score values are unchanged. The
+per-column best (bold) / second-best (underlined) emphasis, with shared marks
+for tied displayed scores. Table/card shadows, diagonal patterns and score-cell
+color fills have been removed following presentation review. All reported score values are unchanged. The
 Hugging Face source-excerpt package is now published after the checks above.
 
 The current manuscript and the final source workbook were checked. The benchmark
@@ -42,6 +43,15 @@ still contains **861 exam items, 276 case prompts, 56 judgments, 138 issues and
 28 model groups**. All 252 published aggregate score values match the current
 manuscript. This is a content check, not a new experiment or a claim of a new
 publication venue; the public citation remains the workshop record below.
+
+A final check also re-aggregated the stored automatic scores and both lawyers'
+case scores from the final workbook. All 252 displayed values agree within the
+paper's one-decimal rounding precision. Workbook model blocks were aligned with
+the paper roster; legacy header labels were recorded, and the additional model
+block outside that roster was excluded. This verifies the stored-score summaries,
+not the identity of past API calls or a rerun of the scoring process. The model
+performance table is Table 3 in the workshop paper and Table 4 in the current
+manuscript; documentation references retain the public workshop numbering.
 
 The project page now uses a centered academic heading, a narrower text column,
 consistent section headings and lighter section backgrounds. Figure 1 retains its

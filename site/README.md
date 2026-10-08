@@ -15,8 +15,8 @@ that release. Paper results and new experiments should remain distinguishable.
 The result table marks the highest and second-highest **distinct displayed
 values per column** across the full 28-model roster. Equal one-decimal scores
 share a mark. Search and sorting never recompute ranks within the visible rows.
-Solid shading and bold text mark the best value; diagonal hatching and an
-underline mark the second. These marks do not establish statistical significance.
+Bold text marks the best value; an underline marks the second. No score-cell
+color fill, diagonal pattern, or table/card shadow is used. These marks do not establish statistical significance.
 
 Worked examples separate source facts, task instructions, reference/model answers
 and presentation commentary. RV038's answer excerpt and 4/1/3 scores follow the
