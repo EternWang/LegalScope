@@ -5,8 +5,44 @@ import argparse
 import csv
 import hashlib
 import json
+import math
 import shutil
 from pathlib import Path
+
+
+SCORE_COLUMNS = {"public_exam_auto", "public_exam_human", "citation", "constraint", "argument", "real_case_auto", "real_case_human", "overall_auto", "overall_human"}
+METADATA_FILES = ("model_performance.csv", "model_groups.csv", "source_composition.csv", "dataset_summary.json")
+
+
+def validate_output_path(root: Path, output: Path) -> None:
+    root, output = root.resolve(), output.resolve()
+    protected = ("site", "assets", "data", "docs", "scripts", "src", "tests", ".git", ".github", ".venv")
+    if not output.is_relative_to(root) or output == root:
+        raise ValueError("Build output must be a subdirectory of this repository.")
+    if any(output.is_relative_to((root / name).resolve()) for name in protected):
+        raise ValueError("Build output must not overwrite repository source, data, or configuration directories.")
+
+
+def load_results(metadata: Path) -> list[dict]:
+    with (metadata / "model_performance.csv").open(encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        if not reader.fieldnames or len(reader.fieldnames) != 10 or set(reader.fieldnames) != SCORE_COLUMNS | {"model_group"}:
+            raise ValueError("Unexpected model-performance columns.")
+        results = []
+        for index, row in enumerate(reader):
+            if None in row or not row["model_group"] or not row["model_group"].strip():
+                raise ValueError("Malformed score row or missing model name.")
+            scores = {key: float(row[key]) for key in SCORE_COLUMNS}
+            if not all(math.isfinite(value) and 0 <= value <= 100 for value in scores.values()):
+                raise ValueError("All scores must be finite values in [0, 100].")
+            results.append({"model_group": row["model_group"], **scores, "paper_order": index})
+    counts = json.loads((metadata / "dataset_summary.json").read_text(encoding="utf-8"))["counts"]
+    with (metadata / "model_groups.csv").open(encoding="utf-8", newline="") as handle:
+        roster = [row["model_group"] for row in csv.DictReader(handle)]
+    names = [row["model_group"] for row in results]
+    if len(names) != counts["model_groups"] or len(set(names)) != len(names) or len(roster) != len(names) or set(names) != set(roster):
+        raise ValueError("Model results must match the unique benchmark roster and count.")
+    return results
 
 
 def main() -> None:
@@ -15,27 +51,34 @@ def main() -> None:
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     output = (root / args.output).resolve()
-    if not output.is_relative_to(root) or output == root:
-        parser.error("Build output must be a subdirectory of this repository.")
+    try:
+        validate_output_path(root, output)
+        metadata = root / "data/metadata"
+        results = load_results(metadata)
+    except (ValueError, TypeError) as error:
+        parser.error(str(error))
+    # Publish only explicit assets. Reject leftovers rather than accidentally
+    # deploying stale examples or unrelated local files from an old build.
+    site_files = [root / "site" / name for name in ("index.html", "style.css", "app.js", "favicon.svg")]
+    figure_files = sorted((root / "assets/figures").glob("*.png"))
+    allowed = {Path(source.name) for source in site_files} | {Path("assets") / source.name for source in figure_files}
+    allowed |= {Path("data") / name for name in METADATA_FILES} | {Path("data/results.json"), Path(".nojekyll")}
+    # Earlier builds copied this developer note; it is safe to keep, but no
+    # longer copied into new builds.
+    allowed.add(Path("README.md"))
+    if output.exists() and any(path.is_file() and path.relative_to(output) not in allowed for path in output.rglob("*")):
+        parser.error("Build output contains unexpected files. Choose an empty output directory.")
     output.mkdir(parents=True, exist_ok=True)
-    for source in (root / "site").iterdir():
-        if source.is_file():
-            shutil.copy2(source, output / source.name)
-    shutil.copytree(root / "assets/figures", output / "assets", dirs_exist_ok=True)
+    for source in site_files:
+        shutil.copy2(source, output / source.name)
+    (output / "assets").mkdir(exist_ok=True)
+    for source in figure_files:
+        shutil.copy2(source, output / "assets" / source.name)
     data = output / "data"
     data.mkdir(exist_ok=True)
-    metadata = root / "data/metadata"
-    for source in metadata.iterdir():
-        if source.suffix in {".csv", ".json"}:
-            shutil.copy2(source, data / source.name)
-    with (metadata / "model_performance.csv").open(encoding="utf-8", newline="") as handle:
-        results = []
-        for index, row in enumerate(csv.DictReader(handle)):
-            results.append({key: value if key == "model_group" else float(value) for key, value in row.items()} | {"paper_order": index})
-    counts = json.loads((metadata / "dataset_summary.json").read_text(encoding="utf-8"))["counts"]
-    if len(results) != counts["model_groups"]:
-        raise ValueError("Model result count differs from the benchmark snapshot.")
-    (data / "results.json").write_text(json.dumps(results, indent=2) + "\n", encoding="utf-8")
+    for name in METADATA_FILES:
+        shutil.copy2(metadata / name, data / name)
+    (data / "results.json").write_text(json.dumps(results, indent=2, sort_keys=True, allow_nan=False) + "\n", encoding="utf-8")
     # Keep returning visitors on matching HTML, styling, code, and score data.
     result_version = hashlib.sha256((data / "results.json").read_bytes()).hexdigest()[:12]
     script = output / "app.js"

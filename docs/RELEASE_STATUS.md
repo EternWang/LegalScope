@@ -1,5 +1,33 @@
 # Release Status
 
+## Public Package and Code Checks: October 8, 2026
+
+The canonical Hugging Face repository is now
+[Hongyu801/LegalScope](https://huggingface.co/datasets/Hongyu801/LegalScope).
+The reviewed release is commit
+[`2d09713`](https://huggingface.co/datasets/Hongyu801/LegalScope/commit/2d09713c9e3440226f0db079694d82016fa15b9e).
+The earlier Hongyu513 repository is retained as a historical metadata preview;
+active project links and loading examples use Hongyu801.
+
+This release contains 78 Victorian Bar source-excerpt records, selected candidate
+answers, per-record notices, a source manifest, and benchmark metadata. All four
+Hub configurations use Parquet: 28 model results, 28 roster records, 30 composition
+rows, and 78 source records. The original CSV/JSONL files remain available. The
+storage conversion was checked field-for-field and does not change source text.
+Using one loader format fixes the failure caused by mixing CSV and JSONL configs.
+
+Code checks also found and fixed unsafe legacy export defaults, a zero-size
+sample exporting every row, and build output paths overlapping source/data
+directories. Export previews now stay in a private or external empty directory;
+the site builder validates finite score values and the complete model roster.
+Fresh-clone installation includes the local helper package. CI now builds the
+site and checks JavaScript syntax as well as running Python tests.
+
+The checks concern the public utilities, website, and reviewed release package.
+They do not rerun the private generation/scoring pipeline or reproduce all paper
+experiments. Unreviewed exam sources, case records, and private workbooks remain
+outside this release.
+
 ## Content and Project Page Review: October 8, 2026
 
 The subsequent presentation update adds worked exam/case examples, including
@@ -7,7 +35,7 @@ RV038's given facts, assigned task, stored model-answer excerpt and recorded
 4/1/3 rubric scores. Model results now have grouped automatic/human headings,
 subtle table shadows and per-column best/second-best emphasis, with shared marks
 for tied displayed scores. All reported score values are unchanged. The
-Hugging Face source-excerpt package remains prepared but unpublished.
+Hugging Face source-excerpt package is now published after the checks above.
 
 The current manuscript and the final source workbook were checked. The benchmark
 still contains **861 exam items, 276 case prompts, 56 judgments, 138 issues and
@@ -34,7 +62,7 @@ data permissions or reported findings.
 | Material | Current status |
 | --- | --- |
 | Benchmark metadata, aggregate scores and research documentation | Public on GitHub and Hugging Face |
-| Victorian Bar source excerpts and selected candidate answers, 78 items | Prepared for Hugging Face; not yet published as a dataset |
+| Victorian Bar source excerpts and selected candidate answers, 78 items | Published on Hongyu801/LegalScope under CC BY-NC-ND 4.0 |
 | Remaining exam items, 783 | Source-text redistribution not cleared for this release |
 | Derived case prompts and scoring packets, 276 | Pending per-case source and privacy review |
 | Original judgment files and private workbooks | Not included in the public release |

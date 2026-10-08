@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from contextlib import closing
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -8,12 +9,16 @@ from openpyxl import load_workbook
 
 
 def clip_text(value: Any, limit: int = 320) -> str:
-    """Return a compact, public-display-safe excerpt."""
+    """Normalize and shorten text; this does not clear privacy or reuse rights."""
+    if limit < 0:
+        raise ValueError("limit must be non-negative")
     if value is None:
         return ""
     text = " ".join(str(value).replace("\r", "\n").split())
     if len(text) <= limit:
         return text
+    if limit < 3:
+        return text[:limit]
     return text[: limit - 3].rstrip() + "..."
 
 
@@ -49,20 +54,20 @@ class SheetSummary:
 
 
 def summarize_workbook(path: str | Path) -> list[SheetSummary]:
-    workbook = load_workbook(path, read_only=True, data_only=True)
     summaries: list[SheetSummary] = []
-    for sheet in workbook.worksheets:
-        rows = sheet.iter_rows(values_only=True)
-        first_header = next(rows, ()) or ()
-        second_header = next(rows, ()) or ()
-        data_rows = sum(1 for row in rows if any(value is not None for value in row))
-        models = detect_model_headers(first_header, second_header)
-        summaries.append(
-            SheetSummary(
-                title=sheet.title,
-                data_rows=data_rows,
-                model_count=len(models),
-                model_names=models,
+    with closing(load_workbook(path, read_only=True, data_only=True)) as workbook:
+        for sheet in workbook.worksheets:
+            rows = sheet.iter_rows(values_only=True)
+            first_header = next(rows, ()) or ()
+            second_header = next(rows, ()) or ()
+            data_rows = sum(1 for row in rows if any(value is not None for value in row))
+            models = detect_model_headers(first_header, second_header)
+            summaries.append(
+                SheetSummary(
+                    title=sheet.title,
+                    data_rows=data_rows,
+                    model_count=len(models),
+                    model_names=models,
+                )
             )
-        )
     return summaries

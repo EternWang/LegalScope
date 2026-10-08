@@ -5,6 +5,7 @@ import csv
 import json
 import re
 from collections import Counter, OrderedDict
+from contextlib import closing
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -362,7 +363,11 @@ def first_model_name(first_header: tuple[object, ...], second_header: tuple[obje
 
 
 def stratified_sample(records: list[dict[str, str]], keys: tuple[str, ...], limit: int) -> list[dict[str, str]]:
-    if limit <= 0 or len(records) <= limit:
+    if limit < 0:
+        raise ValueError("sample size must be non-negative")
+    if limit == 0:
+        return []
+    if len(records) <= limit:
         return records
     buckets: OrderedDict[tuple[str, ...], list[dict[str, str]]] = OrderedDict()
     for record in records:
@@ -603,11 +608,12 @@ def write_data_readme(
     bar_model_response_cells = len(bar_rows) * model_count
     total_model_response_cells = cn_model_response_cells + bar_model_response_cells
 
-    content = f"""# Data Preview
+    content = f"""# Private Legacy Data Preview
 
-This folder contains a compact public-safe release of LegalScope. The full workbook is
-not included in the repository while licensing, privacy, redistribution, and human
-validation review are still in progress.
+This is a local inspection export, not an approved public release. Shortening,
+translating, or sampling source text does not clear redistribution rights or
+privacy. This legacy utility is not validated for the current workshop workbook;
+its output must not replace the versioned paper metadata.
 
 ## Content Preview Files
 
@@ -676,17 +682,27 @@ Top examples:
 
 ## Release Note
 
-This is a research preview for external review and release planning. The
-complete dataset is available only after final source-distribution, privacy, and
-human-validation checks.
+Keep these files private pending source-distribution, privacy, and content checks.
+This export is not a publication manifest or a reproducible evaluation pipeline.
 """
     path.write_text(content, encoding="utf-8")
+
+
+def private_output_path(value: str) -> Path:
+    root = Path(__file__).resolve().parents[1]
+    output = (root / value).resolve()
+    private_root = (root / "data/private").resolve()
+    if root.is_relative_to(output) or (output.is_relative_to(root) and not output.is_relative_to(private_root)):
+        raise ValueError("Legacy previews must be outside the repository or under ignored data/private/; never overwrite published data.")
+    if output.exists() and (not output.is_dir() or any(output.iterdir())):
+        raise ValueError("Choose a new or empty private output directory; existing files will not be overwritten.")
+    return output
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--workbook", required=True, help="Path to the private source workbook.")
-    parser.add_argument("--out-dir", default="data", help="Output directory inside the repo.")
+    parser.add_argument("--out-dir", default="data/private/legacy-preview", help="New private directory; relative paths are resolved from the repository root.")
     parser.add_argument("--sample-per-split", type=int, default=None)
     parser.add_argument("--cn-sample-size", type=int, default=10)
     parser.add_argument("--bar-sample-size", type=int, default=20)
@@ -697,21 +713,25 @@ def main() -> None:
     if args.sample_per_split is not None:
         args.cn_sample_size = args.sample_per_split
         args.bar_sample_size = args.sample_per_split
+    if min(args.cn_sample_size, args.bar_sample_size) < 0:
+        parser.error("Sample sizes must be non-negative; zero exports no rows.")
+    if args.max_cell_chars < 3 or args.distribution_top_k < 1:
+        parser.error("max-cell-chars must be at least 3 and distribution-top-k at least 1.")
 
     workbook_path = Path(args.workbook)
-    out_dir = Path(args.out_dir)
+    try:
+        out_dir = private_output_path(args.out_dir)
+    except ValueError as error:
+        parser.error(str(error))
     sample_dir = out_dir / "sample"
     metadata_dir = out_dir / "metadata"
-    sample_dir.mkdir(parents=True, exist_ok=True)
-    metadata_dir.mkdir(parents=True, exist_ok=True)
-
-    workbook = load_workbook(workbook_path, read_only=True, data_only=True)
-    cn_first, cn_second, cn_rows = read_data_rows(workbook, "CN_Judgments_Multimodel")
-    bar_first, bar_second, bar_rows = read_data_rows(workbook, "Bar_Exam_Multimodel")
+    with closing(load_workbook(workbook_path, read_only=True, data_only=True)) as workbook:
+        cn_first, cn_second, cn_rows = read_data_rows(workbook, "CN_Judgments_Multimodel")
+        bar_first, bar_second, bar_rows = read_data_rows(workbook, "Bar_Exam_Multimodel")
+        model_records = model_group_records(workbook)
 
     cn_model = first_model_name(cn_first, cn_second)
     bar_model = first_model_name(bar_first, bar_second)
-    model_records = model_group_records(workbook)
     cn_model_response_cells = len(cn_rows) * len(model_records)
     bar_model_response_cells = len(bar_rows) * len(model_records)
     total_model_response_cells = cn_model_response_cells + bar_model_response_cells
@@ -723,7 +743,7 @@ def main() -> None:
     bar_full_sample = [bar_sample_record(row, bar_model, args.max_cell_chars) for row in bar_sample_rows]
     cn_sample = stratified_sample(
         cn_full_sample,
-        ("law_category", "case_type", "stance"),
+        ("law_category", "case_type_en", "stance"),
         args.cn_sample_size,
     )
     bar_sample = stratified_sample(
@@ -772,7 +792,7 @@ def main() -> None:
     summaries = summarize_workbook(workbook_path)
     metadata = {
         "source_workbook_name": workbook_path.name,
-        "release_status": "compact public-safe release; full workbook is private/local until licensing review",
+        "release_status": "private legacy preview; not approved for redistribution or current-workbook evaluation",
         "preview_policy": {
             "cn_sample_rows": len(cn_sample),
             "public_exam_sample_rows": len(bar_sample),

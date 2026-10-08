@@ -4,7 +4,7 @@
 
 [Project page](https://eternwang.github.io/LegalScope/) ·
 [Paper](https://openreview.net/forum?id=BNx62Wx1ej) ·
-[Hugging Face](https://huggingface.co/datasets/Hongyu513/LegalScope) ·
+[Hugging Face](https://huggingface.co/datasets/Hongyu801/LegalScope) ·
 [Results](docs/RESULTS_SUMMARY.md) · [Data card](docs/DATA_CARD.md) ·
 [Version notes](docs/RELEASE_STATUS.md) · [Citation](#citation)
 
@@ -75,10 +75,23 @@ local workbook. It has not been rerun against the workshop workbook in this
 documentation update. Its generated metadata is not the versioned paper metadata
 above, and generated samples require release review.
 
+The legacy exporter now defaults to ignored `data/private/legacy-preview/`,
+refuses public repository paths and nonempty output directories, and treats a
+sample size of zero as no records. Its abbreviated or translated previews do
+not establish permission to redistribute source material. Installation below
+also installs the local helper package so script imports work from a fresh clone.
+
 ```bash
 python -m pip install -r requirements.txt
 python -m pytest -q
 ```
+
+For the reviewed public Hugging Face package, `scripts/prepare_hf_tables.py`
+creates lossless Parquet loader tables from the original CSV/JSONL files. Install
+`python -m pip install -e ".[release]"`, then run
+`python scripts/prepare_hf_tables.py --package-dir /path/to/reviewed-package`.
+The utility verifies the source manifest and round-trips every converted value;
+it does not extract new data from a private workbook or clear new source rights.
 
 This repository alone cannot reproduce the complete evaluation: the full workbook,
 prompt/reference matrix, model responses, and human review sheets are not included.
@@ -91,10 +104,11 @@ Victorian Bar question-and-answer excerpt under **CC BY-NC-ND 4.0**. That excerp
 is not covered by this repository's MIT license. See
 [third-party notices](THIRD_PARTY_NOTICES.txt).
 
-A separate 78-item Victorian Bar source-excerpt package has been prepared for the
-existing Hugging Face repository. It retains the original source license,
-attribution, publication links and selected candidate answers. Its publication is
-pending; the current Hub remains a metadata preview. The other 783 exam records
+A separate 78-item Victorian Bar source-excerpt package is published at
+[Hongyu801/LegalScope](https://huggingface.co/datasets/Hongyu801/LegalScope).
+It retains the original source license, attribution, publication links and
+selected candidate answers. Four independent Parquet configurations support
+dataset loading; original CSV and JSONL downloads are also available. The other 783 exam records
 are not cleared for this source-text release. The 276 derived case prompts remain
 outside the public data package pending per-case provenance and privacy review.
 This does not mean that all public judgments are prohibited from reuse.

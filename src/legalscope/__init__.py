@@ -1,3 +1,3 @@
-"""Utilities for the LegalScope public-safe release."""
+"""Workbook inspection utilities for LegalScope."""
 
 __version__ = "0.1.0"

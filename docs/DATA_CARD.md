@@ -69,8 +69,10 @@ and helper reuse with authorized local data. The project page includes one
 attributed Victorian Bar question-and-answer excerpt under CC BY-NC-ND 4.0;
 see [third-party notices](../THIRD_PARTY_NOTICES.txt).
 
-A 78-item original-text subset is prepared for Hugging Face, with source-specific
-attribution and license notices. It is not yet published as a downloadable dataset.
+A 78-item original-text subset is published on
+[Hugging Face](https://huggingface.co/datasets/Hongyu801/LegalScope), with
+source-specific attribution and license notices. The four configurations use
+Parquet for loading; original CSV/JSONL files remain downloadable.
 It omits model responses, human annotations and project-authored exam summaries.
 It is a collection of source excerpts, not an exact replacement for the complete
 evaluation prompts. The paper's historical scores are not rerun scores on a new

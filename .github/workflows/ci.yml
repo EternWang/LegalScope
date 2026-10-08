@@ -33,3 +33,8 @@ jobs:
 
       - name: Compile Python sources
         run: python -m compileall scripts src
+
+      - name: Validate website build and JavaScript
+        run: |
+          python scripts/build_site.py
+          node --check site/app.js

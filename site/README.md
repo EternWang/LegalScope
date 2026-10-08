@@ -25,3 +25,8 @@ the 0–4 display is a scoring scale, not a measured model score for that excerp
 
 The build versions CSS, JavaScript and generated result URLs by content hash so
 returning visitors do not receive old table behavior with new page content.
+
+Before writing output, the build checks the model roster and finite 0–100 score
+values. It refuses source directories as output, publishes only the listed
+website assets and metadata, and rejects unexpected files left in the build
+directory. This prevents an old local preview from silently entering a release.

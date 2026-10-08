@@ -144,9 +144,10 @@
     "date": "2026-10-08",
     "victorian_source_excerpt_records_prepared": 78,
     "victorian_source_license": "CC-BY-NC-ND-4.0",
-    "public_downloadable_source_excerpt_records": 0,
-    "hf_subset_status": "prepared_not_published",
+    "public_downloadable_source_excerpt_records": 78,
+    "hf_subset_status": "published_on_hugging_face",
     "other_exam_records_not_cleared_for_this_release": 783,
-    "case_prompts_pending_provenance_and_privacy_review": 276
+    "case_prompts_pending_provenance_and_privacy_review": 276,
+    "hugging_face_repository": "Hongyu801/LegalScope"
   }
 }

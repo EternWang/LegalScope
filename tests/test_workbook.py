@@ -10,6 +10,12 @@ class WorkbookHelperTests(unittest.TestCase):
         text = clip_text("alpha\n beta   gamma", limit=12)
         self.assertEqual(text, "alpha bet...")
 
+    def test_short_limits_never_exceed_requested_length(self) -> None:
+        for limit in range(5):
+            self.assertLessEqual(len(clip_text("abcdef", limit)), limit)
+        with self.assertRaises(ValueError):
+            clip_text("abcdef", -1)
+
     def test_detect_model_headers_excludes_sheet_group_labels(self) -> None:
         headers = [
             "External Sample Basic Info",
