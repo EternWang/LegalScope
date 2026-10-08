@@ -132,5 +132,21 @@
     "citation_relevance": 66.9,
     "constraint_extraction": 79.3,
     "argument_validity": 72.6
+  },
+  "content_verified_on": "2026-10-08",
+  "content_verification": {
+    "model_groups": 28,
+    "aggregate_score_values": 252,
+    "score_mismatches": 0,
+    "source_workbook_matches_previous_audit": true
+  },
+  "release_review": {
+    "date": "2026-10-08",
+    "victorian_source_excerpt_records_prepared": 78,
+    "victorian_source_license": "CC-BY-NC-ND-4.0",
+    "public_downloadable_source_excerpt_records": 0,
+    "hf_subset_status": "prepared_not_published",
+    "other_exam_records_not_cleared_for_this_release": 783,
+    "case_prompts_pending_provenance_and_privacy_review": 276
   }
 }

@@ -65,8 +65,18 @@ Table 3 performance values retain the paper's one-decimal precision and order.
 
 The repository exposes documentation, figures, aggregate statistics, and workbook
 helpers. It supports inspection of benchmark design and evaluation methodology,
-and helper reuse with authorized local data. It does not include full prompts,
-reference answers, model outputs, lawyer sheets, or private source documents.
+and helper reuse with authorized local data. The project page includes one
+attributed Victorian Bar question-and-answer excerpt under CC BY-NC-ND 4.0;
+see [third-party notices](../THIRD_PARTY_NOTICES.txt).
+
+A 78-item original-text subset is prepared for Hugging Face, with source-specific
+attribution and license notices. It is not yet published as a downloadable dataset.
+It omits model responses, human annotations and project-authored exam summaries.
+It is a collection of source excerpts, not an exact replacement for the complete
+evaluation prompts. The paper's historical scores are not rerun scores on a new
+release package. Full benchmark prompts, remaining reference answers, model
+outputs, lawyer sheets and private source documents are not included. Case prompt
+release remains subject to a per-case provenance and privacy review.
 
 ## Limitations
 
