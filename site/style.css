@@ -99,12 +99,41 @@
 .resource-docs{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
 .resource-docs a{font-size:13px;color:var(--blue);text-decoration:underline;text-underline-offset:3px}
 
-/* A recorded exam response alongside its reference-answer evaluation. */
-.example-output-row{grid-column:1/-1;display:grid;grid-template-columns:1fr 1.1fr;gap:30px;border-top:1px solid var(--line);padding-top:26px}
-.exam-scoring{border-left:1px solid var(--line);padding-left:26px}
-.exam-scoring .score-example{margin:0 0 20px;gap:16px}
-.exam-scoring .score-example strong{font-family:var(--sans);font-size:34px;line-height:1.2;font-weight:600}
-.exam-scoring .score-example small{font-size:18px;font-weight:400;margin-left:3px;color:var(--muted)}
-.exam-scoring .score-reasons>div{grid-template-columns:80px 1fr}
-@media(max-width:900px){.example-output-row{gap:23px;padding-top:23px}.exam-scoring{padding-left:22px}.exam-scoring .score-reasons>div{grid-template-columns:1fr;gap:2px}}
-@media(max-width:640px){.example-output-row{grid-template-columns:1fr;gap:22px;padding-top:22px}.exam-scoring{border-left:0;border-top:1px solid var(--line);padding:22px 0 0}.exam-scoring .score-reasons>div{grid-template-columns:80px 1fr;gap:9px}}
+/* An exam response with its score in the heading and explanation below. */
+.example-output-row{grid-column:1/-1;border-top:1px solid var(--line);padding-top:26px}
+.model-heading{display:flex;align-items:baseline;justify-content:space-between;gap:20px}
+.model-heading .answer-origin{margin-bottom:14px}
+.example-panel .exam-score{display:flex;align-items:baseline;gap:12px;white-space:nowrap;margin:0}
+.exam-score span{font-size:11px;color:var(--muted)}
+.exam-score strong{font-size:24px;line-height:1.3;color:var(--ink);font-weight:600}
+.exam-score small{font-size:13px;font-weight:400;color:var(--muted);margin-left:3px}
+.answer-caption{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.example-panel .answer-caption .answer-key{margin:0}
+.answer-caption>a{font-size:11px;color:var(--muted);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.example-panel .evaluation-summary{font-size:13px;color:var(--muted);line-height:1.65;margin:14px 0 0}
+@media(max-width:640px){.example-output-row{padding-top:22px}.model-heading{align-items:flex-start;gap:12px}.example-panel .exam-score{flex-direction:column;align-items:flex-end;gap:1px}.answer-caption{align-items:flex-end}}
+
+/* Keep each criterion, score and explanation together. */
+.evaluation-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-top:22px}
+.example-panel .evaluation-heading h4{margin:0}
+.evaluation-heading a{font-size:11px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.case-evaluation{grid-column:1/-1}
+.case-evaluation .evaluation-heading{margin-top:0}
+.case-evaluation .evaluation-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.evaluation-list{margin:8px 0 0}
+.evaluation-list>div{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:5px 14px;padding:13px 0;border-top:1px solid var(--line)}
+.evaluation-list dt{font-size:13px;font-weight:600;color:var(--ink)}
+.evaluation-list dd{display:contents}
+.evaluation-list strong{font-size:21px;line-height:1.3;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
+.evaluation-list small{font-size:12px;font-weight:400;color:var(--muted);margin-left:3px}
+.example-panel .evaluation-list p{grid-column:1/-1;font-size:12px;line-height:1.65;margin:0;color:var(--muted)}
+.model-answer p{margin:0 0 16px}
+.model-answer p:last-child{margin-bottom:0}
+.model-answer mark.answer-correct{background:#e3f2e6;border-bottom:1px solid #a5cbb0}
+.model-answer mark.answer-problem{background:#fff0c2;border-bottom:1px dotted #bd9440}
+.example-panel .answer-key{display:flex;flex-wrap:wrap;gap:7px 18px;font-size:11px;line-height:1.5;color:var(--muted);margin:10px 0 0}
+.answer-key span{display:inline-flex;align-items:center;gap:6px}
+.answer-key i{display:inline-block;width:13px;height:10px;flex:none}
+.key-correct{background:#e3f2e6;border-bottom:1px solid #a5cbb0}
+.key-problem{background:#fff0c2;border-bottom:1px dotted #bd9440}
+@media(max-width:760px){.case-evaluation .evaluation-list{grid-template-columns:1fr;gap:0}}

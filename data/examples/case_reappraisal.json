@@ -1,0 +1,26 @@
+{
+  "track": "case",
+  "item_id": "RV038",
+  "model_group": "Qwen3 235B A22B",
+  "evaluation": "automatic",
+  "response_excerpt_segments": [
+    "Article 40 of the Several Provisions of the Supreme People's Court on Evidence in Civil Proceedings,",
+    "only where there are statutory grounds such as serious illegality in the appraisal procedure, manifest insufficiency of the appraisal basis,",
+    "may the court permit a new appraisal.",
+    "In this case, the original appraisal was made by an appraisal institution with statutory qualifications after lawfully accepting the commission; during the appraisal process, all outpatient and emergency medical records, electrocardiogram materials, and emergency treatment records were reviewed, and the compliance of the diagnosis and treatment conduct, the sufficiency of the risk disclosure, and causation were analyzed item by item, with complete procedures and sufficient basis."
+  ],
+  "excerpt_note": "Segments are verbatim, in source order. Bracketed ellipses on the website indicate omissions. Highlighting and explanations are editorial annotations.",
+  "scores": {
+    "citation_relevance": 4,
+    "constraint_extraction": 1,
+    "argument_validity": 3
+  },
+  "score_scale": {
+    "min": 0,
+    "max": 4
+  },
+  "answer_sha256": "c5142c7cfc1452eafa24047df286f98c865f7d63b38e2c11046affd6fde2cba8",
+  "score_records": "../results/answer_scores.csv.gz",
+  "full_response_records": "https://huggingface.co/datasets/Hongyu801/LegalScope/resolve/main/data/results/case_model_responses.parquet",
+  "paper": "https://openreview.net/forum?id=BNx62Wx1ej"
+}

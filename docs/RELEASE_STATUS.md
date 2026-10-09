@@ -64,8 +64,11 @@ text retains CC BY-NC-ND 4.0 and its accompanying notices. The license does not
 grant rights to excluded source judgments. See
 [third party notices](../THIRD_PARTY_NOTICES.txt).
 
-The remaining 783 exam records, original judgments, identifying case mappings,
-exam model responses and raw human review documents are not included.
+Original judgments and identifying case mappings are excluded to protect privacy
+and confidentiality. The remaining 783 exam inputs are excluded because third-party
+rights have not been cleared for redistribution. The full exam response collection
+and raw human review documents are not included; selected model answers and scores
+are available as [worked examples](../data/examples/).
 The 78 exam source records preserve publisher text and are not exact replacements
 for the original exam evaluation inputs. Recovered runtime settings and rubrics
 identify their batch scope; new model runs need not reproduce historical outputs.
