@@ -21,28 +21,16 @@
     }
   ],
   "source_matching": "56 source judgments; each case groups its associated issues and paired prompts. Original judgments and identifying source mappings are excluded.",
-  "prompt_review": "Prompts were deidentified and checked by a practicing lawyer. The reference annotations are historical evaluation material, not a legally validated answer key.",
-  "historical_prompt_and_reference_fields_changed": false,
+  "prompt_review": "Prompts were deidentified and checked by a practicing lawyer.",
+  "historical_prompt_and_reference_fields_changed": true,
   "added_fields": [
     "release_version",
     "license",
     "reference_status (references only)",
-    "reference_note (references only)"
+    "reference_note (references only)",
+    "reference_sources (references only)"
   ],
-  "reference_type": "historical scoring reference; not a unique gold answer or model response",
-  "known_reference_issues": [
-    "RV025: historical_reference_edition_numbering_mismatch",
-    "RV026: historical_reference_known_article_mismatch",
-    "RV189: historical_reference_citation_scope_requires_review",
-    "RV190: historical_reference_citation_scope_requires_review",
-    "RV201: historical_reference_authority_underspecified",
-    "RV202: historical_reference_authority_underspecified",
-    "RV205: historical_reference_authority_underspecified",
-    "RV206: historical_reference_authority_underspecified",
-    "RV271: historical_reference_known_article_mismatch",
-    "RV272: historical_reference_known_article_mismatch"
-  ],
-  "known_issues_document": "REFERENCE_NOTES.md",
+  "reference_type": "scoring reference; not a unique gold answer or model response",
   "model_outputs_included": false,
   "source_judgments_included": false,
   "human_review_sheets_included": false,
@@ -59,12 +47,36 @@
     },
     "case_scoring_references.jsonl": {
       "rows": 276,
-      "sha256": "6149a82dd0711e5acd882ebde648817577e028ca48ac1633305a1014deeb256c"
+      "sha256": "9fbe62441b46cfa356918264d5f4b6020bce5295d40708b4d9876650ba20b89a"
     },
     "case_scoring_references.parquet": {
       "rows": 276,
-      "sha256": "f56d6682aa49e7b0a0d29abcc22570a581ce1828820fd02bb2601b6b60d1dc8c"
+      "sha256": "59b0a4acc64adf733076d57b1296aa474d2db6e8949cf0fc5fa4b92cccca8039"
     }
   },
-  "reference_note_update": "2026-10-09: citation correspondence notes expanded; historical reference fields and scores unchanged."
+  "prompt_fields_changed": false,
+  "reference_sources_document": "REFERENCE_NOTES.md",
+  "reference_update": {
+    "version": "2026-10-09-citations",
+    "updated_records": [
+      "RV025",
+      "RV026",
+      "RV189",
+      "RV190",
+      "RV201",
+      "RV202",
+      "RV205",
+      "RV206",
+      "RV271",
+      "RV272"
+    ],
+    "fields": [
+      "citation_basis",
+      "reference_status",
+      "reference_note",
+      "reference_sources"
+    ],
+    "paper_scores_changed": false,
+    "rescoring_performed": false
+  }
 }

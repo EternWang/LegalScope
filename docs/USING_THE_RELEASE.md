@@ -9,7 +9,7 @@
 | Model roster | 28 rows | Display names and paper indices |
 | Source composition | 30 rows | Overlapping breakdowns of the full benchmark, not additional examples |
 | Case prompts | 276 records | Full prompt text preserved from the final workbook |
-| Historical case scoring references | 276 records | Join by `review_id`; authorities/propositions/constraints, not unique gold answers; see known issue flags |
+| Case scoring references | 276 records | Join by `review_id`; authorities/propositions/constraints, not unique gold answers; see official source links |
 
 The Hub may report **716 rows** across six configurations: 276 case prompts,
 276 matching references, 78 source records and 86 metadata rows. There are 354
@@ -22,7 +22,7 @@ evaluation; no train/development partitions are supplied. The source subset uses
 ```python
 from datasets import load_dataset
 
-revision = "15c9e55c50ea1122ce5d8f3b42b8520f4768362a"
+revision = "3f2126c5c4b0842872311c2e71c00e300a9ae776"
 prompts = load_dataset("Hongyu801/LegalScope", "case_prompts", split="test", revision=revision)
 references = load_dataset("Hongyu801/LegalScope", "case_scoring_references", split="test", revision=revision)
 by_id = {r["review_id"]: r for r in references}
@@ -132,10 +132,10 @@ paper's scores were not rerun on this package.
 
 ## Case publication status
 
-All 276 case prompts and 276 matching historical references are available.
+All 276 case prompts and 276 matching scoring references are available.
 See [case sources and fields](CASE_RELEASE.md) and the
-[reference notes and known issues](CASE_REFERENCE_NOTES.md). Original prompt and
-reference text is retained. Reported scores have not been rerun. Original
+[official reference sources](CASE_REFERENCE_NOTES.md). Prompt text and reported
+scores are unchanged; reference citations include the supplied source links. Original
 judgments, identifying mappings and the full model response matrix are excluded.
 
 ## Licenses and corrections

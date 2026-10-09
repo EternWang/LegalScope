@@ -1,75 +1,18 @@
-# Reference notes
+# Reference sources
 
-The case references contain legal authorities, propositions and constraints from
-the original evaluation dataset. They support the scoring protocol and are not
-unique model answers. They have not been independently validated as a complete
-legal reference database.
-
-## Nursing fee references: RV025 and RV026
-
-| Record | Issue | Reading guidance |
+| Records | Authority and provisions | Official source |
 | --- | --- | --- |
-| RV025 | The reference uses Article 32 without an edition, while the supplied judgment cites the 2020 revision. | The continuation rule is Article 19 in the 2020 revision. |
-| RV026 | Article 23 does not state the nursing fee calculation rule. Article 32 also uses older numbering. | The 2020 revision places the calculation and continuation rules in Articles 8 and 19. |
+| RV025 | 人身损害护理依赖程度评定（GA/T 800-2008）: Appendix B | [Source](https://std.samr.gov.cn/hb/search/stdHBDetailed?id=8B1827F1D966BB19E05397BE0A0AB44A) |
+| RV025 | 最高人民法院关于审理人身损害赔偿案件适用法律若干问题的解释（2020年修正）: Article 19 | [Source](https://www.court.gov.cn/zixun/xiangqing/282621.html) |
+| RV026 | 最高人民法院关于审理人身损害赔偿案件适用法律若干问题的解释（2020年修正）: Articles 8 and 19 | [Source](https://www.court.gov.cn/zixun/xiangqing/282621.html) |
+| RV189, RV190 | 最高人民法院关于审理人身损害赔偿案件适用法律若干问题的解释（2003年）: Articles 19, 20, 21 and 24 | [Source](https://lagos.china-consulate.gov.cn/chn/lsfw/zjfw/wtjd/200601/t20060118_6633140.htm) |
+| RV189, RV190 | 最高人民法院关于确定民事侵权精神损害赔偿责任若干问题的解释（2001年）: Article 8 | [Source](https://jtgl.beijing.gov.cn/jgj/jgxx/flfg/qt/122224/index.html) |
+| RV201, RV202 | 中华人民共和国刑法: Article 18 | [Source](https://tianjin.chinatax.gov.cn/11200000000/0300/030004/03000418/20240920152615743.shtml) |
+| RV201, RV202 | 最高人民法院关于适用《中华人民共和国刑事诉讼法》的解释（法释〔2021〕1号）: Articles 97 and 98 | [Source](https://www.court.gov.cn/zixun/xiangqing/286491.html) |
+| RV205, RV206 | 最高人民法院关于适用《中华人民共和国刑事诉讼法》的解释（法释〔2021〕1号）: Article 295(1)(2) and paragraph 3 | [Source](https://www.court.gov.cn/zixun/xiangqing/286491.html) |
+| RV271, RV272 | 住房城乡建设领域违法违规行为举报管理办法（建稽〔2014〕166号）: Article 9 | [Source](https://jjjcz.mee.gov.cn/djfg/gjflfg/bwgz/qtguizhang/201411/t20141119_445293.html) |
+| RV271, RV272 | 中华人民共和国行政诉讼法（2017年修正）: Article 74(1)(2) | [Source](https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2025/art_ba3b20d736d14aeeb1ace665f0f51a21.html) |
+| RV271, RV272 | 最高人民法院关于适用《中华人民共和国行政诉讼法》的解释（法释〔2018〕1号）: Article 96 | [Source](https://www.court.gov.cn/fabu/xiangqing/80342.html) |
+| RV271, RV272 | 中华人民共和国行政复议法（2023年修订）: Article 65(1)(2) | [Source](https://xz.spb.gov.cn/xzyzglj/c100065/c100066/202312/7f4c4135a419497ea449cdc9e46fa385.shtml) |
 
-The [older judicial interpretation](https://dxjjjc.bjdx.gov.cn/jjjcw/xxgk/qtgk/djfg01/1464943/index.html)
-sets out nursing fee calculation in Article 21 and continued payments in Article 32;
-Article 23 concerns inpatient meal allowances. The
-[2020 revision, effective January 1, 2021](https://www.court.gov.cn/zixun/xiangqing/282621.html),
-places nursing calculation and continuation in Articles 8 and 19; Article 23
-concerns compensation for mental distress. The supplied judgment explicitly
-identifies the 2020 revision in its statement of the first instance legal basis.
-It also reproduces an appellant's argument using older numbering. These passages
-must be distinguished when interpreting the reference. The
-[2022 text](https://www.court.gov.cn/fabu/xiangqing/357071.html) retains Articles 8
-and 19, but is not the edition named in that passage of the source judgment.
-
-## Procedural defects: RV271 and RV272
-
-The proposition in these records concerns a minor procedural violation without
-an actual adverse effect on the applicant's rights. Two citations identify a
-different provision:
-
-| Historical citation | Provision corresponding to the stated rule |
-| --- | --- |
-| Administrative Litigation Law, Article 74(1)(1) | Article 74(1)(2) |
-| Administrative Reconsideration Law, Article 65(2)(2) | Article 65(1)(2), in the 2023 revision effective January 1, 2024 |
-
-Article 74(1)(1) concerns serious harm to national or public interests if an act
-is revoked. Article 65(2)(2) concerns an authority changing the challenged act
-while the applicant continues to request review. See the official texts of the
-[Administrative Litigation Law](https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2025/art_ba3b20d736d14aeeb1ace665f0f51a21.html)
-and [Administrative Reconsideration Law](https://xz.spb.gov.cn/xzyzglj/c100065/c100066/202312/7f4c4135a419497ea449cdc9e46fa385.shtml).
-These mismatches are also present in the supplied source text; they were not
-introduced by the public export. The observation concerns the correspondence
-between a citation and the stated rule, not a new assessment of the case outcome.
-
-## References requiring clarification
-
-RV189 and RV190 cite Article 20 of the 2003 personal injury interpretation,
-which addresses lost income; the stated proposition discusses medical expenses,
-for which Article 19 is directly relevant. Article 20 may also be relevant by
-cross-reference when a caregiver has income. Whether to supplement or replace
-the citation requires a substantive review, so no replacement is applied.
-
-RV201 and RV202 use the generic English label “Rules for Reviewing and Determining
-Forensic Psychiatric Appraisal Opinions” without identifying an issuing authority,
-edition or provision. The exact intended authority has not been established.
-RV205 and RV206 state a procedural principle without a specific provision.
-These references should not be treated as precise bibliographic citations.
-
-Unflagged records are not a certification of legal correctness. Citation
-existence, the law applicable at the relevant time, and support for the particular
-proposition are separate checks. Older laws may be appropriate for older events.
-
-## Version handling
-
-The released reference fields retain their original wording, with known issues
-recorded in `reference_status` and `reference_note`. Prompt text and published
-scores are unchanged. The effect on scoring has not been measured. Evaluations
-using corrected references should identify their reference version and report
-new scores separately from the paper's results.
-
-An [offline comparison utility](REFERENCE_REVIEW.md) prepares responses and
-validates result coverage for a new evaluation. It does not supply a corrected
-gold answer set or implement the historical evaluator.
+Published scores are unchanged.

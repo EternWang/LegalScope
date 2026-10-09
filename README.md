@@ -17,12 +17,11 @@ documentation, figures, aggregate results, metadata and dataset utilities.
 Reported scores cover 28 model groups; the data release does not change them.
 
 **Downloadable now:** all 276 deidentified case prompts with 276 separately
-packaged historical scoring references, 78 Victorian Bar source excerpt records
+packaged scoring references, 78 Victorian Bar source excerpt records
 with selected candidate answers, and benchmark metadata. Start with the
 [case dataset](https://huggingface.co/datasets/Hongyu801/LegalScope/viewer/case_prompts/test)
 and the [loading and field guide](docs/USING_THE_RELEASE.md).
-See [reference notes and known issues](docs/CASE_REFERENCE_NOTES.md) before using
-their scoring references.
+[Official reference sources](docs/CASE_REFERENCE_NOTES.md) accompany the updated citations.
 
 ## Benchmark at a Glance
 
@@ -113,11 +112,10 @@ is not covered by this repository's MIT license. See
 [third party notices](THIRD_PARTY_NOTICES.txt).
 
 The [Hugging Face release](https://huggingface.co/datasets/Hongyu801/LegalScope)
-provides six separate Parquet configurations: case prompts, historical case
+provides six separate Parquet configurations: case prompts, case
 references, exam source excerpts, model scores, the roster, and source composition.
 Original CSV/JSONL files remain downloadable. The 276 case prompts match the
-final workbook; reference fields preserve their historical wording and carry
-known-issue flags. See the [case release](docs/CASE_RELEASE.md).
+final workbook; scoring references include updated citations and official source links. See the [case release](docs/CASE_RELEASE.md).
 
 The 78 Victorian Bar excerpts retain their CC BY-NC-ND 4.0 license and notices;
 the other 783 exam records are not cleared for this source-text release.

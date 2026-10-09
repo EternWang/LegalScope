@@ -9,7 +9,7 @@ This card follows the AIMS at COLM 2026 workshop camera-ready version.
 For the downloadable subset, its complete field dictionary, a runnable loading
 example, answer types, and current case-release status, see
 [Using the public release](USING_THE_RELEASE.md). The six Hub configurations total 716 rows: 276 case prompts, 276 matching
-historical references, 78 exam source records and 86 metadata rows. This means
+scoring references, 78 exam source records and 86 metadata rows. This means
 354 prompt/source records, not 716 questions. See the [case fields and provenance](CASE_RELEASE.md).
 
 ## Benchmark Composition
@@ -78,12 +78,11 @@ attributed Victorian Bar question-and-answer excerpt under CC BY-NC-ND 4.0;
 see [third party notices](../THIRD_PARTY_NOTICES.txt).
 
 The [Hugging Face release](https://huggingface.co/datasets/Hongyu801/LegalScope)
-includes all 276 deidentified case prompts and their historical references in
+includes all 276 deidentified case prompts and their scoring references in
 separate configurations, plus 78 Victorian Bar source excerpts. Six configurations
 use Parquet; original CSV/JSONL downloads remain available. The case input and
-reference fields are unchanged from the final workbook. Known article/edition
-issues and clarification needs are flagged in the [reference notes](CASE_REFERENCE_NOTES.md).
-This release does not certify every reference as legally correct.
+reference fields match the current workbook. Updated citations and their
+[official sources](CASE_REFERENCE_NOTES.md) are included in the reference configuration.
 
 The exam subset retains source-specific attribution and CC BY-NC-ND 4.0 notices;
 it is not an exact replacement for the original exam evaluation inputs.

@@ -1,7 +1,7 @@
 {
   "project": "LegalScope",
   "snapshot": "AIMS at COLM 2026 workshop camera-ready",
-  "release_status": "276 case prompts and 276 historical scoring references, 78 exam source excerpts, metadata and documentation; not a full experiment artifact release",
+  "release_status": "276 case prompts and 276 scoring references with citation sources, 78 exam source excerpts, metadata and documentation; not a full experiment artifact release",
   "public_release_boundary": {
     "full_workbook_public": false,
     "full_prompt_matrix_public": false,
@@ -154,21 +154,32 @@
     "public_case_prompts": 276,
     "public_case_historical_scoring_references": 276,
     "case_source_matches": 56,
-    "case_reference_issue_ids": [
-      "RV025",
-      "RV026",
-      "RV189",
-      "RV190",
-      "RV201",
-      "RV202",
-      "RV205",
-      "RV206",
-      "RV271",
-      "RV272"
-    ],
-    "case_reference_legal_validation": "not exhaustive; known article and edition issues documented",
+    "case_reference_legal_validation": "Citation sources supplied for ten updated records; no exhaustive legal validation claim.",
     "hub_configuration_count": 6,
     "hub_total_rows": 716,
-    "downloadable_prompt_or_source_records": 354
+    "downloadable_prompt_or_source_records": 354,
+    "case_reference_citation_update": {
+      "version": "2026-10-09-citations",
+      "updated_records": [
+        "RV025",
+        "RV026",
+        "RV189",
+        "RV190",
+        "RV201",
+        "RV202",
+        "RV205",
+        "RV206",
+        "RV271",
+        "RV272"
+      ],
+      "fields": [
+        "citation_basis",
+        "reference_status",
+        "reference_note",
+        "reference_sources"
+      ],
+      "paper_scores_changed": false,
+      "rescoring_performed": false
+    }
   }
 }

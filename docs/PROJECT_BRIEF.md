@@ -56,6 +56,6 @@ uncertainty, and historical-audit distinctions.
 Documentation, figures, aggregate results, metadata, and workbook helpers are
 available here. Hugging Face provides 276 case prompts with separately packaged
 historical scoring references and 78 Victorian Bar source records. See the
-[case release](CASE_RELEASE.md) and [known reference issues](CASE_REFERENCE_NOTES.md).
+[case release](CASE_RELEASE.md) and [official reference sources](CASE_REFERENCE_NOTES.md).
 Remaining exam inputs, full model responses, human review sheets and original
 judgment files are not included.

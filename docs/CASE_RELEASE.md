@@ -1,6 +1,6 @@
 # Case data
 
-## Case prompts and historical references
+## Case prompts and scoring references
 
 The `case_prompts` configuration contains 276 prompt records (`test` split),
 covering 56 judgments and 138 issues. Each issue has one supporting and one
@@ -46,18 +46,16 @@ print(by_id[row["review_id"]]["reference_status"])
 | --- | --- |
 | `review_id`, `document_id`, `issue_id` | Join keys and case/issue grouping |
 | `scoring_prompt` | Issue and stance label; the full scoring protocol is documented separately |
-| `citation_basis` | Historical authorities supplied for evaluation |
+| `citation_basis` | Legal authorities and cited provisions |
 | `supported_proposition` | Historical proposition/authority explanation |
 | `review_constraints` | Constraints supplied for evaluation |
 | `answer_type` | Explicitly identifies a scoring reference, not model output or unique gold answer |
-| `reference_status`, `reference_note` | Review limitations and known article/edition issue flags |
+| `reference_status`, `reference_note` | Reference metadata and citation notes |
+| `reference_sources` | Official authority titles, provisions and source URLs where supplied |
 | `release_version`, `license` | Release version and applicable license |
 
-**Reference notes:** article or edition numbering issues affect RV025/RV026 and
-RV271/RV272. Citation clarification is also recorded for RV189/RV190,
-RV201/RV202 and RV205/RV206. Original fields are retained and flagged. See
-[reference notes](CASE_REFERENCE_NOTES.md). Scores have not been rerun, and the
-effect on the reported scores has not been measured.
+[Official reference sources](CASE_REFERENCE_NOTES.md) are also supplied in
+`reference_sources`. Published scores are unchanged.
 
 ## Case publication status
 
@@ -68,7 +66,7 @@ deidentification. All prompts were
 deidentified and checked by a practicing lawyer. The 276 records cover 56 cases
 and 138 issues, each with supporting and opposing positions.
 
-The release contains the prompt text and reference annotations used in the final
-dataset. It excludes original judgments, identifying source mappings, full model
+The release contains the final prompt text and reference annotations with updated
+citations and official source links. It excludes original judgments, identifying source mappings, full model
 responses and individual lawyer ratings. Sources are documented at collection
 level; links to individual judgments are not included.

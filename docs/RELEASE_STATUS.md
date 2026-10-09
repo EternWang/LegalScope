@@ -2,19 +2,15 @@
 
 ## Case data: October 9, 2026
 
-This release adds 276 case prompts and 276 matching historical scoring references
+This release adds 276 case prompts and 276 matching scoring references
 on Hugging Face. They cover 56 judgments and 138 issues with paired supporting
 and opposing positions. Case prompts are the default dataset view.
 
 Six configurations contain 716 rows: 276 prompts, 276 references, 78 exam source
 records and 86 metadata rows. Reference and metadata rows are not extra questions.
-Original input and reference text, the 78 exam source records and all 252 reported
-score values are unchanged. Version and reference issue fields are added.
-
-The [reference notes](CASE_REFERENCE_NOTES.md) document article mismatches in
-RV025/RV026 and RV271/RV272, plus authority clarification needs. The nursing
-source passage identifies the 2020 revision. Historical
-reference wording and scores remain unchanged; scoring effects are unmeasured.
+Case inputs, the 78 exam source records and all 252 reported score values are
+unchanged. Ten reference records now include updated citations and official
+[source links](CASE_REFERENCE_NOTES.md).
 An [offline comparison utility](REFERENCE_REVIEW.md) now checks prompt/reference
 joins, prepares response packets without identity metadata or old scores, and
 validates score coverage. It is a tool for new experiments, not the historical
@@ -114,7 +110,7 @@ data permissions or reported findings.
 | Benchmark metadata, aggregate scores and research documentation | Public on GitHub and Hugging Face |
 | Victorian Bar source excerpts and selected candidate answers, 78 items | Published on Hongyu801/LegalScope under CC BY-NC-ND 4.0 |
 | Remaining exam items, 783 | Source-text redistribution not cleared for this release |
-| Derived case prompts and historical scoring references | Published October 9: 276 prompts + 276 matching references; see known-issue notes above |
+| Derived case prompts and scoring references | Published October 9: 276 prompts + 276 matching references; see reference sources above |
 | Original judgment files and private workbooks | Not included in the public release |
 | Model responses and individual review sheets | Not included; aggregate scores remain public |
 
