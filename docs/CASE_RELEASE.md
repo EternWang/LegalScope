@@ -55,7 +55,9 @@ print(by_id[row["review_id"]]["reference_status"])
 | `release_version`, `license` | Release version and applicable license |
 
 [Official reference sources](CASE_REFERENCE_NOTES.md) are also supplied in
-`reference_sources`. Published scores are unchanged.
+`reference_sources`. An empty list means no source link is supplied for that
+record; it does not mean the record has no cited authority. Published scores
+are unchanged.
 
 ## Case publication status
 

@@ -27,7 +27,9 @@ they are not a single joint rerun.
 
 ## Public Boundary
 
-Documentation, paper figures, high-level metadata, aggregate performance, and
-workbook helpers are public. Full workbooks, prompts, model outputs, and human
-review sheets remain outside this repository. Generating a local sample does not
-establish that its source rights or de-identification permit publication.
+GitHub provides research documentation, paper figures, aggregate performance,
+metadata, and data utilities. Hugging Face provides all 276 case prompts and
+matching scoring references, plus 78 Victorian Bar source excerpts. Original
+judgments, private workbooks, remaining exam inputs, full model responses, and
+individual human ratings are not included. See the
+[loading guide](USING_THE_RELEASE.md) for the available files and formats.

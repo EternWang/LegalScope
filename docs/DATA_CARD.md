@@ -66,8 +66,6 @@ within the relevant split/dimension and rounded to one decimal place.
 The model roster follows Appendix A.1; indices follow Figure 3. The shortened
 figure/table label `LLaMA 3.1 8B` is normalized to `LLaMA 3.1 8B Instruct` in CSVs.
 Table 3 performance values retain the paper's one decimal precision and order.
-The same model-performance table is Table 4 in the current manuscript checked
-on October 8, 2026; all 252 score values agree.
 
 ## Public Release and Intended Use
 
@@ -88,8 +86,8 @@ The exam subset retains source-specific attribution and CC BY-NC-ND 4.0 notices;
 it is not an exact replacement for the original exam evaluation inputs.
 The paper's historical scores are unchanged. Remaining exam inputs, full model
 outputs, lawyer sheets, original judgments and private workbooks are excluded.
-See [case publication status](CASE_RELEASE.md#case-publication-status) for source
-matching, the author's lawyer-review confirmation and its scope.
+See [case sources](CASE_RELEASE.md#case-publication-status) for provenance,
+deidentification, and the scope of the released annotations.
 
 ## Limitations
 

@@ -35,16 +35,28 @@ Read the [complete case field guide](CASE_RELEASE.md) and
 [reference notes](CASE_REFERENCE_NOTES.md) before running a new evaluation.
 The reference table is not part of the model input.
 
+For a new evaluation, submit each record's complete `prompt` and retain its
+`review_id` alongside the model response. Use the same pinned revision for the
+prompts and references. Record your generation and evaluator settings, and report
+new scores separately from the paper's results. The
+[offline comparison utility](REFERENCE_REVIEW.md) prepares responses and
+validates returned scores; it does not generate or judge answers.
+
+Prompts from the same judgment share facts, and each issue has two assigned
+stances. If creating your own training, development, or test partitions, keep
+all records with the same `document_id` together to avoid overlap between
+partitions. No such partitions are supplied by this release.
+
 ## Load and inspect a source record
 
 Install `datasets`, then explicitly select the source configuration. This example
-pins the verified data release so a later documentation update does not change
+pins a dataset version so a later update does not change
 the files used in an analysis.
 
 ```python
 from datasets import load_dataset
 
-revision = "2d09713c9e3440226f0db079694d82016fa15b9e"
+revision = "3f2126c5c4b0842872311c2e71c00e300a9ae776"
 excerpts = load_dataset(
     "Hongyu801/LegalScope", "victorian_bar_source_excerpts",
     split="source", revision=revision,
@@ -74,7 +86,7 @@ strings in source order.
 | Field | Meaning |
 | --- | --- |
 | `item_id` | Unique LegalScope item ID; retained for reporting corrections |
-| `document_id` | Internal workbook document grouping; not a PDF page or question number. The 78 records have 74 such IDs but come from only three publications |
+| `document_id` | Dataset document grouping; not a PDF page or question number. The 78 records have 74 such IDs but come from only three publications |
 | `jurisdiction` | Source jurisdiction, Australia for this subset |
 | `exam_date` | Source exam date in `YYYY-MM-DD` format |
 | `publisher`, `source_url` | Original publisher and full source publication |
@@ -119,9 +131,8 @@ They are included in CSV/Parquet; the website shows the seven track/dimension
 columns. Values retain one decimal rounding, so averaging displayed values may
 differ by 0.1 from a published aggregate.
 
-The model table is Table 3 in the linked workshop paper and Table 4 in the
-manuscript checked on October 8, 2026. The 252 displayed values agree. The public
-citation remains the workshop record.
+The model table contains the 252 score values from Table 3 in the linked
+workshop paper.
 
 You can inspect sources, analyze the published aggregate scores, and build the
 website with this release. Reproducing the paper's complete evaluation also

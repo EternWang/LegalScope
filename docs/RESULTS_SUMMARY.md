@@ -5,10 +5,6 @@ Section, table, and figure references use that version. Published Table 3 values
 are also available as [CSV](../data/metadata/model_performance.csv); they are rounded
 aggregate values, not the underlying response matrix.
 
-The same 28-model score table is Table 4 in the manuscript checked on October 8,
-2026. All 252 displayed scores agree between the two versions. References below
-retain the numbering of the publicly linked workshop paper.
-
 ## Headline Performance
 
 Across 28 model groups, the public-exam mean is `72.6` and the real-case mean is

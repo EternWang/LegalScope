@@ -74,17 +74,15 @@ are separate from the full benchmark; see the [results](docs/RESULTS_SUMMARY.md)
 
 ## Code and Reproducibility
 
-`src/legalscope/workbook.py` contains workbook inspection helpers;
-`scripts/extract_public_sample.py` is a collaborator utility for an authorized
-local workbook. It has not been rerun against the workshop workbook in this
-documentation update. Its generated metadata is not the versioned paper metadata
-above, and generated samples require release review.
+Start with the [loading guide](docs/USING_THE_RELEASE.md) to download case
+prompts, join their scoring references, or analyze published scores.
 
-The legacy exporter now defaults to ignored `data/private/legacy-preview/`,
-refuses public repository paths and nonempty output directories, and treats a
-sample size of zero as no records. Its abbreviated or translated previews do
-not establish permission to redistribute source material. Installation below
-also installs the local helper package so script imports work from a fresh clone.
+The repository provides data conversion, website generation, and offline
+response comparison utilities. The workbook inspector and legacy sample
+extractor support local spreadsheet exploration; their preview outputs are
+separate from the published benchmark files.
+
+Install the utilities and run the checks:
 
 ```bash
 python -m pip install -r requirements.txt
