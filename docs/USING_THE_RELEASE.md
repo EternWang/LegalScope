@@ -8,13 +8,32 @@
 | Model performance | 28 rows | Nine rounded scores per model, including two descriptive overall means |
 | Model roster | 28 rows | Display names and paper indices |
 | Source composition | 30 rows | Overlapping breakdowns of the full benchmark, not additional examples |
-| Full case prompt/answer dataset | 0 of 276 prompts | Not released as a dataset; RV038 on the website is an abbreviated worked example |
+| Case prompts | 276 records | Full prompt text preserved from the final workbook |
+| Historical case scoring references | 276 records | Join by `review_id`; authorities/propositions/constraints, not unique gold answers; see known issue flags |
 
-The Hub may report **164 total rows** across its four configurations. This adds
-78 source records to 86 metadata rows; it does not mean 164 questions. The paper
-evaluates 861 exam items and 276 case prompts. Metadata configurations use the
-loader split name `train`, but contain no training examples. The source subset
-uses `source`; no train/validation/test partition is supplied for it.
+The Hub may report **716 rows** across six configurations: 276 case prompts,
+276 matching references, 78 source records and 86 metadata rows. There are 354
+prompt/source records, not 716 questions. Case configurations use `test` for
+evaluation; no train/development partitions are supplied. The source subset uses
+`source`. Metadata uses `train` as a loader convention, not a training set.
+
+## Load case prompts
+
+```python
+from datasets import load_dataset
+
+revision = "f953dedeab591450c769dfd677767c1e2a2bf046"
+prompts = load_dataset("Hongyu801/LegalScope", "case_prompts", split="test", revision=revision)
+references = load_dataset("Hongyu801/LegalScope", "case_scoring_references", split="test", revision=revision)
+by_id = {r["review_id"]: r for r in references}
+assert len(prompts) == len(by_id) == 276
+print(prompts[0]["prompt"])
+print(by_id[prompts[0]["review_id"]]["reference_status"])
+```
+
+Read the [complete case field guide](CASE_RELEASE.md) and
+[reference notes](CASE_REFERENCE_NOTES.md) before running a new evaluation.
+The reference table is not part of the model input.
 
 ## Load and inspect a source record
 
@@ -61,7 +80,7 @@ strings in source order.
 | `publisher`, `source_url` | Original publisher and full source publication |
 | `source_background_excerpts` | Original context excerpts; may also contain the question |
 | `source_question_excerpt` | Separately transcribed original question, where available; intentionally empty in 22 records |
-| `source_reference_answer_excerpt` | Selected candidate-answer excerpt reproduced by the publisher; not a model-generated answer or guaranteed error-free gold answer |
+| `source_reference_answer_excerpt` | Selected candidate answer excerpt reproduced by the publisher; not a model-generated answer or guaranteed error-free gold answer |
 | `reference_answer_type` | Explicit statement of that answer's origin and limitations |
 | `source_license`, `license_url`, `copyright_notice` | License, license link, and attribution that accompany the source text |
 | `excerpt_note`, `transcription_note` | Omitted context, non-contiguous excerpts, and technical transcription information |
@@ -82,7 +101,7 @@ Per-record PDF page and original question-number fields are not yet supplied.
   used to assess a case response. It is not necessarily a single ideal answer.
 - **Model response:** what an evaluated model produced. The website's RV038
   excerpt is one such response and illustrates unsupported factual additions;
-  the full model-response matrix is not included in this release.
+  the full model response matrix is not included in this release.
 
 Case prompts ask for support or opposition on a legal issue. The task is to argue
 within the supplied facts and assigned stance, not simply predict the court's
@@ -97,7 +116,7 @@ All published scores are normalized to 0–100. `public_exam_auto` covers 861 it
 the case endpoint averages the two lawyers. `overall_auto` and `overall_human`
 are descriptive equal-weight means of the two tracks, not equated ability scales.
 They are included in CSV/Parquet; the website shows the seven track/dimension
-columns. Values retain one-decimal rounding, so averaging displayed values may
+columns. Values retain one decimal rounding, so averaging displayed values may
 differ by 0.1 from a published aggregate.
 
 The model table is Table 3 in the linked workshop paper and Table 4 in the
@@ -108,39 +127,22 @@ You can inspect sources, analyze the published aggregate scores, and build the
 website with this release. Reproducing the paper's complete evaluation also
 requires the exact evaluation inputs, model responses, scoring implementation
 and run settings, and human-review data that are not supplied here. New results
-on the source-excerpt subset must be labeled as a separate evaluation; the
+on the source excerpt subset must be labeled as a separate evaluation; the
 paper's scores were not rerun on this package.
 
 ## Case publication status
 
-The 276 case prompts are **not yet released**, rather than categorically barred
-from publication. Original court decisions, project-authored prompts/references,
-third-party commentary, and model outputs have different publication questions.
-The lack of a Creative Commons label on an original judgment is not by itself a
-reason to withhold a project-authored case prompt. See Article 5 of the
-[Copyright Law](https://www.ncac.gov.cn/xxfb/flfg/flfg_532/202103/t20210309_50530.html).
-
-The remaining review checks each proposed prompt **and answer** for source
-provenance, direct identifiers and combinations of facts that could identify a
-person; output-provider terms must also be checked for any model-response release.
-Removing names is evidence of de-identification, not proof of anonymization.
-Dates or medical facts are review signals, not automatic exclusion rules. The
-[Personal Information Protection Law, Articles 4 and 73](https://www.miit.gov.cn/zwgk/zcwj/flfg/art/2022/art_04a0f1fb5df244e39688fd5372623a8d.html)
-distinguishes these concepts.
-
-A future case release should record decisions per item, publish cleared items,
-and identify the concrete unresolved issue for any withheld item. The present
-release does not claim that this full review is complete. If anonymization
-changes an evaluated prompt or answer, preserve the original privately and
-identify the changed public version; do not silently associate historical scores
-with modified inputs. Legally relevant facts and score explanations should not
-be removed merely to make a screening rule pass.
+All 276 case prompts and 276 matching historical references are available.
+See [case sources and fields](CASE_RELEASE.md) and the
+[reference notes for RV025/RV026](CASE_REFERENCE_NOTES.md). Original prompt and
+reference text is retained. Reported scores have not been rerun. Original
+judgments, identifying mappings and the full model response matrix are excluded.
 
 ## Licenses and corrections
 
-Project-authored code, documentation, and metadata retain MIT. The Victorian Bar
+Project authored code, documentation, metadata, and case prompt/reference annotations retain MIT; rights in excluded original judgments are not granted. The Victorian Bar
 source text retains CC BY-NC-ND 4.0, including its noncommercial and no-derivatives
-conditions; the MIT license does not override it. Keep the per-record notices.
+conditions; the MIT license does not override it. Keep the per record notices.
 
 For data or loading errors, open a
 [GitHub issue](https://github.com/EternWang/LegalScope/issues) with the item ID,

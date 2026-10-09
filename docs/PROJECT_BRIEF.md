@@ -22,7 +22,7 @@ case tracks over a common model roster.
 
 The exam track covers the United States (603), China (94), the United Kingdom (86),
 and Australia (78). The case track covers seven legal categories and derives 138
-issues from 56 de-identified Chinese judgments. Each issue has supporting and
+issues from 56 deidentified Chinese judgments. Each issue has supporting and
 opposing prompts. Models must construct arguments rather than only predict the
 court's outcome. Real-case provenance does not mean access to complete case files.
 
@@ -54,5 +54,8 @@ uncertainty, and historical-audit distinctions.
 ## Public Repository
 
 Documentation, figures, aggregate results, metadata, and workbook helpers are
-available. Full prompts, reference answers, model responses, human review sheets,
-and private legal materials are not included.
+available here. Hugging Face provides 276 case prompts with separately packaged
+historical scoring references and 78 Victorian Bar source records. See the
+[case release](CASE_RELEASE.md) and [known reference issues](CASE_REFERENCE_NOTES.md).
+Remaining exam inputs, full model responses, human review sheets and original
+judgment files are not included.

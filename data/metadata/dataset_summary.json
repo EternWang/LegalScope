@@ -1,7 +1,7 @@
 {
   "project": "LegalScope",
   "snapshot": "AIMS at COLM 2026 workshop camera-ready",
-  "release_status": "public documentation, figures, aggregate results, metadata and workbook helpers; no full dataset release",
+  "release_status": "276 case prompts and 276 historical scoring references, 78 exam source excerpts, metadata and documentation; not a full experiment artifact release",
   "public_release_boundary": {
     "full_workbook_public": false,
     "full_prompt_matrix_public": false,
@@ -9,7 +9,9 @@
     "full_model_outputs_public": false,
     "human_review_sheets_public": false,
     "non_deidentified_judgments_public": false,
-    "paper_pdf_committed": false
+    "paper_pdf_committed": false,
+    "case_prompt_dataset_public": true,
+    "case_historical_scoring_references_public": true
   },
   "dataset_modules": [
     {
@@ -141,13 +143,24 @@
     "source_workbook_matches_previous_audit": true
   },
   "release_review": {
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "victorian_source_excerpt_records_prepared": 78,
     "victorian_source_license": "CC-BY-NC-ND-4.0",
     "public_downloadable_source_excerpt_records": 78,
     "hf_subset_status": "published_on_hugging_face",
     "other_exam_records_not_cleared_for_this_release": 783,
-    "case_prompts_pending_provenance_and_privacy_review": 276,
-    "hugging_face_repository": "Hongyu801/LegalScope"
+    "case_prompts_pending_provenance_and_privacy_review": 0,
+    "hugging_face_repository": "Hongyu801/LegalScope",
+    "public_case_prompts": 276,
+    "public_case_historical_scoring_references": 276,
+    "case_source_matches": 56,
+    "case_reference_issue_ids": [
+      "RV025",
+      "RV026"
+    ],
+    "case_reference_legal_validation": "not exhaustive; known article and edition issues documented",
+    "hub_configuration_count": 6,
+    "hub_total_rows": 716,
+    "downloadable_prompt_or_source_records": 354
   }
 }

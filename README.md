@@ -9,20 +9,20 @@
 [Version notes](docs/RELEASE_STATUS.md) · [Citation](#citation)
 
 LegalScope asks whether strong public legal-exam scores transfer to real-case legal
-reasoning. It pairs public exams from four jurisdictions with lawyer-reviewed,
-paired-stance prompts derived from de-identified Chinese judgments.
+reasoning. It pairs public exams from four jurisdictions with supporting and
+opposing prompts derived from deidentified Chinese judgments and reviewed by lawyers.
 
-This repository links the **AIMS at COLM 2026 workshop paper**. Its benchmark
-counts, original overview figure and all 252 aggregate score values for 28 model
-groups were rechecked against the current manuscript on **October 8, 2026**;
-the reported numerical results are unchanged. It provides documentation, paper
-figures, aggregate results, metadata, and workbook helpers.
-The full dataset is not released here.
+This repository accompanies the **AIMS at COLM 2026 workshop paper**. It provides
+documentation, figures, aggregate results, metadata and dataset utilities.
+Reported scores cover 28 model groups; the data release does not change them.
 
-**Downloadable now:** 78 Victorian Bar source-excerpt records with selected
-candidate answers, plus benchmark metadata. Start with the
-[source dataset](https://huggingface.co/datasets/Hongyu801/LegalScope/viewer/victorian_bar_source_excerpts/source)
+**Downloadable now:** all 276 deidentified case prompts with 276 separately
+packaged historical scoring references, 78 Victorian Bar source excerpt records
+with selected candidate answers, and benchmark metadata. Start with the
+[case dataset](https://huggingface.co/datasets/Hongyu801/LegalScope/viewer/case_prompts/test)
 and the [loading and field guide](docs/USING_THE_RELEASE.md).
+See [reference notes for RV025/RV026](docs/CASE_REFERENCE_NOTES.md) before using
+their scoring references.
 
 ## Benchmark at a Glance
 
@@ -96,11 +96,13 @@ For the reviewed public Hugging Face package, `scripts/prepare_hf_tables.py`
 creates lossless Parquet loader tables from the original CSV/JSONL files. Install
 `python -m pip install -e ".[release]"`, then run
 `python scripts/prepare_hf_tables.py --package-dir /path/to/reviewed-package`.
-The utility verifies the source manifest and round-trips every converted value;
+The utility verifies source/case manifests, case-reference joins and paired
+stances, and round-trips every converted value;
 it does not extract new data from a private workbook or clear new source rights.
 
-This repository alone cannot reproduce the complete evaluation: the full workbook,
-prompt/reference matrix, model responses, and human review sheets are not included.
+This repository alone cannot reproduce the complete evaluation: remaining exam
+inputs, the full workbook, model responses, scoring runtime and human review
+sheets are not included. Case inputs/references are downloadable from the Hub.
 
 ## Public Release Boundary
 
@@ -108,22 +110,21 @@ The complete benchmark is larger than the downloadable release. The repository
 contains metadata and aggregate results; the project page also shows an attributed
 Victorian Bar question-and-answer excerpt under **CC BY-NC-ND 4.0**. That excerpt
 is not covered by this repository's MIT license. See
-[third-party notices](THIRD_PARTY_NOTICES.txt).
+[third party notices](THIRD_PARTY_NOTICES.txt).
 
-A separate 78-item Victorian Bar source-excerpt package is published at
-[Hongyu801/LegalScope](https://huggingface.co/datasets/Hongyu801/LegalScope).
-It retains the original source license, attribution, publication links and
-selected candidate answers. Four independent Parquet configurations support
-dataset loading; original CSV and JSONL downloads are also available. The other 783 exam records
-are not cleared for this source-text release. The 276 derived case prompts remain
-outside the public data package pending per-case provenance and privacy review.
-This does not mean that all public judgments are prohibited from reuse.
-Project-authored anonymized prompts and answers can be considered for release
-item by item. Missing an open-license label on a judgment is not itself a ban;
-the remaining source, privacy, and answer-specific checks are described in the
-[case publication status](docs/USING_THE_RELEASE.md#case-publication-status).
+The [Hugging Face release](https://huggingface.co/datasets/Hongyu801/LegalScope)
+provides six separate Parquet configurations: case prompts, historical case
+references, exam source excerpts, model scores, the roster, and source composition.
+Original CSV/JSONL files remain downloadable. The 276 case prompts match the
+final workbook; reference fields preserve their historical wording and carry
+known-issue flags. See the [case release](docs/CASE_RELEASE.md).
 
-Full model-output matrices, lawyer review sheets, source judgments, private
+The 78 Victorian Bar excerpts retain their CC BY-NC-ND 4.0 license and notices;
+the other 783 exam records are not cleared for this source-text release.
+Project authored case annotations retain MIT, without granting rights to the
+excluded source judgments. This is not a release of the full experiment pipeline.
+
+Full model output matrices, lawyer review sheets, source judgments, private
 workbooks and the manuscript source package are not published. The paper is linked
 above. See [release status](docs/RELEASE_STATUS.md) for details.
 

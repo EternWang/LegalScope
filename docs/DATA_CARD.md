@@ -3,13 +3,14 @@
 ## Purpose and Version
 
 LegalScope measures the relationship between public legal-exam performance and
-closed-book reasoning over curated summaries of de-identified Chinese judgments.
+closed book reasoning over curated summaries of deidentified Chinese judgments.
 This card follows the AIMS at COLM 2026 workshop camera-ready version.
 
 For the downloadable subset, its complete field dictionary, a runnable loading
 example, answer types, and current case-release status, see
-[Using the public release](USING_THE_RELEASE.md). The four Hub configurations
-total 164 rows: 78 source records and 86 metadata rows, not 164 questions.
+[Using the public release](USING_THE_RELEASE.md). The six Hub configurations total 716 rows: 276 case prompts, 276 matching
+historical references, 78 exam source records and 86 metadata rows. This means
+354 prompt/source records, not 716 questions. See the [case fields and provenance](CASE_RELEASE.md).
 
 ## Benchmark Composition
 
@@ -42,7 +43,7 @@ The case split has 80 Tort, 72 Contract, 54 Criminal, 34 Intellectual Property,
 22 Administrative, 8 Civil Procedure, and 6 Property prompts. Each of 138 issues
 has one supporting and one opposing prompt. Real-case provenance refers to
 concluded judgments, not access to complete case files. Names, institutions,
-addresses, and original file paths are removed or masked during de-identification.
+addresses, and original file paths are removed or masked during deidentification.
 
 Human validation covers all 28 groups. Independent reviewers score exam answers
 against references. Two practicing Chinese lawyers independently score the same
@@ -64,7 +65,7 @@ within the relevant split/dimension and rounded to one decimal place.
 
 The model roster follows Appendix A.1; indices follow Figure 3. The shortened
 figure/table label `LLaMA 3.1 8B` is normalized to `LLaMA 3.1 8B Instruct` in CSVs.
-Table 3 performance values retain the paper's one-decimal precision and order.
+Table 3 performance values retain the paper's one decimal precision and order.
 The same model-performance table is Table 4 in the current manuscript checked
 on October 8, 2026; all 252 score values agree.
 
@@ -74,26 +75,26 @@ The repository exposes documentation, figures, aggregate statistics, and workboo
 helpers. It supports inspection of benchmark design and evaluation methodology,
 and helper reuse with authorized local data. The project page includes one
 attributed Victorian Bar question-and-answer excerpt under CC BY-NC-ND 4.0;
-see [third-party notices](../THIRD_PARTY_NOTICES.txt).
+see [third party notices](../THIRD_PARTY_NOTICES.txt).
 
-A 78-item original-text subset is published on
-[Hugging Face](https://huggingface.co/datasets/Hongyu801/LegalScope), with
-source-specific attribution and license notices. The four configurations use
-Parquet for loading; original CSV/JSONL files remain downloadable.
-It omits model responses, human annotations and project-authored exam summaries.
-It is a collection of source excerpts, not an exact replacement for the complete
-evaluation prompts. The paper's historical scores are not rerun scores on a new
-release package. Full benchmark prompts, remaining reference answers, model
-outputs, lawyer sheets and private source documents are not included. Case prompt
-release remains subject to a per-case provenance and privacy review.
-This is a pending release status, not a finding that all case prompts are
-prohibited from publication. Review applies to each proposed prompt and answer;
-the [release guide](USING_THE_RELEASE.md#case-publication-status) distinguishes
-judgment text, project-authored materials, and model responses.
+The [Hugging Face release](https://huggingface.co/datasets/Hongyu801/LegalScope)
+includes all 276 deidentified case prompts and their historical references in
+separate configurations, plus 78 Victorian Bar source excerpts. Six configurations
+use Parquet; original CSV/JSONL downloads remain available. The case input and
+reference fields are unchanged from the final workbook. Known article/edition
+issues in RV025/RV026 are flagged in the [reference notes](CASE_REFERENCE_NOTES.md).
+This release does not certify every reference as legally correct.
+
+The exam subset retains source-specific attribution and CC BY-NC-ND 4.0 notices;
+it is not an exact replacement for the original exam evaluation inputs.
+The paper's historical scores are unchanged. Remaining exam inputs, full model
+outputs, lawyer sheets, original judgments and private workbooks are excluded.
+See [case publication status](CASE_RELEASE.md#case-publication-status) for source
+matching, the author's lawyer-review confirmation and its scope.
 
 ## Limitations
 
-- Case tasks concern Chinese judgments and curated, closed-book summaries; they
+- Case tasks concern Chinese judgments and curated, closed book summaries; they
   do not represent every jurisdiction or the full legal workflow.
 - Exam materials may occur in pretraining data; exam scores are comparative
   signals rather than clean generalization tests.

@@ -1,5 +1,25 @@
 # Release Status
 
+## Case data: October 9, 2026
+
+This release adds 276 case prompts and 276 matching historical scoring references
+on Hugging Face. They cover 56 judgments and 138 issues with paired supporting
+and opposing positions. Case prompts are the default dataset view.
+
+Six configurations contain 716 rows: 276 prompts, 276 references, 78 exam source
+records and 86 metadata rows. Reference and metadata rows are not extra questions.
+Original input and reference text, the 78 exam source records and all 252 reported
+score values are unchanged. Version and reference issue fields are added.
+
+RV025 has an unspecified statute edition; RV026 also has a nursing fee article
+mismatch. The [reference notes](CASE_REFERENCE_NOTES.md) explain both. Scores have
+not been rerun, and the effect of this issue on scoring has not been measured.
+
+[Case sources and fields](CASE_RELEASE.md) · [Loading guide](USING_THE_RELEASE.md) ·
+[File hashes](../data/metadata/case_release_manifest.json)
+
+Earlier entries describe the release available on each date.
+
 ## Release Documentation Clarification: October 8, 2026
 
 The website and dataset card now distinguish the 78 downloadable source records
@@ -89,7 +109,7 @@ data permissions or reported findings.
 | Benchmark metadata, aggregate scores and research documentation | Public on GitHub and Hugging Face |
 | Victorian Bar source excerpts and selected candidate answers, 78 items | Published on Hongyu801/LegalScope under CC BY-NC-ND 4.0 |
 | Remaining exam items, 783 | Source-text redistribution not cleared for this release |
-| Derived case prompts and scoring packets, 276 | Pending per-case source and privacy review |
+| Derived case prompts and historical scoring references | Published October 9: 276 prompts + 276 matching references; see known-issue notes above |
 | Original judgment files and private workbooks | Not included in the public release |
 | Model responses and individual review sheets | Not included; aggregate scores remain public |
 

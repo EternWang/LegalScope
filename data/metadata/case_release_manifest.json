@@ -1,0 +1,63 @@
+{
+  "release_version": "2026-10-09",
+  "case_prompts": 276,
+  "scoring_references": 276,
+  "judgments": 56,
+  "issues": 138,
+  "stance_counts": {
+    "support": 138,
+    "oppose": 138
+  },
+  "source_groups": [
+    {
+      "cases": 15,
+      "prompts": 76,
+      "provenance": "Judgments provided by a handling lawyer."
+    },
+    {
+      "cases": 41,
+      "prompts": 200,
+      "provenance": "Deidentified judgments attributed to China Judgments Online."
+    }
+  ],
+  "source_matching": "56 source judgments; each case groups its associated issues and paired prompts. Original judgments and identifying source mappings are excluded.",
+  "prompt_review": "Prompts were deidentified and checked by a practicing lawyer. The reference annotations are historical evaluation material, not a legally validated answer key.",
+  "historical_prompt_and_reference_fields_changed": false,
+  "added_fields": [
+    "release_version",
+    "license",
+    "reference_status (references only)",
+    "reference_note (references only)"
+  ],
+  "reference_type": "historical scoring reference; not a unique gold answer or model response",
+  "known_reference_issues": [
+    "RV025: statute edition unspecified",
+    "RV026: nursing-fee article mismatch and statute edition unspecified"
+  ],
+  "known_issues_document": "../../docs/CASE_REFERENCE_NOTES.md",
+  "model_outputs_included": false,
+  "source_judgments_included": false,
+  "human_review_sheets_included": false,
+  "paper_scores_changed": false,
+  "rescoring_performed": false,
+  "files": {
+    "case_prompts.jsonl": {
+      "rows": 276,
+      "sha256": "b086d93146ba2bfc11ad96aef7f54677c9a362acc9e9901fe52870df0b08ce06"
+    },
+    "case_prompts.parquet": {
+      "rows": 276,
+      "sha256": "84fa01ed14ee55e96632bf0b51dbbe1f5ede31e403c9f80d15519fafcdf40037"
+    },
+    "case_scoring_references.jsonl": {
+      "rows": 276,
+      "sha256": "becaa8bbad010cdb480fa03a8880e401816e4f47c0ea9da2d6428122e8f3ac4e"
+    },
+    "case_scoring_references.parquet": {
+      "rows": 276,
+      "sha256": "d5cf8633539906942ba0f7cab6913abdfdf2b091b0bf2efcb32c2bdd8e34eef0"
+    }
+  },
+  "artifact_base_url": "https://huggingface.co/datasets/Hongyu801/LegalScope/tree/f953dedeab591450c769dfd677767c1e2a2bf046/data/cases",
+  "hugging_face_revision": "f953dedeab591450c769dfd677767c1e2a2bf046"
+}
