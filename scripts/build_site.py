@@ -61,6 +61,10 @@ def main() -> None:
     # deploying stale examples or unrelated local files from an old build.
     site_files = [root / "site" / name for name in ("index.html", "style.css", "app.js", "favicon.svg")]
     figure_files = sorted((root / "assets/figures").glob("*.png"))
+    figure_files += [root / "assets/figures" / name for name in (
+        "paper_collection_pipeline.svg", "paper_collection_pipeline.pdf",
+        "MODEL_ICONS_LICENSE.txt", "DIAGRAM_ICONS_LICENSE.txt",
+    )]
     icon_files = [root / "site/icons" / name for name in ("github-white.svg", "github-black.svg", "huggingface.svg")]
     allowed = {Path(source.name) for source in site_files} | {Path("assets") / source.name for source in figure_files}
     allowed |= {Path("icons") / source.name for source in icon_files}

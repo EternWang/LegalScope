@@ -80,6 +80,10 @@
 .table-scroll tbody tr:nth-child(even)>*{background:white}
 #performance-table thead .column-groups th,#performance-table thead .column-groups .human-group{background:#f3f4f5}
 #performance-table thead tr:nth-child(2) th{background:#fafafa}
+#performance-table thead .human-group,
+#performance-table thead tr:nth-child(2) th:nth-last-child(-n+2),
+#performance-table tbody td:nth-last-child(-n+2){background-color:#f3f4f5}
+#performance-table tbody tr:hover td:nth-last-child(-n+2){background-color:#e9edf1}
 .example-takeaway{background:#f8f9fa;border-left:2px solid #c7cdd3;border-radius:0}
 .example-takeaway>strong{color:var(--ink)}
 .brand-icon{display:inline-block;flex:none;width:18px;height:18px;object-fit:contain}
