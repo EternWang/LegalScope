@@ -18,3 +18,16 @@ Materials are provided as-is and without warranties as described in Section 5
 of the linked license. Retain the attribution, source, license and these notices
 when sharing this excerpt. The license permits noncommercial sharing of original
 material subject to its conditions; it does not permit sharing adapted material.
+
+Platform logos
+
+GitHub Invertocat marks: GitHub, Inc.
+https://brand.github.com/foundations/logo
+Source: https://brand.github.com/GitHub_Logos.zip
+Hugging Face logo: Hugging Face
+https://huggingface.co/brand
+Source: https://huggingface.co/datasets/huggingface/brand-assets/blob/main/hf-logo.svg
+
+The original SVG assets identify links to the project's GitHub repository and
+Hugging Face dataset. These trademarks remain the property of their owners and
+are not covered by the repository's MIT license. No endorsement is implied.

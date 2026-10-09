@@ -92,6 +92,8 @@ The [evaluation guide](../evaluation/README.md) explains response generation,
 anonymous task preparation and scoring. The three archived rubric files cover
 joint A/B/C scoring, the B-only update and exam answer matching. Recovered
 generation settings cover the eight groups in the August model expansion.
+The [model settings reference](MODEL_SETTINGS.md) provides current provider
+defaults and official sources for the full 28-group roster.
 
 Recomputing stored scores reproduces the published model table. New generation
 or scoring runs use their own dataset revision and evaluator configuration;

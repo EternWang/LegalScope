@@ -61,7 +61,9 @@ def main() -> None:
     # deploying stale examples or unrelated local files from an old build.
     site_files = [root / "site" / name for name in ("index.html", "style.css", "app.js", "favicon.svg")]
     figure_files = sorted((root / "assets/figures").glob("*.png"))
+    icon_files = [root / "site/icons" / name for name in ("github-white.svg", "github-black.svg", "huggingface.svg")]
     allowed = {Path(source.name) for source in site_files} | {Path("assets") / source.name for source in figure_files}
+    allowed |= {Path("icons") / source.name for source in icon_files}
     allowed |= {Path("data") / name for name in METADATA_FILES} | {Path("data/results.json"), Path(".nojekyll")}
     # Earlier builds copied this developer note; it is safe to keep, but no
     # longer copied into new builds.
@@ -74,6 +76,9 @@ def main() -> None:
     (output / "assets").mkdir(exist_ok=True)
     for source in figure_files:
         shutil.copy2(source, output / "assets" / source.name)
+    (output / "icons").mkdir(exist_ok=True)
+    for source in icon_files:
+        shutil.copy2(source, output / "icons" / source.name)
     data = output / "data"
     data.mkdir(exist_ok=True)
     for name in METADATA_FILES:

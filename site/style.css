@@ -80,3 +80,7 @@
 #performance-table thead tr:nth-child(2) th{background:#fafafa}
 .example-takeaway{background:#f8f9fa;border-left:2px solid #c7cdd3;border-radius:0}
 .example-takeaway>strong{color:var(--ink)}
+.brand-icon{display:inline-block;flex:none;width:18px;height:18px;object-fit:contain}
+.brand-icon[src$="huggingface.svg"]{width:20px;height:20px}
+.resource-grid h3{display:flex;align-items:center;gap:10px}
+.resource-grid h3 .brand-icon{width:24px;height:24px}

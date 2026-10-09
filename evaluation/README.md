@@ -30,6 +30,10 @@ Null parameters were not set explicitly. Configurations for the other 20 groups
 are not represented by this file. Provider aliases and routing may change over
 time, so a new run is a new experiment.
 
+The [model settings reference](../docs/MODEL_SETTINGS.md) and
+[provider default catalog](provider_defaults.json) cover all 28 groups. They
+document current provider defaults separately from the recorded run settings.
+
 The generation adapter preserves the recorded request parameters. It uses
 sequential requests and bounded execution retries; it increases the output budget
 after truncation, up to the recorded maximum. Incomplete responses are rejected.

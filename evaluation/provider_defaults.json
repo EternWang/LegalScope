@@ -1,0 +1,896 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-10-09",
+  "scope": "Current provider defaults and author configuration references for all 28 LegalScope model groups. This catalog is not a historical execution log or a runnable request configuration.",
+  "semantics": {
+    "null": "No verified numeric default for this parameter in the stated source and scope; not zero or disabled.",
+    "omitted_openrouter_parameter": "OpenRouter omits it upstream and the selected provider supplies its own default.",
+    "max_output_tokens_default": "Only populated when a source states the default rule; a model ceiling alone is not treated as a request default.",
+    "paper_variant": "A label from the published model roster, not inferred API behavior."
+  },
+  "sources": {
+    "or_catalog": "https://openrouter.ai/api/v1/models",
+    "or_parameters": "https://openrouter.ai/docs/api_reference/parameters",
+    "openai_schema": "https://github.com/openai/openai-openapi/blob/main/openapi.json",
+    "openai55": "https://developers.openai.com/api/docs/models/gpt-5.5",
+    "openai54mini": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+    "google_generation": "https://ai.google.dev/api/generate-content#v1beta.GenerationConfig",
+    "google_thinking": "https://ai.google.dev/gemini-api/docs/generate-content/thinking",
+    "google25": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash",
+    "google3": "https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview",
+    "google35": "https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash",
+    "cloud25": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash",
+    "cloud3": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash",
+    "cloud35": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash",
+    "cohere": "https://docs.cohere.com/reference/chat",
+    "cohere_models": "https://docs.cohere.com/docs/models",
+    "zai": "https://docs.z.ai/api-reference/llm/chat-completion",
+    "kimi3": "https://platform.kimi.ai/docs/guide/kimi-k3-quickstart",
+    "kimi_parameters": "https://platform.kimi.ai/docs/api/models-overview",
+    "kimi2": "https://huggingface.co/moonshotai/Kimi-K2-Thinking",
+    "deepseek": "https://api-docs.deepseek.com/api/create-chat-completion/",
+    "qwen_api": "https://help.aliyun.com/zh/model-studio/qwen-api-via-openai-chat-completions",
+    "qwen235": "https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507/blob/main/generation_config.json",
+    "qwen27": "https://huggingface.co/Qwen/Qwen3.8-27B/blob/main/generation_config.json",
+    "qwen24t": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B/blob/main/generation_config.json",
+    "r1": "https://huggingface.co/deepseek-ai/DeepSeek-R1/blob/main/generation_config.json",
+    "v32": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2/blob/main/generation_config.json",
+    "cogito": "https://huggingface.co/deepcogito/cogito-671b-v2.1",
+    "llama": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
+    "xai": "https://docs.x.ai/developers/rest-api-reference/inference/chat-completions",
+    "grok420": "https://docs.x.ai/developers/models/grok-4.20",
+    "grok43": "https://docs.x.ai/developers/models/grok-4.3",
+    "grok45": "https://docs.x.ai/developers/models/grok-4.5"
+  },
+  "models": [
+    {
+      "model_group": "Grok 4.20",
+      "provider": "openrouter",
+      "model_id": "x-ai/grok-4.20",
+      "defaults": {
+        "temperature": null,
+        "top_p": null,
+        "top_k": null,
+        "frequency_penalty": null,
+        "presence_penalty": null,
+        "repetition_penalty": null
+      },
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "xAI native Chat Completions API",
+          "kind": "documented_default",
+          "values": {
+            "max_completion_tokens": 128000,
+            "temperature": null,
+            "top_p": null,
+            "reasoning_effort": null
+          },
+          "source_ids": [
+            "xai",
+            "grok420"
+          ],
+          "note": "128000 is the current API default for visible output tokens. The checked native reference does not give numeric temperature or top_p defaults. Native settings do not establish the OpenRouter route settings."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "DeepSeek R1",
+      "provider": "openrouter",
+      "model_id": "deepseek/deepseek-r1",
+      "defaults": {
+        "temperature": null,
+        "top_p": null,
+        "top_k": null,
+        "frequency_penalty": null,
+        "presence_penalty": null,
+        "repetition_penalty": null
+      },
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "Author released generation_config.json",
+          "kind": "released_generation_config",
+          "values": {
+            "temperature": 0.6,
+            "top_p": 0.95
+          },
+          "source_ids": [
+            "r1"
+          ],
+          "note": "Local model configuration; hosted providers can override these values."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "Qwen3 Max",
+      "provider": "openrouter",
+      "model_id": "qwen/qwen3-max",
+      "defaults": {
+        "temperature": 1,
+        "top_p": 1,
+        "frequency_penalty": null
+      },
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "Deep Cogito 671B",
+      "provider": "openrouter",
+      "model_id": "deepcogito/cogito-v2.1-671b",
+      "defaults": {},
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "Author model card",
+          "kind": "no_verified_default",
+          "values": {},
+          "source_ids": [
+            "cogito"
+          ],
+          "note": "The checked OpenRouter catalog omits this alias. The author card has explicit example settings, but no verified numeric API default."
+        }
+      ],
+      "catalog_status": "not_in_current_catalog",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "GPT-5.4 Mini",
+      "provider": "openai",
+      "model_id": "gpt-5.4-mini",
+      "defaults": {
+        "temperature": 1,
+        "top_p": 1
+      },
+      "source_ids": [
+        "openai_schema",
+        "openai54mini"
+      ],
+      "additional_references": [],
+      "sampling_scope": "Generic Responses API schema; model and reasoning-mode support must be checked separately.",
+      "reasoning_default": "none",
+      "max_output_tokens_default": null
+    },
+    {
+      "model_group": "Qwen3 Max Thinking",
+      "provider": "openrouter",
+      "model_id": "qwen/qwen3-max-thinking",
+      "defaults": {
+        "temperature": null,
+        "top_p": null,
+        "frequency_penalty": null
+      },
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "GLM-5 low",
+      "provider": "openrouter",
+      "model_id": "z-ai/glm-5",
+      "defaults": {
+        "temperature": 1,
+        "top_p": 0.95,
+        "frequency_penalty": null
+      },
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "Z.AI native Chat Completions API",
+          "kind": "documented_default",
+          "values": {
+            "temperature": 1,
+            "top_p": 0.95
+          },
+          "source_ids": [
+            "zai"
+          ],
+          "note": "The native API documents an output ceiling, but does not state a numeric default max_tokens. The paper variant and recovered request settings remain separate."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null,
+      "paper_variant": "low"
+    },
+    {
+      "model_group": "Qwen3 235B A22B",
+      "provider": "openrouter",
+      "model_id": "qwen/qwen3-235b-a22b-2507",
+      "defaults": {},
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "Author released generation_config.json",
+          "kind": "released_generation_config",
+          "values": {
+            "temperature": 0.7,
+            "top_p": 0.8,
+            "top_k": 20
+          },
+          "source_ids": [
+            "qwen235"
+          ],
+          "note": "Local model configuration; hosted providers can override these values."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "DeepSeek V3.2",
+      "provider": "openrouter",
+      "model_id": "deepseek/deepseek-v3.2",
+      "defaults": {
+        "temperature": 1,
+        "top_p": 0.95,
+        "top_k": null,
+        "frequency_penalty": null,
+        "presence_penalty": null,
+        "repetition_penalty": null
+      },
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "Author released generation_config.json",
+          "kind": "released_generation_config",
+          "values": {
+            "temperature": 1,
+            "top_p": 0.95
+          },
+          "source_ids": [
+            "v32"
+          ],
+          "note": "Local model configuration; hosted providers can override these values."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "Kimi K2 Thinking",
+      "provider": "openrouter",
+      "model_id": "moonshotai/kimi-k2-thinking",
+      "defaults": {
+        "temperature": null,
+        "top_p": null,
+        "top_k": null,
+        "frequency_penalty": null,
+        "presence_penalty": null,
+        "repetition_penalty": null
+      },
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "Author model card",
+          "kind": "recommendation",
+          "values": {
+            "temperature": 1
+          },
+          "source_ids": [
+            "kimi2"
+          ],
+          "note": "The author recommends this value; the card does not establish an omitted-parameter API default."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "Grok 4.3",
+      "provider": "openrouter",
+      "model_id": "x-ai/grok-4.3",
+      "defaults": {
+        "temperature": null,
+        "top_p": null,
+        "top_k": null,
+        "frequency_penalty": null,
+        "presence_penalty": null,
+        "repetition_penalty": null
+      },
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "xAI native Chat Completions API",
+          "kind": "documented_default",
+          "values": {
+            "max_completion_tokens": 128000,
+            "temperature": null,
+            "top_p": null,
+            "reasoning_effort": "low"
+          },
+          "source_ids": [
+            "xai",
+            "grok43"
+          ],
+          "note": "128000 is the current API default for visible output tokens. The checked native reference does not give numeric temperature or top_p defaults. Native settings do not establish the OpenRouter route settings."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "Grok 4.5",
+      "provider": "openrouter",
+      "model_id": "x-ai/grok-4.5",
+      "defaults": {},
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "xAI native Chat Completions API",
+          "kind": "documented_default",
+          "values": {
+            "max_completion_tokens": 128000,
+            "temperature": null,
+            "top_p": null,
+            "reasoning_effort": "high"
+          },
+          "source_ids": [
+            "xai",
+            "grok45"
+          ],
+          "note": "128000 is the current API default for visible output tokens. The checked native reference does not give numeric temperature or top_p defaults. Native settings do not establish the OpenRouter route settings."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "Command A",
+      "provider": "openrouter",
+      "model_id": "cohere/command-a",
+      "defaults": {},
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "Cohere native v2 Chat API",
+          "kind": "documented_default",
+          "values": {
+            "temperature": 0.3,
+            "p": 0.75,
+            "k": 0,
+            "frequency_penalty": 0,
+            "presence_penalty": 0,
+            "max_tokens": "8k"
+          },
+          "source_ids": [
+            "cohere",
+            "cohere_models"
+          ],
+          "note": "max_tokens defaults to the model output limit. The model index labels those limits as 8k and 4k. OpenRouter does not publish matching numeric defaults for these aliases."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "LLaMA 3.1 8B Instruct",
+      "provider": "openrouter",
+      "model_id": "meta-llama/llama-3.1-8b-instruct",
+      "defaults": {},
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "Author model card",
+          "kind": "no_verified_default",
+          "values": {},
+          "source_ids": [
+            "llama"
+          ],
+          "note": "OpenRouter publishes no numeric default parameters. Access to the author generation configuration requires model access; no values are inferred from examples."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "GPT-5.5 Medium",
+      "provider": "openai",
+      "model_id": "gpt-5.5",
+      "defaults": {
+        "temperature": 1,
+        "top_p": 1
+      },
+      "source_ids": [
+        "openai_schema",
+        "openai55"
+      ],
+      "additional_references": [],
+      "sampling_scope": "Generic Responses API schema; model and reasoning-mode support must be checked separately.",
+      "reasoning_default": "medium",
+      "max_output_tokens_default": null,
+      "paper_variant": "medium"
+    },
+    {
+      "model_group": "GPT-5.5 High",
+      "provider": "openai",
+      "model_id": "gpt-5.5",
+      "defaults": {
+        "temperature": 1,
+        "top_p": 1
+      },
+      "source_ids": [
+        "openai_schema",
+        "openai55"
+      ],
+      "additional_references": [],
+      "sampling_scope": "Generic Responses API schema; model and reasoning-mode support must be checked separately.",
+      "reasoning_default": "medium",
+      "max_output_tokens_default": null,
+      "paper_variant": "high"
+    },
+    {
+      "model_group": "Gemini 2.5 Flash",
+      "provider": "google",
+      "model_id": "gemini-2.5-flash",
+      "defaults": {
+        "candidateCount": 1,
+        "temperature": null,
+        "topP": null,
+        "topK": null
+      },
+      "source_ids": [
+        "google_generation",
+        "google_thinking",
+        "google25"
+      ],
+      "additional_references": [
+        {
+          "scope": "Google Cloud model documentation",
+          "kind": "documented_default",
+          "values": {
+            "temperature": 1,
+            "topP": 0.95,
+            "topK": 64,
+            "candidateCount": 1
+          },
+          "source_ids": [
+            "cloud25"
+          ],
+          "note": "topK is fixed. These numeric sampling values are scoped to the Cloud documentation, not an authenticated Developer API getModel response."
+        }
+      ],
+      "sampling_scope": "Gemini Developer API: sampling defaults are returned by getModel. Numeric Cloud documentation is listed separately.",
+      "reasoning_default": "dynamic (thinkingBudget=-1)",
+      "max_output_tokens_default": 65536
+    },
+    {
+      "model_group": "Command R+",
+      "provider": "openrouter",
+      "model_id": "cohere/command-r-plus-08-2024",
+      "defaults": {},
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "Cohere native v2 Chat API",
+          "kind": "documented_default",
+          "values": {
+            "temperature": 0.3,
+            "p": 0.75,
+            "k": 0,
+            "frequency_penalty": 0,
+            "presence_penalty": 0,
+            "max_tokens": "4k"
+          },
+          "source_ids": [
+            "cohere",
+            "cohere_models"
+          ],
+          "note": "max_tokens defaults to the model output limit. The model index labels those limits as 8k and 4k. OpenRouter does not publish matching numeric defaults for these aliases."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "Gemini 3 Flash",
+      "provider": "google",
+      "model_id": "gemini-3-flash-preview",
+      "defaults": {
+        "candidateCount": 1,
+        "temperature": null,
+        "topP": null,
+        "topK": null
+      },
+      "source_ids": [
+        "google_generation",
+        "google_thinking",
+        "google3"
+      ],
+      "additional_references": [
+        {
+          "scope": "Google Cloud model documentation",
+          "kind": "documented_default",
+          "values": {
+            "temperature": 1,
+            "topP": 0.95,
+            "topK": 64,
+            "candidateCount": 1
+          },
+          "source_ids": [
+            "cloud3"
+          ],
+          "note": "topK is fixed. These numeric sampling values are scoped to the Cloud documentation, not an authenticated Developer API getModel response."
+        }
+      ],
+      "sampling_scope": "Gemini Developer API: sampling defaults are returned by getModel. Numeric Cloud documentation is listed separately.",
+      "reasoning_default": "high",
+      "max_output_tokens_default": 65536
+    },
+    {
+      "model_group": "Gemini 3 Flash Low",
+      "provider": "google",
+      "model_id": "gemini-3-flash-preview",
+      "defaults": {
+        "candidateCount": 1,
+        "temperature": null,
+        "topP": null,
+        "topK": null
+      },
+      "source_ids": [
+        "google_generation",
+        "google_thinking",
+        "google3"
+      ],
+      "additional_references": [
+        {
+          "scope": "Google Cloud model documentation",
+          "kind": "documented_default",
+          "values": {
+            "temperature": 1,
+            "topP": 0.95,
+            "topK": 64,
+            "candidateCount": 1
+          },
+          "source_ids": [
+            "cloud3"
+          ],
+          "note": "topK is fixed. These numeric sampling values are scoped to the Cloud documentation, not an authenticated Developer API getModel response."
+        }
+      ],
+      "sampling_scope": "Gemini Developer API: sampling defaults are returned by getModel. Numeric Cloud documentation is listed separately.",
+      "reasoning_default": "high",
+      "max_output_tokens_default": 65536,
+      "paper_variant": "low"
+    },
+    {
+      "model_group": "Qwen3.5-9B",
+      "provider": "openrouter",
+      "model_id": "qwen/qwen3.5-9b",
+      "defaults": {
+        "temperature": null,
+        "top_p": null,
+        "top_k": null,
+        "frequency_penalty": null,
+        "presence_penalty": null,
+        "repetition_penalty": null
+      },
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "Alibaba Model Studio OpenAI-compatible Chat API",
+          "kind": "documented_default",
+          "values": {
+            "non_thinking": {
+              "temperature": 0.7,
+              "top_p": 0.8,
+              "top_k": 20
+            },
+            "thinking": {
+              "temperature": 0.6,
+              "top_p": 0.95,
+              "top_k": 20
+            }
+          },
+          "source_ids": [
+            "qwen_api"
+          ],
+          "note": "Model-family API defaults, scoped to Alibaba Model Studio. They do not specify which provider handled an OpenRouter request."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "Qwen3.8-27B",
+      "provider": "openrouter",
+      "model_id": "qwen/qwen3.8-27b",
+      "defaults": {
+        "temperature": 1,
+        "top_p": 0.95,
+        "top_k": 20
+      },
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "Author released generation_config.json",
+          "kind": "released_generation_config",
+          "values": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 20
+          },
+          "source_ids": [
+            "qwen27"
+          ],
+          "note": "Local model configuration; hosted providers can override these values."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "Qwen3.8-2.4T-A95B",
+      "provider": "openrouter",
+      "model_id": "qwen/qwen3.8-2.4t-a95b",
+      "defaults": {
+        "temperature": 1,
+        "top_p": 0.95,
+        "top_k": 20
+      },
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "Author released generation_config.json",
+          "kind": "released_generation_config",
+          "values": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 20
+          },
+          "source_ids": [
+            "qwen24t"
+          ],
+          "note": "Local model configuration; hosted providers can override these values."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "GLM-5.3",
+      "provider": "openrouter",
+      "model_id": "z-ai/glm-5.3",
+      "defaults": {
+        "temperature": 1,
+        "top_p": 0.95
+      },
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "Z.AI native Chat Completions API",
+          "kind": "documented_default",
+          "values": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "reasoning_effort": "max"
+          },
+          "source_ids": [
+            "zai"
+          ],
+          "note": "The native API documents an output ceiling, but does not state a numeric default max_tokens. The paper variant and recovered request settings remain separate."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "Kimi-K3",
+      "provider": "openrouter",
+      "model_id": "moonshotai/kimi-k3",
+      "defaults": {
+        "temperature": null,
+        "top_p": 0.95,
+        "top_k": null,
+        "frequency_penalty": null,
+        "presence_penalty": null,
+        "repetition_penalty": null
+      },
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "Kimi native Chat Completions API",
+          "kind": "documented_default",
+          "values": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "n": 1,
+            "frequency_penalty": 0,
+            "presence_penalty": 0,
+            "max_completion_tokens": 131072,
+            "reasoning_effort": "max"
+          },
+          "source_ids": [
+            "kimi3",
+            "kimi_parameters"
+          ],
+          "note": "Sampling values are fixed; omit them from native requests. Thinking is always enabled. This is not a description of OpenRouter parameter handling."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "DeepSeek-V4-Pro",
+      "provider": "openrouter",
+      "model_id": "deepseek/deepseek-v4-pro",
+      "defaults": {
+        "temperature": 1,
+        "top_p": 1
+      },
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "DeepSeek native Chat Completions API",
+          "kind": "documented_default",
+          "values": {
+            "temperature": 1,
+            "top_p": 1,
+            "reasoning_effort": "high",
+            "max_tokens_non_thinking": 8192,
+            "max_tokens_thinking": 65536,
+            "max_tokens_thinking_max_effort": 131072
+          },
+          "source_ids": [
+            "deepseek"
+          ],
+          "note": "Temperature has no effect in thinking mode. top_p is fixed at 1 in non-thinking mode; in thinking mode values below 0.95 are clamped to 0.95. Defaults depend on the selected mode."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "DeepSeek-V4-Flash",
+      "provider": "openrouter",
+      "model_id": "deepseek/deepseek-v4-flash",
+      "defaults": {},
+      "source_ids": [
+        "or_catalog",
+        "or_parameters"
+      ],
+      "additional_references": [
+        {
+          "scope": "DeepSeek native Chat Completions API",
+          "kind": "documented_default",
+          "values": {
+            "temperature": 1,
+            "top_p": 1,
+            "reasoning_effort": "high",
+            "max_tokens_non_thinking": 8192,
+            "max_tokens_thinking": 65536,
+            "max_tokens_thinking_max_effort": 131072
+          },
+          "source_ids": [
+            "deepseek"
+          ],
+          "note": "Temperature has no effect in thinking mode. top_p is fixed at 1 in non-thinking mode; in thinking mode values below 0.95 are clamped to 0.95. Defaults depend on the selected mode."
+        }
+      ],
+      "catalog_status": "listed",
+      "max_output_tokens_default": null,
+      "reasoning_default": null
+    },
+    {
+      "model_group": "Gemini-3.5-Flash",
+      "provider": "google",
+      "model_id": "gemini-3.5-flash",
+      "defaults": {
+        "candidateCount": 1,
+        "temperature": null,
+        "topP": null,
+        "topK": null
+      },
+      "source_ids": [
+        "google_generation",
+        "google_thinking",
+        "google35"
+      ],
+      "additional_references": [
+        {
+          "scope": "Google Cloud model documentation",
+          "kind": "documented_default",
+          "values": {
+            "temperature": 1,
+            "topP": 0.95,
+            "topK": 64,
+            "candidateCount": 1
+          },
+          "source_ids": [
+            "cloud35"
+          ],
+          "note": "topK is fixed. These numeric sampling values are scoped to the Cloud documentation, not an authenticated Developer API getModel response."
+        }
+      ],
+      "sampling_scope": "Gemini Developer API: sampling defaults are returned by getModel. Numeric Cloud documentation is listed separately.",
+      "reasoning_default": "medium",
+      "max_output_tokens_default": 65536
+    }
+  ]
+}

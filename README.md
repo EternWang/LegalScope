@@ -106,6 +106,9 @@ provides runnable generation and scoring examples, archived rubrics and availabl
 run configurations. Original provider transcripts, remaining exam inputs and the
 complete historical execution environment are outside the release.
 
+The [model settings reference](docs/MODEL_SETTINGS.md) covers all 28 groups,
+with current provider defaults, model release configurations and official sources.
+
 ## Public Release Boundary
 
 The complete benchmark is larger than the downloadable release. The repository
