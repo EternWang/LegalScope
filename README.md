@@ -21,7 +21,7 @@ packaged historical scoring references, 78 Victorian Bar source excerpt records
 with selected candidate answers, and benchmark metadata. Start with the
 [case dataset](https://huggingface.co/datasets/Hongyu801/LegalScope/viewer/case_prompts/test)
 and the [loading and field guide](docs/USING_THE_RELEASE.md).
-See [reference notes for RV025/RV026](docs/CASE_REFERENCE_NOTES.md) before using
+See [reference notes and known issues](docs/CASE_REFERENCE_NOTES.md) before using
 their scoring references.
 
 ## Benchmark at a Glance
@@ -142,3 +142,5 @@ above. See [release status](docs/RELEASE_STATUS.md) for details.
 
 LegalScope is a research benchmark, not legal advice or a substitute for
 jurisdiction-specific legal review.
+
+For a new reference comparison, use the [offline preparation and validation guide](docs/REFERENCE_REVIEW.md).

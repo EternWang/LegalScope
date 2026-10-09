@@ -11,9 +11,14 @@ records and 86 metadata rows. Reference and metadata rows are not extra question
 Original input and reference text, the 78 exam source records and all 252 reported
 score values are unchanged. Version and reference issue fields are added.
 
-RV025 has an unspecified statute edition; RV026 also has a nursing fee article
-mismatch. The [reference notes](CASE_REFERENCE_NOTES.md) explain both. Scores have
-not been rerun, and the effect of this issue on scoring has not been measured.
+The [reference notes](CASE_REFERENCE_NOTES.md) document article mismatches in
+RV025/RV026 and RV271/RV272, plus authority clarification needs. The nursing
+source passage identifies the 2020 revision. Historical
+reference wording and scores remain unchanged; scoring effects are unmeasured.
+An [offline comparison utility](REFERENCE_REVIEW.md) now checks prompt/reference
+joins, prepares response packets without identity metadata or old scores, and
+validates score coverage. It is a tool for new experiments, not the historical
+scoring runtime.
 
 [Case sources and fields](CASE_RELEASE.md) · [Loading guide](USING_THE_RELEASE.md) ·
 [File hashes](../data/metadata/case_release_manifest.json)

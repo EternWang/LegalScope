@@ -134,7 +134,7 @@ paper's scores were not rerun on this package.
 
 All 276 case prompts and 276 matching historical references are available.
 See [case sources and fields](CASE_RELEASE.md) and the
-[reference notes for RV025/RV026](CASE_REFERENCE_NOTES.md). Original prompt and
+[reference notes and known issues](CASE_REFERENCE_NOTES.md). Original prompt and
 reference text is retained. Reported scores have not been rerun. Original
 judgments, identifying mappings and the full model response matrix are excluded.
 

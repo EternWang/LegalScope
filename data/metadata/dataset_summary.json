@@ -156,7 +156,15 @@
     "case_source_matches": 56,
     "case_reference_issue_ids": [
       "RV025",
-      "RV026"
+      "RV026",
+      "RV189",
+      "RV190",
+      "RV201",
+      "RV202",
+      "RV205",
+      "RV206",
+      "RV271",
+      "RV272"
     ],
     "case_reference_legal_validation": "not exhaustive; known article and edition issues documented",
     "hub_configuration_count": 6,

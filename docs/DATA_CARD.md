@@ -82,7 +82,7 @@ includes all 276 deidentified case prompts and their historical references in
 separate configurations, plus 78 Victorian Bar source excerpts. Six configurations
 use Parquet; original CSV/JSONL downloads remain available. The case input and
 reference fields are unchanged from the final workbook. Known article/edition
-issues in RV025/RV026 are flagged in the [reference notes](CASE_REFERENCE_NOTES.md).
+issues and clarification needs are flagged in the [reference notes](CASE_REFERENCE_NOTES.md).
 This release does not certify every reference as legally correct.
 
 The exam subset retains source-specific attribution and CC BY-NC-ND 4.0 notices;

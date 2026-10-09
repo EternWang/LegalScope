@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "legalscope"
 version = "0.1.0"
-description = "Reproducible public utilities for the LegalScope benchmark preview."
+description = "Public data utilities and offline reference comparisons for LegalScope."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

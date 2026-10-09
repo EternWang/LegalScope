@@ -53,15 +53,18 @@ print(by_id[row["review_id"]]["reference_status"])
 | `reference_status`, `reference_note` | Review limitations and known article/edition issue flags |
 | `release_version`, `license` | Release version and applicable license |
 
-**Known reference issue:** RV025 lacks a statute edition; RV026 also cites an
-incorrect article for nursing fee calculation. Original fields are retained and
-flagged. See [reference notes](CASE_REFERENCE_NOTES.md). No rescoring was done;
-the effect on the reported scores has not been measured.
+**Reference notes:** article or edition numbering issues affect RV025/RV026 and
+RV271/RV272. Citation clarification is also recorded for RV189/RV190,
+RV201/RV202 and RV205/RV206. Original fields are retained and flagged. See
+[reference notes](CASE_REFERENCE_NOTES.md). Scores have not been rerun, and the
+effect on the reported scores has not been measured.
 
 ## Case publication status
 
 The case track draws on 15 judgments provided by a handling lawyer (76 prompts)
-and 41 judgments attributed to China Judgments Online (200 prompts). Prompts were
+and 41 judgments attributed to China Judgments Online (200 prompts). The first
+76 prompts were derived from the lawyer supplied judgments and reviewed after
+deidentification. All prompts were
 deidentified and checked by a practicing lawyer. The 276 records cover 56 cases
 and 138 issues, each with supporting and opposing positions.
 

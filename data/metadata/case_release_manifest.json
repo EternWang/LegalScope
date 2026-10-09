@@ -12,7 +12,7 @@
     {
       "cases": 15,
       "prompts": 76,
-      "provenance": "Judgments provided by a handling lawyer."
+      "provenance": "Judgments supplied by the handling lawyer; the derived 76 prompts were deidentified and reviewed by the lawyer."
     },
     {
       "cases": 41,
@@ -31,10 +31,18 @@
   ],
   "reference_type": "historical scoring reference; not a unique gold answer or model response",
   "known_reference_issues": [
-    "RV025: statute edition unspecified",
-    "RV026: nursing-fee article mismatch and statute edition unspecified"
+    "RV025: historical_reference_edition_numbering_mismatch",
+    "RV026: historical_reference_known_article_mismatch",
+    "RV189: historical_reference_citation_scope_requires_review",
+    "RV190: historical_reference_citation_scope_requires_review",
+    "RV201: historical_reference_authority_underspecified",
+    "RV202: historical_reference_authority_underspecified",
+    "RV205: historical_reference_authority_underspecified",
+    "RV206: historical_reference_authority_underspecified",
+    "RV271: historical_reference_known_article_mismatch",
+    "RV272: historical_reference_known_article_mismatch"
   ],
-  "known_issues_document": "../../docs/CASE_REFERENCE_NOTES.md",
+  "known_issues_document": "REFERENCE_NOTES.md",
   "model_outputs_included": false,
   "source_judgments_included": false,
   "human_review_sheets_included": false,
@@ -51,13 +59,12 @@
     },
     "case_scoring_references.jsonl": {
       "rows": 276,
-      "sha256": "becaa8bbad010cdb480fa03a8880e401816e4f47c0ea9da2d6428122e8f3ac4e"
+      "sha256": "6149a82dd0711e5acd882ebde648817577e028ca48ac1633305a1014deeb256c"
     },
     "case_scoring_references.parquet": {
       "rows": 276,
-      "sha256": "d5cf8633539906942ba0f7cab6913abdfdf2b091b0bf2efcb32c2bdd8e34eef0"
+      "sha256": "f56d6682aa49e7b0a0d29abcc22570a581ce1828820fd02bb2601b6b60d1dc8c"
     }
   },
-  "artifact_base_url": "https://huggingface.co/datasets/Hongyu801/LegalScope/tree/f953dedeab591450c769dfd677767c1e2a2bf046/data/cases",
-  "hugging_face_revision": "f953dedeab591450c769dfd677767c1e2a2bf046"
+  "reference_note_update": "2026-10-09: citation correspondence notes expanded; historical reference fields and scores unchanged."
 }
