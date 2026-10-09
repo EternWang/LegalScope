@@ -49,13 +49,15 @@
 .table-legend>span{display:inline-flex;gap:6px;align-items:center}.table-legend .legend-context{margin-left:auto;font-size:11px;color:#72808d}
 .second-label{text-decoration:underline;text-underline-offset:3px}
 .table-scroll{position:relative;border:1px solid #d6e0e9;border-radius:9px}
-#performance-table{font-size:13px}
+#performance-table{font-size:13px;table-layout:fixed;min-width:880px;border-collapse:separate;border-spacing:0}
+#performance-table .model-column{width:22%}
 #performance-table thead .column-groups th{background:#ecf2f7;font-size:11px;font-weight:600;letter-spacing:.45px;text-align:center;padding:12px 14px;border-bottom:1px solid #d6e0e9}
 #performance-table thead .column-groups th[rowspan]{text-align:left;vertical-align:middle}
-#performance-table thead .column-groups .human-group{background:#edf3f2;border-left:2px solid #cbd8e1}
-#performance-table thead tr:nth-child(2) th{background:#f7f9fb;font-size:11px;padding:9px 12px}
-#performance-table thead tr:nth-child(2) th:first-child{position:static;min-width:0;text-align:right;border-right:0}
-#performance-table .human-start,#performance-table tbody td:nth-child(7){border-left:2px solid #d7e1e9}
+#performance-table thead .column-groups .human-group{background:#edf3f2;border-left:0}
+#performance-table thead tr:nth-child(2) th{background:#f7f9fb;font-size:11px;padding:9px 12px;text-align:center}
+#performance-table thead tr:nth-child(2) th:first-child{position:static;min-width:0;text-align:center;border-right:0}
+#performance-table .human-start,#performance-table tbody td:nth-child(7){border-left:0}
+#performance-table tbody td{text-align:center}
 #performance-table tbody td,#performance-table tbody th{padding:11px 12px;border-bottom:1px solid #e8edf2;font-size:13px}
 #performance-table tbody th{font-weight:600;color:#344b60;background:white;text-align:left;letter-spacing:0}
 .table-scroll tbody tr:nth-child(even)>*{background:#fafbfd}
@@ -84,3 +86,11 @@
 .brand-icon[src$="huggingface.svg"]{width:20px;height:20px}
 .resource-grid h3{display:flex;align-items:center;gap:10px}
 .resource-grid h3 .brand-icon{width:24px;height:24px}
+
+/* Compact release information; primary resource links appear in the hero. */
+.resource-section .wrap{max-width:880px}
+.resource-section .section-heading{margin-bottom:22px}
+.resource-section .availability{max-width:none;margin:0;padding:0;border:0;font-size:14px;line-height:1.8;color:var(--text)}
+.resource-section .availability+.availability{margin-top:12px;color:var(--muted)}
+.resource-docs{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.resource-docs a{font-size:13px;color:var(--blue);text-decoration:underline;text-underline-offset:3px}
