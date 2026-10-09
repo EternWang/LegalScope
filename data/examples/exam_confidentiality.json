@@ -1,0 +1,17 @@
+{
+  "track": "exam",
+  "item_id": "EXTVICBAR01A",
+  "model_group": "Gemini 2.5 Flash",
+  "evaluation": "automatic",
+  "response": "(a) The barrister's ability to disclose the information about the potential divorce cannot be determined based solely on the facts and materials provided. The prompt does not include the specific legal rules or principles governing barrister confidentiality and its exceptions under Victorian/Australian law (VICBAR-01), which would be necessary to assess whether such disclosure is permissible.",
+  "score": 1,
+  "score_scale": {
+    "min": 0,
+    "max": 4
+  },
+  "grading_note": "Identifies confidentiality issue but refuses to answer; misses rule r114, application, and no-disclosure conclusion.",
+  "answer_sha256": "87b5dce89e9cf57156893a46e652bde815741a81b9718ff1569a1bfefafbd334",
+  "score_records": "../results/answer_scores.csv.gz",
+  "exam_source": "https://huggingface.co/datasets/Hongyu801/LegalScope/blob/main/data/victorian_bar/source_excerpts.jsonl",
+  "response_description": "Full answer text stored in the final evaluation workbook."
+}
