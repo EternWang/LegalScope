@@ -8,10 +8,10 @@
 | Chinese real cases | 10 | 28 | 280 |
 | Total | 90 | 28 | 2,520 |
 
-Independent reviewers score exam answers against references. For cases, two
+Exam human scores are reviewed and confirmed against the reference answers. For cases, two
 practicing Chinese lawyers independently score the same randomized answer set.
 Model identities, automatic scores, and the other lawyer's ratings are hidden.
-Reviewers are excluded from benchmark construction; Lawyer 2 is held out from
+Case reviewers are excluded from benchmark construction; Lawyer 2 is held out from
 rubric calibration. The case human endpoint is the equal-weight mean of both
 lawyers. Unique-answer counts do not count the two lawyers' ratings separately.
 
@@ -41,4 +41,5 @@ is reported as `5.13` points, with prompt-cluster 95% CI `[-0.94, 11.07]` from
 intervals cross zero. The lawyer-scored contrast is descriptive; no consistent
 ordering for constraint extraction is claimed.
 
-Raw review sheets and adjudication notes are not included in the repository.
+Individual numeric ratings are included in the [score release](REPRODUCIBILITY.md).
+Raw review sheets and adjudication notes are not included.

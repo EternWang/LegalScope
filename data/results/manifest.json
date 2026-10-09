@@ -1,0 +1,25 @@
+{
+  "version": "2026-10-09",
+  "score_rows": 34636,
+  "case_model_responses": 7728,
+  "score_scale": "Integer 0 to 4",
+  "pools": {
+    "case/automatic": 7728,
+    "exam/automatic": 24108,
+    "case/lawyer_1": 280,
+    "case/lawyer_2": 280,
+    "exam/exam_review": 2240
+  },
+  "files": {
+    "answer_scores.csv.gz": {
+      "sha256": "9865eb3679516cecd136225229cc483be947e8891fbbae998ccf6d0899a4a796",
+      "bytes": 1510046,
+      "url": "https://huggingface.co/datasets/Hongyu801/LegalScope/resolve/main/data/results/answer_scores.csv.gz"
+    },
+    "case_model_responses.parquet": {
+      "sha256": "f4e911b2a1cb5c168198c08828bb4c18836b0f7564c44c4f57b6220f861c8a6b",
+      "bytes": 7170643,
+      "url": "https://huggingface.co/datasets/Hongyu801/LegalScope/resolve/main/data/results/case_model_responses.parquet"
+    }
+  }
+}

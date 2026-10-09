@@ -1,0 +1,36 @@
+{
+  "original_runtime_sha256": "2690b655468f82bb9b94ab30c616e61c1f52d9e41b0355a087830ede76b4dd3b",
+  "preserved_functions": [
+    "build_prompt",
+    "validate_cn",
+    "validate_cn_ac",
+    "validate_cn_b",
+    "validate_bar"
+  ],
+  "files": {
+    "rubrics/case_joint_aug2026.json": {
+      "sha256": "9f8613fa812c658a340cdf480c683d873ff607010d74e0b285e9eba8a930821b",
+      "canonical_json_sha256": "abfc83bd9aacd9e6252bae1211e20ec5b190cb221454e7ade35d01320afbb50a"
+    },
+    "rubrics/exam_aug2026.json": {
+      "sha256": "c5191fcf7bd3d87066f018e0a222821f7c020c0569738d0de46f714ffcbdad72",
+      "canonical_json_sha256": "e75e396bc14b59f58be2eb8af4b3041037235c8363eea00cabfa17e05588cab5"
+    },
+    "rubrics/case_b_aug2026.json": {
+      "sha256": "dcc17625db0de762a340cfe10be3647b8f4f7501ee78360caf54a33f6cc56225",
+      "canonical_json_sha256": "de2a9183725e0733f193fdadfb5b9ba545c3789843d447cee9add58073b7d87a"
+    },
+    "schemas/bar.json": {
+      "sha256": "d0172be78d1f805316b6e3845c30f63a05de9f7b154e1252d740db30535efbe7"
+    },
+    "schemas/cn.json": {
+      "sha256": "72fab98d89d79d04fa6c00aa601e7b95ce73fe94767066610e82e38f2ae74042"
+    },
+    "schemas/cn_ac.json": {
+      "sha256": "bd8de8d7dc36e81476f28e9fe8e12772971d184949947c8e3b8f2222dfe32cb9"
+    },
+    "schemas/cn_b.json": {
+      "sha256": "c0267190dfc0c52a2f9000d8fd5c64cc7fa90ef701212e654b9cf3d4f6eab2eb"
+    }
+  }
+}

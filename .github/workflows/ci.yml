@@ -32,7 +32,7 @@ jobs:
         run: python -m pytest -q
 
       - name: Compile Python sources
-        run: python -m compileall scripts src
+        run: python -m compileall scripts src evaluation
 
       - name: Validate website build and JavaScript
         run: |

@@ -1,2 +1,6 @@
 *.pdf binary
 *.png binary
+
+# Preserve the archived rubric and schema bytes recorded in provenance.json.
+evaluation/rubrics/*.json -text
+evaluation/schemas/*.json -text

@@ -1,6 +1,8 @@
 # Scoring Rubric
 
 This document follows Sections 4 and A.5 of the workshop camera-ready paper.
+The [evaluation directory](../evaluation/README.md) provides machine-readable
+rubrics, prompt construction and an executable scorer.
 
 ## Public-Exam Scoring
 

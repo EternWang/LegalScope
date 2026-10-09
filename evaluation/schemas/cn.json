@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["A", "B", "C", "review_notes", "cap_rules_triggered", "audit_flags"],
+  "properties": {
+    "A": {"type": "integer", "minimum": 0, "maximum": 4},
+    "B": {"type": "integer", "minimum": 0, "maximum": 4},
+    "C": {"type": "integer", "minimum": 0, "maximum": 4},
+    "review_notes": {"type": "string", "minLength": 20},
+    "cap_rules_triggered": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "NO_EXPLICIT_AUTHORITY_A_ZERO_BC_MAX_2",
+          "NO_EXPLICIT_AUTHORITY_NO_SUBSTANTIVE_ANALYSIS_ALL_ZERO",
+          "B_WRONG_POSITION_ZERO",
+          "B_SERIOUS_UNSUPPORTED_FACTS_MAX_1",
+          "B_ZERO_C_MAX_2",
+          "A_SEVERE_FAILURE_MAX_1",
+          "B_SEVERE_FAILURE_MAX_1",
+          "C_SEVERE_FAILURE_MAX_1",
+          "A_MAJOR_DEFECT_MAX_2",
+          "B_MAJOR_DEFECT_MAX_2",
+          "C_MAJOR_DEFECT_MAX_2",
+          "A_MINOR_DEFECT_MAX_3",
+          "B_MINOR_DEFECT_MAX_3",
+          "C_MINOR_DEFECT_MAX_3"
+        ]
+      }
+    },
+    "audit_flags": {
+      "type": "array",
+      "items": {"type": "string", "enum": ["STRUCTURAL_ANOMALY", "DEIDENTIFICATION_FAILURE"]}
+    }
+  }
+}

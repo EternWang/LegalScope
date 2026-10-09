@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "status": "frozen_for_new_model_joint_abc_scoring",
+  "name": "V2 Chinese Judgment Joint A/B/C Scoring — English-Compatible",
+  "scope": "仅用于中文判决书闭卷法律分析回答。评分时只能使用当前题目、当前候选回答及评分侧参考字段，不得搜索外部资料。",
+  "procedure": [
+    "先判断回答是否明确引用法律条文、法律名称、司法解释、规则名称或其他可识别法律依据。若完全没有明确法律依据，A必须为0；如果回答仍有实质事实梳理、法律评价或规则适用，B和C继续评分但各自最高为2；只有连实质分析也没有时才将A、B、C全部评为0。",
+    "存在明确法律依据时，A、B、C三个维度分别独立评分，不得因某一维度较高而自动抬高其他维度。",
+    "Citation Basis、Cited Supported Proposition、Review Constraints、Position和Core Issue仅供评分使用，不得假定回答模型曾看到这些隐藏字段，也不得要求回答逐字复现隐藏字段。",
+    "每个维度存在严重失败时最高为1，存在重大缺陷时最高为2，仅有轻微缺陷时最高为3；4分要求该维度近乎没有实质缺陷。",
+    "无论其他维度如何，只要B=0，C最高为2。",
+    "题目、评分侧参考字段或候选回答使用英文、中文或二者混合，均不得仅因语言本身在B维度扣分；不得评价翻译风格。",
+    "B只评价指定立场、事实与证据边界、子任务覆盖、段落与格式结构、脱敏等约束遵守情况；不得用A的引用质量或C的论证强弱代替B判断。",
+    "合理的法律推断或基于题内事实的论证不是新增事实。只有把题目之外的具体事实、证据、程序或裁判结果当成既知事实，且对结论有实质影响时，才适用题外事实扣分或封顶。",
+    "从题目中的Your Writing Position读取指定立场；不得把按要求反对法院处理结论误判为立场答反。"
+  ],
+  "dimensions": {
+    "A": {
+      "name": "引用相关性",
+      "checklist": [
+        "回答包含明确的法律名称、条文编号或等价的可识别法律依据",
+        "所引依据与争议问题直接相关",
+        "所引依据与具体命题、推理和结论有清楚连接",
+        "不存在明显错引、法域错误或归属错误"
+      ],
+      "scores": {
+        "0": "0/4，或完全没有明确法律依据",
+        "1": "1/4，存在严重失败；有引用痕迹但基本不能支撑核心命题",
+        "2": "2/4，存在重大缺陷；部分相关但有关键遗漏或命题错配",
+        "3": "3/4，仅有轻微缺陷；多数引用切题并能支撑主要结论",
+        "4": "4/4，近乎没有实质缺陷；引用、命题和结论形成清楚闭环"
+      }
+    },
+    "B": {
+      "name": "约束提取与遵守",
+      "checklist": [
+        "严格按照指定支持或反对立场作答",
+        "没有补充题目之外的事实",
+        "遵守闭卷、证据边界及其他审查边界",
+        "覆盖题目要求的子问题和两段分工",
+        "符合段落、格式和脱敏要求；不得因英文、中文或中英混合输出本身扣分"
+      ],
+      "scores": {
+        "0": "0/5，或立场明显答反，或严重补充事实",
+        "1": "1/5，存在严重失败；只捕捉极少约束，重大越界通常为0至1",
+        "2": "2至3/5，存在重大缺陷；落实部分主要约束但仍遗漏关键边界或子任务",
+        "3": "4/5，仅有轻微缺陷；大部分约束落实",
+        "4": "5/5，近乎没有实质缺陷；立场、边界、子任务、格式和脱敏均妥当"
+      }
+    },
+    "C": {
+      "name": "论证有效性",
+      "checklist": [
+        "直接回应核心法律问题",
+        "将规则明确适用于题内事实",
+        "存在多个子问题时逐一回应",
+        "没有自相矛盾或偷换请求权、责任结构",
+        "结论与前述推理一致"
+      ],
+      "scores": {
+        "0": "0/5，几乎只有空泛结论，不能构成法律分析",
+        "1": "1/5，存在严重失败；有零散判断但逻辑跳跃或法律适用错误明显",
+        "2": "2至3/5，存在重大缺陷；部分回应核心问题但有明显断裂",
+        "3": "4/5，仅有轻微缺陷；整体可靠，仅有轻微遗漏或跳跃",
+        "4": "5/5，近乎没有实质缺陷；问题识别、规则适用、分项回应和结论闭环完整稳定"
+      }
+    }
+  },
+  "cap_rules": {
+    "NO_EXPLICIT_AUTHORITY_A_ZERO_BC_MAX_2": "没有明确、可识别法律依据但仍有实质分析时，A=0且B、C各自最高为2。",
+    "NO_EXPLICIT_AUTHORITY_NO_SUBSTANTIVE_ANALYSIS_ALL_ZERO": "既没有明确法律依据也没有实质分析时，A=B=C=0。",
+    "B_WRONG_POSITION_ZERO": "回答立场明显与题目要求相反时，B=0。",
+    "B_SERIOUS_UNSUPPORTED_FACTS_MAX_1": "严重补充题外事实、证据或程序信息时，B最高为1；达到严重程度时通常为0。",
+    "B_ZERO_C_MAX_2": "B=0时，C最高为2。",
+    "A_SEVERE_FAILURE_MAX_1": "A维度存在严重失败时最高为1。",
+    "B_SEVERE_FAILURE_MAX_1": "B维度存在严重失败时最高为1。",
+    "C_SEVERE_FAILURE_MAX_1": "C维度存在严重失败时最高为1。",
+    "A_MAJOR_DEFECT_MAX_2": "A维度存在重大缺陷时最高为2。",
+    "B_MAJOR_DEFECT_MAX_2": "B维度存在重大缺陷时最高为2。",
+    "C_MAJOR_DEFECT_MAX_2": "C维度存在重大缺陷时最高为2。",
+    "A_MINOR_DEFECT_MAX_3": "A维度仅有轻微缺陷时最高为3。",
+    "B_MINOR_DEFECT_MAX_3": "B维度仅有轻微缺陷时最高为3。",
+    "C_MINOR_DEFECT_MAX_3": "C维度仅有轻微缺陷时最高为3。"
+  },
+  "audit_flags": {
+    "STRUCTURAL_ANOMALY": "回答异常短、明显截断、只有口号或拒答；应标记结构异常，不应伪装成普通低分。",
+    "DEIDENTIFICATION_FAILURE": "回答泄露真实姓名、完整机构名、住址、身份证件号码或原始文书路径；评语必须明确指出。"
+  },
+  "additional_rules": [
+    "不得因回答没有逐字复现隐藏的Citation Basis而直接判0；关键是是否出现真实、可识别且可用于论证的法律依据。",
+    "轻微格式问题通常不应把B压到2分以下。",
+    "review_notes must use one or two concise English sentences, separately identify the main reason for A, B, and C, and name every triggered cap rule or audit flag.",
+    "cap_rules_triggered必须完整列出实际生效的封顶代码；不得继续使用旧代码NO_EXPLICIT_LEGAL_AUTHORITY_ALL_ZERO。"
+  ],
+  "output_schema": {
+    "exact_keys": [
+      "A",
+      "B",
+      "C",
+      "review_notes",
+      "cap_rules_triggered",
+      "audit_flags"
+    ],
+    "A": "integer 0..4",
+    "B": "integer 0..4",
+    "C": "integer 0..4",
+    "review_notes": "one or two concise English sentences covering A, B, and C",
+    "cap_rules_triggered": "array of unique cap-rule codes",
+    "audit_flags": "array of unique audit-flag codes"
+  }
+}

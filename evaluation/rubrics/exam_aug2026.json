@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "name": "V2 Bar Exam Answer Match Scoring",
+  "scope": "Compare only the substantive match between the current anonymous candidate answer and the external reference answer. Do not score A/B/C.",
+  "procedure": [
+    "Extract four core-unit categories from the reference answer: issue/object, governing rule/test, application/exception, and bottom-line conclusion/remedy.",
+    "Score by the number of categories substantively matched, not by wording overlap, length, fluency, or model identity.",
+    "Use only the current prompt, reference answer, review constraint, and candidate answer. Do not search external materials.",
+    "A clearly opposite core conclusion or a non-responsive answer normally scores 0. A refusal or structurally damaged answer scores at most 1 and must be flagged."
+  ],
+  "scores": {
+    "0": "0/4 categories matched, or the core conclusion is clearly opposite, or the response does not address the question.",
+    "1": "1/4 category matched; only the surface topic is touched and most key rules or conclusions are wrong or missing.",
+    "2": "2/4 categories matched; some core points align but multiple key conclusions or logical links are omitted.",
+    "3": "3/4 categories matched; most core conclusions and the main analytical direction align, with one significant gap allowed.",
+    "4": "4/4 categories matched; issue, rule, application, and conclusion/remedy are highly consistent with no substantive conflict."
+  },
+  "audit_flags": {
+    "STRUCTURAL_ANOMALY": "The answer is abnormally short, truncated, a slogan, or a refusal.",
+    "FACT_BOUNDARY_FAILURE": "The answer materially relies on facts outside the prompt."
+  },
+  "output_schema": {
+    "exact_keys": [
+      "score",
+      "review_notes",
+      "audit_flags"
+    ],
+    "score": "integer 0..4",
+    "review_notes": "one or two concise English sentences",
+    "audit_flags": "array of unique audit-flag codes"
+  }
+}

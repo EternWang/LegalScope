@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["score", "review_notes", "audit_flags"],
+  "properties": {
+    "score": {"type": "integer", "minimum": 0, "maximum": 4},
+    "review_notes": {"type": "string", "minLength": 15},
+    "audit_flags": {"type": "array", "items": {"type": "string"}}
+  }
+}

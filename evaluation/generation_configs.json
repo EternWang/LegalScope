@@ -1,0 +1,162 @@
+{
+  "batch": "August 2026 model expansion",
+  "scope": "Eight model groups. Unset parameters are null; null does not imply a fixed provider default.",
+  "configurations": [
+    {
+      "model_group": "Qwen3.5-9B",
+      "provider": "openrouter",
+      "model_id": "qwen/qwen3.5-9b",
+      "parameters": {
+        "temperature": 0,
+        "max_tokens": 4096,
+        "reasoning": {
+          "enabled": false
+        },
+        "provider": {
+          "sort": "throughput"
+        }
+      },
+      "maximum_output_budget": 16384,
+      "top_p": null,
+      "seed": null
+    },
+    {
+      "model_group": "Qwen3.8-27B",
+      "provider": "openrouter",
+      "model_id": "qwen/qwen3.8-27b",
+      "parameters": {
+        "temperature": 0,
+        "max_tokens": 4096,
+        "reasoning": {
+          "enabled": false
+        },
+        "provider": {
+          "sort": "throughput"
+        }
+      },
+      "maximum_output_budget": 16384,
+      "top_p": null,
+      "seed": null
+    },
+    {
+      "model_group": "Qwen3.8-2.4T-A95B",
+      "provider": "openrouter",
+      "model_id": "qwen/qwen3.8-2.4t-a95b",
+      "parameters": {
+        "temperature": 0,
+        "max_tokens": 32768,
+        "reasoning": {
+          "effort": "low",
+          "exclude": true
+        },
+        "provider": {
+          "order": [
+            "DeepInfra",
+            "SiliconFlow",
+            "Modal",
+            "Alibaba",
+            "Venice"
+          ],
+          "allow_fallbacks": true,
+          "require_parameters": true
+        }
+      },
+      "maximum_output_budget": 65536,
+      "top_p": null,
+      "seed": null
+    },
+    {
+      "model_group": "GLM-5.3",
+      "provider": "openrouter",
+      "model_id": "z-ai/glm-5.3",
+      "parameters": {
+        "temperature": 0,
+        "max_tokens": 4096,
+        "reasoning": {
+          "effort": "low",
+          "exclude": true
+        },
+        "provider": {
+          "sort": "throughput"
+        }
+      },
+      "maximum_output_budget": 16384,
+      "top_p": null,
+      "seed": null
+    },
+    {
+      "model_group": "Kimi-K3",
+      "provider": "openrouter",
+      "model_id": "moonshotai/kimi-k3",
+      "parameters": {
+        "temperature": 0,
+        "max_tokens": 4096,
+        "reasoning": {
+          "enabled": false
+        },
+        "provider": {
+          "sort": "throughput"
+        }
+      },
+      "maximum_output_budget": 16384,
+      "top_p": null,
+      "seed": null
+    },
+    {
+      "model_group": "DeepSeek-V4-Pro",
+      "provider": "openrouter",
+      "model_id": "deepseek/deepseek-v4-pro",
+      "parameters": {
+        "temperature": 0,
+        "max_tokens": 4096,
+        "reasoning": {
+          "enabled": false
+        },
+        "provider": {
+          "sort": "throughput"
+        }
+      },
+      "maximum_output_budget": 16384,
+      "top_p": null,
+      "seed": null
+    },
+    {
+      "model_group": "DeepSeek-V4-Flash",
+      "provider": "openrouter",
+      "model_id": "deepseek/deepseek-v4-flash",
+      "parameters": {
+        "temperature": 0,
+        "max_tokens": 4096,
+        "reasoning": {
+          "enabled": false
+        },
+        "provider": {
+          "sort": "throughput"
+        }
+      },
+      "maximum_output_budget": 16384,
+      "top_p": null,
+      "seed": null
+    },
+    {
+      "model_group": "Gemini-3.5-Flash",
+      "provider": "google",
+      "model_id": "gemini-3.5-flash",
+      "parameters": {
+        "maxOutputTokens": 32768,
+        "thinkingConfig": {
+          "thinkingLevel": "MEDIUM",
+          "includeThoughts": false
+        }
+      },
+      "maximum_output_budget": 65536,
+      "temperature": null,
+      "top_p": null,
+      "seed": null
+    }
+  ],
+  "source_hashes": {
+    "run_openrouter_batch.py": "00f1ba630054160fd581f039958dc7bd2b21bec0f8c794d3051712b1def11596",
+    "run_gemini35_flash_batch.py": "d8cf89c55d9cd5690c13fc26a9d91329d3e653a250235dcecc452c00ac466302"
+  }
+}

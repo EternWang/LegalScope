@@ -68,3 +68,15 @@
 @media(max-width:900px){.example-panel{gap:23px;padding:25px}.example-panel .example-evaluation{padding-left:22px}.score-reasons>div{grid-template-columns:1fr;gap:2px}.table-legend .legend-context{margin-left:0}}
 @media(max-width:640px){.example-tabs button{padding:9px 14px}.example-panel{grid-template-columns:1fr;padding:22px 19px;gap:22px}.example-heading{padding-bottom:17px}.example-heading h3{font-size:21px}.example-panel .example-evaluation{border-left:0;border-top:1px solid var(--line);padding:22px 0 0}.example-step{grid-template-columns:22px 1fr;gap:8px;margin-bottom:20px}.example-takeaway{padding:14px 16px}.abc-scores{gap:10px}.abc-scores span{font-size:10px}.table-legend{gap:9px 18px;font-size:11px;padding:12px}.table-legend .legend-context{width:100%;font-size:10px}#performance-table tbody th{min-width:165px}#performance-table tbody td,#performance-table tbody th{padding:11px 10px}.reference-quote,.model-answer{padding:14px}.score-reasons>div{grid-template-columns:100px 1fr;gap:9px}}
 @media print{.table-scroll{box-shadow:none;overflow:visible}.score-best .score-value{font-weight:800}.score-second .score-value{text-decoration:underline}}
+
+/* Simple tables and consistent spacing for the paper and data presentation. */
+.hero{padding-bottom:36px}.hero-title{max-width:830px;margin-inline:auto}
+.section-heading{margin-bottom:30px}.intro-copy{line-height:1.8}
+.track,.example-panel,.reference-quote,.model-answer,.example-tag{border-radius:3px}
+.table-scroll{border-radius:2px;box-shadow:none}
+.table-legend{padding:8px 0;border:0;border-radius:0;background:transparent}
+.table-scroll tbody tr:nth-child(even)>*{background:white}
+#performance-table thead .column-groups th,#performance-table thead .column-groups .human-group{background:#f3f4f5}
+#performance-table thead tr:nth-child(2) th{background:#fafafa}
+.example-takeaway{background:#f8f9fa;border-left:2px solid #c7cdd3;border-radius:0}
+.example-takeaway>strong{color:var(--ink)}

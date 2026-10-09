@@ -7,7 +7,7 @@
 3. Build exam tasks and paired, closed-book case prompts with human case review.
 4. Generate answers across 28 model groups.
 5. Score exam answers against references and case answers with the calibrated A/B/C rubric.
-6. Validate 2,240 exam answers and 280 case answers against independent review.
+6. Validate 2,240 exam answers using human scores and 280 case answers using two lawyers' independent scores.
 7. Analyze exam-case association, dimension contrasts, and automatic-human agreement.
 8. Audit the current citation-argument contrast with prompt/judgment clusters over
    all 276 prompts, while retaining historical controls and fixed-answer audits as
@@ -30,6 +30,7 @@ they are not a single joint rerun.
 GitHub provides research documentation, paper figures, aggregate performance,
 metadata, and data utilities. Hugging Face provides all 276 case prompts and
 matching scoring references, plus 78 Victorian Bar source excerpts. Original
-judgments, private workbooks, remaining exam inputs, full model responses, and
-individual human ratings are not included. See the
+judgments, private workbooks, remaining exam inputs and exam model response text
+are not included. The [results release](REPRODUCIBILITY.md) adds case responses,
+individual numeric scores, source page locations and evaluation code. See the
 [loading guide](USING_THE_RELEASE.md) for the available files and formats.

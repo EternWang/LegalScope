@@ -13,11 +13,16 @@ It accompanies the [AIMS at COLM 2026 workshop paper](https://openreview.net/for
 | Victorian Bar source excerpts | 78 records with selected candidate answers and source notices |
 | Model results and roster | 28 model groups, including 252 aggregate score values |
 | Source composition | 30 rows describing overlapping source and category breakdowns |
+| Case model responses | 7,728 stored responses across 276 prompts and 28 models |
+| Individual scores | 34,636 numeric score records, including human scores |
+| Exam source locations | 78 records with 213 excerpt locations in the original PDFs |
+| Evaluation code | Score aggregation, response generation, anonymous scoring and archived rubrics |
 
 The six configurations contain 716 rows. There are 354 prompt or source records;
 matching references and metadata are not additional questions. Case prompts are
 the default view. All configurations support Parquet loading; CSV and JSONL
-downloads are also available.
+downloads are also available. Response, individual score and page-location files
+are additional downloads outside the six viewer configurations.
 
 [Loading guide](USING_THE_RELEASE.md) · [Case fields and sources](CASE_RELEASE.md) ·
 [Reference sources](CASE_REFERENCE_NOTES.md)
@@ -29,9 +34,9 @@ records include updated citations and links to official legal sources. Prompt
 text and published scores are unchanged. The reference source index lists the
 affected record IDs and cited provisions.
 
-The offline comparison utility prepares response packets and validates returned
-scores for new evaluations. It makes no model calls and is separate from the
-paper's scoring implementation.
+Published individual scores reproduce all 252 main-table values. The release adds
+case response text, exam PDF page links, archived scoring rubrics and runnable
+evaluation utilities. See the [reproducibility guide](REPRODUCIBILITY.md).
 
 ## October 8, 2026
 
@@ -60,10 +65,10 @@ grant rights to excluded source judgments. See
 [third party notices](../THIRD_PARTY_NOTICES.txt).
 
 The remaining 783 exam records, original judgments, identifying case mappings,
-full model response matrices, and individual human ratings are not included.
+exam model responses and raw human review documents are not included.
 The 78 exam source records preserve publisher text and are not exact replacements
-for the original exam evaluation inputs. The public utilities do not implement
-the paper's full generation and scoring pipeline.
+for the original exam evaluation inputs. Recovered runtime settings and rubrics
+identify their batch scope; new model runs need not reproduce historical outputs.
 
 To report a loading or data error, open a
 [GitHub issue](https://github.com/EternWang/LegalScope/issues) with the record ID

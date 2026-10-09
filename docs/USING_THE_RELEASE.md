@@ -103,7 +103,10 @@ summary, while the original question is already present in the background
 excerpts. Do not discard these records as unanswered or fill them with generated
 text. EXTVICBAR04B contains two non-contiguous background excerpts; consult its
 note and source publication instead of treating them as a continuous passage.
-Per-record PDF page and original question-number fields are not yet supplied.
+[PDF source locations](../data/metadata/exam_source_locations.jsonl) cover all
+78 records, with separate page links for background, questions and answer excerpts.
+Page numbers count from the first PDF page. Original exam question numbers are
+not inferred from dataset IDs.
 
 ## Keep three kinds of answers separate
 
@@ -113,7 +116,7 @@ Per-record PDF page and original question-number fields are not yet supplied.
   used to assess a case response. It is not necessarily a single ideal answer.
 - **Model response:** what an evaluated model produced. The website's RV038
   excerpt is one such response and illustrates unsupported factual additions;
-  the full model response matrix is not included in this release.
+  all 7,728 stored case responses are available in a separate download.
 
 Case prompts ask for support or opposition on a legal issue. The task is to argue
 within the supplied facts and assigned stance, not simply predict the court's
@@ -134,12 +137,12 @@ differ by 0.1 from a published aggregate.
 The model table contains the 252 score values from Table 3 in the linked
 workshop paper.
 
-You can inspect sources, analyze the published aggregate scores, and build the
-website with this release. Reproducing the paper's complete evaluation also
-requires the exact evaluation inputs, model responses, scoring implementation
-and run settings, and human-review data that are not supplied here. New results
-on the source excerpt subset must be labeled as a separate evaluation; the
-paper's scores were not rerun on this package.
+The [reproducibility guide](REPRODUCIBILITY.md) explains how to load all 34,636
+individual score records and recompute the 252 published values. It also covers
+the 7,728 case responses, PDF source locations and generation/scoring code. These
+additional files are downloads rather than extra configurations in the Hub viewer.
+New results on the source excerpt subset are a separate evaluation; the paper's
+scores were not rerun on this package.
 
 ## Case publication status
 
@@ -147,7 +150,7 @@ All 276 case prompts and 276 matching scoring references are available.
 See [case sources and fields](CASE_RELEASE.md) and the
 [official reference sources](CASE_REFERENCE_NOTES.md). Prompt text and reported
 scores are unchanged; reference citations include the supplied source links. Original
-judgments, identifying mappings and the full model response matrix are excluded.
+judgments, identifying mappings and exam model response text are excluded.
 
 ## Licenses and corrections
 

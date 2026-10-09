@@ -35,7 +35,7 @@ requested subtasks, and format. Case totals average these three dimensions; scor
 are mapped to 0-100 without equating the difficulty of the two tracks.
 
 Across 28 model groups, the benchmark contains 24,108 exam responses and 7,728 case
-responses. Independent review covers 2,240 exam answers and 280 case answers, with
+responses. Human scores cover 2,240 exam answers and 280 case answers, with
 two practicing lawyers independently scoring the same case set.
 
 ## Findings and Interpretation
@@ -46,16 +46,16 @@ validity under automatic and lawyer evaluation. The pooled lawyer contrast remai
 descriptive because its confidence interval includes zero.
 
 Automatic-human answer-level agreement falls from `r = 0.910` on exams to
-`r = 0.312` on cases, motivating expert-grounded case evaluation. The workshop
-version does not retain the earlier claim that constraint extraction is the main
-automatic-scoring bottleneck. See [results](RESULTS_SUMMARY.md) for exact endpoints,
-uncertainty, and historical-audit distinctions.
+`r = 0.312` on cases, motivating expert-grounded case evaluation. See
+[results](RESULTS_SUMMARY.md) for exact endpoints, uncertainty, and the scope
+of each reliability analysis.
 
 ## Public Repository
 
-Documentation, figures, aggregate results, metadata, and workbook helpers are
-available here. Hugging Face provides 276 case prompts with separately packaged
-historical scoring references and 78 Victorian Bar source records. See the
-[case release](CASE_RELEASE.md) and [official reference sources](CASE_REFERENCE_NOTES.md).
-Remaining exam inputs, full model responses, human review sheets and original
-judgment files are not included.
+Documentation, figures, individual and aggregate scores, metadata, and evaluation
+code are available here. Hugging Face provides 276 case prompts with separately
+packaged scoring references, 78 Victorian Bar source records, and 7,728 case model
+responses. See the [reproducibility guide](REPRODUCIBILITY.md),
+[case release](CASE_RELEASE.md), and [official reference sources](CASE_REFERENCE_NOTES.md).
+The remaining exam inputs, exam model responses, raw human review sheets and
+original judgment files are not included.

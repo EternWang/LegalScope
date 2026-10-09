@@ -69,6 +69,7 @@ deidentified and checked by a practicing lawyer. The 276 records cover 56 cases
 and 138 issues, each with supporting and opposing positions.
 
 The release contains the final prompt text and reference annotations with updated
-citations and official source links. It excludes original judgments, identifying source mappings, full model
-responses and individual lawyer ratings. Sources are documented at collection
+citations and official source links. A separate [results release](REPRODUCIBILITY.md)
+contains all case model responses and individual numeric scores. Original
+judgments and identifying source mappings are excluded. Sources are documented at collection
 level; links to individual judgments are not included.

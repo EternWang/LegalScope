@@ -45,8 +45,8 @@ has one supporting and one opposing prompt. Real-case provenance refers to
 concluded judgments, not access to complete case files. Names, institutions,
 addresses, and original file paths are removed or masked during deidentification.
 
-Human validation covers all 28 groups. Independent reviewers score exam answers
-against references. Two practicing Chinese lawyers independently score the same
+Human validation covers all 28 groups. Exam human scores are reviewed and
+confirmed against the reference answers. Two practicing Chinese lawyers independently score the same
 case answer set, with Lawyer 2 held out from rubric calibration. Their case scores
 are pooled with equal weights.
 
@@ -84,8 +84,10 @@ reference fields match the current workbook. Updated citations and their
 
 The exam subset retains source-specific attribution and CC BY-NC-ND 4.0 notices;
 it is not an exact replacement for the original exam evaluation inputs.
-The paper's historical scores are unchanged. Remaining exam inputs, full model
-outputs, lawyer sheets, original judgments and private workbooks are excluded.
+The paper's scores are unchanged. The [reproducibility files](REPRODUCIBILITY.md)
+include 7,728 stored case responses, 34,636 individual scores and page locations
+for all 78 exam source records. Remaining exam inputs, exam response text, raw
+lawyer sheets, original judgments and private workbooks are excluded.
 See [case sources](CASE_RELEASE.md#case-publication-status) for provenance,
 deidentification, and the scope of the released annotations.
 

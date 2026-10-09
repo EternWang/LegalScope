@@ -13,7 +13,7 @@ reasoning. It pairs public exams from four jurisdictions with supporting and
 opposing prompts derived from deidentified Chinese judgments and reviewed by lawyers.
 
 This repository accompanies the **AIMS at COLM 2026 workshop paper**. It provides
-documentation, figures, aggregate results, metadata and dataset utilities.
+documentation, figures, individual and aggregate scores, model responses, and evaluation code.
 Reported scores cover 28 model groups; the data release does not change them.
 
 **Downloadable now:** all 276 deidentified case prompts with 276 separately
@@ -22,6 +22,8 @@ with selected candidate answers, and benchmark metadata. Start with the
 [case dataset](https://huggingface.co/datasets/Hongyu801/LegalScope/viewer/case_prompts/test)
 and the [loading and field guide](docs/USING_THE_RELEASE.md).
 [Official reference sources](docs/CASE_REFERENCE_NOTES.md) accompany the updated citations.
+The release also includes **7,728 case model responses**, **34,636 individual score records**,
+and [code to reproduce the main results](docs/REPRODUCIBILITY.md).
 
 ## Benchmark at a Glance
 
@@ -67,7 +69,8 @@ are separate from the full benchmark; see the [results](docs/RESULTS_SUMMARY.md)
 | Counts, sources, and intended use | [Data card](docs/DATA_CARD.md) |
 | Downloads, field meanings, answer types, and examples | [Using the release](docs/USING_THE_RELEASE.md) |
 | Reference-answer scoring and calibrated case rubric | [Scoring rubric](docs/SCORING_RUBRIC.md) |
-| Independent reviewers and lawyer agreement | [Annotation protocol](docs/ANNOTATION_PROTOCOL.md) |
+| Reproduce Table 3 or run a new evaluation | [Results reproduction](docs/REPRODUCIBILITY.md), [evaluation code](evaluation/README.md) |
+| Human scores and lawyer agreement | [Annotation protocol](docs/ANNOTATION_PROTOCOL.md) |
 | Model roster and paper Table 3 | [Model groups](data/metadata/model_groups.csv), [aggregate performance](data/metadata/model_performance.csv) |
 | Machine-readable composition | [Dataset summary](data/metadata/dataset_summary.json), [source composition](data/metadata/source_composition.csv) |
 | Figure provenance and version history | [Figure sources](docs/FIGURE_SOURCES.md), [release status](docs/RELEASE_STATUS.md) |
@@ -77,8 +80,8 @@ are separate from the full benchmark; see the [results](docs/RESULTS_SUMMARY.md)
 Start with the [loading guide](docs/USING_THE_RELEASE.md) to download case
 prompts, join their scoring references, or analyze published scores.
 
-The repository provides data conversion, website generation, and offline
-response comparison utilities. The workbook inspector and legacy sample
+The repository provides score aggregation, response generation, anonymous scoring,
+data conversion, website generation, and reference comparison utilities. The workbook inspector and legacy sample
 extractor support local spreadsheet exploration; their preview outputs are
 separate from the published benchmark files.
 
@@ -97,9 +100,11 @@ The utility verifies source/case manifests, case-reference joins and paired
 stances, and round-trips every converted value;
 it does not extract new data from a private workbook or clear new source rights.
 
-This repository alone cannot reproduce the complete evaluation: remaining exam
-inputs, the full workbook, model responses, scoring runtime and human review
-sheets are not included. Case inputs/references are downloadable from the Hub.
+The [reproduction command](docs/REPRODUCIBILITY.md) recalculates all 252 main-table
+values from the released individual scores. The [evaluation guide](evaluation/README.md)
+provides runnable generation and scoring examples, archived rubrics and available
+run configurations. Original provider transcripts, remaining exam inputs and the
+complete historical execution environment are outside the release.
 
 ## Public Release Boundary
 
@@ -118,10 +123,12 @@ final workbook; scoring references include updated citations and official source
 The 78 Victorian Bar excerpts retain their CC BY-NC-ND 4.0 license and notices;
 the other 783 exam records are not cleared for this source-text release.
 Project authored case annotations retain MIT, without granting rights to the
-excluded source judgments. This is not a release of the full experiment pipeline.
+excluded source judgments. Additional response, score and PDF page-location files
+are available alongside the six viewer configurations.
 
-Full model output matrices, lawyer review sheets, source judgments, private
-workbooks and the manuscript source package are not published. The paper is linked
+Case model responses and individual numeric scores are available. Exam model
+outputs, raw lawyer review sheets, source judgments, private workbooks and the
+manuscript source package are not published. The paper is linked
 above. See [release status](docs/RELEASE_STATUS.md) for details.
 
 ## Citation
