@@ -22,7 +22,7 @@ evaluation; no train/development partitions are supplied. The source subset uses
 ```python
 from datasets import load_dataset
 
-revision = "f953dedeab591450c769dfd677767c1e2a2bf046"
+revision = "15c9e55c50ea1122ce5d8f3b42b8520f4768362a"
 prompts = load_dataset("Hongyu801/LegalScope", "case_prompts", split="test", revision=revision)
 references = load_dataset("Hongyu801/LegalScope", "case_scoring_references", split="test", revision=revision)
 by_id = {r["review_id"]: r for r in references}
