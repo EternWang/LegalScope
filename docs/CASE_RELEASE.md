@@ -39,7 +39,7 @@ print(by_id[row["review_id"]]["reference_status"])
 | `prompt` | Full supplied model input text; unmodified |
 | `judgment_level`, `case_type` | Case descriptors |
 | `law_category`, `law_category_detail` | Legal category descriptors |
-| `deidentification_note` | Deidentification note accompanying the prompt |
+| `deidentification_note` | Description of identifier removal and the release boundary; not part of the model input |
 | `release_version`, `license` | Release version and applicable license |
 
 | Reference field | Meaning |
@@ -47,10 +47,10 @@ print(by_id[row["review_id"]]["reference_status"])
 | `review_id`, `document_id`, `issue_id` | Join keys and case/issue grouping |
 | `scoring_prompt` | Issue and stance label; the full scoring protocol is documented separately |
 | `citation_basis` | Legal authorities and cited provisions |
-| `supported_proposition` | Historical proposition/authority explanation |
+| `supported_proposition` | Proposition or authority explanation used for benchmark scoring |
 | `review_constraints` | Constraints supplied for evaluation |
 | `answer_type` | Explicitly identifies a scoring reference, not model output or unique gold answer |
-| `reference_status`, `reference_note` | Reference metadata and citation notes |
+| `reference_status`, `reference_note` | Reference type and citation notes; see the status definitions below |
 | `reference_sources` | Official authority titles, provisions and source URLs where supplied |
 | `release_version`, `license` | Release version and applicable license |
 
@@ -58,6 +58,13 @@ print(by_id[row["review_id"]]["reference_status"])
 `reference_sources`. An empty list means no source link is supplied for that
 record; it does not mean the record has no cited authority. Published scores
 are unchanged.
+
+`benchmark_reference` identifies a released scoring annotation.
+`citation_sources_updated` identifies the ten records with corrected citation
+text and official source links. Neither status certifies every reference's
+legal applicability to its case; scoring annotations are not legal opinions.
+The status and deidentification metadata are separate from model inputs and
+evaluator reference text.
 
 ## Case publication status
 

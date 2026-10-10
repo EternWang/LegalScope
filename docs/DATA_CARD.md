@@ -69,17 +69,17 @@ Table 3 performance values retain the paper's one decimal precision and order.
 
 ## Public Release and Intended Use
 
-The repository exposes documentation, figures, aggregate statistics, and workbook
-helpers. It supports inspection of benchmark design and evaluation methodology,
-and helper reuse with authorized local data. The project page includes one
+The repository provides documentation, figures, individual and aggregate scores,
+worked examples and generation/scoring utilities. It supports inspecting the
+benchmark and reproducing the published model table. The project page includes one
 attributed Victorian Bar question-and-answer excerpt under CC BY-NC-ND 4.0;
 see [third party notices](../THIRD_PARTY_NOTICES.txt).
 
 The [Hugging Face release](https://huggingface.co/datasets/Hongyu801/LegalScope)
 includes all 276 deidentified case prompts and their scoring references in
 separate configurations, plus 78 Victorian Bar source excerpts. Six configurations
-use Parquet; original CSV/JSONL downloads remain available. The case input and
-reference fields match the current workbook. Updated citations and their
+use Parquet; original CSV/JSONL downloads remain available. The case inputs
+preserve the evaluation text. Updated reference citations and their
 [official sources](CASE_REFERENCE_NOTES.md) are included in the reference configuration.
 
 The exam subset retains source-specific attribution and CC BY-NC-ND 4.0 notices;

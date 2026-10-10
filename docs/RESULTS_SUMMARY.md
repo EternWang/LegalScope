@@ -19,7 +19,7 @@ Across 28 model groups, the public-exam mean is `72.6` and the real-case mean is
 Citation relevance receives a lower mean than argument validity. The dimensions
 measure different properties, so this contrast does not establish an intrinsic
 difficulty hierarchy. Scores also do not equate difficulty between exam and case
-tracks. The earlier constraint-extraction-bottleneck conclusion is superseded.
+tracks.
 
 ## Score Distribution
 
@@ -42,7 +42,7 @@ not repeated-scoring stability.
 
 Both Figure 3 panels measure exam-to-case association, not automatic-human
 agreement. The diagonal is an equal-normalized-score reference, not an ability-loss
-threshold. The human panel now uses the equal-weight mean of both lawyers.
+threshold. The human panel uses the equal-weight mean of both lawyers.
 
 The Chinese exam subset gives `r = 0.788`, `rho = 0.704`; the English aggregate
 gives `r = 0.813`, `rho = 0.670` (Table 4). Source and task composition prevent

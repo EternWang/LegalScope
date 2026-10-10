@@ -30,7 +30,7 @@ they are not a single joint rerun.
 GitHub provides research documentation, paper figures, aggregate performance,
 metadata, and data utilities. Hugging Face provides all 276 case prompts and
 matching scoring references, plus 78 Victorian Bar source excerpts. Original
-judgments, private workbooks, remaining exam inputs and exam model response text
+judgments, private workbooks, remaining exam inputs and the full exam response collection
 are not included. The [results release](REPRODUCIBILITY.md) adds case responses,
 individual numeric scores, source page locations and evaluation code. See the
 [loading guide](USING_THE_RELEASE.md) for the available files and formats.

@@ -27,6 +27,17 @@ are additional downloads outside the six viewer configurations.
 [Loading guide](USING_THE_RELEASE.md) · [Case fields and sources](CASE_RELEASE.md) ·
 [Reference sources](CASE_REFERENCE_NOTES.md)
 
+## October 10, 2026
+
+The project website now separates the home overview, task examples, results,
+and data/citation pages. Both worked examples show the complete stored input
+and answer with their scoring rules and recorded scores.
+
+Case metadata uses standardized deidentification descriptions and reference status
+labels. Prompt text, legal reference text, model answers and numeric scores are
+unchanged. JSONL and Parquet files contain identical records; the case manifest
+records their updated hashes.
+
 ## October 9, 2026
 
 Released all 276 case prompts and their scoring references. Ten reference

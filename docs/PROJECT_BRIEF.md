@@ -57,5 +57,5 @@ code are available here. Hugging Face provides 276 case prompts with separately
 packaged scoring references, 78 Victorian Bar source records, and 7,728 case model
 responses. See the [reproducibility guide](REPRODUCIBILITY.md),
 [case release](CASE_RELEASE.md), and [official reference sources](CASE_REFERENCE_NOTES.md).
-The remaining exam inputs, exam model responses, raw human review sheets and
+The remaining exam inputs, the full exam response collection, raw human review sheets and
 original judgment files are not included.

@@ -22,7 +22,7 @@ evaluation; no train/development partitions are supplied. The source subset uses
 ```python
 from datasets import load_dataset
 
-revision = "3f2126c5c4b0842872311c2e71c00e300a9ae776"
+revision = "e4444c9755072ed2255ad11fa304e4a446121b40"
 prompts = load_dataset("Hongyu801/LegalScope", "case_prompts", split="test", revision=revision)
 references = load_dataset("Hongyu801/LegalScope", "case_scoring_references", split="test", revision=revision)
 by_id = {r["review_id"]: r for r in references}
@@ -56,7 +56,7 @@ the files used in an analysis.
 ```python
 from datasets import load_dataset
 
-revision = "3f2126c5c4b0842872311c2e71c00e300a9ae776"
+revision = "e4444c9755072ed2255ad11fa304e4a446121b40"
 excerpts = load_dataset(
     "Hongyu801/LegalScope", "victorian_bar_source_excerpts",
     split="source", revision=revision,
@@ -114,8 +114,8 @@ not inferred from dataset IDs.
   contain errors or omissions and is reproduced with its original wording.
 - **Evaluator reference:** legal authorities, propositions, and task constraints
   used to assess a case response. It is not necessarily a single ideal answer.
-- **Model response:** what an evaluated model produced. The website's RV038
-  excerpt is one such response and illustrates unsupported factual additions;
+- **Model response:** what an evaluated model produced. The website's complete
+  RV038 response illustrates unsupported factual additions;
   all 7,728 stored case responses are available in a separate download.
 
 Case prompts ask for support or opposition on a legal issue. The task is to argue
@@ -150,7 +150,7 @@ All 276 case prompts and 276 matching scoring references are available.
 See [case sources and fields](CASE_RELEASE.md) and the
 [official reference sources](CASE_REFERENCE_NOTES.md). Prompt text and reported
 scores are unchanged; reference citations include the supplied source links. Original
-judgments, identifying mappings and exam model response text are excluded.
+judgments, identifying mappings and the full exam response collection are excluded.
 
 ## Licenses and corrections
 

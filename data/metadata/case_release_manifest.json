@@ -1,5 +1,5 @@
 {
-  "release_version": "2026-10-09",
+  "release_version": "2026-10-10",
   "case_prompts": 276,
   "scoring_references": 276,
   "judgments": 56,
@@ -22,7 +22,6 @@
   ],
   "source_matching": "56 source judgments; each case groups its associated issues and paired prompts. Original judgments and identifying source mappings are excluded.",
   "prompt_review": "Prompts were deidentified and checked by a practicing lawyer.",
-  "historical_prompt_and_reference_fields_changed": true,
   "added_fields": [
     "release_version",
     "license",
@@ -39,19 +38,19 @@
   "files": {
     "case_prompts.jsonl": {
       "rows": 276,
-      "sha256": "b086d93146ba2bfc11ad96aef7f54677c9a362acc9e9901fe52870df0b08ce06"
+      "sha256": "859dcdf454eb55210f091ebe68aebbe261fcc945a876a3fbe3819bf22a382d1b"
     },
     "case_prompts.parquet": {
       "rows": 276,
-      "sha256": "84fa01ed14ee55e96632bf0b51dbbe1f5ede31e403c9f80d15519fafcdf40037"
+      "sha256": "8dfd63118a55128def4471e00f21e276508d489649ed934151c942dd23c1b41e"
     },
     "case_scoring_references.jsonl": {
       "rows": 276,
-      "sha256": "9fbe62441b46cfa356918264d5f4b6020bce5295d40708b4d9876650ba20b89a"
+      "sha256": "2229efec6a630c73080fcf2092b8a483ec44463ac07d9e805c29c0fe80318616"
     },
     "case_scoring_references.parquet": {
       "rows": 276,
-      "sha256": "59b0a4acc64adf733076d57b1296aa474d2db6e8949cf0fc5fa4b92cccca8039"
+      "sha256": "e7d174ab74d83e9514a369684b3dddfea2b23ebf5f3096519de7f1bd040ca7ac"
     }
   },
   "prompt_fields_changed": false,
@@ -78,5 +77,19 @@
     ],
     "paper_scores_changed": false,
     "rescoring_performed": false
+  },
+  "reference_fields_changed": true,
+  "scope": "Case prompts and scoring references; model responses are supplied separately in data/results.",
+  "metadata_update": {
+    "version": "2026-10-10",
+    "fields": [
+      "deidentification_note",
+      "reference_status",
+      "release_version"
+    ],
+    "prompt_text_changed": false,
+    "scoring_reference_text_changed": false,
+    "model_responses_changed": false,
+    "numeric_scores_changed": false
   }
 }

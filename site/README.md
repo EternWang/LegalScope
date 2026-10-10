@@ -16,15 +16,13 @@ from the repository and derives the interactive table from
 `data/metadata/model_performance.csv`.
 
 GitHub Actions builds and deploys changes to `main` through the Pages workflow.
-Update the paper, GitHub and Hugging Face links together when a release changes.
-Do not mark benchmark records as available until the linked repository contains
-that release. Paper results and new experiments should remain distinguishable.
+The resources page links to the paper, released data and reproduction guides.
 
 The result table marks the highest and second-highest **distinct displayed
 values per column** across the full 28-model roster. Equal one-decimal scores
 share a mark. Search and sorting never recompute ranks within the visible rows.
-Bold text marks the best value; an underline marks the second. No score-cell
-color fill, diagonal pattern, or table/card shadow is used. These marks do not establish statistical significance.
+Bold text marks the best value; an underline marks the second. A subtle background
+groups the human-evaluation columns. These marks do not establish statistical significance.
 
 Worked examples contain the complete model input, stored model answer, scoring
 rules and recorded score in bounded reading panels. RV038 uses the recorded

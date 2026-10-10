@@ -74,7 +74,7 @@ law, unsupported facts, refusals or other errors. Text is preserved from the
 final evaluation workbook, including translated versions; it is not a collection
 of original provider transcripts. Every released answer hash matches its
 automatic score record. Original judgments, identifying source mappings and
-exam model response text are not included.
+the full exam response collection are not included.
 
 ## Source locations
 
