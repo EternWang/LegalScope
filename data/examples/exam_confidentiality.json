@@ -13,5 +13,20 @@
   "answer_sha256": "87b5dce89e9cf57156893a46e652bde815741a81b9718ff1569a1bfefafbd334",
   "score_records": "../results/answer_scores.csv.gz",
   "exam_source": "https://huggingface.co/datasets/Hongyu801/LegalScope/blob/main/data/victorian_bar/source_excerpts.jsonl",
-  "response_description": "Full answer text stored in the final evaluation workbook."
+  "response_description": "Full answer text stored in the final evaluation workbook.",
+  "prompt": "You are a legal analyst. Answer the official bar-exam item below using only the facts and materials reproduced in this prompt.\n\n[Exam Source]\nBarrister Confidentiality and Its Exceptions\nVICBAR-01 · Victorian Bar\nVictoria / Australia law\n\n[Background Information]\nA barrister is representing a celebrity client who issued proceedings for breach of contract as a result\nof sexual harassment from their employer. During the course of the retainer, the client informs the\nbarrister that the client is considering divorcing their spouse.\n\n[Question]\n(a) Could the barrister disclose the information about the potential divorce to other people? Why or why not? [1 mark]\n\n[Response Requirements]\n1. Answer only the official examination item represented by this row.\n2. If this item itself contains multiple subparts, address those subparts and no other exam items.\n3. Base the answer only on the reproduced facts/materials in this prompt.\n4. Do not add outside facts.\n5. Write a clear, concise legal analysis.\n\n[Fact Boundary]\nUse only the facts, sub-questions, and specified rule framework stated in the problem. Do not add outside facts.",
+  "prompt_sha256": "f150ac91d8bfd486450011e6ed70e2b7b6632eb61630b804abfea561945081d5",
+  "prompt_description": "Full input text stored in the final evaluation workbook; Victorian Bar source passages retain their published wording.",
+  "source_attribution": {
+    "source_url": "https://www.vicbar.com.au/Common/Uploaded%20files/Bar%20Entrance%20Examination/VicBar%20Entrance%20Exam%2013%20Oct%202024%20-%20Annotated%20with%20Sample%20Answers.pdf",
+    "source_license": "CC-BY-NC-ND-4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "copyright_notice": "© 2024 Victorian Bar Inc.",
+    "endorsement_note": "No affiliation with or endorsement by the Victorian Bar is implied."
+  },
+  "prompt_excerpt_segments": [
+    "You are a legal analyst. Answer the official bar-exam item below using only the facts and materials reproduced in this prompt.",
+    "[Background Information]\nA barrister is representing a celebrity client who issued proceedings for breach of contract as a result\nof sexual harassment from their employer. During the course of the retainer, the client informs the\nbarrister that the client is considering divorcing their spouse.\n\n[Question]\n(a) Could the barrister disclose the information about the potential divorce to other people? Why or why not? [1 mark]\n\n[Response Requirements]\n1. Answer only the official examination item represented by this row.\n2. If this item itself contains multiple subparts, address those subparts and no other exam items.\n3. Base the answer only on the reproduced facts/materials in this prompt.\n4. Do not add outside facts.\n5. Write a clear, concise legal analysis."
+  ],
+  "prompt_excerpt_note": "Verbatim segments in source order. Bracketed ellipses mark omitted text; the prompt field contains the complete input."
 }

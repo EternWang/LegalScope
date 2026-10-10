@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import html
 import json
 import math
 import shutil
@@ -12,6 +13,26 @@ from pathlib import Path
 
 SCORE_COLUMNS = {"public_exam_auto", "public_exam_human", "citation", "constraint", "argument", "real_case_auto", "real_case_human", "overall_auto", "overall_human"}
 METADATA_FILES = ("model_performance.csv", "model_groups.csv", "source_composition.csv", "dataset_summary.json")
+
+
+def prompt_excerpt(prompt: str, segments: list[str]) -> str:
+    """Preserve source wording and expose every omitted passage."""
+    if not segments:
+        raise ValueError("Prompt excerpts must not be empty.")
+    cursor, parts = 0, []
+    for segment in segments:
+        if not isinstance(segment, str) or not segment.strip():
+            raise ValueError("Prompt excerpt segments must contain text.")
+        start = prompt.find(segment, cursor)
+        if start < 0:
+            raise ValueError("Prompt excerpts must occur verbatim in source order.")
+        if prompt[cursor:start].strip():
+            parts.append("[…]")
+        parts.append(segment)
+        cursor = start + len(segment)
+    if prompt[cursor:].strip():
+        parts.append("[…]")
+    return "\n\n".join(parts)
 
 
 def validate_output_path(root: Path, output: Path) -> None:
@@ -55,6 +76,13 @@ def main() -> None:
         validate_output_path(root, output)
         metadata = root / "data/metadata"
         results = load_results(metadata)
+        example_inputs = {}
+        for track, name in (("exam", "exam_confidentiality"), ("case", "case_reappraisal")):
+            example = json.loads((root / f"data/examples/{name}.json").read_text(encoding="utf-8"))
+            prompt = example["prompt"]
+            if not isinstance(prompt, str) or not prompt.strip() or hashlib.sha256(prompt.encode("utf-8")).hexdigest() != example["prompt_sha256"]:
+                raise ValueError(f"Invalid {track} example prompt or content hash.")
+            example_inputs[track] = prompt_excerpt(prompt, example["prompt_excerpt_segments"])
     except (ValueError, TypeError) as error:
         parser.error(str(error))
     # Publish only explicit assets. Reject leftovers rather than accidentally
@@ -95,6 +123,11 @@ def main() -> None:
         "'data/results.json'", f"'data/results.json?v={result_version}'"
     ), encoding="utf-8")
     page = (output / "index.html").read_text(encoding="utf-8")
+    for track, prompt in example_inputs.items():
+        marker = f"<!-- {track.upper()}_MODEL_INPUT -->"
+        if page.count(marker) != 1:
+            parser.error(f"Expected one {track} prompt placeholder.")
+        page = page.replace(marker, html.escape(prompt))
     for name, attribute in (("style.css", "href"), ("app.js", "src")):
         version = hashlib.sha256((output / name).read_bytes()).hexdigest()[:12]
         page = page.replace(f'{attribute}="{name}"', f'{attribute}="{name}?v={version}"')
