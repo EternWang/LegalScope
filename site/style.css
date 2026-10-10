@@ -173,3 +173,14 @@
 @media(max-width:900px){.track-grid{grid-template-columns:1fr}}
 @media(max-width:760px){.track-grid .track{padding:22px}.answer-comparison{grid-template-columns:1fr}.comparison-answer{grid-template-rows:auto auto auto}.comparison-heading{min-height:32px}}
 @media(max-width:420px){.track-heading{gap:12px}.track-heading h3{font-size:18px}.track-facts{gap:0 16px;font-size:11px}.track-facts>div{gap:8px}.comparison-answer .reference-quote,.comparison-answer .model-answer{padding:14px}}
+
+/* Keep the longer case example on one reading axis. */
+#example-case{grid-template-columns:minmax(0,1fr);gap:24px}
+.case-context .case-facts,.case-context .prompt-quote{margin:0 0 14px}
+.example-panel .case-context .task-format{font-size:13px;color:var(--muted);margin:0}
+.case-reference{padding:18px 20px;background:#f7f9fb;border:1px solid #e5eaf0;border-radius:3px}
+.example-panel .case-reference h4{margin-bottom:8px}
+.example-panel .case-reference p{font-size:13px;margin:0}
+.case-model-answer .model-answer{margin-bottom:12px}
+.example-panel .case-source{margin:0;padding-top:16px;border-top:1px solid var(--line)}
+@media(max-width:640px){.case-reference{padding:14px}}
