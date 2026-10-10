@@ -87,8 +87,14 @@
         </section>
         <section class="workflow-step scoring-rules" aria-labelledby="exam-rules-title">
           <div class="workflow-heading"><h4 id="exam-rules-title">3. Scoring rules</h4><a href="https://github.com/EternWang/LegalScope/blob/main/evaluation/rubrics/exam_aug2026.json">Full rubric</a></div>
-          <p>Compare the answer with the reference on four parts: <strong>issue, governing rule, application and conclusion</strong>. Award one point per substantive match, from 0 to 4. Wording need not be identical. A refusal is capped at 1; an opposite core conclusion or a non-responsive answer normally receives 0.</p>
-          <p class="scoring-reference"><strong>Reference answer.</strong> (a) No, the barrister could not disclose this information to other persons. That is because a barrister must not disclosure or use in any way confidential information that they have obtained in the course of their practice, and they owe a duty to their client of confidentiality (r 114).</p>
+          <div class="rubric-sheet" role="region" tabindex="0" aria-label="Exam scoring rules and reference answer">
+            <dl class="rubric-rows">
+              <div><dt>Assessment</dt><dd>Compare the answer with the reference on four parts: <strong>issue, governing rule, application and conclusion</strong>.</dd></div>
+              <div><dt>Points</dt><dd>Award one point per substantive match, from 0 to 4. Wording need not be identical.</dd></div>
+              <div><dt>Score limits</dt><dd>A refusal is capped at 1; an opposite core conclusion or a non-responsive answer normally receives 0.</dd></div>
+            </dl>
+            <div class="rubric-reference"><h5>Reference answer</h5><p>(a) No, the barrister could not disclose this information to other persons. That is because a barrister must not disclosure or use in any way confidential information that they have obtained in the course of their practice, and they owe a duty to their client of confidentiality (r 114).</p></div>
+          </div>
         </section>
         <section class="workflow-step" aria-labelledby="exam-result-title">
           <div class="workflow-heading"><h4 id="exam-result-title">4. Recorded score</h4><span>Automatic evaluation · <a href="https://github.com/EternWang/LegalScope/blob/main/data/examples/exam_confidentiality.json">View record</a></span></div>
@@ -109,9 +115,17 @@
         </section>
         <section class="workflow-step scoring-rules" aria-labelledby="case-rules-title">
           <div class="workflow-heading"><h4 id="case-rules-title">3. Scoring rules</h4><a href="https://github.com/EternWang/LegalScope/tree/main/evaluation/rubrics">Full rubrics</a></div>
-          <dl class="rule-list"><div><dt>Citation relevance</dt><dd>Identify explicit legal authority relevant to the issue and connect it to the reasoning.</dd></div><div><dt>Constraint extraction</dt><dd>Follow the assigned stance, supplied facts, evidence boundaries, task structure and deidentification requirements.</dd></div><div><dt>Argument validity</dt><dd>Apply the rules to the supplied facts and reach a coherent conclusion on the issue.</dd></div></dl>
-          <p>Each dimension uses a 0–4 scale: no credit, severe failure, major defect, minor defect, or no substantive defect. Serious invented facts cap constraint extraction at 1; a score of 0 on that dimension caps argument validity at 2. Without identifiable legal authority, citation relevance is 0 and the other two dimensions are capped at 2. The released English responses are not penalized for language alone.</p>
-          <p class="scoring-reference"><strong>Scoring reference, not part of the model input.</strong> Article 40 of the Several Provisions of the Supreme People&#x27;s Court on Evidence in Civil Proceedings. Re-appraisal must meet statutory conditions such as serious illegality in the appraisal procedure or the appraisal opinion being clearly lacking in sufficient basis, and is not automatically initiated merely because one party is dissatisfied with the conclusion.</p>
+          <div class="rubric-sheet" role="region" tabindex="0" aria-label="Case scoring rules and reference">
+            <dl class="rubric-rows">
+              <div><dt>Citation relevance</dt><dd>Identify explicit legal authority relevant to the issue and connect it to the reasoning.</dd></div>
+              <div><dt>Constraint extraction</dt><dd>Follow the assigned stance, supplied facts, evidence boundaries, task structure and deidentification requirements.</dd></div>
+              <div><dt>Argument validity</dt><dd>Apply the rules to the supplied facts and reach a coherent conclusion on the issue.</dd></div>
+              <div><dt>Scale for each dimension</dt><dd><ol class="rubric-scale" start="0"><li><strong>0</strong><span>No credit</span></li><li><strong>1</strong><span>Severe failure</span></li><li><strong>2</strong><span>Major defect</span></li><li><strong>3</strong><span>Minor defect</span></li><li><strong>4</strong><span>No substantive defect</span></li></ol></dd></div>
+              <div><dt>Score limits</dt><dd><ul class="rubric-limits"><li>Serious invented facts cap constraint extraction at 1.</li><li>A score of 0 on constraint extraction caps argument validity at 2.</li><li>Without identifiable legal authority, citation relevance is 0 and the other two dimensions are capped at 2.</li></ul></dd></div>
+              <div><dt>Language</dt><dd>The released English responses are not penalized for language alone.</dd></div>
+            </dl>
+            <div class="rubric-reference"><h5>Scoring reference <span>Not part of the model input</span></h5><p>Article 40 of the Several Provisions of the Supreme People&#x27;s Court on Evidence in Civil Proceedings. Re-appraisal must meet statutory conditions such as serious illegality in the appraisal procedure or the appraisal opinion being clearly lacking in sufficient basis, and is not automatically initiated merely because one party is dissatisfied with the conclusion.</p></div>
+          </div>
         </section>
         <section class="workflow-step case-evaluation" aria-labelledby="case-result-title">
           <div class="workflow-heading"><h4 id="case-result-title">4. Recorded scores</h4><span>Automatic evaluation · <a href="https://github.com/EternWang/LegalScope/blob/main/data/examples/case_reappraisal.json">View record</a></span></div>
