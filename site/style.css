@@ -172,6 +172,8 @@
 .rubric-rows>div{display:grid;grid-template-columns:148px minmax(0,1fr);gap:20px;padding:14px 22px;border-bottom:1px solid #e9edf1}
 .rubric-rows>div:last-child{border-bottom:0}
 .rubric-rows dt{font-size:12px;line-height:1.75;font-weight:600;color:var(--ink)}
+.rubric-rows .rubric-criterion{display:grid;grid-template-columns:12px minmax(0,1fr);gap:8px}
+.criterion-code{color:var(--blue)}
 .rubric-rows dd{margin:0;font-size:13px;line-height:1.75;min-width:0}
 .rubric-scale{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:0;padding:0}
 .rubric-scale li{display:flex;flex-direction:column;gap:4px}
