@@ -3,7 +3,8 @@
 **AI Measurement Science (AIMS) Workshop at COLM 2026**
 
 [Project page](https://eternwang.github.io/LegalScope/) ·
-[Paper](https://openreview.net/forum?id=BNx62Wx1ej) ·
+[Paper (PDF)](https://drive.google.com/file/d/1I3nfb16wuCmj-i2bo6rM5MU0A9sJ-FZx/view) ·
+[Workshop record](https://openreview.net/forum?id=BNx62Wx1ej) ·
 [Hugging Face](https://huggingface.co/datasets/Hongyu801/LegalScope) ·
 [Results](docs/RESULTS_SUMMARY.md) · [Data card](docs/DATA_CARD.md) ·
 [Version notes](docs/RELEASE_STATUS.md) · [Citation](#citation)
@@ -15,6 +16,8 @@ opposing prompts derived from deidentified Chinese judgments and reviewed by law
 This repository accompanies the **AIMS at COLM 2026 workshop paper**. It provides
 documentation, figures, individual and aggregate scores, model responses, and evaluation code.
 Reported scores cover 28 model groups; the data release does not change them.
+The PDF link opens the current manuscript; the workshop record and citation
+identify the published AIMS version.
 
 **Downloadable now:** all 276 deidentified case prompts with 276 separately
 packaged scoring references, 78 Victorian Bar source excerpt records
