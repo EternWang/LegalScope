@@ -198,3 +198,77 @@
 @media(max-width:640px){#example-exam,#example-case{gap:26px}.prompt-module .prompt-text,.response-module .model-answer{padding:16px;max-height:min(320px,60vh)}.prompt-module .prompt-text{font-size:11.5px}.rubric-rows>div{grid-template-columns:1fr;gap:5px;padding:13px 16px}.rubric-reference{padding:16px}.rubric-scale{grid-template-columns:1fr;gap:7px}.rubric-scale li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;align-items:baseline}.rubric-scale strong{font-size:14px}.rubric-scale span{font-size:12px}.exam-result{gap:16px;align-items:flex-start}}
 @media(max-width:420px){.track-heading{gap:12px}.track-heading h3{font-size:18px}.track-facts{gap:0 16px;font-size:11px}.track-facts>div{gap:8px}}
 .example-panel .case-source{margin:0;padding-top:16px;border-top:1px solid var(--line)}
+
+/* Shared navigation and dedicated reading pages. */
+html{scroll-padding-top:96px}
+body{min-height:100vh;display:flex;flex-direction:column}
+main{flex:1}
+.site-masthead{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.site-header{border:0;height:68px;gap:28px}
+.site-header nav{align-self:stretch;align-items:stretch;gap:26px;white-space:nowrap}
+.site-header nav a{display:flex;align-items:center;padding:2px 0 0;border-bottom:2px solid transparent;color:var(--muted)}
+.site-header nav a:hover,.site-header nav a[aria-current="page"]{color:var(--blue)}
+.site-header nav a[aria-current="page"]{border-bottom-color:var(--blue);font-weight:600}
+.skip-link{position:fixed;z-index:30}
+.explore-section{max-width:880px;padding-block:40px 18px}
+.explore-section h2{font-size:22px;margin-bottom:22px;letter-spacing:-.3px}
+.explore-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 30px}
+.explore-grid>a{padding:19px 0 20px;border-top:1px solid var(--line)}
+.explore-grid h3{display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:18px;margin:0 0 7px}
+.explore-grid h3 span{font-size:20px;font-weight:400;color:var(--blue)}
+.explore-grid p{margin:0;color:var(--muted);font-size:13px;line-height:1.7;max-width:330px}
+.explore-grid>a:hover h3{color:var(--blue)}
+body[data-page="index"] .intro{padding-block:35px 56px}
+body[data-page="index"] .intro>div:first-child{text-align:left}
+body[data-page="index"] .intro h2{font-size:22px;margin-bottom:18px}
+body[data-page="index"] .intro-copy{font-size:14px}
+.page-section{padding-block:46px 58px}
+.page-heading{max-width:880px;margin:0 auto 32px;text-align:left}
+.page-heading h1{font-size:38px;font-weight:600;line-height:1.2;letter-spacing:-1px;margin:0 0 12px}
+.page-heading p{font-size:15px;color:var(--muted);margin:0;line-height:1.7;max-width:720px}
+.track-grid .track{grid-template-rows:auto 1fr auto auto}
+.track-link{font-size:12px;color:var(--blue);display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:12px}
+.track-link:hover{text-decoration:underline;text-underline-offset:3px}
+.examples-section .example-tabs{gap:26px;border-bottom:1px solid var(--line);padding:0;margin-bottom:24px}
+.examples-section .example-tabs button{border:0;border-bottom:2px solid transparent;border-radius:0;padding:11px 0;background:none}
+.examples-section .example-tabs button[aria-selected=true]{color:var(--blue);border-bottom-color:var(--blue);background:none}
+.examples-section .example-tabs button:hover{color:var(--blue);background:none}
+.examples-section .example-panel{border:0;padding:0;max-width:880px}
+.examples-section .example-heading{padding-bottom:22px}
+.examples-section .example-heading h3{font-size:23px;margin-bottom:6px}
+.examples-section .example-heading .eyebrow{font-size:10px}
+#results .page-heading{max-width:none;margin-bottom:12px}
+.page-source{margin:0}
+#results .findings{margin-top:30px}
+.resource-section.page-section{background:white;border:0;padding-bottom:30px}
+.resource-actions{justify-content:flex-start;gap:10px;margin-bottom:28px}
+body[data-page="resources"] .citation-section{padding-block:32px 52px;border-top:1px solid var(--line)}
+body[data-page="resources"] .citation-section>div{text-align:left}
+body[data-page="resources"] .citation-section h2{font-size:24px;margin-bottom:12px}
+@media(max-width:760px){
+  html{scroll-padding-top:120px}
+  .site-header{height:auto;min-height:92px;flex-wrap:wrap;gap:0;padding-top:12px}
+  .site-header>.wordmark{font-size:18px;line-height:1.5}
+  .site-header nav{width:100%;justify-content:space-between;gap:12px;overflow-x:auto;scrollbar-width:thin;font-size:12px}
+  .site-header nav a{min-height:43px;padding-top:3px;flex-shrink:0}
+  .page-section{padding-block:32px 42px}
+  .page-heading{margin-bottom:26px}
+  .page-heading h1{font-size:30px;letter-spacing:-.6px}
+  .page-heading p{font-size:14px}
+  .explore-grid{column-gap:24px}
+  .explore-grid h3{font-size:17px}
+}
+@media(max-width:520px){
+  .explore-grid{grid-template-columns:1fr}
+  .explore-section{padding-block:30px 12px}
+  .explore-grid>a{padding-block:16px}
+  .explore-grid p{max-width:none}
+  .explore-grid h3{font-size:18px}
+  .page-heading h1{font-size:28px}
+  .examples-section .example-heading h3{font-size:22px}
+  .examples-section .example-tabs{gap:24px}
+  .examples-section .example-tabs button{font-size:13px}
+}
+@media(max-width:360px){.site-header nav{font-size:11px;gap:8px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.site-masthead{position:static}.explore-section{break-inside:avoid}}

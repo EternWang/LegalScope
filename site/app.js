@@ -1,4 +1,20 @@
 'use strict';
+// Preserve links to sections of the earlier single-page site.
+if (document.body.dataset.page === 'index') {
+  const legacyRoutes = {
+    '#results': 'results.html',
+    '#resources': 'resources.html', '#citation': 'resources.html#citation',
+    '#example-exam': 'examples.html#exam', '#example-case': 'examples.html#case',
+    '#examples': 'examples.html'
+  };
+  const redirectLegacyLink = () => {
+    const target = legacyRoutes[window.location.hash];
+    if (target) window.location.replace(target);
+  };
+  redirectLegacyLink();
+  window.addEventListener('hashchange', redirectLegacyLink);
+}
+
 const columns = ['model_group', 'public_exam_auto', 'real_case_auto', 'citation', 'constraint', 'argument', 'public_exam_human', 'real_case_human'];
 const columnLabels = {
   model_group: 'Model', public_exam_auto: 'Exam · automatic', real_case_auto: 'Case mean · automatic',
@@ -63,6 +79,7 @@ function renderResults() {
   });
 }
 
+if (tbody && search && status) {
 fetch('data/results.json').then(response => {
   if (!response.ok) throw new Error('Results unavailable');
   return response.json();
@@ -76,18 +93,20 @@ document.querySelectorAll('[data-sort]').forEach(button => button.addEventListen
   sortKey = next;
   renderResults();
 }));
+}
 
 const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
-function selectTab(selected) {
+function selectTab(selected, updateHistory = false) {
   for (const tab of tabs) {
     const active = selected === tab;
     tab.setAttribute('aria-selected', String(active));
     tab.tabIndex = active ? 0 : -1;
     document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
   }
+  if (updateHistory) window.history.pushState(null, '', `#${selected.dataset.tab}`);
 }
 tabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => selectTab(tab));
+  tab.addEventListener('click', () => selectTab(tab, true));
   tab.addEventListener('keydown', event => {
     if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
     event.preventDefault();
@@ -95,11 +114,20 @@ tabs.forEach((tab, index) => {
     if (event.key === 'Home') next = 0;
     if (event.key === 'End') next = tabs.length - 1;
     tabs[next].focus();
-    selectTab(tabs[next]);
+    selectTab(tabs[next], true);
   });
 });
+if (tabs.length) {
+  const restoreTrack = () => {
+    const track = window.location.hash.replace('#', '').replace('example-', '');
+    selectTab(tabs.find(tab => tab.dataset.tab === track) || tabs[0]);
+  };
+  restoreTrack();
+  window.addEventListener('hashchange', restoreTrack);
+  window.addEventListener('popstate', restoreTrack);
+}
 
-document.querySelector('#copy-citation').addEventListener('click', async () => {
+document.querySelector('#copy-citation')?.addEventListener('click', async () => {
   const output = document.querySelector('#copy-status');
   try {
     await navigator.clipboard.writeText(document.querySelector('#bibtex').textContent);

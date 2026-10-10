@@ -1,28 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="LegalScope studies exam-to-case transfer in LLM legal reasoning: 861 public legal-exam questions, 276 case prompts reviewed by lawyers, and 28 model groups. AIMS at COLM 2026.">
-  <meta name="theme-color" content="#14253b">
-  <meta property="og:title" content="LegalScope — Exam-to-Case Legal Reasoning">
-  <meta property="og:description" content="A dual-track benchmark connecting public legal exams with expert-grounded case analysis. AIMS at COLM 2026.">
-  <meta property="og:type" content="website">
-  <title>LegalScope · Exam-to-Case Legal Reasoning</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
-</head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <a class="wordmark" href="#" aria-label="LegalScope home"><span class="mark" aria-hidden="true">LS</span>LegalScope</a>
-  <nav aria-label="Main navigation">
-    <a href="#benchmark">Benchmark</a><a href="#results">Results</a><a href="#resources">Resources</a><a href="#citation">Cite</a>
-  </nav>
-</header>
-<main id="main">
-  <section class="hero wrap">
+<section class="hero wrap">
     <p class="eyebrow"><span class="rule"></span> AIMS WORKSHOP · COLM 2026</p>
     <h1>LegalScope</h1>
     <p class="hero-title">Measuring Exam-to-Case Transfer<br class="wide-only"> in LLM Legal Reasoning</p>
@@ -40,7 +16,7 @@
       <a class="button" href="https://github.com/EternWang/LegalScope"><img class="brand-icon" src="icons/github-white.svg" alt="" width="18" height="18" aria-hidden="true"> GitHub</a>
       <a class="button" href="https://huggingface.co/datasets/Hongyu801/LegalScope"><img class="brand-icon" src="icons/huggingface.svg" alt="" width="20" height="20" aria-hidden="true"> Hugging Face</a>
     </div>
-    <p class="release-note">Case prompts, responses, scores and exam source excerpts · <a href="https://github.com/EternWang/LegalScope/blob/main/docs/RELEASE_STATUS.md">Data and documentation</a></p>
+    <p class="release-note">Case prompts, responses, scores and exam source excerpts · <a href="resources.html">Data and documentation</a></p>
   </section>
 
   <div class="stats-band">
@@ -52,6 +28,16 @@
     </div>
   </div>
 
+
+  <section class="section wrap explore-section" aria-labelledby="explore-title">
+    <h2 id="explore-title">Explore LegalScope</h2>
+    <div class="explore-grid">
+      <a href="examples.html"><h3>Task examples <span aria-hidden="true">↗</span></h3><p>Complete prompts, model answers, scoring rules and scores.</p></a>
+      <a href="results.html"><h3>Results <span aria-hidden="true">↗</span></h3><p>Compare all 28 model groups and explore the paper’s findings.</p></a>
+      <a href="resources.html"><h3>Data &amp; citation <span aria-hidden="true">↗</span></h3><p>Downloads, documentation, source licenses and BibTeX.</p></a>
+    </div>
+  </section>
+
   <section class="wrap intro section" aria-labelledby="intro-title">
     <div><h2 id="intro-title">Abstract</h2></div>
     <div class="intro-copy">
@@ -61,123 +47,13 @@
     </div>
   </section>
 
-  <section id="benchmark" class="section wash">
+<section id="benchmark" class="section wash">
     <div class="wrap">
-      <div class="section-heading"><div><h2>Benchmark overview</h2></div><p>Two tracks, evaluated on the same 28 model groups.</p></div>
+      <div class="section-heading"><h2>Benchmark overview</h2><p>Two tracks, evaluated on the same 28 model groups.</p></div>
       <div class="track-grid">
-        <article class="track exam"><div class="track-heading"><h3>Public legal exams</h3><p class="track-count"><strong>861</strong><span>questions</span></p></div><p class="track-description">Questions from four jurisdictions, scored against reference answers on a 0–4 scale.</p><dl class="track-facts"><div><dt>United States</dt><dd>603</dd></div><div><dt>China</dt><dd>94</dd></div><div><dt>United Kingdom</dt><dd>86</dd></div><div><dt>Australia</dt><dd>78</dd></div></dl></article>
-        <article class="track cases"><div class="track-heading"><h3>Case analysis</h3><p class="track-count"><strong>276</strong><span>prompts</span></p></div><p class="track-description">Paired arguments on deidentified Chinese cases, using only supplied facts.</p><dl class="track-facts"><div><dt>Tort</dt><dd>80</dd></div><div><dt>Contract</dt><dd>72</dd></div><div><dt>Criminal</dt><dd>54</dd></div><div title="Intellectual Property: 34; Administrative: 22; Civil Procedure: 8; Property: 6"><dt>Others</dt><dd>70</dd></div></dl></article>
+        <article class="track exam"><div class="track-heading"><h3>Public legal exams</h3><p class="track-count"><strong>861</strong><span>questions</span></p></div><p class="track-description">Questions from four jurisdictions, scored against reference answers on a 0–4 scale.</p><dl class="track-facts"><div><dt>United States</dt><dd>603</dd></div><div><dt>China</dt><dd>94</dd></div><div><dt>United Kingdom</dt><dd>86</dd></div><div><dt>Australia</dt><dd>78</dd></div></dl><a class="track-link" href="examples.html#exam">View exam example <span aria-hidden="true">→</span></a></article>
+        <article class="track cases"><div class="track-heading"><h3>Case analysis</h3><p class="track-count"><strong>276</strong><span>prompts</span></p></div><p class="track-description">Paired arguments on deidentified Chinese cases, using only supplied facts.</p><dl class="track-facts"><div><dt>Tort</dt><dd>80</dd></div><div><dt>Contract</dt><dd>72</dd></div><div><dt>Criminal</dt><dd>54</dd></div><div title="Intellectual Property: 34; Administrative: 22; Civil Procedure: 8; Property: 6"><dt>Others</dt><dd>70</dd></div></dl><a class="track-link" href="examples.html#case">View case example <span aria-hidden="true">→</span></a></article>
       </div>
       <figure class="pipeline"><a href="assets/paper_collection_pipeline.svg" target="_blank" rel="noopener" aria-label="Open the complete benchmark pipeline at full resolution"><img src="assets/paper_collection_pipeline.svg" alt="LegalScope pipeline: source collection and deidentification; two-track evaluation across 28 models; human validation; and reliability analyses." loading="lazy" width="2891" height="1325"></a><figcaption><strong>Figure 1.</strong> Benchmark construction, model evaluation and human validation.<br><a class="figure-link" href="assets/paper_collection_pipeline.svg" target="_blank" rel="noopener">View scalable figure ↗</a> · <a class="figure-link" href="assets/paper_collection_pipeline.pdf" target="_blank" rel="noopener">Download PDF</a></figcaption></figure>
-      <div class="example-head"><h3>Task examples</h3><p>Read the input, inspect an answer, and see what the scoring protocol measures.</p></div>
-      <div class="example-tabs" role="tablist" aria-label="Benchmark task examples"><button id="tab-exam" type="button" role="tab" aria-selected="true" aria-controls="example-exam" data-tab="exam">Public exam</button><button id="tab-case" type="button" role="tab" aria-selected="false" aria-controls="example-case" tabindex="-1" data-tab="case">Real-case analysis</button></div>
-      <article id="example-exam" class="example-panel" role="tabpanel" aria-labelledby="tab-exam" tabindex="0">
-        <div class="example-heading"><p class="eyebrow">AUSTRALIA · VICTORIAN BAR · EXTVICBAR01A</p><h3>Barrister confidentiality</h3><span class="example-tag">Reference-answer scoring</span></div>
-        <section class="workflow-step" aria-labelledby="exam-input-title">
-          <div class="workflow-heading"><h4 id="exam-input-title">1. Model input</h4></div>
-          <div class="text-module prompt-module"><pre id="exam-prompt-text" class="prompt-text" tabindex="0" aria-label="Complete exam prompt"><!-- EXAM_MODEL_INPUT --></pre></div>
-        </section>
-        <section class="workflow-step" aria-labelledby="exam-answer-title">
-          <div class="workflow-heading"><h4 id="exam-answer-title">2. Model answer</h4><span>Gemini 2.5 Flash · Full answer</span></div>
-          <div class="text-module response-module"><blockquote id="exam-response-text" class="model-answer" tabindex="0" aria-label="Complete exam model answer" cite="https://github.com/EternWang/LegalScope/blob/main/data/examples/exam_confidentiality.json">(a) The barrister's ability to disclose the information about the potential divorce <mark class="answer-problem" title="Does not give the required no-disclosure conclusion">cannot be determined based solely on the facts and materials provided.</mark> The prompt does not include the specific legal rules or principles governing <mark class="answer-correct" title="Correctly identifies the legal issue">barrister confidentiality and its exceptions</mark> under Victorian/Australian law (VICBAR-01), <mark class="answer-problem" title="Treats the absence of supplied rules as a reason not to answer">which would be necessary to assess whether such disclosure is permissible.</mark></blockquote></div>
-          <p class="answer-key"><span><i class="key-correct" aria-hidden="true"></i>Correct issue</span><span><i class="key-problem" aria-hidden="true"></i>Failure to answer</span></p>
-        </section>
-        <section class="workflow-step scoring-rules" aria-labelledby="exam-rules-title">
-          <div class="workflow-heading"><h4 id="exam-rules-title">3. Scoring rules</h4><a href="https://github.com/EternWang/LegalScope/blob/main/evaluation/rubrics/exam_aug2026.json">Full rubric</a></div>
-          <div class="rubric-sheet" role="region" tabindex="0" aria-label="Exam scoring rules and reference answer">
-            <dl class="rubric-rows">
-              <div><dt>Assessment</dt><dd>Compare the answer with the reference on four parts: <strong>issue, governing rule, application and conclusion</strong>.</dd></div>
-              <div><dt>Points</dt><dd>Award one point per substantive match, from 0 to 4. Wording need not be identical.</dd></div>
-              <div><dt>Score limits</dt><dd>A refusal is capped at 1; an opposite core conclusion or a non-responsive answer normally receives 0.</dd></div>
-            </dl>
-            <div class="rubric-reference"><h5>Reference answer</h5><p>(a) No, the barrister could not disclose this information to other persons. That is because a barrister must not disclosure or use in any way confidential information that they have obtained in the course of their practice, and they owe a duty to their client of confidentiality (r 114).</p></div>
-          </div>
-        </section>
-        <section class="workflow-step" aria-labelledby="exam-result-title">
-          <div class="workflow-heading"><h4 id="exam-result-title">4. Recorded score</h4><span>Automatic evaluation · <a href="https://github.com/EternWang/LegalScope/blob/main/data/examples/exam_confidentiality.json">View record</a></span></div>
-          <div class="exam-result"><strong>1<small>/4</small></strong><p>Recognizes the confidentiality issue, but supplies no governing rule, application or no-disclosure conclusion. The refusal limits the score to 1.</p></div>
-        </section>
-        <div class="exam-source"><p class="source-credit">Question 1(a), 13 October 2024 entrance exam, p. 3. © 2024 Victorian Bar Inc. <a href="https://www.vicbar.com.au/Common/Uploaded%20files/Bar%20Entrance%20Examination/VicBar%20Entrance%20Exam%2013%20Oct%202024%20-%20Annotated%20with%20Sample%20Answers.pdf">Original publication</a> · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>. Line breaks normalized; no endorsement implied.</p><p class="source-credit">Reference answer reproduced as published, including its wording. The publisher cautions that selected candidate answers may contain errors or omissions.</p></div>
-      </article>
-      <article id="example-case" class="example-panel" role="tabpanel" aria-labelledby="tab-case" tabindex="0" hidden>
-        <div class="example-heading"><p class="eyebrow">CHINESE JUDGMENT · PAPER EXAMPLE RV038</p><h3>Supporting a refusal of re-appraisal</h3><span class="example-tag">Closed-book · Supporting stance</span></div>
-        <section class="workflow-step" aria-labelledby="case-input-title">
-          <div class="workflow-heading"><h4 id="case-input-title">1. Model input</h4></div>
-          <div class="text-module prompt-module"><pre id="case-prompt-text" class="prompt-text" tabindex="0" aria-label="Complete case prompt"><!-- CASE_MODEL_INPUT --></pre></div>
-        </section>
-        <section class="workflow-step" aria-labelledby="case-answer-title">
-          <div class="workflow-heading"><h4 id="case-answer-title">2. Model answer</h4><span>Qwen3 235B A22B · Full answer</span></div>
-          <div class="text-module response-module"><blockquote id="case-response-text" class="model-answer" tabindex="0" aria-label="Complete case model answer" cite="https://github.com/EternWang/LegalScope/blob/main/data/examples/case_reappraisal.json"><p>In this case, the plaintiff alleged that the defendant medical institution failed to take sufficient measures while the patient was seeking treatment for acute chest pain, causing the patient to die because the patient was not transferred in time, and therefore filed suit seeking that it bear liability for compensation for medical malpractice, and applied for a medical malpractice appraisal. The appraisal institution has issued a formal appraisal opinion, finding that although the medical provider had made a transfer recommendation and attempted to coordinate with a higher-level hospital for admission, <mark class="answer-problem" title="The prompt does not state this appraisal finding">there were defects in the completeness of the risk disclosure in the medical record entries</mark>; therefore, <mark class="answer-problem" title="The prompt does not provide these findings on fault or causation">the medical provider bore a certain degree of fault liability, but the causal relationship between that fault and the patient&#x27;s eventual death was relatively low</mark>. The plaintiff objected to the appraisal conclusion&#x27;s determination regarding the degree of causation, arguing that the appraisal opinion did not fully consider the boundary of responsibility of a primary-level hospital in identifying critical illness and making compulsory interventions, and applied for a new appraisal. The defendant medical institution argued that it had fulfilled its obligations of reasonable disclosure and assistance with transfer, that the patient&#x27;s independent decision to leave the hospital was the key factor in the materialization of the risk, and that the original appraisal procedure was lawful and sufficiently supported, so the appraisal should not be restarted.</p><p>According to Article 79 of the Civil Procedure Law of the People&#x27;s Republic of China and <mark class="answer-correct" title="Authority identified in the scoring reference">Article 40 of the Several Provisions of the Supreme People&#x27;s Court on Evidence in Civil Proceedings</mark>, where a party objects to an appraisal opinion, the objection should first be resolved by applying for the appraiser to appear in court, conducting questioning, or submitting written cross-examination opinions, etc.; <mark class="answer-correct" title="Relevant grounds identified in the scoring reference">only where there are statutory grounds such as serious illegality in the appraisal procedure, manifest insufficiency of the appraisal basis</mark>, the appraiser&#x27;s lack of qualifications, or circumstances requiring recusal may the court permit a new appraisal. In this case, the original appraisal was made by an appraisal institution with <mark class="answer-problem" title="The prompt does not establish these procedural details">statutory qualifications after lawfully accepting the commission</mark>; during the appraisal process, <mark class="answer-problem" title="The prompt mentions medical records but does not say the appraiser reviewed them">all outpatient and emergency medical records, electrocardiogram materials, and emergency treatment records were reviewed</mark>, and the compliance of the diagnosis and treatment conduct, the sufficiency of the risk disclosure, and causation were analyzed item by item, with <mark class="answer-problem" title="The prompt does not establish this assessment">complete procedures and sufficient basis</mark>. The plaintiff&#x27;s objection was, in substance, disagreement with the medical professional judgment in the appraisal conclusion, rather than pointing to obvious defects in the appraisal procedure or basis, and therefore did not meet the statutory conditions for a new appraisal. The court&#x27;s refusal to permit a new appraisal was based on its reasonable acceptance of the probative force of the existing appraisal opinion, which both maintained the stability of judicial appraisal and prevented the litigation procedure from being improperly delayed by repeated appraisals, and was consistent with the value orientation and application logic of the current evidence rules.</p></blockquote></div>
-          <p class="answer-key"><span><i class="key-correct" aria-hidden="true"></i>Relevant legal basis</span><span><i class="key-problem" aria-hidden="true"></i>Selected unsupported claims</span></p>
-        </section>
-        <section class="workflow-step scoring-rules" aria-labelledby="case-rules-title">
-          <div class="workflow-heading"><h4 id="case-rules-title">3. Scoring rules</h4><a href="https://github.com/EternWang/LegalScope/tree/main/evaluation/rubrics">Full rubrics</a></div>
-          <div class="rubric-sheet" role="region" tabindex="0" aria-label="Case scoring rules and reference">
-            <dl class="rubric-rows">
-              <div><dt class="rubric-criterion"><span class="criterion-code">A</span><span>Citation relevance</span></dt><dd>Identify explicit legal authority relevant to the issue and connect it to the reasoning.</dd></div>
-              <div><dt class="rubric-criterion"><span class="criterion-code">B</span><span>Constraint extraction</span></dt><dd>Follow the assigned stance, supplied facts, evidence boundaries, task structure and deidentification requirements.</dd></div>
-              <div><dt class="rubric-criterion"><span class="criterion-code">C</span><span>Argument validity</span></dt><dd>Apply the rules to the supplied facts and reach a coherent conclusion on the issue.</dd></div>
-              <div><dt>Scale for each dimension</dt><dd><ol class="rubric-scale" start="0"><li><strong>0</strong><span>No credit</span></li><li><strong>1</strong><span>Severe failure</span></li><li><strong>2</strong><span>Major defect</span></li><li><strong>3</strong><span>Minor defect</span></li><li><strong>4</strong><span>No substantive defect</span></li></ol></dd></div>
-              <div><dt>Score limits</dt><dd><ul class="rubric-limits"><li>Serious invented facts cap constraint extraction at 1.</li><li>A score of 0 on constraint extraction caps argument validity at 2.</li><li>Without identifiable legal authority, citation relevance is 0 and the other two dimensions are capped at 2.</li></ul></dd></div>
-              <div><dt>Language</dt><dd>The released English responses are not penalized for language alone.</dd></div>
-            </dl>
-            <div class="rubric-reference"><h5>Scoring reference <span>Not part of the model input</span></h5><p>Article 40 of the Several Provisions of the Supreme People&#x27;s Court on Evidence in Civil Proceedings. Re-appraisal must meet statutory conditions such as serious illegality in the appraisal procedure or the appraisal opinion being clearly lacking in sufficient basis, and is not automatically initiated merely because one party is dissatisfied with the conclusion.</p></div>
-          </div>
-          <p class="source-credit">The real-case rubric adapts the three evaluation dimensions of <a href="https://aclanthology.org/2025.emnlp-main.1787/">CourtReasoner (Han et al., EMNLP 2025)</a> to closed book Chinese case analysis.</p>
-        </section>
-        <section class="workflow-step case-evaluation" aria-labelledby="case-result-title">
-          <div class="workflow-heading"><h4 id="case-result-title">4. Recorded scores</h4><span>Automatic evaluation · <a href="https://github.com/EternWang/LegalScope/blob/main/data/examples/case_reappraisal.json">View record</a></span></div>
-          <dl class="evaluation-list"><div><dt>Citation relevance</dt><dd><strong>4<small>/4</small></strong><p>Cites the relevant re-appraisal authority.</p></dd></div><div><dt>Constraint extraction</dt><dd><strong>1<small>/4</small></strong><p>Assumes the appraiser’s qualifications and review of medical records, neither established by the prompt.</p></dd></div><div><dt>Argument validity</dt><dd><strong>3<small>/4</small></strong><p>The re-appraisal reasoning remains usable, despite its unsupported factual claims.</p></dd></div></dl>
-        </section>
-        <p class="source-credit case-source">Input and model answer are shown in full as stored in the English release. Highlights identify selected passages.</p>
-      </article>
     </div>
   </section>
-
-  <section id="results" class="section wrap">
-    <div class="section-heading"><div><h2>Main results</h2></div><a class="text-link" href="https://github.com/EternWang/LegalScope/blob/main/docs/RESULTS_SUMMARY.md">Read the full results summary</a></div>
-    <div class="findings">
-      <article><p class="finding-number">0.817</p><h3>Exam–case association</h3><p>Model-level Pearson correlation for automatic scores; Spearman correlation is 0.708. Rankings and variant gains do not transfer uniformly.</p></article>
-      <article><p class="finding-number">66.9 <span>/ 72.6</span></p><h3>Citation / argument</h3><p>Mean automatic scores on a 0–100 scale. Lawyers show the same direction descriptively; the pooled lawyer interval crosses zero.</p></article>
-      <article><p class="finding-number">0.910 <span>/ 0.312</span></p><h3>Exam / case judge agreement</h3><p>Answer-level Pearson correlations between automatic and human scores. Case scores use the equal-weight mean of two lawyers.</p></article>
-    </div>
-    <div class="results-toolbar"><div><h3>Model performance</h3><p>28 model groups · Reported benchmark results</p></div><div class="table-controls"><label for="model-search" class="sr-only">Filter model names</label><input id="model-search" type="search" placeholder="Find a model" autocomplete="off"><a class="download" href="data/model_performance.csv" download>Download CSV</a></div></div>
-    <div class="table-legend" id="score-legend"><span><strong>Best</strong> in column</span><span><span class="second-label">Second best</span> in column</span><span class="legend-context">All 28 model groups · ties share rank</span></div>
-    <p id="results-status" class="small" aria-live="polite">Loading published results…</p>
-    <div class="table-scroll" role="region" aria-label="Model performance table, horizontally scrollable" tabindex="0"><table id="performance-table" aria-describedby="score-legend table-note"><caption class="sr-only">LegalScope model scores. Best and second-best displayed values are marked separately within each column over the complete roster.</caption><colgroup><col class="model-column"><col span="7"></colgroup><thead><tr class="column-groups"><th scope="col" rowspan="2"><button type="button" data-sort="model_group">Model <span aria-hidden="true">↕</span></button></th><th scope="colgroup" colspan="5">Automatic evaluation</th><th scope="colgroup" colspan="2" class="human-group">Human evaluation</th></tr><tr><th scope="col"><button type="button" data-sort="public_exam_auto">Exam <span aria-hidden="true">↕</span></button></th><th scope="col"><button type="button" data-sort="real_case_auto">Case mean <span aria-hidden="true">↕</span></button></th><th scope="col"><button type="button" data-sort="citation">Citation <span aria-hidden="true">↕</span></button></th><th scope="col"><button type="button" data-sort="constraint">Constraint <span aria-hidden="true">↕</span></button></th><th scope="col"><button type="button" data-sort="argument">Argument <span aria-hidden="true">↕</span></button></th><th scope="col" class="human-start"><button type="button" data-sort="public_exam_human">Exam <span aria-hidden="true">↕</span></button></th><th scope="col"><button type="button" data-sort="real_case_human">Case <span aria-hidden="true">↕</span></button></th></tr></thead><tbody></tbody></table></div>
-    <noscript><p>Enable JavaScript to sort the table, or <a href="data/model_performance.csv">download the complete results CSV</a>.</p></noscript>
-    <p class="table-note" id="table-note">All scores are on a 0–100 scale. Automatic scores cover the full tracks. Human scores cover 80 exam items and 10 case prompts; case scores pool two lawyers. Best and second-best marks use the displayed one decimal values across all 28 groups; equal values share a mark, and filtering does not change their rank. The initial order follows the paper. CSV/Parquet additionally include the two descriptive overall means. Highlights are descriptive, not significance tests. Scores do not equate difficulty across tracks.</p>
-    <details class="figure-details"><summary>Explore the score distributions and transfer plots</summary><div class="plot-gallery"><figure><img src="assets/paper_score_distribution.png" alt="Per-model score distributions for 861 exam prompts and 276 case prompts across all 28 groups." loading="lazy"><figcaption>Answer-quality distributions, not repeated-scoring stability.</figcaption></figure><figure><img src="assets/paper_transfer_model_judge.png" alt="Automatic exam-to-case scatterplot with Pearson correlation 0.817 and Spearman correlation 0.708." loading="lazy"><figcaption>Automatic exam–case association over 28 model groups.</figcaption></figure><figure><img src="assets/paper_transfer_human.png" alt="Human exam-to-case scatterplot with Pearson correlation 0.696 and Spearman correlation 0.690." loading="lazy"><figcaption>Human exam scores and pooled lawyer case scores. This is not an automatic–human agreement plot.</figcaption></figure></div></details>
-  </section>
-
-  <section id="resources" class="section resource-section" aria-labelledby="resources-title">
-    <div class="wrap">
-      <div class="section-heading"><h2 id="resources-title">Data and documentation</h2></div>
-      <p class="availability">The <a href="https://huggingface.co/datasets/Hongyu801/LegalScope">public release</a> contains 276 case prompts with scoring references, 78 Victorian Bar source excerpts with selected candidate answers, 7,728 case model responses and 34,636 individual scores.</p>
-      <p class="availability">Original judgments are excluded to protect privacy and confidentiality. The remaining 783 exam inputs are excluded because third-party rights have not been cleared for redistribution.</p>
-      <p class="availability">Case annotations use MIT. Victorian Bar excerpts retain <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> and their source notices.</p>
-      <nav class="resource-docs" aria-label="Dataset documentation">
-        <a href="https://github.com/EternWang/LegalScope/blob/main/docs/USING_THE_RELEASE.md">Loading guide</a>
-        <a href="https://github.com/EternWang/LegalScope/blob/main/docs/REPRODUCIBILITY.md">Reproduce the results</a>
-        <a href="https://github.com/EternWang/LegalScope/blob/main/docs/MODEL_SETTINGS.md">Model settings</a>
-        <a href="https://github.com/EternWang/LegalScope/blob/main/docs/CASE_RELEASE.md">Case fields and sources</a>
-        <a href="https://github.com/EternWang/LegalScope/blob/main/docs/CASE_REFERENCE_NOTES.md">Legal reference sources</a>
-      </nav>
-    </div>
-  </section>
-
-  <section id="citation" class="section wrap citation-section"><div><h2>Citation</h2><p>AI Measurement Science Workshop<br>at COLM 2026</p><button id="copy-citation" class="button" type="button">Copy BibTeX</button><p id="copy-status" class="small" aria-live="polite"></p></div><pre><code id="bibtex">@inproceedings{wang2026legalscope,
-  title = {{LegalScope}: Measuring Exam-to-Case
-           Transfer in {LLM} Legal Reasoning},
-  author = {Wang, Hongyu and Han, Rilyn R. and
-            Zhao, Yilun and Zhao, Xuandong and
-            Cohan, Arman},
-  booktitle = {AI Measurement Science Workshop
-               at COLM 2026},
-  year = {2026},
-  url = {https://openreview.net/forum?id=BNx62Wx1ej}
-}</code></pre></section>
-</main>
-<footer class="wrap"><a class="wordmark" href="#">LegalScope</a><p>Research on legal reasoning and evaluation.<br>Not legal advice.</p><a href="https://github.com/EternWang/LegalScope/blob/main/docs/RELEASE_STATUS.md">Version & release notes</a></footer>
-</body>
-</html>
