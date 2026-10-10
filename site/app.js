@@ -99,26 +99,6 @@ tabs.forEach((tab, index) => {
   });
 });
 
-document.querySelectorAll('[data-expand-text]').forEach(button => {
-  const module = button.closest('.text-module');
-  const text = document.getElementById(button.getAttribute('aria-controls'));
-  const expandLabel = button.textContent;
-  module.classList.add('is-collapsible');
-  const updateControl = () => {
-    if (!module.getClientRects().length) return;
-    button.hidden = text.scrollHeight <= Math.min(320, window.innerHeight * .45) + 1;
-  };
-  new ResizeObserver(updateControl).observe(text);
-  window.addEventListener('resize', updateControl);
-  updateControl();
-  button.addEventListener('click', () => {
-    const expanded = module.classList.toggle('is-expanded');
-    button.setAttribute('aria-expanded', String(expanded));
-    button.textContent = expanded ? 'Collapse' : expandLabel;
-    if (!expanded && module.getBoundingClientRect().top < 0) module.scrollIntoView({block: 'start'});
-  });
-});
-
 document.querySelector('#copy-citation').addEventListener('click', async () => {
   const output = document.querySelector('#copy-status');
   try {

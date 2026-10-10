@@ -3,13 +3,6 @@
   "item_id": "RV038",
   "model_group": "Qwen3 235B A22B",
   "evaluation": "automatic",
-  "response_excerpt_segments": [
-    "Article 40 of the Several Provisions of the Supreme People's Court on Evidence in Civil Proceedings,",
-    "only where there are statutory grounds such as serious illegality in the appraisal procedure, manifest insufficiency of the appraisal basis,",
-    "may the court permit a new appraisal.",
-    "In this case, the original appraisal was made by an appraisal institution with statutory qualifications after lawfully accepting the commission; during the appraisal process, all outpatient and emergency medical records, electrocardiogram materials, and emergency treatment records were reviewed, and the compliance of the diagnosis and treatment conduct, the sufficiency of the risk disclosure, and causation were analyzed item by item, with complete procedures and sufficient basis."
-  ],
-  "excerpt_note": "Segments are verbatim, in source order. Bracketed ellipses on the website indicate omissions. Highlighting and explanations are editorial annotations.",
   "scores": {
     "citation_relevance": 4,
     "constraint_extraction": 1,
@@ -32,13 +25,5 @@
     "supported_proposition": "Re-appraisal must meet statutory conditions such as serious illegality in the appraisal procedure or the appraisal opinion being clearly lacking in sufficient basis, and is not automatically initiated merely because one party is dissatisfied with the conclusion.",
     "review_constraints": "No off-topic facts, undisplayed evidence, unrecorded diagnosis/treatment or transaction details, external search results, real names, or institutional identity information may be added."
   },
-  "prompt_excerpt_segments": [
-    "[The Court’s Handling Result on This Issue (De-identified, excluding cited authorities)]\nThe court did not permit the plaintiff’s application for a re-appraisal and still used the existing appraisal materials as the basis for judgment.\n\n[Your Writing Position]\nPlease support the above court’s handling result on this issue, and argue why this handling can stand and can be justified.",
-    "[Summary of Case Background]\nOn an evening in early February 2025, the patient sought treatment at a county traditional Chinese medicine hospital due to chest pain and other discomfort. During the consultation, outpatient/emergency examination records and electrocardiogram materials were generated, indicating a risk of acute inferior wall myocardial infarction.\nThe receiving doctor clearly advised the patient that evening to transfer to a higher-level hospital as soon as possible for further treatment, and had contacted the emergency channel of the higher-level hospital; however, the patient did not stay in the hospital for continued management, did not actually transfer, and instead returned home.\nAfter returning home that night, the patient’s condition continued to change. In the early hours of the next day, the family again called 120; after emergency personnel arrived, they performed cardiopulmonary resuscitation and other rescue measures, but the patient ultimately died.",
-    "[Known Facts Directly Related to This Issue]\nAn existing medical damage appraisal has already been issued. The plaintiff believed that the appraisal had problems in its basis and conclusions and applied for a re-appraisal, while the hospital raised defenses concerning the probative force of the original appraisal.",
-    "3. This is a closed-book legal analysis task. You may answer only based on the case materials already provided in the prompt, and may not supplement extraneous facts, evidence, negotiation history, medical judgments, undisplayed attachment contents, or procedural information not provided.",
-    "5. The output must consist of two complete Chinese analytical paragraphs. The first paragraph should focus on the facts related to the issue and the focal point of the dispute, and the second paragraph should focus on legal evaluation, application of legal provisions, and a defensible reasoning path in the specified direction.",
-    "7. If the prompt materials are insufficient to support a strong conclusion, clearly state the boundary of the materials rather than independently filling in missing facts."
-  ],
-  "prompt_excerpt_note": "Verbatim segments in source order. Bracketed ellipses mark omitted text; the prompt field contains the complete input."
+  "display_note": "Full input and response in the English release. Highlighting and explanations are presentation annotations; recorded scores are unchanged."
 }
