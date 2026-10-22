@@ -2,7 +2,6 @@
     <p class="eyebrow"><span class="rule"></span> AIMS WORKSHOP · COLM 2026</p>
     <h1>LegalScope</h1>
     <p class="hero-title">Measuring Exam-to-Case Transfer<br class="wide-only"> in LLM Legal Reasoning</p>
-    <p class="hero-deck">Do models that score well on legal exams also reason well about real cases?</p>
     <div class="authors" aria-label="Paper authors">
       <a href="https://openreview.net/profile?id=~Hongyu_Wang20">Hongyu Wang<sup>1</sup></a>
       <a href="https://openreview.net/profile?id=~Rilyn_R._Han1">Rilyn R. Han<sup>2</sup></a>
@@ -19,25 +18,15 @@
     </div>
   </section>
 
-  <div class="stats-band">
-    <div class="stats wrap">
-      <div><strong>861</strong><span>Legal-exam questions</span></div>
-      <div><strong>276</strong><span>Case prompts</span></div>
-      <div><strong>28</strong><span>Model configurations</span></div>
-      <div><strong>56</strong><span>De-identified judgments</span></div>
-    </div>
-  </div>
+<section id="benchmark" class="wrap construction-section" aria-label="Benchmark overview">
+  <figure class="pipeline"><a href="assets/paper_collection_pipeline.svg" target="_blank" rel="noopener" aria-label="Open the complete benchmark pipeline at full resolution"><img src="assets/paper_collection_pipeline.svg" alt="LegalScope pipeline: source collection and deidentification; two-track evaluation across 28 models; human validation; and reliability analyses." loading="eager" fetchpriority="high" width="2891" height="1325"></a><figcaption><strong>Figure 1.</strong> Benchmark construction, model evaluation and human validation.<br><a class="figure-link" href="assets/paper_collection_pipeline.svg" target="_blank" rel="noopener">View scalable figure ↗</a> · <a class="figure-link" href="assets/paper_collection_pipeline.pdf" target="_blank" rel="noopener">Download PDF</a></figcaption></figure>
+</section>
 
-<section id="benchmark" class="section wash">
-    <div class="wrap">
-      <div class="section-heading"><h2>What we compare</h2><p>The same 28 model configurations, including reasoning-effort variants.</p></div>
-      <div class="track-grid">
-        <article class="track exam"><div class="track-heading"><h3>Public legal exams</h3><p class="track-count"><strong>861</strong><span>questions</span></p></div><p class="track-description">Legal questions from four jurisdictions, with reference answers for evaluation.</p><dl class="track-facts"><div><dt>United States</dt><dd>603</dd></div><div><dt>China</dt><dd>94</dd></div><div><dt>United Kingdom</dt><dd>86</dd></div><div><dt>Australia</dt><dd>78</dd></div></dl><a class="track-link" href="examples.html#exam">View exam example <span aria-hidden="true">→</span></a></article>
-        <article class="track cases"><div class="track-heading"><h3>Case analysis</h3><p class="track-count"><strong>276</strong><span>prompts</span></p></div><p class="track-description">56 Chinese judgments yield 138 legal issues. Each issue has two prompts: argue for or against an assigned position using the supplied facts.</p><dl class="track-facts"><div><dt>Tort</dt><dd>80</dd></div><div><dt>Contract</dt><dd>72</dd></div><div><dt>Criminal</dt><dd>54</dd></div><div title="Intellectual Property: 34; Administrative: 22; Civil Procedure: 8; Property: 6"><dt>Others</dt><dd>70</dd></div></dl><a class="track-link" href="examples.html#case">View case example <span aria-hidden="true">→</span></a></article>
-      </div>
-      <p class="scope-note"><strong>Available to download:</strong> all 276 case prompts and 78 Victorian Bar source excerpts from the exam track. <a href="resources.html">See the data and download formats →</a></p>
-    </div>
-  </section>
+<section class="section wrap paper-abstract" aria-labelledby="abstract-title">
+  <h2 id="abstract-title">Abstract</h2>
+  <p>Public legal exams are widely used to evaluate legal reasoning in large language models, yet it remains unclear whether exam performance reflects the ability to reason over real-case facts. We introduce LegalScope, a dual-track benchmark that pairs 861 legal-exam questions with 276 lawyer-reviewed issue-stance prompts derived from de-identified Chinese judgments. LegalScope evaluates models under both reference-answer scoring and case-based rubric scoring, enabling direct analysis of exam-to-case transfer.</p>
+  <p>Across 28 model groups, public-exam scores correlate with real-case scores but do not fully predict them; citation relevance receives lower mean scores than argument validity under both automatic and lawyer evaluation. We further show that automated evaluation aligns strongly with human review on exam answers but less reliably on real-case legal analysis, highlighting the need for expert-grounded case evaluation.</p>
+</section>
 
 <section id="scoring" class="section wrap scoring-section" aria-labelledby="scoring-title">
   <h2 id="scoring-title">How scoring works</h2>
@@ -63,6 +52,3 @@
       <a href="resources.html"><h3>Data &amp; citation <span aria-hidden="true">↗</span></h3><p>Downloads, documentation, source licenses and BibTeX.</p></a>
     </div>
   </section>
-<section class="wrap construction-section"><details class="figure-details"><summary>See the benchmark construction figure</summary>
-      <figure class="pipeline"><a href="assets/paper_collection_pipeline.svg" target="_blank" rel="noopener" aria-label="Open the complete benchmark pipeline at full resolution"><img src="assets/paper_collection_pipeline.svg" alt="LegalScope pipeline: source collection and deidentification; two-track evaluation across 28 models; human validation; and reliability analyses." loading="lazy" width="2891" height="1325"></a><figcaption><strong>Figure 1.</strong> Benchmark construction, model evaluation and human validation.<br><a class="figure-link" href="assets/paper_collection_pipeline.svg" target="_blank" rel="noopener">View scalable figure ↗</a> · <a class="figure-link" href="assets/paper_collection_pipeline.pdf" target="_blank" rel="noopener">Download PDF</a></figcaption></figure>
-</details></section>
