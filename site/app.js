@@ -141,3 +141,20 @@ document.querySelector('#copy-citation')?.addEventListener('click', async () => 
     output.textContent = 'Citation selected. Use your browser’s Copy command.';
   }
 });
+
+// Keep a complete figure overview, with an in-page zoom for smaller screens.
+document.querySelectorAll('.figure-zoom').forEach(button => {
+  const viewport = document.getElementById(button.getAttribute('aria-controls'));
+  if (!viewport) return;
+  button.hidden = false;
+  button.parentElement.classList.add('is-ready');
+  button.addEventListener('click', () => {
+    const enlarged = button.getAttribute('aria-pressed') !== 'true';
+    button.setAttribute('aria-pressed', String(enlarged));
+    button.textContent = enlarged ? 'Fit to width' : 'Enlarge figure';
+    viewport.classList.toggle('is-zoomed', enlarged);
+    viewport.tabIndex = enlarged ? 0 : -1;
+    button.parentElement.querySelector('.figure-pan-hint').hidden = !enlarged;
+    if (!enlarged) viewport.scrollTo({left: 0, top: 0, behavior: 'auto'});
+  });
+});
