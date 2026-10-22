@@ -104,13 +104,12 @@ IDs for record grouping.
 
 The [evaluation guide](../evaluation/README.md) explains response generation,
 anonymous task preparation and scoring. The three archived rubric files cover
-joint A/B/C scoring, the B-only update and exam answer matching. Recovered
-generation settings cover the eight groups in the August model expansion.
+joint A/B/C scoring, the B-only update and exam answer matching. Generation
+settings are available for the eight groups in the August model expansion.
 The [model settings reference](MODEL_SETTINGS.md) records provider defaults
 checked on 9 October 2026 for all 28 model groups.
 
 For a new run, record the dataset revision, translation and evaluator settings,
 provider route and execution date. Model aliases and reference revisions can
-change outputs. The available generation settings cover the eight August model
-groups; [release scope](DATA_CARD.md#public-release-and-intended-use) lists the
-available inputs and responses.
+change outputs. See [release scope](DATA_CARD.md#public-release-and-intended-use)
+for available inputs and responses.

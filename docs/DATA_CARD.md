@@ -43,9 +43,6 @@ has one supporting and one opposing prompt. The tasks use summaries of concluded
 judgments. Names, institutions,
 addresses, and original file paths are removed or masked during deidentification.
 
-Researchers handled source selection, deidentification, legal review and
-interpretation. AI tools supported data processing, answer generation and scoring.
-
 Human validation covers all 28 groups. Exam human scores are reviewed and
 confirmed against the reference answers. Two practicing Chinese lawyers independently score the same
 case answer set, with Lawyer 2 held out from rubric calibration. Their case scores

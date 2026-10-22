@@ -5,17 +5,14 @@ All five figures follow the AIMS at COLM 2026 workshop camera-ready paper. The s
 
 | Repository file | Workshop source |
 | --- | --- |
-| `assets/figures/paper_collection_pipeline.svg`, `.pdf`, `.png` | Figure 1, page 3; vector edition with updated model marks and diagram icons. |
+| `assets/figures/paper_collection_pipeline.svg`, `.pdf`, `.png` | Figure 1, page 3. |
 | `assets/figures/paper_score_distribution.png` | Figure 2, page 7. |
 | `assets/figures/paper_transfer_model_judge.png` | Figure 3(a), page 19. |
 | `assets/figures/paper_transfer_human.png` | Figure 3(b), page 19. |
-| `assets/figures/paper_jurisdiction_means.png` | Figure 4, page 20; cropped from the compiled workshop PDF, excluding the caption. |
+| `assets/figures/paper_jurisdiction_means.png` | Figure 4, page 20. |
 
-Figure 1 is available as an editable SVG, a print PDF and a PNG preview. The SVG
-contains no embedded bitmap images. Its layout, scientific labels and counts
-follow the workshop figure; the pictograms have been replaced with vector artwork.
-Model marks and their sources are documented in [Figure icon sources](FIGURE_ICON_SOURCES.md).
-The remaining figures preserve their source artwork.
+Figure 1 is available as SVG, PDF and PNG. Model marks and icon attribution are
+listed in [Figure icon sources](FIGURE_ICON_SOURCES.md).
 
 Figure 3(b) uses human exam scores and the pooled scores of both lawyers on the
 validation subsets to show exam–case association. Figure 1 retains

@@ -8,9 +8,8 @@ opposing prompt. The `case_scoring_references` configuration contains 276 matchi
 reference records (`test` split). Join them by `review_id`, never by row position.
 The split name denotes evaluation use; no train/development split is supplied.
 
-The released prompts are in English and request Chinese answers. GPT-5.5
-translated the model answers into English for scoring; the response release
-contains these English translations.
+The prompts are in English; see the
+[answer-language and translation protocol](SCORING_RUBRIC.md#evaluation-workflow).
 
 Send only `prompt` to the answering model. The separate reference table supplies
 authorities, propositions and constraints for evaluation; opposing stances may

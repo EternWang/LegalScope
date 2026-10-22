@@ -23,21 +23,18 @@ to generate responses. Set `OPENROUTER_API_KEY` for OpenRouter configurations or
 hashes and the request configuration. The output `responses.jsonl` contains
 `item_id`, `model_group`, `response`, `answer_sha256`, and execution metadata.
 
-[generation_configs.json](generation_configs.json) records settings recovered
-from the eight model groups added in August 2026. It includes model aliases,
-provider routing, reasoning settings, output budgets, and source code hashes.
-Null parameters were not set explicitly. Configurations for the other 20 groups
-are not represented by this file. Provider aliases and routing may change over
-time, so a new run is a new experiment.
+[generation_configs.json](generation_configs.json) provides generation settings
+for the eight model groups added in August 2026: model aliases, provider routing,
+reasoning settings and output budgets. Null parameters were not set explicitly.
+Generation configurations for the other 20 groups are not included.
 
 The [model settings reference](../docs/MODEL_SETTINGS.md) and
 [provider default catalog](provider_defaults.json) cover all 28 groups. They
 record provider defaults checked on 9 October 2026, separately from run settings.
 
-The generation adapter preserves the recorded request parameters. It uses
-sequential requests and bounded execution retries; it increases the output budget
-after truncation, up to the recorded maximum. Incomplete responses are rejected.
-It does not reproduce historical parallel scheduling or provider state.
+Generation uses sequential requests and bounded retries. After truncation, it
+increases the output budget up to the configured maximum and rejects incomplete
+responses.
 
 ## Translate case answers before scoring
 
@@ -94,11 +91,8 @@ a separate ephemeral process in an empty, read-only workspace. Tool activity is
 rejected. The first result satisfying the schema and score caps is retained,
 with up to three execution or validation attempts by default.
 
-The portable runner retains the original prompt builders and score validators.
-It adds configurable paths, a separate output directory, input/runtime hash
-checks and a tool-use guard. [provenance.json](provenance.json) identifies the
-source runtime and rubric files. The runner records the requested model alias.
-Temperature, top-p and seed are unspecified.
+The runner verifies input and runtime hashes and records the requested model
+alias. Temperature, top-p and seed are unspecified.
 
 Use `--mode b` for the archived B-only rubric, which accepts English answers.
 The workshop result combines retained A/C scores with subsequent B updates;
@@ -115,5 +109,4 @@ Generation and input preparation use Python 3.10+ and the standard library.
 Reading the case response Parquet requires `pyarrow`. Model generation requires
 the relevant provider account; scoring requires an authenticated Codex CLI with
 the flags used by the runner, targeting Codex CLI `0.147.0-alpha.6.5`.
-Dry runs and the repository tests make no model
-calls. The full historical generation and scoring environment is not bundled.
+Dry runs and the repository tests make no model calls.

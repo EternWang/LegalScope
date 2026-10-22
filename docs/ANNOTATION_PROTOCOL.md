@@ -19,10 +19,7 @@ lawyers. Unique-answer counts do not count the two lawyers' ratings separately.
 
 Review assesses reference alignment for exams, and citation relevance, constraint
 extraction, and argument validity for cases. Case curation also checks issue/stance
-consistency and de-identification. Useful error-note categories include citation
-mismatch, condition omission, fact extrapolation, stance drift, and conclusion jump.
-Historical notes were not regenerated with the B-only scoring update and should
-not be used as explanations of updated B scores.
+consistency and de-identification.
 
 ## Reliability Reporting
 
