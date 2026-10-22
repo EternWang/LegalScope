@@ -8,23 +8,46 @@
 [Task examples](https://eternwang.github.io/LegalScope/examples.html) ·
 [Citation](#citation)
 
-LegalScope evaluates how performance on legal exams relates to reasoning about
-real cases. It compares 28 model configurations on 861 exam questions from four
-jurisdictions and 276 case prompts drawn from 56 Chinese judgments.
+LegalScope asks whether models that score well on legal exams also reason well
+about real cases. It compares exam and case scores for the same 28 model
+configurations, including reasoning-effort variants.
 
-## Benchmark
+## Benchmark and public data
+
+| Track | Evaluated in the paper | Available inputs |
+| --- | --- | --- |
+| Legal exams | 861 questions from four jurisdictions | 78 Victorian Bar source excerpts |
+| Case analysis | 276 prompts from 56 Chinese judgments | All 276 prompts, with separate scoring references |
+
+The case prompts cover 138 issues, each with a supporting and an opposing
+stance. Models argue from the supplied facts. The exam downloads reproduce
+publisher excerpts and differ from the original evaluation inputs.
+
+## How scoring works
+
+**Exams:** An automatic evaluator awards 0–4 points for matching the reference
+answer's issue, rule, application and conclusion.
+
+**Cases:** English prompt → Chinese answer → GPT-5.5 English translation →
+three automatic rubric scores, each from 0 to 4. Scoring references are provided only to
+the evaluator. The downloadable responses are the English translations.
+
+| Case dimension | What it measures |
+| --- | --- |
+| Citation relevance | Whether cited law supports the legal issue and proposition |
+| Constraint extraction | Whether the answer follows the assigned stance, facts and instructions |
+| Argument validity | Whether the conclusion follows from the law and facts |
+
+Reported model averages use a 0–100 scale. The case mean averages the three
+dimensions. Human validation covers 80 exam questions and 10 case prompts across
+all 28 configurations; two lawyers independently rate the same 280 case answers.
+
+<details>
+<summary>Benchmark construction figure</summary>
 
 <a href="assets/figures/paper_collection_pipeline.png"><img src="assets/figures/paper_collection_pipeline.png" alt="LegalScope benchmark construction, model evaluation and human validation" width="760"></a>
 
-| Component | Count |
-| --- | ---: |
-| Legal-exam questions | 861 |
-| Case prompts: 138 issues × supporting and opposing stances | 276 |
-| Deidentified Chinese judgments | 56 |
-| Model configurations, including reasoning-effort variants | 28 |
-
-Human validation covers 80 exam questions and 10 case prompts across all 28
-configurations. Two lawyers independently score the same 280 case answers.
+</details>
 
 ## Main findings
 
@@ -48,10 +71,7 @@ See the [results](https://eternwang.github.io/LegalScope/results.html) and
 | Individual automatic and human score records | 34,636 | [Scores](data/results/answer_scores.csv.gz) |
 | Aggregate performance and model roster | 28 each | [Metadata](data/metadata) |
 
-The downloadable exam source subset covers 78 of the 861 evaluation items.
-Case prompts and references are separate tables joined by `review_id`.
-
-Models answered the case prompts in Chinese. GPT-5.5 translated their answers into English for scoring; the release contains these English translations.
+Case prompts and scoring references are joined by `review_id`.
 
 Start with the [loading guide](docs/USING_THE_RELEASE.md) for dataset examples,
 field definitions and version pinning.
@@ -85,7 +105,6 @@ attribution and notices; see [third-party notices](THIRD_PARTY_NOTICES.txt).
 Original judgments and the remaining 783 exam inputs are outside the data release.
 
 ## Citation
-
 
 ```bibtex
 @inproceedings{wang2026legalscope,
