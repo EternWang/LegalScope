@@ -1,9 +1,11 @@
 # Figure Sources
 
-All five figures follow the AIMS at COLM 2026 workshop camera-ready paper. The source PDF checksum is recorded in
+The five figures show the paper's benchmark pipeline and result analyses.
+The original exports come from the AIMS at COLM 2026 workshop paper; its PDF
+checksum is recorded in
 [`dataset_summary.json`](../data/metadata/dataset_summary.json).
 
-| Repository file | Workshop source |
+| Repository file | Original source |
 | --- | --- |
 | `assets/figures/paper_collection_pipeline.svg`, `.pdf`, `.png` | Figure 1, page 3. |
 | `assets/figures/paper_score_distribution.png` | Figure 2, page 7. |
@@ -15,6 +17,8 @@ Figure 1 is available as SVG, PDF and PNG. Model marks and icon attribution are
 listed in [Figure icon sources](FIGURE_ICON_SOURCES.md).
 
 Figure 3(b) uses human exam scores and the pooled scores of both lawyers on the
-validation subsets to show exam–case association. Figure 1 retains
-the historical 243-item Tort control and the separate five-run B audit; neither is
-the full current exam/case evaluation pool.
+validation subsets to show exam–case association. The 243-item Tort control in
+Figure 1 compares 76 case prompts from 15 judgments across 20 model configurations.
+The separate B-only repeatability analysis scores 200 fixed answers five times.
+See the [results summary](RESULTS_SUMMARY.md#reliability-analyses-and-supplementary-controls)
+for the evaluation scope of each analysis.

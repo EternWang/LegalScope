@@ -84,7 +84,7 @@ case ratings averaged across two lawyers.
 
 Bold and underlined values mark the highest and second-highest displayed values
 within each column across all 28 groups. Ties share a mark, and filtering keeps
-those full-roster ranks. The initial row order follows workshop Table 3.
+those full-roster ranks. The initial row order follows the paper's main model table.
 These highlights describe the displayed scores, not statistical significance;
 the two tracks use different scoring protocols and difficulty scales.
 See the [results analysis](RESULTS_SUMMARY.md) for confidence intervals, including
@@ -100,11 +100,41 @@ which may differ from printed page labels. Each entry links directly to the
 relevant page. Use this index for source page locations and dataset document
 IDs for record grouping.
 
+## Scoring provenance
+
+Reported exam responses and scores were produced before subsequent prompt and
+reference-text repairs. The 78 released Victorian Bar records reproduce publisher
+excerpts rather than those evaluation inputs.
+
+Published case results combine A/C scores with separately scored B values. The
+B-only rubric treats English translations as language-compliant. Applying its
+B=0 cap required two corrections to C. Review notes were not regenerated with B,
+and lawyer ratings were unchanged; the notes therefore do not explain the B-only
+scores. Comparisons across scoring stages reflect both rubric and language
+differences.
+
+Rescoring uses GPT-5.5 through the `gpt-5.5` alias, which is not date-pinned.
+Temperature, top-p and seed were not explicitly set. Batch configurations differ,
+and answers without a rescoring run retain their recorded scores. Each rescore is
+the first valid result after execution, parsing or validation retries. Repeated
+judgments are not averaged into headline results.
+
+The five-run repeatability analyses use the same 200 fixed answers. A/C values
+come from a joint-scoring batch and B values from a separate B-only batch. Their
+execution settings do not reproduce every benchmark scoring batch. The Tort
+control uses 243 exam items and 76 case prompts from 15 judgments across 20 model
+configurations. The supplementary language and C-Eval controls use a case endpoint
+separate from the full 276-prompt, 28-model evaluation.
+
+Ten public case references contain [citation corrections](CASE_REFERENCE_NOTES.md)
+added after evaluation. Re-evaluating answers with those references can change
+scores. The released individual scores preserve the results reported in the paper.
+
 ## New evaluations
 
 The [evaluation guide](../evaluation/README.md) explains response generation,
-anonymous task preparation and scoring. The three archived rubric files cover
-joint A/B/C scoring, the B-only update and exam answer matching. Generation
+anonymous task preparation and scoring. The three rubric files cover
+joint A/B/C scoring, B-only scoring and exam answer matching. Generation
 settings are available for the eight groups in the August model expansion.
 The [model settings reference](MODEL_SETTINGS.md) records provider defaults
 checked on 9 October 2026 for all 28 model groups.

@@ -40,8 +40,8 @@ model scores, plots and explanations.
 | Individual automatic and human scores | 34,636 | [Scores](data/results/answer_scores.csv.gz) |
 | Aggregate performance and model roster | 28 each | [Metadata](data/metadata) |
 
-All case prompts are available. The exam release contains publisher excerpts
-for the Victorian Bar subset; the full 861 evaluation prompts are not released.
+All case prompts are available. To respect third-party copyright, we release
+only the 78 Victorian Bar exam excerpts licensed under CC BY-NC-ND 4.0.
 The [loading guide](docs/USING_THE_RELEASE.md) covers dataset loading, field names
 and version pinning.
 
@@ -79,16 +79,17 @@ python -m legalscope.results \
   --published data/metadata/model_performance.csv
 ```
 
-This recomputes all 252 values in workshop Table 3 from the released individual
-scores. See [reproducibility](docs/REPRODUCIBILITY.md) for score fields and aggregation.
+This recomputes all 252 values in the paper's main model table from the released
+individual scores. See [reproducibility](docs/REPRODUCIBILITY.md) for score fields
+and aggregation.
 
 ### 3. Evaluate model answers
 
 Follow the [evaluation guide](evaluation/README.md) to load case prompts,
 generate answers, translate them and run the scorer.
 
-- **Exam answers:** scored from 0 to 4 against the reference answer's issue,
-  rule, application and conclusion.
+- **Exam answers:** scored from 0 to 4 for substantive consistency with the
+  reference answer.
 - **Case answers:** English prompt → Chinese answer → GPT-5.5 English translation
   → three 0–4 scores for citation relevance, constraint extraction and argument validity.
   Scoring references are provided only to the evaluator.

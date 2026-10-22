@@ -1,10 +1,9 @@
 # Data Card
 
-## Purpose and Version
+## Purpose
 
 LegalScope measures the relationship between public legal-exam performance and
 closed book reasoning over curated summaries of deidentified Chinese judgments.
-This card follows the AIMS at COLM 2026 workshop camera-ready version.
 
 The [loading guide](USING_THE_RELEASE.md) covers downloads, field definitions and
 examples. The six Hub configurations contain 354 prompt/source records, 276
@@ -33,9 +32,9 @@ counts. Human-validation counts refer to unique answers, not lawyer-rating event
 ## Splits
 
 The exam split covers the United States (603), China (94), the United Kingdom (86),
-and Australia (78). One duplicate and six items with unverifiable shared context
-were excluded from the earlier split. Reported exam responses and scores predate
-prompt and reference-text repairs (paper Sections 3.1 and 5.1).
+and Australia (78). Curation excluded one duplicate and six items whose shared
+context could not be verified. The [reproducibility guide](REPRODUCIBILITY.md#scoring-provenance)
+documents the inputs used for reported scores.
 
 The case split has 80 Tort, 72 Contract, 54 Criminal, 34 Intellectual Property,
 22 Administrative, 8 Civil Procedure, and 6 Property prompts. Each of 138 issues
@@ -50,20 +49,22 @@ are pooled with equal weights.
 
 ## Audit Scope
 
-The current clustered dimension analysis covers all 276 case prompts and 56
-judgments. Historical controls and the 200-answer, five-run fixed-answer audits
-retain their own pools. See [results](RESULTS_SUMMARY.md) for the distinction.
+The clustered dimension analysis covers all 276 case prompts and 56 judgments.
+Repeatability analyses score the same 200 answers five times. The Tort control
+uses 243 exam items, 76 case prompts from 15 judgments, and 20 model configurations.
+See the [results summary](RESULTS_SUMMARY.md#reliability-analyses-and-supplementary-controls)
+for the supplementary analyses.
 
 ## Metadata Provenance
 
-Country, U.S. source, and category counts follow Sections 3.1-3.2 and Tables 5,
-15-16. Public-exam categories below the paper's 20-item display threshold are
+Country, U.S. source, and category counts follow the paper's benchmark composition
+and category analyses. Public-exam categories below its 20-item display threshold are
 grouped into an explicitly derived residual (107 items). Percentages are calculated
 within the relevant split/dimension and rounded to one decimal place.
 
-The model roster follows Appendix A.1; indices follow Figure 3. The shortened
+The model roster follows the paper's model list; indices follow Figure 3. The shortened
 figure/table label `LLaMA 3.1 8B` is normalized to `LLaMA 3.1 8B Instruct` in CSVs.
-Table 3 performance values retain the paper's one decimal precision and order.
+Model performance values retain the paper's one decimal precision and order.
 
 ## Public Release and Intended Use
 
@@ -81,8 +82,9 @@ source excerpts reproduce publisher text and differ from the original evaluation
 inputs. Original judgments, identifying mappings, the remaining 783 exam inputs,
 exam response text and raw human review sheets are outside the release.
 
-Project-authored code, documentation, metadata and case annotations use MIT.
-Victorian Bar text retains CC BY-NC-ND 4.0 and its
+To respect third-party copyright, we release only the 78 Victorian Bar exam
+excerpts licensed under CC BY-NC-ND 4.0. Project-authored code, documentation,
+metadata and case annotations use MIT. The excerpts retain their
 [source notices](../THIRD_PARTY_NOTICES.txt). See the [case sources](CASE_RELEASE.md#case-sources)
 for provenance and deidentification.
 
@@ -92,7 +94,7 @@ for provenance and deidentification.
 - Exam materials may occur in pretraining data, affecting generalization claims.
 - Track and dimension scores measure different properties and difficulty levels.
 - Human validation covers 80 exam questions and 10 case prompts.
-- Evaluator aliases, unspecified decoding settings and retained historical scores
-  limit exact reproduction of new scoring runs; see the [scoring protocol](SCORING_RUBRIC.md).
+- New scoring runs depend on evaluator settings and reference versions; see the
+  [scoring provenance notes](REPRODUCIBILITY.md#scoring-provenance).
 
 The benchmark is intended for research, not legal advice or operational legal decisions.

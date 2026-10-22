@@ -130,15 +130,13 @@ They are included in CSV/Parquet; the website shows the seven track/dimension
 columns. Values retain one decimal rounding, so averaging displayed values may
 differ by 0.1 from a published aggregate.
 
-The model table contains the 252 score values from Table 3 in the linked
-workshop paper.
+The model table contains the 252 score values from the paper's main model table.
 
 The [reproducibility guide](REPRODUCIBILITY.md) explains how to load all 34,636
 individual score records and recompute the 252 published values. It also covers
 the 7,728 case responses, PDF source locations and generation/scoring code. These
 additional files are downloads rather than extra configurations in the Hub viewer.
-New results on the source excerpt subset are a separate evaluation; the paper's
-scores were not rerun on this package.
+For new evaluations, see the documented [scoring inputs and batches](REPRODUCIBILITY.md#scoring-provenance).
 
 ## Licenses and corrections
 

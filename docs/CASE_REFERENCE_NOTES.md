@@ -1,6 +1,6 @@
 # Reference sources
 
-These citation corrections were added after the workshop evaluation. The table
+These citation corrections were added after benchmark scoring. The table
 identifies the affected records and official sources.
 
 | Records | Authority and provisions | Official source |

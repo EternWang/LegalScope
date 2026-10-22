@@ -94,14 +94,15 @@ with up to three execution or validation attempts by default.
 The runner verifies input and runtime hashes and records the requested model
 alias. Temperature, top-p and seed are unspecified.
 
-Use `--mode b` for the archived B-only rubric, which accepts English answers.
-The workshop result combines retained A/C scores with subsequent B updates;
-report new joint and B-only runs separately.
+Use `--mode b` to score constraint extraction with the B-only rubric, which accepts
+English answers. Published case results combine A/C scores with separately scored
+B values. Report new joint and B-only runs separately.
 
-The public references contain citation updates. Scoring them again can produce
-different results from the historical scores. Report the dataset revision,
-rubric hash, evaluator configuration, execution date, and selected items with
-new results. Schema checks validate record format, ranges and score caps.
+Ten released references contain citation corrections made after benchmark scoring.
+For new results, report the dataset revision, rubric hash, evaluator configuration,
+execution date and selected items. The [scoring provenance notes](../docs/REPRODUCIBILITY.md#scoring-provenance)
+describe the inputs and batches used for published scores. Schema checks validate
+record format, ranges and score caps.
 
 ## Runtime requirements
 

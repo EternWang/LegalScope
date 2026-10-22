@@ -1,14 +1,13 @@
 # Results Summary
 
-Results below follow the [AIMS at COLM 2026 workshop paper](https://openreview.net/forum?id=BNx62Wx1ej).
-Section, table, and figure references use that version. Published Table 3 values
-are available as [rounded aggregates](../data/metadata/model_performance.csv)
+This summary covers the paper's model comparisons and validation analyses.
+The main model results are available as [rounded aggregates](../data/metadata/model_performance.csv)
 and can be recomputed from [individual scores](REPRODUCIBILITY.md).
 
 ## Headline Performance
 
-Across 28 model groups, the public-exam mean is `72.6` and the real-case mean is
-`73.0` on the 0-100 scale (Section 5.2).
+Across 28 model configurations, the public-exam mean is `72.6` and the real-case
+mean is `73.0` on the 0-100 scale.
 
 | Real-case dimension | Mean |
 | --- | ---: |
@@ -25,7 +24,7 @@ comparisons rather than a common difficulty scale.
 <img src="../assets/figures/paper_score_distribution.png" alt="Scores for all 28 model groups: 861 exam prompts and 276 case prompts per model" width="920">
 
 Constraint extraction has `11.9%` of scores at 2 and `48.9%` at 4; argument validity
-has `45.0%` at 3 and `24.7%` at 4 (Table 13). Figure 2 shows these per-answer
+has `45.0%` at 3 and `24.7%` at 4. Figure 2 shows these per-answer
 score distributions.
 
 ## Exam-to-Case Association
@@ -43,12 +42,12 @@ Figure 3 compares exam and case performance, with the diagonal marking equal
 normalized scores. The human panel averages the two lawyers' case scores.
 
 The Chinese exam subset gives `r = 0.788`, `rho = 0.704`; the English aggregate
-gives `r = 0.813`, `rho = 0.670` (Table 4). Source and task composition prevent
+gives `r = 0.813`, `rho = 0.670`. Source and task composition prevent
 isolating language or legal-system effects from these comparisons.
 
 Variant differences do not transfer uniformly: GPT-5.5 High exceeds GPT-5.4 Mini by
 `2.4` exam points and `9.9` case points, while DeepSeek R1 exceeds DeepSeek V3.2 by
-`5.7` exam points but scores `1.5` case points lower (Table 6). These comparisons mix
+`5.7` exam points but scores `1.5` case points lower. These comparisons mix
 checkpoint, size, and reasoning-mode differences; they do not isolate reasoning effort.
 
 ## Source and Case Categories
@@ -74,7 +73,7 @@ These means describe the sampled sources and formats in each jurisdiction.
 | Civil Procedure | 8 | 70.3 |
 | Property | 6 | 77.7 |
 
-Table 5 shows lower mean citation relevance than argument validity in all seven
+Mean citation relevance is lower than argument validity in all seven
 categories. Tort is 29.0% of case prompts; medical-malpractice prompts are 18.1%.
 
 ## Human Validation
@@ -85,7 +84,7 @@ categories. Tort is 29.0% of case prompts; medical-malpractice prompts are 18.1%
 | Real cases, pooled lawyers | 0.312 | 0.235 | 0.703 | 0.459 |
 
 The 80-item exam subset contains 2,240 answers; the 10-prompt case subset contains
-280 answers (Section 6.5 and Table 7). The case human score is the equal-weight mean
+280 answers. The case human score is the equal-weight mean
 of two independent lawyers; Lawyer 2 was held out from rubric calibration.
 
 Pooled lawyer means for citation, constraint, and argument are `71.65`, `73.35`, and
@@ -93,24 +92,29 @@ Pooled lawyer means for citation, constraint, and argument are `71.65`, `73.35`,
 prompt-cluster 95% interval of `[-0.94, 11.07]`. Both lawyers show a positive point
 estimate; the pooled and Lawyer 2 intervals include zero.
 
-## Reliability Audits and Historical Results
+## Reliability Analyses and Supplementary Controls
 
-The current citation-argument analysis uses all 276 prompts, 56 judgments, and 28
-models (7,728 answers), with 10,000 cluster-bootstrap draws (Appendix B.6, Table 20).
+The citation-argument analysis uses all 276 prompts, 56 judgments, and 28
+model configurations (7,728 answers), with 10,000 cluster-bootstrap draws.
 The automatic gap is `5.69`, with prompt-cluster 95% CI `[4.51, 6.83]` and
 judgment-cluster CI `[4.44, 6.92]`. Giving judgments equal weight yields `6.02`,
 CI `[4.84, 7.17]`. Human resampling retains both lawyers and all 28 models within
 each of the 10 prompt clusters. Transfer intervals separately resample model
 groups and are conditional on the roster, without accounting for family dependence.
 
-The paper retains a historical T1 audit of 76 prompts and 20 models, along with
-historical Tort/language/C-Eval controls that use the earlier case endpoint. They
-are not recomputations of the expanded benchmark. In particular, the historical
-243-item Tort control differs from the current 242-item exam category.
+The T1 analysis covers 76 case prompts and 20 model configurations. The Tort
+control compares 243 exam items with 76 case prompts from 15 judgments across
+20 model configurations; its exam–case correlations are `r = 0.807` and
+`rho = 0.554`. The 861-item exam benchmark contains 242 Tort items.
 
-The fixed-answer audit still uses 200 answers rescored five times. Historical A/C
-and updated B come from separate batches, not a jointly rerun A/B/C experiment.
-Updated B has `45.0%` exact agreement, `75.5%` range-at-most-one, mean pairwise QWK
-`0.802`, and mean answer SD `0.372` (Table 21). These audits measure evaluator
-variance, not accuracy or generation variance; repeated scores do not enter the
-headline results.
+The paper also reports supplementary language comparisons, a C-Eval comparison
+on 14 model groups, and a nearby-version sensitivity analysis on 10 groups.
+Their evaluation scope is documented in the paper's bootstrap analysis and
+the [scoring provenance notes](REPRODUCIBILITY.md#scoring-provenance).
+
+The repeatability analyses score the same 200 fixed answers five times. Citation
+relevance and argument validity come from joint scoring; constraint extraction
+comes from a separate B-only batch. Constraint extraction has `45.0%` exact
+agreement, `75.5%` range-at-most-one, mean pairwise QWK `0.802`, and mean answer SD
+`0.372`. These analyses estimate scoring variability on fixed answers. Repeated
+scores do not enter the headline results.

@@ -26,7 +26,7 @@ python -m legalscope.review prepare \
 
 For a second variant, add `--citation-patch path/to/patch.jsonl`, change the
 variant name, and choose a fresh output directory. Each patch contains
-`review_id`, `before` and `after`, where `before` must exactly match the historical
+`review_id`, `before` and `after`, where `before` must exactly match the supplied
 `citation_basis`. Each variant writes to its own directory. Use the
 [reference notes](CASE_REFERENCE_NOTES.md) to select citation changes for comparison.
 
@@ -41,7 +41,7 @@ and coverage. Select and archive the evaluator instructions before scoring.
 `scoring_prompt` in the reference file is an issue label, not a complete rubric.
 Record the evaluator model or snapshot, reasoning setting, sampling parameters,
 tool availability, retry policy, instruction hash, and execution dates. Mark
-unrecorded historical settings as unknown.
+unrecorded settings as unknown.
 
 ## Validate scores
 
