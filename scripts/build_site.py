@@ -80,7 +80,7 @@ def main() -> None:
         "paper_collection_pipeline.svg", "paper_collection_pipeline.pdf",
         "MODEL_ICONS_LICENSE.txt", "DIAGRAM_ICONS_LICENSE.txt",
     )]
-    icon_files = [root / "site/icons" / name for name in ("github-white.svg", "github-black.svg", "huggingface.svg")]
+    icon_files = [root / "site/icons" / name for name in ("github-white.svg", "github-black.svg", "huggingface.svg", "section-icons.svg")]
     allowed = {Path(source.name) for source in site_files} | {Path("assets") / source.name for source in figure_files}
     allowed |= {Path(f"{key}.html") for key in PAGES}
     allowed |= {Path("icons") / source.name for source in icon_files}
