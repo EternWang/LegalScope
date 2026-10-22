@@ -42,6 +42,27 @@ class ScoringRuntimeTests(unittest.TestCase):
         self.assertEqual(index[0]['model_group'],'SecretModel')
         self.assertIn('Candidate text',text)
 
+    def test_matching_response_prompt_hash_is_accepted(self):
+        recorded_hash=builder.sha(self.prompts[0]['prompt'])
+        self.responses[0]['prompt_sha256']=recorded_hash
+        tasks,_=self.build()
+        self.assertEqual(tasks[0]['prompt_sha256'],recorded_hash)
+
+    def test_changed_prompt_rejects_response_from_original_version(self):
+        self.responses[0]['prompt_sha256']=builder.sha(self.prompts[0]['prompt'])
+        self.responses[0]['answer_sha256']=builder.sha(self.responses[0]['response'])
+        self.prompts[0]['prompt']='Analyze a different set of facts.'
+        for mode in ('joint','b'):
+            with self.subTest(mode=mode):
+                with self.assertRaisesRegex(ValueError,'Prompt hash mismatch'):
+                    builder.prepare(self.prompts,self.refs,self.responses,
+                                    ['SecretModel'],['R1'],self.rubric,mode)
+
+    def test_released_response_without_prompt_hash_remains_supported(self):
+        self.responses[0]['answer_sha256']=builder.sha(self.responses[0]['response'])
+        tasks,_=self.build()
+        self.assertEqual(tasks[0]['scoring_input']['candidate_answer'],'Candidate text')
+
     def test_input_hashes_are_verified(self):
         tasks,_=self.build()
         with tempfile.TemporaryDirectory() as temp:

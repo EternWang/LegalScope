@@ -41,13 +41,11 @@ It does not reproduce historical parallel scheduling or provider state.
 
 ## Translate case answers before scoring
 
-Models answered the case prompts in Chinese. GPT-5.5 translated their answers into English for scoring; the release contains these English translations.
-
-For a new run following this protocol, translate each Chinese response with
-GPT-5.5 before preparing scoring tasks. Retain the original response and record
-the translator settings. Put the English text in `response`, recompute its
-`answer_sha256`, and preserve `item_id` and `model_group`. Translation is a
-separate step from the generation and scoring commands below.
+Follow the [case translation protocol](../docs/SCORING_RUBRIC.md#evaluation-workflow)
+between generation and task preparation. Keep each original Chinese response
+and record the GPT-5.5 translator settings. Store the English translation in
+`response`, recompute `answer_sha256`, and preserve `item_id`, `model_group`
+and `prompt_sha256` when present.
 
 ## Prepare anonymous scoring tasks
 
@@ -76,9 +74,10 @@ python evaluation/prepare.py \
 
 Omit `--review-ids` to select all 276 prompts. Supply multiple names after
 `--models` to evaluate more model groups. The preparer checks input joins, answer
-hashes and coverage. Scoring inputs contain one answer and its references;
-model identity and prior scores remain outside the evaluator prompt. The separate
-`identity_map.jsonl` joins task IDs back to the selected model and prompt.
+hashes, recorded prompt hashes and coverage. Scoring inputs contain one answer
+and its references; model identity and prior scores remain outside the evaluator
+prompt. The separate `identity_map.jsonl` joins task IDs back to the selected
+model and prompt.
 
 ## Run the scorer
 

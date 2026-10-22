@@ -69,7 +69,8 @@ joined = answers.merge(case_scores, on=["item_id", "model_group", "answer_sha256
 assert len(joined) == 7728
 ```
 
-Models answered the case prompts in Chinese. GPT-5.5 translated their answers into English for scoring; the release contains these English translations.
+The `response` field contains the English translation used for scoring;
+see the [translation protocol](SCORING_RUBRIC.md#evaluation-workflow).
 
 These are evaluated model outputs and can contain legal or factual errors.
 Every released answer hash matches its automatic score record.

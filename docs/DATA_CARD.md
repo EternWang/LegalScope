@@ -43,14 +43,13 @@ has one supporting and one opposing prompt. The tasks use summaries of concluded
 judgments. Names, institutions,
 addresses, and original file paths are removed or masked during deidentification.
 
+Researchers handled source selection, deidentification, legal review and
+interpretation. AI tools supported data processing, answer generation and scoring.
+
 Human validation covers all 28 groups. Exam human scores are reviewed and
 confirmed against the reference answers. Two practicing Chinese lawyers independently score the same
 case answer set, with Lawyer 2 held out from rubric calibration. Their case scores
 are pooled with equal weights.
-
-## Case response language
-
-Models answered the case prompts in Chinese. GPT-5.5 translated their answers into English for scoring; the release contains these English translations.
 
 ## Audit Scope
 
@@ -74,7 +73,8 @@ Table 3 performance values retain the paper's one decimal precision and order.
 The release supports research on legal reasoning and evaluation. GitHub provides
 documentation, figures, worked examples, individual and aggregate scores, and
 generation/scoring code. [Hugging Face](https://huggingface.co/datasets/Hongyu801/LegalScope)
-hosts 276 case prompts, 276 scoring references, 7,728 English case responses and
+hosts 276 case prompts, 276 scoring references, 7,728
+[English case responses](SCORING_RUBRIC.md#evaluation-workflow) and
 78 Victorian Bar source records. [Reproducibility files](REPRODUCIBILITY.md)
 include 34,636 individual scores and PDF page locations for all 78 source records.
 

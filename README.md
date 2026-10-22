@@ -93,9 +93,11 @@ This recomputes all 252 values in workshop Table 3 from individual scores.
 | Counts, sources and intended use | [Data card](docs/DATA_CARD.md) |
 | Response and score fields | [Reproducibility](docs/REPRODUCIBILITY.md) |
 | New generation and scoring runs | [Evaluation](evaluation/README.md) |
-| Scoring dimensions and human validation | [Rubric](docs/SCORING_RUBRIC.md), [annotation protocol](docs/ANNOTATION_PROTOCOL.md) |
+| Evaluation workflow and scoring | [Scoring protocol](docs/SCORING_RUBRIC.md) |
+| Human validation | [Annotation protocol](docs/ANNOTATION_PROTOCOL.md) |
 | Model configurations | [Model settings](docs/MODEL_SETTINGS.md) |
 | Case fields and legal reference sources | [Case data](docs/CASE_RELEASE.md), [reference sources](docs/CASE_REFERENCE_NOTES.md) |
+| Changes by release date | [Release notes](docs/RELEASE_STATUS.md) |
 
 ## Licenses
 

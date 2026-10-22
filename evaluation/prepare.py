@@ -45,6 +45,9 @@ def prepare(prompts, references, responses, models, selected, rubric, mode):
             raise ValueError('Answer must be nonempty text')
         if row.get('answer_sha256', sha(value)) != sha(value):
             raise ValueError('Answer hash mismatch')
+        # Released historical answers omit this field; generated answers include it.
+        if 'prompt_sha256' in row and row['prompt_sha256'] != sha(ps[key[0]]['prompt']):
+            raise ValueError(f'Prompt hash mismatch for {key[0]} ({key[1]})')
         answers[key] = value
     rubric_sha = sha(json.dumps(rubric, ensure_ascii=False, sort_keys=True, separators=(',', ':')))
     tasks, index = [], []

@@ -35,8 +35,6 @@ Read the [complete case field guide](CASE_RELEASE.md) and
 [reference notes](CASE_REFERENCE_NOTES.md) before running a new evaluation.
 Send only the prompt to the answering model; references are for evaluation.
 
-Models answered the case prompts in Chinese. GPT-5.5 translated their answers into English for scoring; the release contains these English translations.
-
 For a new evaluation, submit each record's complete `prompt` and retain its
 `review_id` alongside the model response. Use the same pinned revision for the
 prompts and references. Record your generation and evaluator settings, and report

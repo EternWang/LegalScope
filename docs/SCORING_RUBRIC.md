@@ -4,6 +4,17 @@ This document follows Sections 4 and A.5 of the workshop camera-ready paper.
 The [evaluation directory](../evaluation/README.md) provides machine-readable
 rubrics, prompt construction and an executable scorer.
 
+## Evaluation Workflow
+
+Models received only the exam question or case prompt. For cases, models answered
+English prompts in Chinese; GPT-5.5 translated the answers into English before
+scoring. The evaluator received the prompt, translated answer and scoring
+references. The downloadable case responses contain these English translations.
+
+Automatic scores were compared with [human ratings](ANNOTATION_PROTOCOL.md).
+The [results analysis](RESULTS_SUMMARY.md) covers exam-to-case association,
+score dimensions and evaluator reliability.
+
 ## Public-Exam Scoring
 
 The [released exam scorer](../evaluation/rubrics/exam_aug2026.json) compares
@@ -22,8 +33,6 @@ Refusals and structurally damaged answers score at most 1. Matching concerns
 substance rather than wording, length or fluency.
 
 ## Real-Case Rubric
-
-Models answered the case prompts in Chinese. GPT-5.5 translated their answers into English for scoring; the release contains these English translations.
 
 Each answer receives three integer scores from 0 to 4:
 
