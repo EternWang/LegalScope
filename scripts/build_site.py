@@ -121,6 +121,7 @@ def main() -> None:
     for name, attribute in (("style.css", "href"), ("app.js", "src")):
         version = hashlib.sha256((output / name).read_bytes()).hexdigest()[:12]
         layout = layout.replace(f'{attribute}="{name}"', f'{attribute}="{name}?v={version}"')
+    icon_version = hashlib.sha256((output / "icons/section-icons.svg").read_bytes()).hexdigest()[:12]
     for key, (label, description) in PAGES.items():
         title = "LegalScope · Exam-to-Case Legal Reasoning" if key == "index" else f"{label} · LegalScope"
         navigation = "\n".join(
@@ -129,6 +130,7 @@ def main() -> None:
         )
         page = layout.replace("{{PAGE_TITLE}}", html.escape(title)).replace("{{PAGE_DESCRIPTION}}", html.escape(description))
         page = page.replace("{{PAGE_KEY}}", key).replace("<!-- MAIN_NAV -->", navigation).replace("<!-- PAGE_CONTENT -->", pages[key])
+        page = page.replace("icons/section-icons.svg#", f"icons/section-icons.svg?v={icon_version}#")
         (output / f"{key}.html").write_text(page, encoding="utf-8")
     (output / ".nojekyll").touch()
     print(f"Built {len(PAGES)} project pages with {len(results)} model groups: {output}")

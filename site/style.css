@@ -307,12 +307,8 @@ body[data-page="index"] .explore-grid{gap:28px}
 body[data-page="index"] .explore-grid>a{padding-block:18px 0}
 .construction-section{padding-bottom:8px;max-width:1160px}
 .construction-section .pipeline{margin:0;max-width:none}
-.heading-label{display:inline-flex;align-items:center;gap:.4em;vertical-align:middle;max-width:100%}
-.heading-text{min-width:0}
-.heading-icon{width:1.2em;height:1.2em;flex:0 0 1.2em;display:block}
 .explore-grid h3{gap:12px}
-.explore-grid .heading-label{gap:8px}
-#performance-table tbody td,#performance-table tbody th{padding-block:6px}
+.explore-grid #performance-table tbody td,#performance-table tbody th{padding-block:6px}
 #performance-table thead .column-groups th{padding-block:7px}
 #performance-table thead tr:nth-child(2) th{padding-block:4px}
 #performance-table th button{padding-block:3px;min-height:28px}
@@ -332,3 +328,8 @@ body[data-page="index"] .explore-grid>a{padding-block:18px 0}
   .download-table{font-size:12px}
   .download-table th:first-child,.download-table td:first-child{width:50%}
 }
+
+/* Restrained editorial illustrations for the two main study sections. */
+.illustrated-title{display:flex;align-items:center;justify-content:center;gap:12px}
+.section-icon{display:block;width:36px;height:36px;flex:0 0 36px}
+@media(max-width:640px){.section-icon{width:30px;height:30px;flex-basis:30px}.illustrated-title{gap:10px}}
