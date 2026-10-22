@@ -8,8 +8,9 @@ opposing prompt. The `case_scoring_references` configuration contains 276 matchi
 reference records (`test` split). Join them by `review_id`, never by row position.
 The split name denotes evaluation use; no train/development split is supplied.
 
-The prompts are in English and request answers in Chinese. The released text
-preserves the final dataset inputs. Do not feed
+The prompts are in English and request answers in Chinese. Case models answered in Chinese. GPT-5.5 translated the answers into English, and the English translations were scored. The released case responses are these English translations.
+
+Do not feed
 the reference table to the model as part of the closed book input. References for
 opposing stances may share a court proposition or legal authority. They do not
 provide an ideal answer for each stance. `scoring_prompt` is an issue and stance
@@ -61,8 +62,7 @@ are unchanged.
 
 `benchmark_reference` identifies a released scoring annotation.
 `citation_sources_updated` identifies the ten records with corrected citation
-text and official source links. Neither status certifies every reference's
-legal applicability to its case; scoring annotations are not legal opinions.
+text and official source links.
 The status and deidentification metadata are separate from model inputs and
 evaluator reference text.
 

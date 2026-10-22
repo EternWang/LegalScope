@@ -25,5 +25,9 @@
     "supported_proposition": "Re-appraisal must meet statutory conditions such as serious illegality in the appraisal procedure or the appraisal opinion being clearly lacking in sufficient basis, and is not automatically initiated merely because one party is dissatisfied with the conclusion.",
     "review_constraints": "No off-topic facts, undisplayed evidence, unrecorded diagnosis/treatment or transaction details, external search results, real names, or institutional identity information may be added."
   },
-  "display_note": "Full input and response in the English release. Highlighting and explanations are presentation annotations; recorded scores are unchanged."
+  "display_note": "English translation produced with GPT-5.5 from the Chinese model response, then scored. Highlights identify selected passages.",
+  "original_response_language": "zh",
+  "response_language": "en",
+  "translation_model": "GPT-5.5",
+  "scoring_language": "en"
 }

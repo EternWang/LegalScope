@@ -12,7 +12,7 @@
     <p class="affiliations"><span><sup>1</sup> UC Santa Barbara</span><span><sup>2</sup> Yale University</span><span><sup>3</sup> UC Berkeley</span></p>
     <p class="corresponding">* Corresponding author</p>
     <div class="actions">
-      <a class="button primary" href="https://drive.google.com/file/d/1I3nfb16wuCmj-i2bo6rM5MU0A9sJ-FZx/view"><span aria-hidden="true">▤</span> Paper (PDF)</a>
+      <a class="button primary" href="https://openreview.net/forum?id=BNx62Wx1ej"><span aria-hidden="true">▤</span> Workshop paper</a>
       <a class="button" href="https://github.com/EternWang/LegalScope"><img class="brand-icon" src="icons/github-white.svg" alt="" width="18" height="18" aria-hidden="true"> GitHub</a>
       <a class="button" href="https://huggingface.co/datasets/Hongyu801/LegalScope"><img class="brand-icon" src="icons/huggingface.svg" alt="" width="20" height="20" aria-hidden="true"> Hugging Face</a>
     </div>
@@ -32,7 +32,7 @@
   <section class="section wrap explore-section" aria-labelledby="explore-title">
     <h2 id="explore-title">Explore LegalScope</h2>
     <div class="explore-grid">
-      <a href="examples.html"><h3>Task examples <span aria-hidden="true">↗</span></h3><p>Complete prompts, model answers, scoring rules and scores.</p></a>
+      <a href="examples.html"><h3>Task examples <span aria-hidden="true">↗</span></h3><p>Task summaries, model answers and scores, with full examples to explore.</p></a>
       <a href="results.html"><h3>Results <span aria-hidden="true">↗</span></h3><p>Compare all 28 model groups and explore the paper’s findings.</p></a>
       <a href="resources.html"><h3>Data &amp; citation <span aria-hidden="true">↗</span></h3><p>Downloads, documentation, source licenses and BibTeX.</p></a>
     </div>
@@ -49,10 +49,10 @@
 
 <section id="benchmark" class="section wash">
     <div class="wrap">
-      <div class="section-heading"><h2>Benchmark overview</h2><p>Two tracks, evaluated on the same 28 model groups.</p></div>
+      <div class="section-heading"><h2>Benchmark overview</h2><p>Two tracks, evaluated on the same 28 model configurations.</p></div>
       <div class="track-grid">
         <article class="track exam"><div class="track-heading"><h3>Public legal exams</h3><p class="track-count"><strong>861</strong><span>questions</span></p></div><p class="track-description">Questions from four jurisdictions, scored against reference answers on a 0–4 scale.</p><dl class="track-facts"><div><dt>United States</dt><dd>603</dd></div><div><dt>China</dt><dd>94</dd></div><div><dt>United Kingdom</dt><dd>86</dd></div><div><dt>Australia</dt><dd>78</dd></div></dl><a class="track-link" href="examples.html#exam">View exam example <span aria-hidden="true">→</span></a></article>
-        <article class="track cases"><div class="track-heading"><h3>Case analysis</h3><p class="track-count"><strong>276</strong><span>prompts</span></p></div><p class="track-description">Paired arguments on deidentified Chinese cases, using only supplied facts.</p><dl class="track-facts"><div><dt>Tort</dt><dd>80</dd></div><div><dt>Contract</dt><dd>72</dd></div><div><dt>Criminal</dt><dd>54</dd></div><div title="Intellectual Property: 34; Administrative: 22; Civil Procedure: 8; Property: 6"><dt>Others</dt><dd>70</dd></div></dl><a class="track-link" href="examples.html#case">View case example <span aria-hidden="true">→</span></a></article>
+        <article class="track cases"><div class="track-heading"><h3>Case analysis</h3><p class="track-count"><strong>276</strong><span>prompts</span></p></div><p class="track-description">138 legal issues, each with supporting and opposing arguments based on the supplied facts.</p><dl class="track-facts"><div><dt>Tort</dt><dd>80</dd></div><div><dt>Contract</dt><dd>72</dd></div><div><dt>Criminal</dt><dd>54</dd></div><div title="Intellectual Property: 34; Administrative: 22; Civil Procedure: 8; Property: 6"><dt>Others</dt><dd>70</dd></div></dl><a class="track-link" href="examples.html#case">View case example <span aria-hidden="true">→</span></a></article>
       </div>
       <figure class="pipeline"><a href="assets/paper_collection_pipeline.svg" target="_blank" rel="noopener" aria-label="Open the complete benchmark pipeline at full resolution"><img src="assets/paper_collection_pipeline.svg" alt="LegalScope pipeline: source collection and deidentification; two-track evaluation across 28 models; human validation; and reliability analyses." loading="lazy" width="2891" height="1325"></a><figcaption><strong>Figure 1.</strong> Benchmark construction, model evaluation and human validation.<br><a class="figure-link" href="assets/paper_collection_pipeline.svg" target="_blank" rel="noopener">View scalable figure ↗</a> · <a class="figure-link" href="assets/paper_collection_pipeline.pdf" target="_blank" rel="noopener">Download PDF</a></figcaption></figure>
     </div>

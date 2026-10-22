@@ -50,6 +50,10 @@ confirmed against the reference answers. Two practicing Chinese lawyers independ
 case answer set, with Lawyer 2 held out from rubric calibration. Their case scores
 are pooled with equal weights.
 
+## Case response language
+
+Case models answered in Chinese. GPT-5.5 translated the answers into English, and the English translations were scored. The released case responses are these English translations.
+
 ## Audit Scope
 
 The current clustered dimension analysis covers all 276 case prompts and 56
@@ -86,8 +90,8 @@ The exam subset retains source-specific attribution and CC BY-NC-ND 4.0 notices;
 it is not an exact replacement for the original exam evaluation inputs.
 The paper's scores are unchanged. The [reproducibility files](REPRODUCIBILITY.md)
 include 7,728 stored case responses, 34,636 individual scores and page locations
-for all 78 exam source records. Remaining exam inputs, exam response text, raw
-lawyer sheets, original judgments and private workbooks are excluded.
+for all 78 exam source records. The remaining 783 exam inputs, exam response text
+and original judgments are outside the release.
 See [case sources](CASE_RELEASE.md#case-publication-status) for provenance,
 deidentification, and the scope of the released annotations.
 

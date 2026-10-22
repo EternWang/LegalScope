@@ -39,9 +39,19 @@ sequential requests and bounded execution retries; it increases the output budge
 after truncation, up to the recorded maximum. Incomplete responses are rejected.
 It does not reproduce historical parallel scheduling or provider state.
 
+## Translate case answers before scoring
+
+Case models answered in Chinese. GPT-5.5 translated the answers into English, and the English translations were scored. The released case responses are these English translations.
+
+For a new run following this protocol, translate each Chinese response with
+GPT-5.5 before preparing scoring tasks. Retain the original response and record
+the translator settings. Put the English text in `response`, recompute its
+`answer_sha256`, and preserve `item_id` and `model_group`. Translation is a
+separate step from the generation and scoring commands below.
+
 ## Prepare anonymous scoring tasks
 
-Use generated responses or convert the released case response Parquet to JSONL:
+Use the translated responses or convert the released English response Parquet to JSONL:
 
 ```python
 import json

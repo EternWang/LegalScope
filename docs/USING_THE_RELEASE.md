@@ -8,7 +8,7 @@
 | Model performance | 28 rows | Nine rounded scores per model, including two descriptive overall means |
 | Model roster | 28 rows | Display names and paper indices |
 | Source composition | 30 rows | Overlapping breakdowns of the full benchmark, not additional examples |
-| Case prompts | 276 records | Full prompt text preserved from the final workbook |
+| Case prompts | 276 records | Full case evaluation inputs |
 | Case scoring references | 276 records | Join by `review_id`; authorities/propositions/constraints, not unique gold answers; see official source links |
 
 The Hub may report **716 rows** across six configurations: 276 case prompts,
@@ -34,6 +34,8 @@ print(by_id[prompts[0]["review_id"]]["reference_status"])
 Read the [complete case field guide](CASE_RELEASE.md) and
 [reference notes](CASE_REFERENCE_NOTES.md) before running a new evaluation.
 The reference table is not part of the model input.
+
+Case models answered in Chinese. GPT-5.5 translated the answers into English, and the English translations were scored. The released case responses are these English translations.
 
 For a new evaluation, submit each record's complete `prompt` and retain its
 `review_id` alongside the model response. Use the same pinned revision for the

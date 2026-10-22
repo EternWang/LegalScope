@@ -69,12 +69,25 @@ joined = answers.merge(case_scores, on=["item_id", "model_group", "answer_sha256
 assert len(joined) == 7728
 ```
 
-These are model responses, not reference answers. They may contain incorrect
-law, unsupported facts, refusals or other errors. Text is preserved from the
-final evaluation workbook, including translated versions; it is not a collection
-of original provider transcripts. Every released answer hash matches its
-automatic score record. Original judgments, identifying source mappings and
-the full exam response collection are not included.
+Case models answered in Chinese. GPT-5.5 translated the answers into English, and the English translations were scored. The released case responses are these English translations.
+
+These are evaluated model outputs and can contain legal or factual errors.
+Every released answer hash matches its automatic score record.
+
+## Reading the results table
+
+The website shows seven track and dimension columns; CSV and Parquet also include
+the two equal-weight overall means. Scores use a 0–100 scale. Automatic scores
+cover all items; human scores cover 80 exam questions and 10 case prompts, with
+case ratings averaged across two lawyers.
+
+Bold and underlined values mark the highest and second-highest displayed values
+within each column across all 28 groups. Ties share a mark, and filtering keeps
+those full-roster ranks. The initial row order follows workshop Table 3.
+These highlights describe the displayed scores, not statistical significance;
+the two tracks use different scoring protocols and difficulty scales.
+See the [results analysis](RESULTS_SUMMARY.md) for confidence intervals, including
+the lawyer-rated citation–argument difference.
 
 ## Source locations
 

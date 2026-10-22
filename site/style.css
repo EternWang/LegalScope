@@ -272,3 +272,17 @@ body[data-page="resources"] .citation-section h2{font-size:24px;margin-bottom:12
 @media(max-width:360px){.site-header nav{font-size:11px;gap:8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{.site-masthead{position:static}.explore-section{break-inside:avoid}}
+
+/* Short example summaries with full text available on demand. */
+.example-summary{max-width:74ch;margin:0 0 16px;font-size:16px;line-height:1.75}
+.example-details{border-top:1px solid var(--line)}
+.example-details>summary{padding:12px 0;color:var(--blue);font-size:14px;font-weight:600;cursor:pointer}
+.example-details[open]>summary{margin-bottom:8px}
+.example-details .prompt-text{font:14px/1.8 var(--sans)}
+.example-details .text-module>.prompt-text,.example-details .text-module>.model-answer,.example-details .rubric-sheet{max-height:none;overflow:visible;scrollbar-gutter:auto}
+.translation-note{margin:0;padding:12px 16px;background:var(--wash);border-left:3px solid var(--blue);font-size:14px;color:var(--ink)}
+.download-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+.download-table th,.download-table td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line)}
+.download-table th{color:var(--ink);background:var(--wash)}
+.download-table a{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:640px){.example-summary{font-size:15px}.example-details .prompt-text{font-size:14px}.download-table th,.download-table td{padding:10px 8px}}
