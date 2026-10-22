@@ -371,3 +371,11 @@ body[data-page="index"] .content-module:last-child{margin-bottom:40px}
 #results .plot-gallery figcaption{margin:16px 0 0;font-size:14px;line-height:1.8;text-wrap:pretty}
 #results .plot-gallery figcaption strong{color:var(--ink)}
 @media(max-width:640px){#results .plot-gallery{gap:30px}#results .plot-gallery figcaption{font-size:13px}}
+
+/* Make the two task tracks an explicit, generously sized switch. */
+.examples-section .example-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:6px;background:#f2f5f8;border:1px solid #cbd7e2;border-radius:12px}
+.examples-section .example-tabs button{min-height:48px;padding:12px 16px;border:1px solid transparent;border-radius:8px;background:transparent;color:#536273;font-size:16px;font-weight:700;line-height:1.4}
+.examples-section .example-tabs button:hover{background:#e6edf3;color:#294d69}
+.examples-section .example-tabs button[aria-selected=true]{background:#dce8f2;border-color:#a7bdd0;color:#234b6b;box-shadow:0 1px 3px #234b6b14}
+.examples-section .example-tabs button:focus-visible{outline-offset:2px}
+@media(max-width:640px){.examples-section .example-tabs button{font-size:14px;padding-inline:10px}}
