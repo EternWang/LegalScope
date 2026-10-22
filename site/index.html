@@ -22,29 +22,29 @@
   <figure class="pipeline"><a href="assets/paper_collection_pipeline.svg" target="_blank" rel="noopener" aria-label="Open the complete benchmark pipeline at full resolution"><img src="assets/paper_collection_pipeline.svg" alt="LegalScope pipeline: source collection and deidentification; two-track evaluation across 28 models; human validation; and reliability analyses." loading="eager" fetchpriority="high" width="2891" height="1325"></a><figcaption><strong>Figure 1.</strong> Benchmark construction, model evaluation and human validation.<br><a class="figure-link" href="assets/paper_collection_pipeline.svg" target="_blank" rel="noopener">View scalable figure ↗</a> · <a class="figure-link" href="assets/paper_collection_pipeline.pdf" target="_blank" rel="noopener">Download PDF</a></figcaption></figure>
 </section>
 
-<section class="section wrap paper-abstract" aria-labelledby="abstract-title">
+<section class="section wrap paper-abstract content-module" aria-labelledby="abstract-title">
   <h2 id="abstract-title" class="illustrated-title"><svg class="section-icon" aria-hidden="true" focusable="false" width="36" height="36"><use href="icons/section-icons.svg#research"></use></svg>Abstract</h2>
   <p>Public legal exams are widely used to evaluate legal reasoning in large language models, yet it remains unclear whether exam performance reflects the ability to reason over real-case facts. We introduce LegalScope, a dual-track benchmark that pairs 861 legal-exam questions with 276 lawyer-reviewed issue-stance prompts derived from de-identified Chinese judgments. LegalScope evaluates models under both reference-answer scoring and case-based rubric scoring, enabling direct analysis of exam-to-case transfer.</p>
   <p>Across 28 model groups, public-exam scores correlate with real-case scores but do not fully predict them; citation relevance receives lower mean scores than argument validity under both automatic and lawyer evaluation. We further show that automated evaluation aligns strongly with human review on exam answers but less reliably on real-case legal analysis, highlighting the need for expert-grounded case evaluation.</p>
 </section>
 
-<section id="scoring" class="section wrap scoring-section" aria-labelledby="scoring-title">
+<section id="scoring" class="section wrap scoring-section content-module" aria-labelledby="scoring-title">
   <h2 id="scoring-title" class="illustrated-title"><svg class="section-icon" aria-hidden="true" focusable="false" width="36" height="36"><use href="icons/section-icons.svg#evaluation"></use></svg>How scoring works</h2>
-  <p class="scoring-intro">Models receive the question or case prompt. An automatic evaluator scores their answers using separate references.</p>
+  <p class="scoring-intro"><span class="note-marker" aria-hidden="true">/</span> Models receive the question or case prompt. An automatic evaluator scores their answers using separate references.</p>
   <dl class="scoring-paths">
     <div><dt>Exam answers</dt><dd>0–4 points for matching the reference answer’s issue, rule, application and conclusion.</dd></div>
     <div><dt>Case answers</dt><dd>English prompt → Chinese answer → GPT-5.5 English translation → three rubric scores, each from 0 to 4.</dd></div>
   </dl>
   <div class="rubric-row">
-    <div><span aria-hidden="true">A</span><h3>Citation relevance</h3><p>Does the cited law support the legal issue and proposition?</p></div>
-    <div><span aria-hidden="true">B</span><h3>Constraint extraction</h3><p>Does the answer follow the assigned stance, facts and instructions?</p></div>
-    <div><span aria-hidden="true">C</span><h3>Argument validity</h3><p>Does the conclusion follow from the law and facts?</p></div>
+    <div><h3><span class="criterion-letter" aria-hidden="true">A</span>Citation relevance</h3><p>Does the cited law support the legal issue and proposition?</p></div>
+    <div><h3><span class="criterion-letter" aria-hidden="true">B</span>Constraint extraction</h3><p>Does the answer follow the assigned stance, facts and instructions?</p></div>
+    <div><h3><span class="criterion-letter" aria-hidden="true">C</span>Argument validity</h3><p>Does the conclusion follow from the law and facts?</p></div>
   </div>
   <p class="scoring-summary">Results report model averages on a 0–100 scale; the case mean averages A, B and C. Human validation covers 80 exam questions and 10 case prompts across all 28 configurations. Two lawyers independently rate the same 280 case answers.</p>
   <a class="text-link" href="https://github.com/EternWang/LegalScope/blob/main/docs/SCORING_RUBRIC.md">Full scoring protocol</a>
 </section>
 
-  <section class="section wrap explore-section" aria-labelledby="explore-title">
+  <section class="section wrap explore-section content-module" aria-labelledby="explore-title">
     <h2 id="explore-title">Explore LegalScope</h2>
     <div class="explore-grid">
       <a href="examples.html"><h3>Task examples<span class="link-arrow" aria-hidden="true">↗</span></h3><p>See how an exam answer and a case argument are scored.</p></a>

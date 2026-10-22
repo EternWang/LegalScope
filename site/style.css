@@ -275,14 +275,18 @@ body[data-page="resources"] .citation-section h2{font-size:24px;margin-bottom:12
 
 /* Complete examples, with short summaries to orient the reader. */
 .example-summary{max-width:74ch;margin:0 0 16px;font-size:16px;line-height:1.75}
-.example-content .prompt-text{font:14px/1.8 var(--sans)}
-.example-content .text-module>.prompt-text,.example-content .text-module>.model-answer,.example-content .rubric-sheet{max-height:none;overflow:visible;scrollbar-gutter:auto}
-.translation-note{margin:0;padding:12px 16px;background:var(--wash);border-left:3px solid var(--blue);font-size:14px;color:var(--ink)}
+.example-content .prompt-text{font:13px/1.75 "Cascadia Code","SFMono-Regular",Consolas,"Liberation Mono",monospace}
+.example-content .text-module>.prompt-text{max-height:340px;overflow-y:auto;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:#a4b2bf transparent}
+.example-content .text-module>.model-answer,.example-content .rubric-sheet{max-height:none;overflow:visible;scrollbar-gutter:auto}
+.rubric-rows .label-blue{color:#56758b}
+.rubric-rows .label-green{color:#5f7a70}
+.rubric-rows .label-purple{color:#7b6b86}
+.rubric-rows .criterion-code{color:inherit}
 .download-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
 .download-table th,.download-table td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line)}
 .download-table th{color:var(--ink);background:var(--wash)}
 .download-table a{text-decoration:underline;text-underline-offset:3px}
-@media(max-width:640px){.example-summary{font-size:15px}.example-content .prompt-text{font-size:14px}.download-table th,.download-table td{padding:10px 8px}}
+@media(max-width:640px){.example-summary{font-size:15px}.example-content .text-module>.prompt-text{max-height:280px;font-size:12px}.download-table th,.download-table td{padding:10px 8px}}
 
 
 /* One shared reading width and spacing rhythm for the homepage. */
@@ -293,14 +297,21 @@ body[data-page="resources"] .citation-section h2{font-size:24px;margin-bottom:12
 .paper-abstract p{font-size:16px;line-height:1.85;margin:0 0 20px;text-align:justify;text-wrap:pretty}
 .paper-abstract p:last-child{margin-bottom:0}
 .scoring-section{padding-block:56px 0}
-.scoring-intro{font-size:15px;text-align:center;max-width:76ch;margin:0 auto 28px;text-wrap:balance}
+.scoring-intro{font-size:13px;line-height:1.65;font-style:italic;color:#6d7882;text-align:center;margin:0 auto 20px;text-wrap:pretty}
+.note-marker{margin-right:5px;color:#8a959f;font-style:normal}
 .scoring-paths{margin:0;border-top:1px solid var(--line)}
 .scoring-paths>div{display:grid;grid-template-columns:140px minmax(0,1fr);gap:24px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
 .scoring-paths dt{font-weight:700;color:var(--ink)}
 .scoring-paths dd{margin:0}
 .scoring-section .rubric-row{max-width:none;margin:28px 0 0;gap:28px}
-.scoring-section .rubric-row h3{font-size:18px}
-.scoring-summary{margin:28px 0 16px;font-size:14px;line-height:1.8;text-wrap:pretty}
+.scoring-section .rubric-row>div{display:block}
+.scoring-section .rubric-row h3{display:flex;align-items:baseline;gap:10px;font-size:17px}
+.scoring-section .criterion-letter{font-size:20px;font-weight:500;line-height:1}
+.scoring-section .rubric-row>div:nth-child(1) .criterion-letter{color:#56758b}
+.scoring-section .rubric-row>div:nth-child(2) .criterion-letter{color:#5f7a70}
+.scoring-section .rubric-row>div:nth-child(3) .criterion-letter{color:#7b6b86}
+.scoring-section .rubric-row p{color:#6d7882}
+.scoring-summary{margin:24px 0 14px;font-size:13px;line-height:1.75;font-style:italic;color:#6d7882;text-wrap:pretty}
 .scoring-section>.text-link{display:table;margin-inline:auto}
 body[data-page="index"] .explore-section{padding-block:56px 40px}
 body[data-page="index"] .explore-grid{gap:28px}
@@ -308,10 +319,14 @@ body[data-page="index"] .explore-grid>a{padding-block:18px 0}
 .construction-section{padding-bottom:8px;max-width:1160px}
 .construction-section .pipeline{margin:0;max-width:none}
 .explore-grid h3{gap:12px}
-.explore-grid #performance-table tbody td,#performance-table tbody th{padding-block:6px}
-#performance-table thead .column-groups th{padding-block:7px}
-#performance-table thead tr:nth-child(2) th{padding-block:4px}
-#performance-table th button{padding-block:3px;min-height:28px}
+#performance-table tbody td,#performance-table tbody th{padding-block:2px;line-height:1.4}
+#performance-table thead th{line-height:1.4}
+#performance-table thead .column-groups th{padding-block:4px}
+#performance-table thead tr:nth-child(2) th{padding-block:1px}
+#performance-table th button{padding-block:1px;min-height:24px}
+#results .table-controls input{min-height:36px;padding-block:5px}
+#score-legend{margin-top:12px;padding-block:2px;row-gap:4px}
+#results-status{margin:6px 0}
 .download-table{white-space:normal;table-layout:fixed}
 .download-table th:first-child,.download-table td:first-child{position:static;min-width:0;width:55%;border-right:0}
 @media(max-width:640px){
@@ -333,3 +348,20 @@ body[data-page="index"] .explore-grid>a{padding-block:18px 0}
 .illustrated-title{display:flex;align-items:center;justify-content:center;gap:12px}
 .section-icon{display:block;width:36px;height:36px;flex:0 0 36px}
 @media(max-width:640px){.section-icon{width:30px;height:30px;flex-basis:30px}.illustrated-title{gap:10px}}
+
+/* Distinct study modules with a shared outer edge. */
+body[data-page="index"] .content-module{max-width:1000px;margin-block:24px;padding:32px 44px;border:1px solid #dfe5e9;border-radius:12px;background:#fcfcfd}
+body[data-page="index"] .content-module h2{margin-bottom:24px}
+body[data-page="index"] .content-module:last-child{margin-bottom:40px}
+#results .findings{gap:20px;margin-bottom:28px}
+#results .findings article{padding:20px;border:1px solid #dfe5e9;border-top:3px solid var(--finding-accent);border-radius:10px;background:#fcfcfd}
+#results .findings article:nth-child(1){--finding-accent:#56758b}
+#results .findings article:nth-child(2){--finding-accent:#5f7a70}
+#results .findings article:nth-child(3){--finding-accent:#7b6b86}
+#results .finding-number,#results .finding-number span{color:var(--finding-accent)}
+@media(max-width:640px){
+  body[data-page="index"] .content-module{padding:26px 20px;margin-block:18px;border-radius:10px}
+  body[data-page="index"] .content-module:last-child{margin-bottom:28px}
+  #results .findings{gap:14px}
+  #results .findings article{padding:18px}
+}
