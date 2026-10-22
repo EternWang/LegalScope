@@ -278,6 +278,7 @@ body[data-page="resources"] .citation-section h2{font-size:24px;margin-bottom:12
 .example-content .prompt-text{font:13px/1.75 "Cascadia Code","SFMono-Regular",Consolas,"Liberation Mono",monospace}
 .example-content .text-module>.prompt-text{max-height:340px;overflow-y:auto;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:#a4b2bf transparent}
 .example-content .text-module>.model-answer,.example-content .rubric-sheet{max-height:none;overflow:visible;scrollbar-gutter:auto}
+#case-response-text{max-height:340px;overflow-y:auto;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:#a4b2bf transparent}
 .rubric-rows .label-blue{color:#56758b}
 .rubric-rows .label-green{color:#5f7a70}
 .rubric-rows .label-purple{color:#7b6b86}
@@ -287,7 +288,7 @@ body[data-page="resources"] .citation-section h2{font-size:24px;margin-bottom:12
 .download-table th,.download-table td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line)}
 .download-table th{color:var(--ink);background:var(--wash)}
 .download-table a{text-decoration:underline;text-underline-offset:3px}
-@media(max-width:640px){.example-summary{font-size:15px}.example-content .text-module>.prompt-text{max-height:280px;font-size:12px}.download-table th,.download-table td{padding:10px 8px}}
+@media(max-width:640px){#case-response-text{max-height:280px}.example-summary{font-size:15px}.example-content .text-module>.prompt-text{max-height:280px;font-size:12px}.download-table th,.download-table td{padding:10px 8px}}
 
 
 /* One shared reading width and spacing rhythm for the homepage. */
@@ -307,10 +308,10 @@ body[data-page="resources"] .citation-section h2{font-size:24px;margin-bottom:12
 .scoring-section .rubric-row{max-width:none;margin:28px 0 0;gap:28px}
 .scoring-section .rubric-row>div{display:block}
 .scoring-section .rubric-row h3{display:flex;align-items:baseline;gap:10px;font-size:17px}
-.scoring-section .criterion-letter{font-size:20px;font-weight:500;line-height:1}
-.scoring-section .rubric-row>div:nth-child(1) .criterion-letter{color:#56758b}
-.scoring-section .rubric-row>div:nth-child(2) .criterion-letter{color:#5f7a70}
-.scoring-section .rubric-row>div:nth-child(3) .criterion-letter{color:#7b6b86}
+.scoring-section .criterion-letter{font-size:20px;font-weight:500;line-height:1;color:inherit}
+.scoring-section .rubric-row>div:nth-child(1) h3{color:#56758b}
+.scoring-section .rubric-row>div:nth-child(2) h3{color:#5f7a70}
+.scoring-section .rubric-row>div:nth-child(3) h3{color:#7b6b86}
 .scoring-section .rubric-row p{color:#6d7882}
 .scoring-summary{margin:24px 0 14px;font-size:13px;line-height:1.75;font-style:italic;color:#6d7882;text-wrap:pretty}
 .scoring-section>.text-link{display:table;margin-inline:auto}
@@ -345,11 +346,6 @@ body[data-page="index"] .explore-grid>a{padding-block:18px 0}
   .download-table th:first-child,.download-table td:first-child{width:50%}
 }
 
-/* Restrained editorial illustrations for the two main study sections. */
-.illustrated-title{display:flex;align-items:center;justify-content:center;gap:12px}
-.section-icon{display:block;width:36px;height:36px;flex:0 0 36px}
-@media(max-width:640px){.section-icon{width:30px;height:30px;flex-basis:30px}.illustrated-title{gap:10px}}
-
 /* Distinct study modules with a shared outer edge. */
 body[data-page="index"] .content-module{max-width:1000px;margin-block:24px;padding:32px 44px;border:1px solid #dfe5e9;border-radius:12px;background:#fcfcfd}
 body[data-page="index"] .content-module h2{margin-bottom:24px}
@@ -366,3 +362,12 @@ body[data-page="index"] .content-module:last-child{margin-bottom:40px}
   #results .findings{gap:14px}
   #results .findings article{padding:18px}
 }
+
+/* Keep each research figure large enough to read, with its explanation below. */
+#results .plot-gallery{grid-template-columns:minmax(0,1fr);gap:40px;padding:12px 0 32px}
+#results .plot-gallery figure{width:100%;max-width:none;margin:0;padding:0}
+#results .plot-gallery figure>a{display:block}
+#results .plot-gallery img{width:100%;height:auto}
+#results .plot-gallery figcaption{margin:16px 0 0;font-size:14px;line-height:1.8;text-wrap:pretty}
+#results .plot-gallery figcaption strong{color:var(--ink)}
+@media(max-width:640px){#results .plot-gallery{gap:30px}#results .plot-gallery figcaption{font-size:13px}}
