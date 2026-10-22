@@ -38,7 +38,7 @@ score distributions.
 
 <img src="../assets/figures/paper_transfer_human.png" alt="Human exam and pooled-lawyer case association, Pearson 0.696 and Spearman 0.690 over 28 groups" width="920">
 
-Figure 3 compares exam and case performance, with the diagonal marking equal
+The transfer plots compare exam and case performance, with the diagonal marking equal
 normalized scores. The human panel averages the two lawyers' case scores.
 
 The Chinese exam subset gives `r = 0.788`, `rho = 0.704`; the English aggregate
@@ -112,9 +112,8 @@ on 14 model groups, and a nearby-version sensitivity analysis on 10 groups.
 Their evaluation scope is documented in the paper's bootstrap analysis and
 the [scoring provenance notes](REPRODUCIBILITY.md#scoring-provenance).
 
-The repeatability analyses score the same 200 fixed answers five times. Citation
-relevance and argument validity come from joint scoring; constraint extraction
-comes from a separate B-only batch. Constraint extraction has `45.0%` exact
+The repeatability analyses use 200 fixed, blinded answers from 10 prompts and
+20 model configurations, with five repetitions per dimension. Constraint extraction has `45.0%` exact
 agreement, `75.5%` range-at-most-one, mean pairwise QWK `0.802`, and mean answer SD
 `0.372`. These analyses estimate scoring variability on fixed answers. Repeated
 scores do not enter the headline results.

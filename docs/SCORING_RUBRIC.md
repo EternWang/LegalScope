@@ -37,7 +37,8 @@ provides the complete scoring instructions.
 
 ## Real-Case Rubric
 
-Each answer receives three integer scores from 0 to 4:
+Responses are evaluated against the supplied case facts, court outcome and
+assigned stance. Each answer receives three integer scores from 0 to 4:
 
 - **A, citation relevance:** whether the selected authority responds to the issue
   and its supporting proposition is explicit.

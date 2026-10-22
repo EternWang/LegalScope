@@ -94,9 +94,9 @@ with up to three execution or validation attempts by default.
 The runner verifies input and runtime hashes and records the requested model
 alias. Temperature, top-p and seed are unspecified.
 
-Use `--mode b` to score constraint extraction with the B-only rubric, which accepts
-English answers. Published case results combine A/C scores with separately scored
-B values. Report new joint and B-only runs separately.
+Use `--mode b` to evaluate constraint extraction in English answers. Published case
+results combine citation-relevance and argument-validity scores with separately
+scored constraint extraction. For new evaluations, report each scoring mode separately.
 
 Ten released references contain citation corrections made after benchmark scoring.
 For new results, report the dataset revision, rubric hash, evaluator configuration,

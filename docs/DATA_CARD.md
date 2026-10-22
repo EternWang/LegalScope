@@ -50,7 +50,8 @@ are pooled with equal weights.
 ## Audit Scope
 
 The clustered dimension analysis covers all 276 case prompts and 56 judgments.
-Repeatability analyses score the same 200 answers five times. The Tort control
+Repeatability analyses use 200 fixed, blinded answers from 10 prompts and 20 model
+configurations, with five repetitions per dimension. The Tort control
 uses 243 exam items, 76 case prompts from 15 judgments, and 20 model configurations.
 See the [results summary](RESULTS_SUMMARY.md#reliability-analyses-and-supplementary-controls)
 for the supplementary analyses.
@@ -62,7 +63,7 @@ and category analyses. Public-exam categories below its 20-item display threshol
 grouped into an explicitly derived residual (107 items). Percentages are calculated
 within the relevant split/dimension and rounded to one decimal place.
 
-The model roster follows the paper's model list; indices follow Figure 3. The shortened
+The model roster follows the paper's model list; indices follow the transfer plots. The shortened
 figure/table label `LLaMA 3.1 8B` is normalized to `LLaMA 3.1 8B Instruct` in CSVs.
 Model performance values retain the paper's one decimal precision and order.
 

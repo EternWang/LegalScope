@@ -20,8 +20,8 @@ python -m legalscope.review prepare \
   --responses data/private/responses.jsonl \
   --models data/private/models.json \
   --selection data/private/selection.json \
-  --run-id reference-comparison-v1 --variant historical \
-  --out-dir data/private/comparison-historical
+  --run-id reference-comparison-v1 --variant baseline \
+  --out-dir data/private/comparison-baseline
 ```
 
 For a second variant, add `--citation-patch path/to/patch.jsonl`, change the
@@ -50,7 +50,7 @@ and nonempty `notes`. After scoring all packets in one bundle:
 
 ```sh
 python -m legalscope.review validate \
-  --bundle data/private/comparison-historical \
+  --bundle data/private/comparison-baseline \
   --results data/private/results.jsonl \
   --output data/private/comparison-summary.json
 ```

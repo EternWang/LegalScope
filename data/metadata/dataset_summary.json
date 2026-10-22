@@ -101,10 +101,10 @@
       "responses": 200,
       "independent_rescoring_runs": 5,
       "batches": [
-        "historical joint audit (A/C reported)",
-        "updated B-only audit"
+        "Citation relevance and argument validity",
+        "Constraint extraction"
       ],
-      "note": "Separate batches; not a jointly rerun A/B/C experiment. No repeated scores enter headline results."
+      "note": "Repeatability uses 200 fixed, blinded answers from 10 prompts and 20 model configurations, with five repetitions per dimension. Repeated scores do not enter headline results."
     }
   },
   "transfer_summary": {

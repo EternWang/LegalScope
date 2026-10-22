@@ -107,10 +107,10 @@ reference-text repairs. The 78 released Victorian Bar records reproduce publishe
 excerpts rather than those evaluation inputs.
 
 Published case results combine A/C scores with separately scored B values. The
-B-only rubric treats English translations as language-compliant. Applying its
+constraint-extraction rubric treats English translations as language-compliant. Applying its
 B=0 cap required two corrections to C. Review notes were not regenerated with B,
-and lawyer ratings were unchanged; the notes therefore do not explain the B-only
-scores. Comparisons across scoring stages reflect both rubric and language
+and lawyer ratings were unchanged; the notes therefore do not explain the revised
+constraint-extraction scores. Comparisons across scoring stages reflect both rubric and language
 differences.
 
 Rescoring uses GPT-5.5 through the `gpt-5.5` alias, which is not date-pinned.
@@ -119,10 +119,9 @@ and answers without a rescoring run retain their recorded scores. Each rescore i
 the first valid result after execution, parsing or validation retries. Repeated
 judgments are not averaged into headline results.
 
-The five-run repeatability analyses use the same 200 fixed answers. A/C values
-come from a joint-scoring batch and B values from a separate B-only batch. Their
-execution settings do not reproduce every benchmark scoring batch. The Tort
-control uses 243 exam items and 76 case prompts from 15 judgments across 20 model
+The repeatability analyses use 200 fixed, blinded answers from 10 prompts and
+20 model configurations, with five repetitions per dimension. The Tort control
+uses 243 exam items and 76 case prompts from 15 judgments across 20 model
 configurations. The supplementary language and C-Eval controls use a case endpoint
 separate from the full 276-prompt, 28-model evaluation.
 
@@ -134,7 +133,7 @@ scores. The released individual scores preserve the results reported in the pape
 
 The [evaluation guide](../evaluation/README.md) explains response generation,
 anonymous task preparation and scoring. The three rubric files cover
-joint A/B/C scoring, B-only scoring and exam answer matching. Generation
+three-dimensional case scoring, constraint-extraction scoring and exam answer matching. Generation
 settings are available for the eight groups in the August model expansion.
 The [model settings reference](MODEL_SETTINGS.md) records provider defaults
 checked on 9 October 2026 for all 28 model groups.

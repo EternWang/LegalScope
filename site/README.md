@@ -18,8 +18,8 @@ cache refresh. The build validates the roster, score ranges and output files.
 
 Legacy homepage section links redirect to the corresponding page. Examples
 support direct `#exam` and `#case` links and browser back/forward navigation.
-Each example shows a task summary, answer summary and score; expandable sections
-contain the complete input, model answer and scoring rules.
+Each example displays the complete prompt, model answer, recorded score and
+scoring rules by default. Long prompts and responses use scrollable panels.
 
 RV038 shows its recorded 4/1/3 case scores. The Victorian Bar example shows
 Gemini 2.5 Flash's recorded 1/4 exam score. Highlights explain the displayed

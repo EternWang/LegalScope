@@ -16,9 +16,10 @@ checksum is recorded in
 Figure 1 is available as SVG, PDF and PNG. Model marks and icon attribution are
 listed in [Figure icon sources](FIGURE_ICON_SOURCES.md).
 
-Figure 3(b) uses human exam scores and the pooled scores of both lawyers on the
+The human transfer plot uses human exam scores and the pooled scores of both lawyers on the
 validation subsets to show exam–case association. The 243-item Tort control in
 Figure 1 compares 76 case prompts from 15 judgments across 20 model configurations.
-The separate B-only repeatability analysis scores 200 fixed answers five times.
+The repeatability analyses use 200 fixed, blinded answers from 10 prompts and
+20 model configurations, with five repetitions per dimension.
 See the [results summary](RESULTS_SUMMARY.md#reliability-analyses-and-supplementary-controls)
 for the evaluation scope of each analysis.

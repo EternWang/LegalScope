@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "checked_on": "2026-10-09",
-  "scope": "Current provider defaults and author configuration references for all 28 LegalScope model groups. This catalog is not a historical execution log or a runnable request configuration.",
+  "scope": "Provider defaults and model configuration references, checked on 9 October 2026 for 28 LegalScope configurations. Recorded experiment settings are documented separately.",
   "semantics": {
     "null": "No verified numeric default for this parameter in the stated source and scope; not zero or disabled.",
     "omitted_openrouter_parameter": "OpenRouter omits it upstream and the selected provider supplies its own default.",
