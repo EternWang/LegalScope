@@ -363,14 +363,14 @@ body[data-page="index"] .content-module:last-child{margin-bottom:40px}
   #results .findings article{padding:18px}
 }
 
-/* Keep each research figure large enough to read, with its explanation below. */
-#results .plot-gallery{grid-template-columns:minmax(0,1fr);gap:40px;padding:12px 0 32px}
-#results .plot-gallery figure{width:100%;max-width:none;margin:0;padding:0}
+/* Keep each research figure and its explanation in one shared card. */
+#results .plot-gallery{grid-template-columns:minmax(0,1fr);gap:28px;padding:12px 0 32px}
+#results .plot-gallery figure{width:100%;min-width:0;max-width:none;margin:0;padding:24px;border:1px solid #dfe5e9;border-radius:12px;background:#fff}
 #results .plot-gallery figure>a{display:block}
 #results .plot-gallery img{width:100%;height:auto}
-#results .plot-gallery figcaption{margin:16px 0 0;font-size:14px;line-height:1.8;text-wrap:pretty}
+#results .plot-gallery figcaption{margin:20px -24px -24px;padding:18px 24px;border-top:1px solid #dfe5e9;border-radius:0 0 11px 11px;background:#fcfcfd;font-size:14px;line-height:1.8;text-wrap:pretty}
 #results .plot-gallery figcaption strong{color:var(--ink)}
-@media(max-width:640px){#results .plot-gallery{gap:30px}#results .plot-gallery figcaption{font-size:13px}}
+@media(max-width:640px){#results .plot-gallery{gap:20px}#results .plot-gallery figure{padding:12px;border-radius:10px}#results .plot-gallery figcaption{margin:14px -12px -12px;padding:14px 16px;border-radius:0 0 9px 9px;font-size:13px}}
 
 /* Make the two task tracks an explicit, generously sized switch. */
 .examples-section .example-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:6px;background:#f2f5f8;border:1px solid #cbd7e2;border-radius:12px}

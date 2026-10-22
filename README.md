@@ -1,110 +1,106 @@
-# LegalScope: Measuring Exam-to-Case Transfer in LLM Legal Reasoning
+# LegalScope
+
+Code and data for [**LegalScope: Measuring Exam-to-Case Transfer in LLM Legal Reasoning**](https://openreview.net/forum?id=BNx62Wx1ej).
 
 **AI Measurement Science (AIMS) Workshop at COLM 2026**
 
 [Project page](https://eternwang.github.io/LegalScope/) ·
-[Workshop paper](https://openreview.net/forum?id=BNx62Wx1ej) ·
-[Hugging Face](https://huggingface.co/datasets/Hongyu801/LegalScope) ·
-[Task examples](https://eternwang.github.io/LegalScope/examples.html) ·
-[Citation](#citation)
+[Paper](https://openreview.net/forum?id=BNx62Wx1ej) ·
+[Dataset](https://huggingface.co/datasets/Hongyu801/LegalScope) ·
+[Examples](https://eternwang.github.io/LegalScope/examples.html) ·
+[Results](https://eternwang.github.io/LegalScope/results.html)
 
-LegalScope asks whether models that score well on legal exams also reason well
-about real cases. It compares exam and case scores for the same 28 model
-configurations, including reasoning-effort variants.
+LegalScope studies whether strong legal-exam performance carries over to reasoning
+about real cases. We evaluate the same **28 model configurations** on **861 exam
+questions** from the United States, China, the United Kingdom and Australia, and
+**276 case prompts** from 56 de-identified Chinese judgments. The case track pairs
+supporting and opposing stances for each of 138 legal issues.
 
-## Benchmark and public data
+<a href="assets/figures/paper_collection_pipeline.png"><img src="assets/figures/paper_collection_pipeline.png" alt="LegalScope benchmark construction, model evaluation and human validation" width="900"></a>
 
-| Track | Evaluated in the paper | Available inputs |
-| --- | --- | --- |
-| Legal exams | 861 questions from four jurisdictions | 78 Victorian Bar source excerpts |
-| Case analysis | 276 prompts from 56 Chinese judgments | All 276 prompts, with separate scoring references |
+## Key findings
 
-The case prompts cover 138 issues, each with a supporting and an opposing
-stance. Models argue from the supplied facts. The exam downloads reproduce
-publisher excerpts and differ from the original evaluation inputs.
+- Automatic exam and case scores correlate across models (Pearson **0.817**, Spearman **0.708**),
+  but rankings and gains from model variants differ between tracks.
+- Mean automatic scores are lower for citation relevance than argument validity:
+  **66.9 vs. 72.6** on a 0–100 scale.
+- Automatic–human agreement is stronger for exam answers than case answers:
+  Pearson **0.910 vs. 0.312**.
 
-## How scoring works
+See the [full results](https://eternwang.github.io/LegalScope/results.html) for
+model scores, plots and explanations.
 
-**Exams:** An automatic evaluator awards 0–4 points for matching the reference
-answer's issue, rule, application and conclusion.
+## Data
 
-**Cases:** English prompt → Chinese answer → GPT-5.5 English translation →
-three automatic rubric scores, each from 0 to 4. Scoring references are provided only to
-the evaluator. The downloadable responses are the English translations.
-
-| Case dimension | What it measures |
-| --- | --- |
-| Citation relevance | Whether cited law supports the legal issue and proposition |
-| Constraint extraction | Whether the answer follows the assigned stance, facts and instructions |
-| Argument validity | Whether the conclusion follows from the law and facts |
-
-Reported model averages use a 0–100 scale. The case mean averages the three
-dimensions. Human validation covers 80 exam questions and 10 case prompts across
-all 28 configurations; two lawyers independently rate the same 280 case answers.
-
-<details>
-<summary>Benchmark construction figure</summary>
-
-<a href="assets/figures/paper_collection_pipeline.png"><img src="assets/figures/paper_collection_pipeline.png" alt="LegalScope benchmark construction, model evaluation and human validation" width="760"></a>
-
-</details>
-
-## Main findings
-
-- Exam and case scores correlate across models: Pearson `r = 0.817`,
-  Spearman `rho = 0.708`. Rankings and gains from model variants differ between tracks.
-- Mean automatic citation relevance is `66.9`, compared with `72.6` for
-  argument validity on a 0–100 scale.
-- Automatic and human scores correlate more strongly on exam answers
-  (`r = 0.910`) than on case answers (`r = 0.312`, averaging two lawyers).
-
-See the [results](https://eternwang.github.io/LegalScope/results.html) and
-[statistical analysis](docs/RESULTS_SUMMARY.md).
-
-## Downloads
-
-| Material | Records | Access |
+| Material | Records | Download |
 | --- | ---: | --- |
-| Case prompts and matching scoring references | 276 each | [Case data](https://huggingface.co/datasets/Hongyu801/LegalScope/tree/main/data/cases) |
+| Case prompts and separate scoring references | 276 each | [Case data](https://huggingface.co/datasets/Hongyu801/LegalScope/tree/main/data/cases) |
 | Victorian Bar source excerpts and selected candidate answers | 78 | [Exam sources](https://huggingface.co/datasets/Hongyu801/LegalScope/tree/main/data/victorian_bar) |
-| Case model responses | 7,728 | [Responses](https://huggingface.co/datasets/Hongyu801/LegalScope/tree/main/data/results) |
-| Individual automatic and human score records | 34,636 | [Scores](data/results/answer_scores.csv.gz) |
+| Case model responses, translated into English | 7,728 | [Responses](https://huggingface.co/datasets/Hongyu801/LegalScope/tree/main/data/results) |
+| Individual automatic and human scores | 34,636 | [Scores](data/results/answer_scores.csv.gz) |
 | Aggregate performance and model roster | 28 each | [Metadata](data/metadata) |
 
-Case prompts and scoring references are joined by `review_id`.
+All case prompts are available. The exam release contains publisher excerpts
+for the Victorian Bar subset; the full 861 evaluation prompts are not released.
+The [loading guide](docs/USING_THE_RELEASE.md) covers dataset loading, field names
+and version pinning.
 
-Start with the [loading guide](docs/USING_THE_RELEASE.md) for dataset examples,
-field definitions and version pinning.
+## Project structure
 
-## Reproduce and evaluate
+```text
+LegalScope/
+├── data/          # Example tasks, individual scores and benchmark metadata
+├── evaluation/    # Response generation, scoring and rubrics
+├── src/legalscope/ # Result aggregation and reference comparison utilities
+├── docs/          # Data, methods and reproducibility guides
+├── assets/figures/ # Paper figures
+├── site/          # Project website
+└── scripts/       # Site build and data utilities
+```
+
+## Quick start
+
+### 1. Install
+
+Python 3.10 or later is required.
 
 ```sh
+git clone https://github.com/EternWang/LegalScope.git
+cd LegalScope
 python -m pip install -e .
+```
+
+### 2. Reproduce the published results
+
+```sh
 python -m legalscope.results \
   --scores data/results/answer_scores.csv.gz \
   --roster data/metadata/model_groups.csv \
   --published data/metadata/model_performance.csv
 ```
 
-This recomputes all 252 values in workshop Table 3 from individual scores.
+This recomputes all 252 values in workshop Table 3 from the released individual
+scores. See [reproducibility](docs/REPRODUCIBILITY.md) for score fields and aggregation.
 
-| Topic | Guide |
-| --- | --- |
-| Counts, sources and intended use | [Data card](docs/DATA_CARD.md) |
-| Response and score fields | [Reproducibility](docs/REPRODUCIBILITY.md) |
-| New generation and scoring runs | [Evaluation](evaluation/README.md) |
-| Evaluation workflow and scoring | [Scoring protocol](docs/SCORING_RUBRIC.md) |
-| Human validation | [Annotation protocol](docs/ANNOTATION_PROTOCOL.md) |
-| Model configurations | [Model settings](docs/MODEL_SETTINGS.md) |
-| Case fields and legal reference sources | [Case data](docs/CASE_RELEASE.md), [reference sources](docs/CASE_REFERENCE_NOTES.md) |
-| Changes by release date | [Release notes](docs/RELEASE_STATUS.md) |
+### 3. Evaluate model answers
 
-## Licenses
+Follow the [evaluation guide](evaluation/README.md) to load case prompts,
+generate answers, translate them and run the scorer.
 
-Project-authored code, documentation, metadata and case annotations use
-[MIT](LICENSE). Victorian Bar excerpts retain **CC BY-NC-ND 4.0**, with their
-attribution and notices; see [third-party notices](THIRD_PARTY_NOTICES.txt).
-Original judgments and the remaining 783 exam inputs are outside the data release.
+- **Exam answers:** scored from 0 to 4 against the reference answer's issue,
+  rule, application and conclusion.
+- **Case answers:** English prompt → Chinese answer → GPT-5.5 English translation
+  → three 0–4 scores for citation relevance, constraint extraction and argument validity.
+  Scoring references are provided only to the evaluator.
+- **Reported results:** model averages on a 0–100 scale; the case mean averages
+  the three dimensions.
+- **Human validation:** 80 exam questions and 10 case prompts across all 28
+  configurations. Two lawyers independently rate the same 280 case answers.
+
+Details: [scoring protocol](docs/SCORING_RUBRIC.md) ·
+[human annotation](docs/ANNOTATION_PROTOCOL.md) ·
+[model settings](docs/MODEL_SETTINGS.md) ·
+[data card](docs/DATA_CARD.md)
 
 ## Citation
 
@@ -117,3 +113,10 @@ Original judgments and the remaining 783 exam inputs are outside the data releas
   url = {https://openreview.net/forum?id=BNx62Wx1ej}
 }
 ```
+
+## Licenses
+
+Project-authored code, documentation, metadata and case annotations use
+[MIT](LICENSE). Victorian Bar excerpts retain **CC BY-NC-ND 4.0**, with their
+attribution and notices; see [third-party notices](THIRD_PARTY_NOTICES.txt).
+Original judgments are not included in the release.
