@@ -1,12 +1,9 @@
-# Sample Data
+# Examples and complete case data
 
-No row-level sample data is included in this public repository.
+The [worked examples](../examples/) contain complete exam and case inputs,
+model answers and recorded scores. Read them on the
+[examples page](https://eternwang.github.io/LegalScope/examples.html).
 
-LegalScope contains de-identified real-case prompts, reference answers, model outputs,
-and human review artifacts that require privacy, licensing, and review checks before
-row-level release. For now, this folder is intentionally kept as a release-boundary
-placeholder.
-
-Use `data/metadata/` for public-safe benchmark counts, model groups, and source
-composition. Row-level samples should only be generated from the private benchmark
-workbook after redistribution constraints are cleared.
+[Hugging Face](https://huggingface.co/datasets/Hongyu801/LegalScope) provides all
+276 case prompts, their scoring references, 7,728 case responses and 78 exam
+source records. See the [loading guide](../../docs/USING_THE_RELEASE.md).

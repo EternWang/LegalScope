@@ -1,36 +1,20 @@
-# AI-Assisted Research Workflow
+# Research workflow
 
-## Pipeline
+1. Collect legal-exam sources and concluded Chinese judgments.
+2. Normalize, deidentify, deduplicate and review the source records.
+3. Build exam tasks and paired case prompts with lawyer review.
+4. Generate answers across 28 model configurations.
+5. Translate Chinese case answers into English with GPT-5.5.
+6. Score exam answers against references and translated case answers on citation relevance, constraint extraction and argument validity.
+7. Compare automatic scores with human scores on 2,240 exam answers and 280 case answers; two lawyers independently rate the case set.
+8. Analyze exam–case association, score dimensions and automatic–human agreement.
 
-1. Collect public legal-exam sources and concluded Chinese judgment materials.
-2. Parse, normalize, redact, deduplicate, and audit source records.
-3. Build exam tasks and paired, closed-book case prompts with human case review.
-4. Generate answers across 28 model groups.
-5. Score exam answers against references and case answers with the calibrated A/B/C rubric.
-6. Validate 2,240 exam answers using human scores and 280 case answers using two lawyers' independent scores.
-7. Analyze exam-case association, dimension contrasts, and automatic-human agreement.
-8. Audit the current citation-argument contrast with prompt/judgment clusters over
-   all 276 prompts, while retaining historical controls and fixed-answer audits as
-   separate evidence.
+AI tools support data processing, generation and scoring. Researchers handle
+source selection, deidentification, legal review and interpretation.
 
-AI tools assist transformation code, normalization, prompt preparation, answer
-generation, scoring, and candidate error analysis. Source selection, legal review,
-de-identification, interpretation, and release decisions remain human responsibilities.
+The citation–argument analysis covers 276 prompts and 56 judgments. Historical
+controls and the two five-run audits of 200 fixed answers retain their own
+samples and scoring versions. See [results](RESULTS_SUMMARY.md) for these
+analyses and [scoring](SCORING_RUBRIC.md) for evaluator settings.
 
-## Version and Reproducibility
-
-The workshop scoring updates use the non-date-pinned `gpt-5.5` alias, with batch
-configuration differences and retained historical scores. See the
-[scoring rubric](SCORING_RUBRIC.md) for reproducibility limits. The historical A/C
-audit and updated B-only audit each rescore the same 200 fixed answers five times;
-they are not a single joint rerun.
-
-## Public Boundary
-
-GitHub provides research documentation, paper figures, aggregate performance,
-metadata, and data utilities. Hugging Face provides all 276 case prompts and
-matching scoring references, plus 78 Victorian Bar source excerpts. Original
-judgments, private workbooks, remaining exam inputs and the full exam response collection
-are not included. The [results release](REPRODUCIBILITY.md) adds case responses,
-individual numeric scores, source page locations and evaluation code. See the
-[loading guide](USING_THE_RELEASE.md) for the available files and formats.
+[Loading guide](USING_THE_RELEASE.md) · [Reproduce the results](REPRODUCIBILITY.md)

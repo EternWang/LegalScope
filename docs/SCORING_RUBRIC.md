@@ -6,15 +6,24 @@ rubrics, prompt construction and an executable scorer.
 
 ## Public-Exam Scoring
 
-| Score | Anchor |
+The [released exam scorer](../evaluation/rubrics/exam_aug2026.json) compares
+the answer with four reference components: issue, governing rule, application
+or exception, and conclusion or remedy. Each substantive match earns one point.
+
+| Score | Reference components matched |
 | ---: | --- |
-| 0 | Wrong, irrelevant, or not evaluable. |
-| 1 | Generic or only weakly related legal statements. |
-| 2 | Relevant legal content applied incompletely. |
-| 3 | Correct core direction with some missing elements. |
-| 4 | Decisive legal points covered and a compatible conclusion. |
+| 0 | None, a clearly opposite core conclusion, or a non-responsive answer |
+| 1 | One |
+| 2 | Two |
+| 3 | Three |
+| 4 | All four, with no substantive conflict |
+
+Refusals and structurally damaged answers score at most 1. Matching concerns
+substance rather than wording, length or fluency.
 
 ## Real-Case Rubric
+
+Models answered the case prompts in Chinese. GPT-5.5 translated their answers into English for scoring; the release contains these English translations.
 
 Each answer receives three integer scores from 0 to 4:
 
@@ -30,15 +39,13 @@ normalization does not equate difficulty across tracks.
 
 ## Calibration and B-Only Update
 
-The calibrated rubric allows partial credit for usable analysis while retaining
-caps for severe failures. No legal authority gives A=0, while B/C may retain
-limited credit. B=0 caps C at 2 rather than forcing C to zero.
+The calibrated rubric gives partial credit with score caps: missing legal
+authority gives A=0 and caps B/C at 2; B=0 also caps C at 2.
 
-The B-only update treats English answers as language-compliant. Missing
-identifiable authority caps B at 2; a wrong stance gives B=0; serious fabrication
-caps B at 1. The B=0 rule required two C corrections. Historical review notes were
-not regenerated with B, and lawyer scores remain unchanged; B comparisons remain
-subject to rubric-version and language differences.
+The B-only update accepts English answers as language-compliant. A wrong stance
+gives B=0; serious factual fabrication caps B at 1. Applying the B=0 cap required
+two C corrections. Review notes and lawyer ratings retain their earlier versions,
+so comparisons across stages depend on rubric and language differences.
 
 | Stage | Full mean | Share of dimension scores at 3/4 | Original Lawyer 1 overlap: automatic / human |
 | --- | ---: | ---: | --- |
@@ -52,12 +59,11 @@ is not a fixed-sample comparison of rubric changes.
 
 ## Automatic Evaluator
 
-Scoring updates use Codex 5.5 through the `gpt-5.5` alias. The evaluator receives
-one anonymized answer with the prompt and scoring criteria, without model identity,
-prior scores, or review notes, and does not conduct independent legal research.
+Scoring updates use GPT-5.5 (`gpt-5.5`) through the Codex CLI. The evaluator
+scores one anonymized answer using the prompt and criteria in a closed-book
+setting. Model identity, prior scores and review notes are withheld.
 
-The alias is not date-pinned; temperature, top-p, and seed are not explicitly set.
-Batch configurations differ, and historical scores remain where no update was run.
-Updated scores use the first valid result after execution/parsing/schema retries.
-Repeated judgments are not averaged into headline scores. Blinding does not rule
-out stylistic self-preference; independent human validation remains necessary.
+The alias is not date-pinned; temperature, top-p and seed are unspecified.
+Batch configurations differ, and earlier scores remain for answers not rescored.
+Updates retain the first valid result after execution or validation retries.
+The five-run stability audits are reported separately from headline scores.

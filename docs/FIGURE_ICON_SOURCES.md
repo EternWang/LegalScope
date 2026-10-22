@@ -4,7 +4,7 @@ Figure 1 uses vector symbols to identify the ten model families in the benchmark
 Brand marks were checked against the official pages below on October 9, 2026.
 They identify the evaluated models; they do not indicate affiliation or endorsement.
 Provider marks are used for GPT, Llama and Command, which are model families rather
-than separate organizations. The model roster and experiment results are unchanged.
+than separate organizations.
 
 | Family | Mark and reference | Vector artwork |
 | --- | --- | --- |
@@ -28,5 +28,4 @@ Brand names and marks remain the property of their respective owners.
 The general diagram pictograms use [Lucide](https://github.com/lucide-icons/lucide)
 outline icons, with an added alert symbol on the answer document. The
 [Lucide notices](../assets/figures/DIAGRAM_ICONS_LICENSE.txt) are included.
-The small score bars and clustering dots are vector illustrations, not additional
-experimental observations.
+The small score bars and clustering dots are schematic illustrations.

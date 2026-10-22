@@ -1,5 +1,8 @@
 # Reference sources
 
+These citation corrections were added after the workshop evaluation. The table
+identifies the affected records and official sources.
+
 | Records | Authority and provisions | Official source |
 | --- | --- | --- |
 | RV025 | 人身损害护理依赖程度评定（GA/T 800-2008）: Appendix B | [Source](https://std.samr.gov.cn/hb/search/stdHBDetailed?id=8B1827F1D966BB19E05397BE0A0AB44A) |
@@ -14,5 +17,3 @@
 | RV271, RV272 | 中华人民共和国行政诉讼法（2017年修正）: Article 74(1)(2) | [Source](https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2025/art_ba3b20d736d14aeeb1ace665f0f51a21.html) |
 | RV271, RV272 | 最高人民法院关于适用《中华人民共和国行政诉讼法》的解释（法释〔2018〕1号）: Article 96 | [Source](https://www.court.gov.cn/fabu/xiangqing/80342.html) |
 | RV271, RV272 | 中华人民共和国行政复议法（2023年修订）: Article 65(1)(2) | [Source](https://xz.spb.gov.cn/xzyzglj/c100065/c100066/202312/7f4c4135a419497ea449cdc9e46fa385.shtml) |
-
-Published scores are unchanged.

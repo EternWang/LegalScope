@@ -6,11 +6,9 @@ LegalScope measures the relationship between public legal-exam performance and
 closed book reasoning over curated summaries of deidentified Chinese judgments.
 This card follows the AIMS at COLM 2026 workshop camera-ready version.
 
-For the downloadable subset, its complete field dictionary, a runnable loading
-example, answer types, and current case-release status, see
-[Using the public release](USING_THE_RELEASE.md). The six Hub configurations total 716 rows: 276 case prompts, 276 matching
-scoring references, 78 exam source records and 86 metadata rows. This means
-354 prompt/source records, not 716 questions. See the [case fields and provenance](CASE_RELEASE.md).
+The [loading guide](USING_THE_RELEASE.md) covers downloads, field definitions and
+examples. The six Hub configurations contain 354 prompt/source records, 276
+matching references and 86 metadata rows (716 rows total).
 
 ## Benchmark Composition
 
@@ -41,8 +39,8 @@ prompt and reference-text repairs (paper Sections 3.1 and 5.1).
 
 The case split has 80 Tort, 72 Contract, 54 Criminal, 34 Intellectual Property,
 22 Administrative, 8 Civil Procedure, and 6 Property prompts. Each of 138 issues
-has one supporting and one opposing prompt. Real-case provenance refers to
-concluded judgments, not access to complete case files. Names, institutions,
+has one supporting and one opposing prompt. The tasks use summaries of concluded
+judgments. Names, institutions,
 addresses, and original file paths are removed or masked during deidentification.
 
 Human validation covers all 28 groups. Exam human scores are reviewed and
@@ -52,7 +50,7 @@ are pooled with equal weights.
 
 ## Case response language
 
-Case models answered in Chinese. GPT-5.5 translated the answers into English, and the English translations were scored. The released case responses are these English translations.
+Models answered the case prompts in Chinese. GPT-5.5 translated their answers into English for scoring; the release contains these English translations.
 
 ## Audit Scope
 
@@ -73,39 +71,31 @@ Table 3 performance values retain the paper's one decimal precision and order.
 
 ## Public Release and Intended Use
 
-The repository provides documentation, figures, individual and aggregate scores,
-worked examples and generation/scoring utilities. It supports inspecting the
-benchmark and reproducing the published model table. The project page includes one
-attributed Victorian Bar question-and-answer excerpt under CC BY-NC-ND 4.0;
-see [third party notices](../THIRD_PARTY_NOTICES.txt).
+The release supports research on legal reasoning and evaluation. GitHub provides
+documentation, figures, worked examples, individual and aggregate scores, and
+generation/scoring code. [Hugging Face](https://huggingface.co/datasets/Hongyu801/LegalScope)
+hosts 276 case prompts, 276 scoring references, 7,728 English case responses and
+78 Victorian Bar source records. [Reproducibility files](REPRODUCIBILITY.md)
+include 34,636 individual scores and PDF page locations for all 78 source records.
 
-The [Hugging Face release](https://huggingface.co/datasets/Hongyu801/LegalScope)
-includes all 276 deidentified case prompts and their scoring references in
-separate configurations, plus 78 Victorian Bar source excerpts. Six configurations
-use Parquet; original CSV/JSONL downloads remain available. The case inputs
-preserve the evaluation text. Updated reference citations and their
-[official sources](CASE_REFERENCE_NOTES.md) are included in the reference configuration.
+Case prompts preserve the evaluation inputs. Ten scoring references have
+[citation updates](CASE_REFERENCE_NOTES.md) made after evaluation. The exam
+source excerpts reproduce publisher text and differ from the original evaluation
+inputs. Original judgments, identifying mappings, the remaining 783 exam inputs,
+exam response text and raw human review sheets are outside the release.
 
-The exam subset retains source-specific attribution and CC BY-NC-ND 4.0 notices;
-it is not an exact replacement for the original exam evaluation inputs.
-The paper's scores are unchanged. The [reproducibility files](REPRODUCIBILITY.md)
-include 7,728 stored case responses, 34,636 individual scores and page locations
-for all 78 exam source records. The remaining 783 exam inputs, exam response text
-and original judgments are outside the release.
-See [case sources](CASE_RELEASE.md#case-publication-status) for provenance,
-deidentification, and the scope of the released annotations.
+Project-authored code, documentation, metadata and case annotations use MIT.
+Victorian Bar text retains CC BY-NC-ND 4.0 and its
+[source notices](../THIRD_PARTY_NOTICES.txt). See the [case sources](CASE_RELEASE.md#case-sources)
+for provenance and deidentification.
 
 ## Limitations
 
-- Case tasks concern Chinese judgments and curated, closed book summaries; they
-  do not represent every jurisdiction or the full legal workflow.
-- Exam materials may occur in pretraining data; exam scores are comparative
-  signals rather than clean generalization tests.
-- Tracks and rubric dimensions are not equated difficulty scales.
-- Human validation is a subset, not manual relabeling of the full matrix.
-- The automatic evaluator alias is not date-pinned, decoding settings are not
-  fully specified, and historical scores remain where no update was run.
-- Source redistribution and privacy constraints limit public artifact release.
+- Case tasks cover curated Chinese judgment summaries and assigned stances.
+- Exam materials may occur in pretraining data, affecting generalization claims.
+- Track and dimension scores measure different properties and difficulty levels.
+- Human validation covers 80 exam questions and 10 case prompts.
+- Evaluator aliases, unspecified decoding settings and retained historical scores
+  limit exact reproduction of new scoring runs; see the [scoring protocol](SCORING_RUBRIC.md).
 
-These materials are not intended for legal advice, ranking legal professionals or
-institutions, or deploying legal decision systems.
+The benchmark is intended for research, not legal advice or operational legal decisions.

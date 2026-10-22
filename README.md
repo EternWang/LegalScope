@@ -10,7 +10,7 @@
 
 LegalScope evaluates how performance on legal exams relates to reasoning about
 real cases. It compares 28 model configurations on 861 exam questions from four
-jurisdictions and 276 paired prompts drawn from 56 Chinese judgments.
+jurisdictions and 276 case prompts drawn from 56 Chinese judgments.
 
 ## Benchmark
 
@@ -51,7 +51,7 @@ See the [results](https://eternwang.github.io/LegalScope/results.html) and
 The downloadable exam source subset covers 78 of the 861 evaluation items.
 Case prompts and references are separate tables joined by `review_id`.
 
-Case models answered in Chinese. GPT-5.5 translated the answers into English, and the English translations were scored. The released case responses are these English translations.
+Models answered the case prompts in Chinese. GPT-5.5 translated their answers into English for scoring; the release contains these English translations.
 
 Start with the [loading guide](docs/USING_THE_RELEASE.md) for dataset examples,
 field definitions and version pinning.

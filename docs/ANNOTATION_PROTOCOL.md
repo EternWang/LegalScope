@@ -37,9 +37,7 @@ constraint, and argument, respectively. Their model-level means correlate at
 
 Pooled dimension means are `71.65`, `73.35`, and `76.79`. Argument minus citation
 is reported as `5.13` points, with prompt-cluster 95% CI `[-0.94, 11.07]` from
-10,000 draws. Both lawyers show the same direction, but the pooled and Lawyer 2
-intervals cross zero. The lawyer-scored contrast is descriptive; no consistent
-ordering for constraint extraction is claimed.
+10,000 draws. Both lawyers have positive point estimates; the pooled and Lawyer 2
+intervals include zero, leaving the size and direction of the difference uncertain.
 
 Individual numeric ratings are included in the [score release](REPRODUCIBILITY.md).
-Raw review sheets and adjudication notes are not included.

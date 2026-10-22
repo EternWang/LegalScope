@@ -57,7 +57,7 @@ function renderResults() {
         if (rank !== -1) {
           const label = rank === 0 ? 'Best' : 'Second best';
           td.classList.add(rank === 0 ? 'score-best' : 'score-second');
-          td.title = `${label} displayed ${columnLabels[column].toLowerCase()} score across all ${results.length} model groups; ties share rank.`;
+          td.title = `${label} displayed ${columnLabels[column].toLowerCase()} score across all ${results.length} model configurations; ties share rank.`;
           const value = document.createElement('span');
           value.className = 'score-value';
           value.textContent = row[column].toFixed(1);
@@ -71,7 +71,7 @@ function renderResults() {
     }
     tbody.append(tr);
   }
-  status.textContent = rows.length ? `${rows.length} of ${results.length} model groups${sortKey ? ' · sorted by ' + columnLabels[sortKey] : ' · paper order'}` : 'No matching models. Try another name.';
+  status.textContent = rows.length ? `${rows.length} of ${results.length} model configurations${sortKey ? ' · sorted by ' + columnLabels[sortKey] : ' · paper order'}` : 'No matching models. Try another name.';
   document.querySelectorAll('[data-sort]').forEach(button => {
     const th = button.closest('th');
     if (button.dataset.sort === sortKey) th.setAttribute('aria-sort', sortAscending ? 'ascending' : 'descending');

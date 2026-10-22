@@ -5,8 +5,7 @@ This directory contains benchmark metadata, individual scores and two worked
 examples. The complete 276 case prompts, matching scoring references and 7,728
 case model responses are available on
 [Hugging Face](https://huggingface.co/datasets/Hongyu801/LegalScope).
-The source judgments, full exam input and response collections, and raw review
-sheets are excluded. See the [release guide](../docs/USING_THE_RELEASE.md).
+See the [release guide](../docs/USING_THE_RELEASE.md) for loading examples and fields.
 
 | File | Purpose |
 | --- | --- |
@@ -39,5 +38,4 @@ Current clustered analyses use all 276 prompts and 56 judgments. Historical
 controls and the fixed 200-answer stability audits have separate denominators in
 the JSON. See [results](../docs/RESULTS_SUMMARY.md).
 
-`sample/` documents the optional legacy workbook utility. Published records are
-listed in the release guide above.
+`sample/` links to the worked examples and full case data.

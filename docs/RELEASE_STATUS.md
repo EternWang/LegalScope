@@ -27,6 +27,14 @@ are additional downloads outside the six viewer configurations.
 [Loading guide](USING_THE_RELEASE.md) · [Case fields and sources](CASE_RELEASE.md) ·
 [Reference sources](CASE_REFERENCE_NOTES.md)
 
+## October 22, 2026
+
+Unified the project page and dataset guides around the workshop version and the
+Chinese-answer → GPT-5.5 English-translation → scoring workflow. Examples now show
+short summaries and scores, with full inputs, answers and rules expandable.
+Updated the sample-data guide, aligned the exam scoring description with the
+released rubric, and shortened download and methodology documentation.
+
 ## October 10, 2026
 
 The project website now separates the home overview, task examples, results,
@@ -34,15 +42,13 @@ and data/citation pages. Both worked examples show the complete stored input
 and answer with their scoring rules and recorded scores.
 
 Case metadata uses standardized deidentification descriptions and reference status
-labels. Prompt text, legal reference text, model answers and numeric scores are
-unchanged. JSONL and Parquet files contain identical records; the case manifest
-records their updated hashes.
+labels, with identical records in JSONL and Parquet.
 
 ## October 9, 2026
 
 Released all 276 case prompts and their scoring references. Ten reference
-records include updated citations and links to official legal sources. Prompt
-text and published scores are unchanged. The reference source index lists the
+records include citation corrections made after scoring and links to official
+legal sources. The reference source index lists the
 affected record IDs and cited provisions.
 
 Published individual scores reproduce all 252 main-table values. The release adds
@@ -70,20 +76,6 @@ Earlier versions remain in [Git history](https://github.com/EternWang/LegalScope
 
 ## Availability and use
 
-Case annotations, code, documentation, and metadata use MIT. Victorian Bar source
-text retains CC BY-NC-ND 4.0 and its accompanying notices. The license does not
-grant rights to excluded source judgments. See
-[third party notices](../THIRD_PARTY_NOTICES.txt).
-
-Original judgments and identifying case mappings are excluded to protect privacy
-and confidentiality. The remaining 783 exam inputs are excluded because third-party
-rights have not been cleared for redistribution. The full exam response collection
-and raw human review documents are not included; selected model answers and scores
-are available as [worked examples](../data/examples/).
-The 78 exam source records preserve publisher text and are not exact replacements
-for the original exam evaluation inputs. Recovered runtime settings and rubrics
-identify their batch scope; new model runs need not reproduce historical outputs.
-
-To report a loading or data error, open a
-[GitHub issue](https://github.com/EternWang/LegalScope/issues) with the record ID
-and dataset revision. Do not include identifying case information in public issues.
+See the [data card](DATA_CARD.md) for release scope, licenses and intended use.
+Report loading or data errors in a [GitHub issue](https://github.com/EternWang/LegalScope/issues)
+with the record ID and dataset revision.

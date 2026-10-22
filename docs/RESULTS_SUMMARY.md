@@ -2,8 +2,8 @@
 
 Results below follow the [AIMS at COLM 2026 workshop paper](https://openreview.net/forum?id=BNx62Wx1ej).
 Section, table, and figure references use that version. Published Table 3 values
-are also available as [CSV](../data/metadata/model_performance.csv); they are rounded
-aggregate values, not the underlying response matrix.
+are available as [rounded aggregates](../data/metadata/model_performance.csv)
+and can be recomputed from [individual scores](REPRODUCIBILITY.md).
 
 ## Headline Performance
 
@@ -16,18 +16,17 @@ Across 28 model groups, the public-exam mean is `72.6` and the real-case mean is
 | Constraint extraction | 79.3 |
 | Argument validity | 72.6 |
 
-Citation relevance receives a lower mean than argument validity. The dimensions
-measure different properties, so this contrast does not establish an intrinsic
-difficulty hierarchy. Scores also do not equate difficulty between exam and case
-tracks.
+Citation relevance receives a lower mean than argument validity. Tracks and
+dimensions use different scoring criteria, so their means are descriptive
+comparisons rather than a common difficulty scale.
 
 ## Score Distribution
 
 <img src="../assets/figures/paper_score_distribution.png" alt="Scores for all 28 model groups: 861 exam prompts and 276 case prompts per model" width="920">
 
 Constraint extraction has `11.9%` of scores at 2 and `48.9%` at 4; argument validity
-has `45.0%` at 3 and `24.7%` at 4 (Table 13). Figure 2 describes answer quality,
-not repeated-scoring stability.
+has `45.0%` at 3 and `24.7%` at 4 (Table 13). Figure 2 shows these per-answer
+score distributions.
 
 ## Exam-to-Case Association
 
@@ -40,9 +39,8 @@ not repeated-scoring stability.
 
 <img src="../assets/figures/paper_transfer_human.png" alt="Human exam and pooled-lawyer case association, Pearson 0.696 and Spearman 0.690 over 28 groups" width="920">
 
-Both Figure 3 panels measure exam-to-case association, not automatic-human
-agreement. The diagonal is an equal-normalized-score reference, not an ability-loss
-threshold. The human panel uses the equal-weight mean of both lawyers.
+Figure 3 compares exam and case performance, with the diagonal marking equal
+normalized scores. The human panel averages the two lawyers' case scores.
 
 The Chinese exam subset gives `r = 0.788`, `rho = 0.704`; the English aggregate
 gives `r = 0.813`, `rho = 0.670` (Table 4). Source and task composition prevent
@@ -64,7 +62,7 @@ checkpoint, size, and reasoning-mode differences; they do not isolate reasoning 
 | Australia | 78 | 65.7 |
 | China | 94 | 60.2 |
 
-These are source and format effects, not intrinsic jurisdictional difficulty.
+These means describe the sampled sources and formats in each jurisdiction.
 
 | Real-case category | Prompts | Mean |
 | --- | ---: | ---: |
@@ -93,8 +91,7 @@ of two independent lawyers; Lawyer 2 was held out from rubric calibration.
 Pooled lawyer means for citation, constraint, and argument are `71.65`, `73.35`, and
 `76.79`. Argument minus citation has a reported gap of `5.13` points and a
 prompt-cluster 95% interval of `[-0.94, 11.07]`. Both lawyers show a positive point
-estimate, but the pooled and Lawyer 2 intervals cross zero. There is no claim of a
-consistent constraint-extraction ordering.
+estimate; the pooled and Lawyer 2 intervals include zero.
 
 ## Reliability Audits and Historical Results
 

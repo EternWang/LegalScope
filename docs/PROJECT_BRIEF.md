@@ -17,16 +17,18 @@ case tracks over a common model roster.
 
 | Track | Task | Scale |
 | --- | --- | ---: |
-| Public legal exams | Reference-aware legal-exam answering | 861 questions |
+| Public legal exams | Legal-exam answering, scored against references | 861 questions |
 | Chinese real cases | Closed-book, stance-aware analysis of curated judgment summaries | 276 prompts |
 
 The exam track covers the United States (603), China (94), the United Kingdom (86),
 and Australia (78). The case track covers seven legal categories and derives 138
 issues from 56 deidentified Chinese judgments. Each issue has supporting and
-opposing prompts. Models must construct arguments rather than only predict the
-court's outcome. Real-case provenance does not mean access to complete case files.
+opposing prompts. Models construct arguments from the supplied facts under
+the assigned stance.
 
 ## Evaluation Protocol
+
+Models answered the case prompts in Chinese. GPT-5.5 translated their answers into English for scoring; the release contains these English translations.
 
 Exam answers receive reference-matching scores from 0 to 4. Case answers receive
 three separate 0-4 scores: citation relevance, constraint extraction, and argument
@@ -46,7 +48,7 @@ validity under automatic and lawyer evaluation. The pooled lawyer contrast remai
 descriptive because its confidence interval includes zero.
 
 Automatic-human answer-level agreement falls from `r = 0.910` on exams to
-`r = 0.312` on cases, motivating expert-grounded case evaluation. See
+`r = 0.312` on cases. See
 [results](RESULTS_SUMMARY.md) for exact endpoints, uncertainty, and the scope
 of each reliability analysis.
 
@@ -57,5 +59,3 @@ code are available here. Hugging Face provides 276 case prompts with separately
 packaged scoring references, 78 Victorian Bar source records, and 7,728 case model
 responses. See the [reproducibility guide](REPRODUCIBILITY.md),
 [case release](CASE_RELEASE.md), and [official reference sources](CASE_REFERENCE_NOTES.md).
-The remaining exam inputs, the full exam response collection, raw human review sheets and
-original judgment files are not included.

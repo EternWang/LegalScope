@@ -1,8 +1,8 @@
 # Comparing reference versions
 
-The offline review utility prepares case responses for a **new experiment** and
-checks returned scores. It is not the historical evaluator and does not reproduce
-the paper's full experiment. It makes no API calls. Existing scores are retained.
+The offline utility prepares anonymized case-answer packets and validates scores
+returned by an evaluator. Use it to compare reference versions on the same
+answers. For the published results, see the [reproduction guide](REPRODUCIBILITY.md).
 
 ## Prepare a comparison
 
@@ -27,23 +27,21 @@ python -m legalscope.review prepare \
 For a second variant, add `--citation-patch path/to/patch.jsonl`, change the
 variant name, and choose a fresh output directory. Each patch contains
 `review_id`, `before` and `after`, where `before` must exactly match the historical
-`citation_basis`. The original files are never overwritten. Article corrections
-do not establish that a reference is complete or legally applicable to the case.
-Read the [reference notes](CASE_REFERENCE_NOTES.md) when defining a comparison.
+`citation_basis`. Each variant writes to its own directory. Use the
+[reference notes](CASE_REFERENCE_NOTES.md) to select citation changes for comparison.
 
 `packets.jsonl` includes only an opaque response ID, the original model prompt,
 the unchanged model response, and four reference fields. The separate
 `identity_map.private.jsonl` connects the response ID to its model and case.
 Previous scores and model identity metadata are excluded from packets. Any
-self-identification already present in an answer is preserved. Keep both outputs
-private unless their release has been separately reviewed.
+self-identification already present in an answer is preserved.
 
 The manifest records input and output hashes, selected cases, the model roster,
 and coverage. Select and archive the evaluator instructions before scoring.
 `scoring_prompt` in the reference file is an issue label, not a complete rubric.
 Record the evaluator model or snapshot, reasoning setting, sampling parameters,
-tool availability, retry policy, instruction hash, and execution dates. An
-unrecorded historical parameter must not be reconstructed by assumption.
+tool availability, retry policy, instruction hash, and execution dates. Mark
+unrecorded historical settings as unknown.
 
 ## Validate scores
 
@@ -59,12 +57,11 @@ python -m legalscope.review validate \
 
 The utility rejects missing, duplicate and unknown IDs, invalid score values and
 changed bundle files. It reports each dimension as its mean multiplied by 25,
-plus an equal-weight case mean. These are scores for the selected subset, not
-the paper's full 276-prompt case result. Variants are never pooled. Semantic
-quality, compliance with the rubric and correct legal reasoning still require
-evaluation; schema validation cannot establish them.
+plus an equal-weight case mean for each variant on the selected subset.
+Validation checks record structure and coverage; the chosen evaluator assesses
+the answers against the rubric.
 
 For a controlled reference comparison, reuse the same responses and run both
 reference variants with the same evaluator settings. Report paired differences
-and the selected sample size. Do not replace historical scores with new scores
-without identifying the new reference and evaluator versions.
+and the selected sample size, identifying the reference and evaluator versions
+used for each result.

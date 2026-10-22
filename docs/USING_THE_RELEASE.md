@@ -9,7 +9,7 @@
 | Model roster | 28 rows | Display names and paper indices |
 | Source composition | 30 rows | Overlapping breakdowns of the full benchmark, not additional examples |
 | Case prompts | 276 records | Full case evaluation inputs |
-| Case scoring references | 276 records | Join by `review_id`; authorities/propositions/constraints, not unique gold answers; see official source links |
+| Case scoring references | 276 records | Authorities, propositions and constraints, joined by `review_id` |
 
 The Hub may report **716 rows** across six configurations: 276 case prompts,
 276 matching references, 78 source records and 86 metadata rows. There are 354
@@ -33,21 +33,22 @@ print(by_id[prompts[0]["review_id"]]["reference_status"])
 
 Read the [complete case field guide](CASE_RELEASE.md) and
 [reference notes](CASE_REFERENCE_NOTES.md) before running a new evaluation.
-The reference table is not part of the model input.
+Send only the prompt to the answering model; references are for evaluation.
 
-Case models answered in Chinese. GPT-5.5 translated the answers into English, and the English translations were scored. The released case responses are these English translations.
+Models answered the case prompts in Chinese. GPT-5.5 translated their answers into English for scoring; the release contains these English translations.
 
 For a new evaluation, submit each record's complete `prompt` and retain its
 `review_id` alongside the model response. Use the same pinned revision for the
 prompts and references. Record your generation and evaluator settings, and report
-new scores separately from the paper's results. The
-[offline comparison utility](REFERENCE_REVIEW.md) prepares responses and
-validates returned scores; it does not generate or judge answers.
+new scores with those settings. Follow the
+[evaluation guide](../evaluation/README.md) to generate, translate and score answers.
+The [reference comparison utility](REFERENCE_REVIEW.md) prepares controlled
+comparisons between reference versions.
 
 Prompts from the same judgment share facts, and each issue has two assigned
 stances. If creating your own training, development, or test partitions, keep
 all records with the same `document_id` together to avoid overlap between
-partitions. No such partitions are supplied by this release.
+partitions.
 
 ## Load and inspect a source record
 
@@ -88,27 +89,23 @@ strings in source order.
 | Field | Meaning |
 | --- | --- |
 | `item_id` | Unique LegalScope item ID; retained for reporting corrections |
-| `document_id` | Dataset document grouping; not a PDF page or question number. The 78 records have 74 such IDs but come from only three publications |
+| `document_id` | Dataset grouping: 74 IDs across 78 records from three publications; use the source-location index for PDF pages |
 | `jurisdiction` | Source jurisdiction, Australia for this subset |
 | `exam_date` | Source exam date in `YYYY-MM-DD` format |
 | `publisher`, `source_url` | Original publisher and full source publication |
 | `source_background_excerpts` | Original context excerpts; may also contain the question |
 | `source_question_excerpt` | Separately transcribed original question, where available; intentionally empty in 22 records |
-| `source_reference_answer_excerpt` | Selected candidate answer excerpt reproduced by the publisher; not a model-generated answer or guaranteed error-free gold answer |
+| `source_reference_answer_excerpt` | Selected candidate answer excerpt reproduced by the publisher; may contain errors or omissions |
 | `reference_answer_type` | Explicit statement of that answer's origin and limitations |
 | `source_license`, `license_url`, `copyright_notice` | License, license link, and attribution that accompany the source text |
 | `excerpt_note`, `transcription_note` | Omitted context, non-contiguous excerpts, and technical transcription information |
 | `endorsement_note`, `warranty_notice` | Publisher non-endorsement and warranty notices |
 
-The 22 empty question fields are intentional: the workbook field was an editorial
-summary, while the original question is already present in the background
-excerpts. Do not discard these records as unanswered or fill them with generated
-text. EXTVICBAR04B contains two non-contiguous background excerpts; consult its
-note and source publication instead of treating them as a continuous passage.
-[PDF source locations](../data/metadata/exam_source_locations.jsonl) cover all
-78 records, with separate page links for background, questions and answer excerpts.
-Page numbers count from the first PDF page. Original exam question numbers are
-not inferred from dataset IDs.
+In the 22 records with an empty question field, the question appears in
+`source_background_excerpts`. EXTVICBAR04B contains two non-contiguous background
+excerpts, identified in its note. [PDF source locations](../data/metadata/exam_source_locations.jsonl)
+link all 78 records to their background, question and answer pages. Page numbers
+count from the first PDF page.
 
 ## Keep three kinds of answers separate
 
@@ -121,9 +118,8 @@ not inferred from dataset IDs.
   all 7,728 stored case responses are available in a separate download.
 
 Case prompts ask for support or opposition on a legal issue. The task is to argue
-within the supplied facts and assigned stance, not simply predict the court's
-decision. A response may receive different citation, constraint, and argument
-scores; those dimensions should not be collapsed into a claim of legal accuracy.
+within the supplied facts and assigned stance. Citation relevance, constraint
+extraction and argument validity are assessed separately.
 
 ## Scores and reproducibility
 
@@ -145,14 +141,6 @@ the 7,728 case responses, PDF source locations and generation/scoring code. Thes
 additional files are downloads rather than extra configurations in the Hub viewer.
 New results on the source excerpt subset are a separate evaluation; the paper's
 scores were not rerun on this package.
-
-## Case publication status
-
-All 276 case prompts and 276 matching scoring references are available.
-See [case sources and fields](CASE_RELEASE.md) and the
-[official reference sources](CASE_REFERENCE_NOTES.md). Prompt text and reported
-scores are unchanged; reference citations include the supplied source links. Original
-judgments, identifying mappings and the full exam response collection are excluded.
 
 ## Licenses and corrections
 

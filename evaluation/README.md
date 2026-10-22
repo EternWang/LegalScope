@@ -32,7 +32,7 @@ time, so a new run is a new experiment.
 
 The [model settings reference](../docs/MODEL_SETTINGS.md) and
 [provider default catalog](provider_defaults.json) cover all 28 groups. They
-document current provider defaults separately from the recorded run settings.
+record provider defaults checked on 9 October 2026, separately from run settings.
 
 The generation adapter preserves the recorded request parameters. It uses
 sequential requests and bounded execution retries; it increases the output budget
@@ -41,7 +41,7 @@ It does not reproduce historical parallel scheduling or provider state.
 
 ## Translate case answers before scoring
 
-Case models answered in Chinese. GPT-5.5 translated the answers into English, and the English translations were scored. The released case responses are these English translations.
+Models answered the case prompts in Chinese. GPT-5.5 translated their answers into English for scoring; the release contains these English translations.
 
 For a new run following this protocol, translate each Chinese response with
 GPT-5.5 before preparing scoring tasks. Retain the original response and record
@@ -98,21 +98,17 @@ with up to three execution or validation attempts by default.
 The portable runner retains the original prompt builders and score validators.
 It adds configurable paths, a separate output directory, input/runtime hash
 checks and a tool-use guard. [provenance.json](provenance.json) identifies the
-source runtime and rubric files. The runner reports the requested alias; it does
-not claim an immutable backend model snapshot. Temperature, top-p and seed are
-not set by this scorer.
+source runtime and rubric files. The runner records the requested model alias.
+Temperature, top-p and seed are unspecified.
 
-Use `--mode b` in the preparation step for the archived B-only rubric. This is
-a separate scoring run, not an average with the joint A/B/C result. The B-only
-rubric includes the English-language policy used in that batch. Historical
-dimension scores and subsequent B updates should not be replaced by a single
-new joint run when comparing with the paper.
+Use `--mode b` for the archived B-only rubric, which accepts English answers.
+The workshop result combines retained A/C scores with subsequent B updates;
+report new joint and B-only runs separately.
 
 The public references contain citation updates. Scoring them again can produce
 different results from the historical scores. Report the dataset revision,
 rubric hash, evaluator configuration, execution date, and selected items with
-new results. Schema checks establish valid score records, not the legal
-correctness of a model's reasoning.
+new results. Schema checks validate record format, ranges and score caps.
 
 ## Runtime requirements
 

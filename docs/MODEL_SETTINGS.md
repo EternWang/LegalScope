@@ -2,11 +2,11 @@
 
 Provider references checked on **9 October 2026**. This guide covers all 28 model groups. The [JSON catalog](../evaluation/provider_defaults.json) records values, API scope and official sources; the [OpenRouter snapshot](../evaluation/openrouter_defaults_snapshot.json) preserves the model metadata returned on that date.
 
-These are current provider defaults, not a reconstruction of historical requests. The [recorded generation configurations](../evaluation/generation_configs.json) retain the explicit parameters recovered from the August runs, including temperature 0 where set. Default values do not replace those settings or alter the released scores.
+This is a snapshot of provider defaults on that date. For the August experiments, use the [recorded generation configurations](../evaluation/generation_configs.json), which include explicit parameters such as temperature 0 where set.
 
 ## OpenAI
 
-The general Responses API schema assigns 1 to `temperature` and `top_p`. These schema defaults do not establish support for changing sampling parameters in every model or reasoning mode. Leave sampling parameters omitted unless the selected model supports them. API defaults also do not determine a Codex client configuration.
+The Responses API schema lists 1 for `temperature` and `top_p`. Parameter support depends on the model and reasoning mode; omit unsupported parameters. Codex client settings are separate from API defaults.
 
 | Model group | Temperature, generic schema | Top-p, generic schema | Model reasoning default | Paper variant | Sources |
 | --- | ---: | ---: | --- | --- | --- |
@@ -31,7 +31,7 @@ Google Cloud publishes the numeric sampling values below. For the Gemini Develop
 
 ## OpenRouter
 
-The table transcribes `default_parameters` from the [model catalog](https://openrouter.ai/api/v1/models). **Not published** means that the field was null or absent; it does not mean 0 or 1. Under the [parameter contract](https://openrouter.ai/docs/api_reference/parameters), omitted sampling parameters are left to the upstream provider. A catalog value is not proof of the value used on a past routed request.
+The table transcribes `default_parameters` from the [model catalog](https://openrouter.ai/api/v1/models). **Not published** denotes a null or absent field in the snapshot. Under the [parameter contract](https://openrouter.ai/docs/api_reference/parameters), omitted sampling parameters are left to the upstream provider.
 
 | Model group | OpenRouter model ID | Temperature | Top-p | Top-k |
 | --- | --- | ---: | ---: | ---: |
@@ -57,11 +57,11 @@ The table transcribes `default_parameters` from the [model catalog](https://open
 | DeepSeek-V4-Pro | `deepseek/deepseek-v4-pro` | 1 | 1 | Not published |
 | DeepSeek-V4-Flash | `deepseek/deepseek-v4-flash` | Not published | Not published | Not published |
 
-The Deep Cogito alias was not present in the current catalog. The other aliases were present. No uniform numeric output budget, reasoning effort or seed is supplied for these groups by this catalog. `top_provider.max_completion_tokens` in the snapshot is a provider ceiling, not a default request budget.
+The Deep Cogito alias was absent from the 9 October catalog snapshot. The other aliases were present. No uniform numeric output budget, reasoning effort or seed is supplied for these groups by this catalog. `top_provider.max_completion_tokens` in the snapshot is a provider ceiling, not a default request budget.
 
 ## Native provider and model release references
 
-These additional checks apply to the named native API or local model release. They are not substituted for an unknown OpenRouter route. Recommendations are labelled separately from defaults.
+These values apply to the named native API or model release. For OpenRouter, use the routed provider's settings. Recommendations are labelled separately from defaults.
 
 | Model or family | Scope | Published values | Source |
 | --- | --- | --- | --- |

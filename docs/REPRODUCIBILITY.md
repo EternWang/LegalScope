@@ -69,7 +69,7 @@ joined = answers.merge(case_scores, on=["item_id", "model_group", "answer_sha256
 assert len(joined) == 7728
 ```
 
-Case models answered in Chinese. GPT-5.5 translated the answers into English, and the English translations were scored. The released case responses are these English translations.
+Models answered the case prompts in Chinese. GPT-5.5 translated their answers into English for scoring; the release contains these English translations.
 
 These are evaluated model outputs and can contain legal or factual errors.
 Every released answer hash matches its automatic score record.
@@ -96,8 +96,8 @@ locates all 78 Victorian Bar records in their original PDFs. Its 213 entries
 cover background segments, separately transcribed questions where present,
 and selected candidate answer excerpts. Pages are one-based PDF page numbers,
 which may differ from printed page labels. Each entry links directly to the
-relevant page. An empty question field does not receive an invented location.
-Dataset document IDs are not original exam question numbers.
+relevant page. Use this index for source page locations and dataset document
+IDs for record grouping.
 
 ## New evaluations
 
@@ -105,12 +105,11 @@ The [evaluation guide](../evaluation/README.md) explains response generation,
 anonymous task preparation and scoring. The three archived rubric files cover
 joint A/B/C scoring, the B-only update and exam answer matching. Recovered
 generation settings cover the eight groups in the August model expansion.
-The [model settings reference](MODEL_SETTINGS.md) provides current provider
-defaults and official sources for the full 28-group roster.
+The [model settings reference](MODEL_SETTINGS.md) records provider defaults
+checked on 9 October 2026 for all 28 model groups.
 
-Recomputing stored scores reproduces the published model table. New generation
-or scoring runs use their own dataset revision and evaluator configuration;
-provider aliases, translated text, updated references and retained historical
-scores prevent a promise of identical new outputs. The remaining 783 exam inputs,
-the complete historical provider environment and raw human review documents are
-outside this release. Numeric human scores are included.
+For a new run, record the dataset revision, translation and evaluator settings,
+provider route and execution date. Model aliases and reference revisions can
+change outputs. The available generation settings cover the eight August model
+groups; [release scope](DATA_CARD.md#public-release-and-intended-use) lists the
+available inputs and responses.
