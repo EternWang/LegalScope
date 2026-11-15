@@ -22,8 +22,8 @@ supporting and opposing stances for each of 138 legal issues.
 
 The repeatability audit scores A, B and C five times each on the same 200 answers
 (10 prompts × 20 models). The 243 Tort exam items belong to a separate control
-experiment with its own case endpoint, distinct from the 242 Tort items in the
-headline benchmark.
+experiment with its own case endpoint. The headline benchmark reports a 242-item
+Tort subset.
 
 ## Key findings
 
