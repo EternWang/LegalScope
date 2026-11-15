@@ -2,10 +2,12 @@
 
 Code and data for [**LegalScope: Measuring Exam-to-Case Transfer in LLM Legal Reasoning**](https://openreview.net/forum?id=BNx62Wx1ej).
 
-**AI Measurement Science (AIMS) Workshop at COLM 2026**
+**Accepted to the [EACL 2027 main conference](https://2027.eacl.org/) · To appear**
+
+Earlier version: [AI Measurement Science (AIMS) Workshop at COLM 2026](https://openreview.net/forum?id=BNx62Wx1ej).
 
 [Project page](https://eternwang.github.io/LegalScope/) ·
-[Paper](https://openreview.net/forum?id=BNx62Wx1ej) ·
+[Workshop paper](https://openreview.net/forum?id=BNx62Wx1ej) ·
 [Dataset](https://huggingface.co/datasets/Hongyu801/LegalScope) ·
 [Examples](https://eternwang.github.io/LegalScope/examples.html) ·
 [Results](https://eternwang.github.io/LegalScope/results.html)
@@ -17,6 +19,11 @@ questions** from the United States, China, the United Kingdom and Australia, and
 supporting and opposing stances for each of 138 legal issues.
 
 <a href="assets/figures/paper_collection_pipeline.png"><img src="assets/figures/paper_collection_pipeline.png" alt="LegalScope benchmark construction, model evaluation and human validation" width="900"></a>
+
+The repeatability audit scores A, B and C five times each on the same 200 answers
+(10 prompts × 20 models). The 243 Tort exam items belong to a separate control
+experiment with its own case endpoint, distinct from the 242 Tort items in the
+headline benchmark.
 
 ## Key findings
 
@@ -104,6 +111,22 @@ Details: [scoring protocol](docs/SCORING_RUBRIC.md) ·
 [data card](docs/DATA_CARD.md)
 
 ## Citation
+
+Provisional citation for the accepted EACL 2027 main-conference paper; proceedings
+metadata will be added when available.
+
+```bibtex
+@inproceedings{wang2027legalscope,
+  title = {{LegalScope}: Measuring Exam-to-Case Transfer in {LLM} Legal Reasoning},
+  author = {Wang, Hongyu and Han, Rilyn R. and Zhao, Yilun and Zhao, Xuandong and Cohan, Arman},
+  booktitle = {EACL 2027},
+  year = {2027},
+  note = {Accepted to the main conference; to appear},
+  url = {https://eternwang.github.io/LegalScope/}
+}
+```
+
+Earlier [AIMS workshop version](https://openreview.net/forum?id=BNx62Wx1ej):
 
 ```bibtex
 @inproceedings{wang2026legalscope,
