@@ -4,7 +4,7 @@ Code and data for [**LegalScope: Measuring Exam-to-Case Transfer in LLM Legal Re
 
 **Accepted to the [EACL 2027 main conference](https://2027.eacl.org/) · To appear**
 
-Earlier version: [AI Measurement Science (AIMS) Workshop at COLM 2026](https://openreview.net/forum?id=BNx62Wx1ej).
+**Accepted to the [AI Measurement Science (AIMS) Workshop at COLM 2026](https://openreview.net/forum?id=BNx62Wx1ej).**
 
 [Project page](https://eternwang.github.io/LegalScope/) ·
 [Workshop paper](https://openreview.net/forum?id=BNx62Wx1ej) ·
@@ -126,7 +126,7 @@ metadata will be added when available.
 }
 ```
 
-Earlier [AIMS workshop version](https://openreview.net/forum?id=BNx62Wx1ej):
+[AIMS Workshop at COLM 2026 paper](https://openreview.net/forum?id=BNx62Wx1ej):
 
 ```bibtex
 @inproceedings{wang2026legalscope,

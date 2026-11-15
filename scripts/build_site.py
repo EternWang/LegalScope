@@ -18,7 +18,7 @@ PAGES = {
     "index": ("Home", "LegalScope studies exam-to-case transfer in LLM legal reasoning: 861 legal-exam questions, 276 case prompts and 28 model groups."),
     "examples": ("Task examples", "Follow complete LegalScope prompts through model answers, scoring rules and recorded scores."),
     "results": ("Results", "Compare the published LegalScope results for all 28 model groups and explore exam-to-case transfer."),
-    "resources": ("Data & citation", "Download LegalScope data and cite the EACL 2027 main-conference paper or the earlier workshop version."),
+    "resources": ("Data & citation", "Download LegalScope data and cite the papers accepted to the EACL 2027 main conference and AIMS Workshop at COLM 2026."),
 }
 
 
@@ -131,8 +131,8 @@ def main() -> None:
         page = layout.replace("{{PAGE_TITLE}}", html.escape(title)).replace("{{PAGE_DESCRIPTION}}", html.escape(description))
         page = page.replace("{{PAGE_KEY}}", key).replace("<!-- MAIN_NAV -->", navigation).replace("<!-- PAGE_CONTENT -->", pages[key])
         page = page.replace("icons/section-icons.svg#", f"icons/section-icons.svg?v={icon_version}#")
-        for suffix in ("svg", "pdf"):
-            figure = f"assets/paper_collection_pipeline.{suffix}"
+        for asset in ("paper_collection_pipeline.svg", "paper_collection_pipeline.pdf", "paper_score_distribution.png"):
+            figure = f"assets/{asset}"
             version = hashlib.sha256((output / figure).read_bytes()).hexdigest()[:12]
             page = page.replace(f'"{figure}"', f'"{figure}?v={version}"')
         (output / f"{key}.html").write_text(page, encoding="utf-8")
